@@ -16,7 +16,7 @@
   /* Accent Colors - Changed to dark purple to match Ramy Eid's main picture */
   --accent-primary: #6B46C1;    /* Changed from blue to dark purple */
   --accent-secondary: #553C9A;   /* Changed from blue to darker purple */
-  --accent-orange: #E85D04;     /* Changed to softer orange */
+  --accent-orange: #C1465F;     /* Changed to soft red */
   --success-green: #10b981;
   --error-red: #ef4444;
   
@@ -28,9 +28,9 @@
   /* Noise Texture */
   --noise-opacity: 0.05;
   
-  /* Glow Effects - Updated to purple */
+  /* Glow Effects - Updated to purple and soft red */
   --glow-primary: 0 0 20px rgba(107, 70, 193, 0.5);    /* Changed to purple glow */
-  --glow-secondary: 0 0 15px rgba(249, 115, 22, 0.4);
+  --glow-secondary: 0 0 15px rgba(193, 70, 95, 0.4);    /* Changed to soft red glow */
   --glow-subtle: 0 0 10px rgba(107, 70, 193, 0.3);     /* Changed to purple glow */
 }
 
@@ -132,7 +132,7 @@ body::before {
 .hero {
   background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
   position: relative;
-  padding: var(--space-8) 0 var(--space-24) 0; /* Added 32px top padding */
+  padding: var(--space-12) 0 var(--space-32) 0; /* Enhanced hero spacing */
 }
 
 .hero::before {
@@ -143,7 +143,7 @@ body::before {
   width: 100%;
   height: 100%;
   background: radial-gradient(circle at 30% 20%, rgba(107, 70, 193, 0.1) 0%, transparent 50%), /* Changed to purple */
-              radial-gradient(circle at 70% 80%, rgba(249, 115, 22, 0.1) 0%, transparent 50%);
+              radial-gradient(circle at 70% 80%, rgba(193, 70, 95, 0.1) 0%, transparent 50%); /* Changed to soft red */
   pointer-events: none;
 }
 
@@ -165,6 +165,13 @@ body::before {
   border: 2px solid rgba(107, 70, 193, 0.3); /* Changed to purple */
   box-shadow: var(--glow-subtle);
   border-radius: var(--radius-lg);
+  max-width: 100%;
+  height: auto;
+}
+
+/* Enhanced hero image spacing for dark mode */
+.hero-image {
+  padding: var(--space-8) 0; /* Added 32px padding above and below the image */
 }
 
 /* ==========================================================================
@@ -213,7 +220,135 @@ body::before {
 .experience-highlights,
 .about-preview,
 .contact-cta {
-  padding: var(--space-8) 0 var(--space-20) 0; /* Added 32px top padding */
+  padding: var(--space-12) 0 var(--space-24) 0; /* Enhanced spacing for better visual breathing */
+}
+
+/* Enhanced container spacing for dark mode */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--space-6); /* Increased side margins */
+}
+
+/* Enhanced section title spacing for dark mode */
+.section-title {
+  margin-bottom: var(--space-20); /* Increased title separation */
+}
+
+.section-actions {
+  margin-top: var(--space-20); /* Increased action spacing */
+}
+
+/* Enhanced project grid spacing for dark mode */
+.projects-grid {
+  gap: var(--space-10); /* Increased card separation */
+  margin-bottom: var(--space-20); /* Increased bottom margin */
+}
+
+/* Enhanced project card internal spacing for dark mode */
+.project-content {
+  padding: var(--space-8); /* Increased content breathing */
+}
+
+.project-title {
+  margin-bottom: var(--space-4); /* Increased title margin */
+}
+
+.project-description {
+  margin-bottom: var(--space-6); /* Increased description margin */
+}
+
+/* Enhanced timeline spacing for dark mode */
+.timeline-preview {
+  gap: var(--space-12); /* Increased timeline separation */
+  margin-bottom: var(--space-20); /* Increased bottom margin */
+}
+
+.timeline-item {
+  gap: var(--space-8); /* Increased item gap */
+}
+
+.timeline-content {
+  padding: var(--space-8); /* Added content padding */
+}
+
+.timeline-content h3 {
+  margin-bottom: var(--space-3); /* Increased title margin */
+}
+
+.timeline-company {
+  margin-bottom: var(--space-2); /* Increased company margin */
+}
+
+.timeline-period {
+  margin-bottom: var(--space-4); /* Increased period margin */
+}
+
+.timeline-content p {
+  margin-top: var(--space-3); /* Added text separation */
+}
+
+/* Enhanced about section spacing for dark mode */
+.about-preview {
+  padding: var(--space-24) 0; /* Increased section padding */
+}
+
+.about-preview .container {
+  gap: var(--space-20); /* Increased grid gap */
+}
+
+.about-text {
+  margin-bottom: var(--space-8); /* Increased text margin */
+}
+
+.about-actions {
+  margin-top: var(--space-12); /* Increased action margin */
+}
+
+/* Enhanced contact CTA spacing for dark mode */
+.contact-cta {
+  padding: var(--space-24) 0; /* Increased section padding */
+}
+
+.cta-text {
+  margin-bottom: var(--space-12); /* Increased text margin */
+}
+
+.cta-actions {
+  gap: var(--space-6); /* Increased action gap */
+}
+
+/* Enhanced footer spacing for dark mode */
+.footer {
+  padding: var(--space-20) 0 var(--space-12) 0; /* Increased footer padding */
+}
+
+.footer-content {
+  gap: var(--space-12); /* Increased content gap */
+  margin-bottom: var(--space-12); /* Increased bottom margin */
+}
+
+.footer-links {
+  gap: var(--space-8); /* Increased link gap */
+  margin-bottom: var(--space-12); /* Increased bottom margin */
+}
+
+/* Enhanced hero section spacing for dark mode */
+.hero-container {
+  gap: var(--space-20); /* Increased grid gap */
+  padding: 0 var(--space-6); /* Increased side padding */
+}
+
+.hero-title {
+  margin-bottom: var(--space-8); /* Increased title margin */
+}
+
+.hero-subtitle {
+  margin-bottom: var(--space-12); /* Increased subtitle margin */
+}
+
+.hero-actions {
+  gap: var(--space-6); /* Increased action gap */
 }
 
 /* ==========================================================================
@@ -239,6 +374,20 @@ body::before {
 .project-image {
   position: relative;
   overflow: hidden;
+  width: 100%;
+  height: 200px;
+}
+
+.project-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-normal);
+  display: block;
+}
+
+.project-card:hover .project-image img {
+  transform: scale(1.05);
 }
 
 .project-image::after {
