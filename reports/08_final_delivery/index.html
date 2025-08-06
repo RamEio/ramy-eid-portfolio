@@ -47,6 +47,7 @@
     <link rel="stylesheet" href="/css/components.css">
     <link rel="stylesheet" href="/css/responsive.css">
     <link rel="stylesheet" href="/css/accessibility.css">
+    <link rel="stylesheet" href="/css/dark-mode.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
 </head>
 <body>
@@ -54,7 +55,7 @@
     <a href="#main-content" class="skip-link">Skip to main content</a>
     
     <!-- Header Navigation -->
-    <header class="header" role="banner">
+    <header class="header glass-effect" role="banner">
         <nav class="nav" role="navigation" aria-label="Main navigation">
             <div class="nav-container">
                 <a href="/" class="nav-logo" aria-label="Home">
@@ -66,11 +67,11 @@
                 </button>
                 
                 <ul class="nav-menu" id="nav-menu" role="menubar">
-                    <li role="none"><a href="/" role="menuitem" aria-current="page">Home</a></li>
-                    <li role="none"><a href="/projects.html" role="menuitem">Projects</a></li>
-                    <li role="none"><a href="/experience.html" role="menuitem">Experience</a></li>
-                    <li role="none"><a href="/about.html" role="menuitem">About</a></li>
-                    <li role="none"><a href="/contact.html" role="menuitem">Contact</a></li>
+                    <li role="none"><a href="#hero" role="menuitem" aria-current="page">Home</a></li>
+                    <li role="none"><a href="#projects" role="menuitem">Projects</a></li>
+                    <li role="none"><a href="#experience" role="menuitem">Experience</a></li>
+                    <li role="none"><a href="#about" role="menuitem">About</a></li>
+                    <li role="none"><a href="#contact" role="menuitem">Contact</a></li>
                 </ul>
             </div>
         </nav>
@@ -79,7 +80,7 @@
     <!-- Main Content -->
     <main id="main-content" role="main">
         <!-- Hero Section -->
-        <section class="hero" aria-labelledby="hero-title">
+        <section id="hero" class="hero" aria-labelledby="hero-title">
             <div class="hero-container">
                 <div class="hero-content">
                     <h1 id="hero-title" class="hero-title">
@@ -90,8 +91,8 @@
                         Specializing in user-centered design, digital transformation, and strategic brand development.
                     </p>
                     <div class="hero-actions">
-                        <a href="/projects.html" class="btn btn-primary">View Projects</a>
-                        <a href="/contact.html" class="btn btn-secondary">Get in Touch</a>
+                        <a href="#projects" class="btn btn-primary">View Projects</a>
+                        <a href="#contact" class="btn btn-secondary">Get in Touch</a>
                     </div>
                 </div>
                 <div class="hero-image">
@@ -104,11 +105,11 @@
         </section>
 
         <!-- Featured Projects Section -->
-        <section class="featured-projects" aria-labelledby="projects-title">
+        <section id="projects" class="featured-projects" aria-labelledby="projects-title">
             <div class="container">
                 <h2 id="projects-title" class="section-title">Featured Projects</h2>
                 <div class="projects-grid">
-                    <article class="project-card">
+                    <article class="project-card glass-effect-light">
                         <div class="project-image">
                             <img src="/assets/IMG_2631.JPG" 
                                  alt="Retail Digital Transformation Project" 
@@ -128,7 +129,7 @@
                         </div>
                     </article>
                     
-                    <article class="project-card">
+                    <article class="project-card glass-effect-light">
                         <div class="project-image">
                             <img src="/assets/IMG_2634.JPG" 
                                  alt="E-commerce Platform Redesign" 
@@ -148,7 +149,7 @@
                         </div>
                     </article>
                     
-                    <article class="project-card">
+                    <article class="project-card glass-effect-light">
                         <div class="project-image">
                             <img src="/assets/IMG_2646.JPG" 
                                  alt="Brand Identity System" 
@@ -169,19 +170,19 @@
                     </article>
                 </div>
                 <div class="section-actions">
-                    <a href="/projects.html" class="btn btn-primary">View All Projects</a>
+                    <a href="#projects" class="btn btn-primary">View All Projects</a>
                 </div>
             </div>
         </section>
 
         <!-- Experience Highlights -->
-        <section class="experience-highlights" aria-labelledby="experience-title">
+        <section id="experience" class="experience-highlights" aria-labelledby="experience-title">
             <div class="container">
                 <h2 id="experience-title" class="section-title">Experience Highlights</h2>
                 <div class="timeline-preview">
                     <div class="timeline-item">
                         <div class="timeline-marker"></div>
-                        <div class="timeline-content">
+                        <div class="timeline-content glass-effect-light">
                             <h3>Senior Design Lead</h3>
                             <p class="timeline-company">Expertise Innovation Design</p>
                             <p class="timeline-period">2020 - Present</p>
@@ -191,7 +192,7 @@
                     
                     <div class="timeline-item">
                         <div class="timeline-marker"></div>
-                        <div class="timeline-content">
+                        <div class="timeline-content glass-effect-light">
                             <h3>UX/UI Designer</h3>
                             <p class="timeline-company">Retail Design Agency</p>
                             <p class="timeline-period">2018 - 2020</p>
@@ -201,7 +202,7 @@
                     
                     <div class="timeline-item">
                         <div class="timeline-marker"></div>
-                        <div class="timeline-content">
+                        <div class="timeline-content glass-effect-light">
                             <h3>Design Consultant</h3>
                             <p class="timeline-company">Freelance</p>
                             <p class="timeline-period">2015 - 2018</p>
@@ -210,13 +211,13 @@
                     </div>
                 </div>
                 <div class="section-actions">
-                    <a href="/experience.html" class="btn btn-secondary">View Full Timeline</a>
+                    <a href="#experience" class="btn btn-secondary">View Full Timeline</a>
                 </div>
             </div>
         </section>
 
         <!-- About Preview -->
-        <section class="about-preview" aria-labelledby="about-title">
+        <section id="about" class="about-preview" aria-labelledby="about-title">
             <div class="container">
                 <div class="about-content">
                     <h2 id="about-title" class="section-title">About Me</h2>
@@ -232,7 +233,7 @@
                         These diverse interests fuel my creativity and bring unique perspectives to my work.
                     </p>
                     <div class="about-actions">
-                        <a href="/about.html" class="btn btn-primary">Learn More</a>
+                        <a href="#about" class="btn btn-primary">Learn More</a>
                     </div>
                 </div>
                 <div class="about-image">
@@ -244,7 +245,7 @@
         </section>
 
         <!-- Contact CTA -->
-        <section class="contact-cta" aria-labelledby="contact-title">
+        <section id="contact" class="contact-cta" aria-labelledby="contact-title">
             <div class="container">
                 <h2 id="contact-title" class="section-title">Ready to Work Together?</h2>
                 <p class="cta-text">
@@ -264,7 +265,7 @@
     </main>
     
     <!-- Footer -->
-    <footer class="footer" role="contentinfo">
+    <footer class="footer glass-effect" role="contentinfo">
         <div class="footer-container">
             <div class="footer-content">
                 <div class="footer-brand">

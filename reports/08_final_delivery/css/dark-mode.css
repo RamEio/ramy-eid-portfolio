@@ -1,0 +1,581 @@
+/* ==========================================================================
+   Dark Mode Stylesheet - Ramy Eid Portfolio
+   Implements glass morphism effects, noise textures, and accessibility compliance
+   ========================================================================== */
+
+/* Dark Mode CSS Variables */
+:root {
+  /* Dark Theme Colors */
+  --bg-primary: #0a0a0a;
+  --bg-secondary: #1a1a1a;
+  --bg-tertiary: #2a2a2a;
+  --text-primary: #ffffff;
+  --text-secondary: #a0a0a0;
+  --text-tertiary: #666666;
+  
+  /* Accent Colors - Changed to dark purple to match Ramy Eid's main picture */
+  --accent-primary: #6B46C1;    /* Changed from blue to dark purple */
+  --accent-secondary: #553C9A;   /* Changed from blue to darker purple */
+  --accent-orange: #E85D04;     /* Changed to softer orange */
+  --success-green: #10b981;
+  --error-red: #ef4444;
+  
+  /* Blur Effects */
+  --blur-light: blur(10px);
+  --blur-medium: blur(20px);
+  --blur-heavy: blur(30px);
+  
+  /* Noise Texture */
+  --noise-opacity: 0.05;
+  
+  /* Glow Effects - Updated to purple */
+  --glow-primary: 0 0 20px rgba(107, 70, 193, 0.5);    /* Changed to purple glow */
+  --glow-secondary: 0 0 15px rgba(249, 115, 22, 0.4);
+  --glow-subtle: 0 0 10px rgba(107, 70, 193, 0.3);     /* Changed to purple glow */
+}
+
+/* ==========================================================================
+   Base Dark Mode Styles
+   ========================================================================== */
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Noise Texture Background */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+  opacity: var(--noise-opacity);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* ==========================================================================
+   Glass Morphism Effects
+   ========================================================================== */
+
+.glass-effect {
+  background: rgba(26, 26, 26, 0.8);
+  backdrop-filter: var(--blur-medium);
+  border: 1px solid rgba(107, 70, 193, 0.2); /* Changed to purple border */
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  border-radius: var(--radius-lg);
+}
+
+.glass-effect-light {
+  background: rgba(26, 26, 26, 0.6);
+  backdrop-filter: var(--blur-light);
+  border: 1px solid rgba(107, 70, 193, 0.1); /* Changed to purple border */
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  border-radius: var(--radius-md);
+}
+
+.glass-effect-heavy {
+  background: rgba(26, 26, 26, 0.9);
+  backdrop-filter: var(--blur-heavy);
+  border: 1px solid rgba(107, 70, 193, 0.3); /* Changed to purple border */
+  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.4);
+  border-radius: var(--radius-xl);
+}
+
+/* ==========================================================================
+   Navigation Dark Mode
+   ========================================================================== */
+
+.header {
+  background: rgba(10, 10, 10, 0.95);
+  backdrop-filter: var(--blur-medium);
+  border-bottom: 1px solid rgba(107, 70, 193, 0.1); /* Changed to purple border */
+}
+
+.nav-menu a {
+  color: var(--text-primary);
+  transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.nav-menu a:hover {
+  color: var(--accent-primary);
+  background: rgba(107, 70, 193, 0.1); /* Changed to purple */
+  border-radius: var(--radius-md);
+}
+
+.nav-menu a[aria-current="page"] {
+  color: var(--accent-primary);
+  background: rgba(107, 70, 193, 0.15); /* Changed to purple */
+  border-radius: var(--radius-md);
+}
+
+/* Mobile Menu Dark Overlay */
+.nav-toggle {
+  background: transparent;
+  border: 1px solid var(--text-secondary);
+  color: var(--text-primary);
+}
+
+.nav-toggle:hover {
+  background: rgba(107, 70, 193, 0.1); /* Changed to purple */
+  border-color: var(--accent-primary);
+}
+
+/* ==========================================================================
+   Hero Section Dark Mode
+   ========================================================================== */
+
+.hero {
+  background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+  position: relative;
+  padding: var(--space-8) 0 var(--space-24) 0; /* Added 32px top padding */
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 30% 20%, rgba(107, 70, 193, 0.1) 0%, transparent 50%), /* Changed to purple */
+              radial-gradient(circle at 70% 80%, rgba(249, 115, 22, 0.1) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-title {
+  color: var(--text-primary);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.hero-subtitle {
+  color: var(--text-secondary);
+}
+
+.hero-image img {
+  border: 2px solid rgba(107, 70, 193, 0.3); /* Changed to purple */
+  box-shadow: var(--glow-subtle);
+  border-radius: var(--radius-lg);
+}
+
+/* ==========================================================================
+   Button Components Dark Mode
+   ========================================================================== */
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-secondary) 100%);
+  color: var(--text-primary);
+  border: none;
+  box-shadow: var(--glow-primary);
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, var(--accent-secondary) 0%, var(--accent-primary) 100%);
+  box-shadow: 0 0 30px rgba(107, 70, 193, 0.6); /* Changed to purple glow */
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--accent-orange);
+  border: 2px solid var(--accent-orange);
+  transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+  background: var(--accent-orange);
+  color: var(--text-primary);
+  box-shadow: var(--glow-secondary);
+  transform: translateY(-2px);
+}
+
+.btn:focus {
+  outline: 2px solid var(--accent-primary);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 4px rgba(107, 70, 193, 0.2); /* Changed to purple */
+}
+
+/* ==========================================================================
+   Section Spacing Dark Mode
+   ========================================================================== */
+
+.featured-projects,
+.experience-highlights,
+.about-preview,
+.contact-cta {
+  padding: var(--space-8) 0 var(--space-20) 0; /* Added 32px top padding */
+}
+
+/* ==========================================================================
+   Project Cards Dark Mode
+   ========================================================================== */
+
+.project-card {
+  background: rgba(26, 26, 26, 0.8);
+  backdrop-filter: var(--blur-light);
+  border: 1px solid rgba(107, 70, 193, 0.2); /* Changed to purple */
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.project-card:hover {
+  background: rgba(26, 26, 26, 0.9);
+  backdrop-filter: var(--blur-medium);
+  border-color: rgba(107, 70, 193, 0.4); /* Changed to purple */
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  transform: translateY(-4px);
+}
+
+.project-image {
+  position: relative;
+  overflow: hidden;
+}
+
+.project-image::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, rgba(10, 10, 10, 0.3) 0%, transparent 100%);
+  pointer-events: none;
+}
+
+.project-title {
+  color: var(--text-primary);
+}
+
+.project-description {
+  color: var(--text-secondary);
+}
+
+.tag {
+  background: var(--accent-primary);
+  color: var(--text-primary);
+  border: none;
+  box-shadow: var(--glow-subtle);
+}
+
+/* ==========================================================================
+   Timeline Components Dark Mode
+   ========================================================================== */
+
+.timeline-marker {
+  background: var(--accent-primary);
+  box-shadow: var(--glow-primary);
+  border: 3px solid var(--bg-primary);
+}
+
+.timeline-item::before {
+  background: linear-gradient(180deg, var(--accent-primary) 0%, transparent 100%);
+  box-shadow: var(--glow-subtle);
+}
+
+.timeline-content {
+  background: rgba(26, 26, 26, 0.8);
+  backdrop-filter: var(--blur-light);
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+.timeline-content h3 {
+  color: var(--text-primary);
+}
+
+.timeline-company {
+  color: var(--accent-primary);
+}
+
+.timeline-period {
+  color: var(--text-secondary);
+}
+
+/* ==========================================================================
+   About Section Dark Mode
+   ========================================================================== */
+
+.about-preview {
+  background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+}
+
+.about-text {
+  color: var(--text-secondary);
+}
+
+.about-image img {
+  border: 2px solid rgba(107, 70, 193, 0.3); /* Changed to purple */
+  box-shadow: var(--glow-subtle);
+  border-radius: var(--radius-lg);
+}
+
+/* ==========================================================================
+   Contact CTA Dark Mode
+   ========================================================================== */
+
+.contact-cta {
+  background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+  position: relative;
+}
+
+.contact-cta::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 50% 50%, rgba(107, 70, 193, 0.1) 0%, transparent 70%); /* Changed to purple */
+  pointer-events: none;
+}
+
+.cta-text {
+  color: var(--text-secondary);
+}
+
+/* ==========================================================================
+   Footer Dark Mode
+   ========================================================================== */
+
+.footer {
+  background: rgba(10, 10, 10, 0.95);
+  backdrop-filter: var(--blur-medium);
+  border-top: 1px solid rgba(107, 70, 193, 0.1); /* Changed to purple */
+}
+
+.footer-brand p {
+  color: var(--text-secondary);
+}
+
+.footer-contact a {
+  color: var(--accent-primary);
+  transition: color 0.3s ease;
+}
+
+.footer-contact a:hover {
+  color: var(--accent-secondary);
+}
+
+.footer-links a {
+  color: var(--text-secondary);
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: var(--text-primary);
+}
+
+.footer-copyright {
+  color: var(--text-tertiary);
+}
+
+/* ==========================================================================
+   Form Components Dark Mode
+   ========================================================================== */
+
+input, textarea, select {
+  background: var(--bg-secondary);
+  border: 1px solid var(--bg-tertiary);
+  color: var(--text-primary);
+  transition: all 0.3s ease;
+}
+
+input:focus, textarea:focus, select:focus {
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 0 3px rgba(107, 70, 193, 0.2); /* Changed to purple */
+  outline: none;
+}
+
+input::placeholder, textarea::placeholder {
+  color: var(--text-tertiary);
+}
+
+/* Form Validation States */
+input:valid {
+  border-color: var(--success-green);
+}
+
+input:invalid:not(:placeholder-shown) {
+  border-color: var(--error-red);
+}
+
+/* ==========================================================================
+   Accessibility Enhancements
+   ========================================================================== */
+
+/* High contrast focus indicators */
+*:focus {
+  outline: 2px solid var(--accent-primary);
+  outline-offset: 2px;
+}
+
+/* Skip link enhancement */
+.skip-link {
+  background: var(--accent-primary);
+  color: var(--text-primary);
+  box-shadow: var(--glow-primary);
+}
+
+.skip-link:focus {
+  background: var(--accent-secondary);
+  box-shadow: 0 0 30px rgba(59, 130, 246, 0.6);
+}
+
+/* Screen reader only content */
+.sr-only {
+  color: var(--text-primary);
+}
+
+/* ==========================================================================
+   Responsive Dark Mode Adaptations
+   ========================================================================== */
+
+@media (max-width: 768px) {
+  /* Reduce blur effects for mobile performance */
+  .glass-effect {
+    backdrop-filter: var(--blur-light);
+  }
+  
+  .glass-effect-heavy {
+    backdrop-filter: var(--blur-medium);
+  }
+  
+  /* Optimize touch targets */
+  .btn {
+    min-height: 44px;
+    padding: 12px 24px;
+  }
+  
+  /* Reduce glow effects for mobile */
+  .project-card:hover {
+    transform: translateY(-2px);
+  }
+}
+
+@media (max-width: 480px) {
+  /* Further reduce effects for small screens */
+  .glass-effect {
+    backdrop-filter: none;
+    background: rgba(26, 26, 26, 0.95);
+  }
+  
+  /* Maintain accessibility on small screens */
+  .btn:focus {
+    outline-width: 3px;
+  }
+}
+
+/* ==========================================================================
+   Print Styles for Dark Mode
+   ========================================================================== */
+
+@media print {
+  body {
+    background: white !important;
+    color: black !important;
+  }
+  
+  .glass-effect,
+  .glass-effect-light,
+  .glass-effect-heavy {
+    background: white !important;
+    backdrop-filter: none !important;
+    border: 1px solid #ccc !important;
+    box-shadow: none !important;
+  }
+  
+  .btn {
+    background: #f0f0f0 !important;
+    color: black !important;
+    border: 1px solid #ccc !important;
+    box-shadow: none !important;
+  }
+}
+
+/* ==========================================================================
+   Animation and Transition Enhancements
+   ========================================================================== */
+
+/* Smooth theme transitions */
+* {
+  transition: background-color 0.3s ease, 
+              color 0.3s ease, 
+              border-color 0.3s ease, 
+              box-shadow 0.3s ease;
+}
+
+/* Hover animations */
+.project-card,
+.btn,
+.nav-menu a {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Focus animations */
+*:focus {
+  transition: outline 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* ==========================================================================
+   Performance Optimizations
+   ========================================================================== */
+
+/* Hardware acceleration for blur effects */
+.glass-effect,
+.glass-effect-light,
+.glass-effect-heavy {
+  transform: translateZ(0);
+  will-change: backdrop-filter;
+}
+
+/* Optimize animations for reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    animation: none !important;
+  }
+  
+  .project-card:hover {
+    transform: none !important;
+  }
+  
+  .btn:hover {
+    transform: none !important;
+  }
+}
+
+/* ==========================================================================
+   Dark Mode Toggle Support (Future Enhancement)
+   ========================================================================== */
+
+/* Theme toggle button styles */
+.theme-toggle {
+  background: transparent;
+  border: 1px solid var(--text-secondary);
+  color: var(--text-primary);
+  border-radius: var(--radius-md);
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.theme-toggle:hover {
+  background: rgba(107, 70, 193, 0.1); /* Changed to purple */
+  border-color: var(--accent-primary);
+  color: var(--accent-primary);
+}
+
+.theme-toggle:focus {
+  outline: 2px solid var(--accent-primary);
+  outline-offset: 2px;
+} 

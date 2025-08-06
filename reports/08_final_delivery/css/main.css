@@ -6,8 +6,8 @@
 /* CSS Variables - Design System Integration */
 :root {
   /* Color Palette - From UI Phase */
-  --primary-blue: #2563EB;      /* Primary buttons, links, brand elements */
-  --secondary-blue: #1E40AF;    /* Headers, navigation, emphasis */
+  --primary-blue: #6B46C1;      /* Primary buttons, links, brand elements - Changed to dark purple */
+  --secondary-blue: #553C9A;    /* Headers, navigation, emphasis - Changed to darker purple */
   
   /* Neutral Colors */
   --text-dark: #334155;         /* Body text, headings */
@@ -17,7 +17,7 @@
   --border-light: #E2E8F0;      /* Borders, dividers */
   
   /* Accent Colors */
-  --accent-orange: #F97316;     /* CTAs, highlights, personality elements */
+  --accent-orange: #E85D04;     /* CTAs, highlights, personality elements - Changed to softer orange */
   --success-green: #10B981;     /* Success states, positive feedback */
   --error-red: #EF4444;         /* Error states, important alerts */
   
@@ -45,7 +45,7 @@
   --leading-normal: 1.5;
   --leading-relaxed: 1.75;
   
-  /* Spacing Scale */
+  /* Spacing Scale - Increased for better visual hierarchy */
   --space-1: 0.25rem;   /* 4px */
   --space-2: 0.5rem;    /* 8px */
   --space-3: 0.75rem;   /* 12px */
@@ -57,6 +57,7 @@
   --space-12: 3rem;     /* 48px */
   --space-16: 4rem;     /* 64px */
   --space-20: 5rem;     /* 80px */
+  --space-24: 6rem;     /* 96px - New increased spacing */
   
   /* Border Radius */
   --radius-sm: 0.25rem;
@@ -275,7 +276,7 @@ img {
    ========================================================================== */
 
 .hero {
-  padding: var(--space-20) 0;
+  padding: var(--space-24) 0;
   background: linear-gradient(135deg, var(--background-gray) 0%, var(--white) 100%);
 }
 
@@ -379,14 +380,36 @@ img {
   font-size: var(--text-4xl);
   font-weight: 700;
   text-align: center;
-  margin-bottom: var(--space-12);
+  margin-bottom: var(--space-16); /* Increased from space-12 to space-16 for better spacing */
   color: var(--text-dark);
 }
 
 .section-actions {
   display: flex;
   justify-content: center;
-  margin-top: var(--space-12);
+  margin-top: var(--space-16); /* Increased from space-12 to space-16 for better spacing */
+}
+
+/* Additional spacing for better visual hierarchy */
+.featured-projects,
+.experience-highlights,
+.about-preview,
+.contact-cta {
+  padding: var(--space-8) 0 var(--space-20) 0; /* Added 32px top padding + existing bottom padding */
+}
+
+.hero {
+  padding: var(--space-8) 0 var(--space-24) 0; /* Added 32px top padding + existing bottom padding */
+}
+
+/* Improved spacing between project cards and their actions */
+.projects-grid {
+  margin-bottom: var(--space-16); /* Increased from space-8 to space-16 */
+}
+
+/* Improved spacing for timeline items */
+.timeline-preview {
+  margin-bottom: var(--space-16); /* Increased spacing before section actions */
 }
 
 /* ==========================================================================
@@ -576,14 +599,15 @@ img {
 }
 
 .contact-cta .btn-primary {
-  background-color: var(--white);
-  color: var(--primary-blue);
-  border-color: var(--white);
+  background-color: var(--primary-blue);
+  color: var(--white);
+  border-color: var(--primary-blue);
 }
 
 .contact-cta .btn-primary:hover {
-  background-color: var(--background-gray);
-  color: var(--primary-blue);
+  background-color: var(--secondary-blue);
+  color: var(--white);
+  border-color: var(--secondary-blue);
 }
 
 .contact-cta .btn-secondary {
