@@ -233,6 +233,8 @@ body::before {
 /* Enhanced section title spacing for dark mode */
 .section-title {
   margin-bottom: var(--space-20); /* Increased title separation */
+  margin-top: var(--space-16);
+  padding-top: var(--space-8);
 }
 
 .section-actions {
