@@ -129,15 +129,13 @@
     
     <!-- Version: 1.1 - Experience Timeline Improvements -->
     
-    <!-- Stylesheets -->
-    <link rel="preload" href="/css/main.css" as="style">
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" as="style">
-    
-    <link rel="stylesheet" href="/css/main.css?v=1.1">
-    <link rel="stylesheet" href="/css/components.css">
+    <!-- Styles -->
+    <link rel="stylesheet" href="/css/main.css">
     <link rel="stylesheet" href="/css/responsive.css">
-    <link rel="stylesheet" href="/css/accessibility.css">
-    <link rel="stylesheet" href="/css/dark-mode.css?v=1.1">
+    <link rel="stylesheet" href="/css/dark-mode.css">
+    <!-- Remove missing CSS files that cause 404 errors -->
+    <!-- <link rel="stylesheet" href="/css/components.css"> -->
+    <!-- <link rel="stylesheet" href="/css/accessibility.css"> -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
 </head>
 <body>
@@ -414,7 +412,8 @@
                 <div class="about-image">
                     <img src="/assets/IMG_3682.jpeg" 
                          alt="Ramy Eid enjoying his hobbies" 
-                         loading="lazy">
+                         loading="lazy"
+                         class="about-profile-image">
                 </div>
             </div>
         </section>
@@ -455,6 +454,9 @@
             <div class="footer-links">
                 <a href="/privacy-policy.html">Privacy Policy</a>
                 <a href="/contact.html">Contact</a>
+                <a href="/final_agents_report.html" rel="noopener noreferrer" title="View complete agents report from August 8, 2025">
+                    📋 Agents Report <span class="report-date">(08/08/2025)</span>
+                </a>
             </div>
             <div class="footer-copyright">
                 <p>&copy; 2024 Ramy Eid. All rights reserved.</p>
@@ -462,11 +464,13 @@
         </div>
     </footer>
     
-    <!-- Scripts -->
-    <script src="/js/main.js"></script>
-    <script src="/js/form-handler.js"></script>
-    <script src="/js/accessibility.js"></script>
-    <script src="/js/performance.js"></script>
-         <script src="/js/experience-toggle.js?v=1.1"></script>
+         <!-- Scripts -->
+     <script src="/js/main.js"></script>
+     <script src="/js/form-handler.js"></script>
+     <script src="/js/accessibility.js"></script>
+     <script src="/js/performance.js"></script>
+     <script src="/js/experience-toggle.js?v=1.1"></script>
+     <script src="/js/combined-image-effects.js"></script>
+     <script src="/js/link-behavior.js"></script>
  </body>
  </html> 

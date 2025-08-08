@@ -483,18 +483,41 @@ body::before {
    About Section Dark Mode
    ========================================================================== */
 
+/* Dark mode enhancements for about section */
 .about-preview {
-  background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+  background: var(--dark-bg-secondary);
 }
 
 .about-text {
-  color: var(--text-secondary);
+  color: var(--dark-text-secondary);
 }
 
-.about-image img {
-  border: 2px solid rgba(107, 70, 193, 0.3); /* Changed to purple */
-  box-shadow: var(--glow-subtle);
-  border-radius: var(--radius-lg);
+.about-image {
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.about-image:hover {
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+/* Enhanced grid styling for dark mode */
+.about-image .image-grid {
+  background: rgba(107, 70, 193, 0.2);
+  backdrop-filter: blur(15px);
+}
+
+.about-image .grid-image {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.about-image .grid-image:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+}
+
+/* Improved fallback styling for dark mode */
+.about-image .grid-image[src*="fallback"] {
+  background: linear-gradient(45deg, #667eea 0%, #764ba2 100%);
+  color: var(--dark-text-primary);
 }
 
 /* ==========================================================================
