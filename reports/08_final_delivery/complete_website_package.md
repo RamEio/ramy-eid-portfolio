@@ -392,8 +392,8 @@ portfolio-website/
         <div id="consent-error" class="error-message" role="alert" aria-live="polite"></div>
         
         <div class="privacy-links">
-            <a href="/privacy-policy.html" target="_blank">Privacy Policy</a> |
-            <a href="/data-rights.html" target="_blank">Your Data Rights</a>
+           <a href="/privacy-policy.html">Privacy Policy</a> |
+           <a href="/data-rights.html">Your Data Rights</a>
         </div>
     </div>
     
