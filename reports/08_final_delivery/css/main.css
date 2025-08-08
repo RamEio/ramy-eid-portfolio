@@ -841,3 +841,57 @@ img {
     page-break-inside: avoid;
   }
 } 
+
+/* ==========================================================================
+   Timeline Company Logos
+   ========================================================================== */
+
+.timeline-company {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    margin-bottom: var(--space-2);
+    font-weight: 600;
+    color: var(--text-secondary);
+}
+
+.company-logo {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    background-color: var(--bg-secondary);
+    border: 2px solid var(--border-color);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.company-logo:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.company-logo.fallback {
+    background-color: var(--accent-orange);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+    font-weight: 700;
+    font-size: 16px;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    border: 2px solid var(--accent-orange);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .company-logo {
+        width: 32px;
+        height: 32px;
+    }
+    
+    .timeline-company {
+        gap: var(--space-2);
+    }
+} 
