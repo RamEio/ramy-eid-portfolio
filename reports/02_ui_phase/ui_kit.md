@@ -15,8 +15,8 @@ This UI kit provides a comprehensive component library for Ramy Eid's portfolio 
 ### Type Scale
 | Element | Font Size | Line Height | Font Weight | Color |
 |---------|-----------|-------------|-------------|-------|
-| **H1** | 48px | 1.2 | 700 | Deep Navy (#1E40AF) |
-| **H2** | 36px | 1.3 | 600 | Deep Navy (#1E40AF) |
+| **H1** | 48px | 1.2 | 700 | Dark Purple (#6B46C1) |
+| **H2** | 36px | 1.3 | 600 | Dark Purple (#6B46C1) |
 | **H3** | 24px | 1.4 | 600 | Dark Gray (#334155) |
 | **H4** | 20px | 1.4 | 500 | Dark Gray (#334155) |
 | **Body Large** | 18px | 1.6 | 400 | Dark Gray (#334155) |
@@ -29,29 +29,29 @@ This UI kit provides a comprehensive component library for Ramy Eid's portfolio 
 ## Button Components
 
 ### Primary Button
-- **Background:** Primary Blue (#2563EB)
+- **Background:** Dark Purple (#6B46C1)
 - **Text:** White (#FFFFFF)
 - **Padding:** 12px 24px
 - **Border Radius:** 6px
-- **Hover:** Deep Navy (#1E40AF)
-- **Focus:** 2px solid Primary Blue border
+- **Hover:** Darker Purple (#553C9A)
+- **Focus:** 2px solid Dark Purple border
 - **Disabled:** 50% opacity
 
 ### Secondary Button
 - **Background:** Transparent
-- **Text:** Primary Blue (#2563EB)
-- **Border:** 2px solid Primary Blue (#2563EB)
+- **Text:** Dark Purple (#6B46C1)
+- **Border:** 2px solid Dark Purple (#6B46C1)
 - **Padding:** 12px 24px
 - **Border Radius:** 6px
 - **Hover:** Light Gray background (#F8FAFC)
-- **Focus:** 2px solid Primary Blue border
+- **Focus:** 2px solid Dark Purple border
 
 ### Text Button
 - **Background:** Transparent
-- **Text:** Primary Blue (#2563EB)
+- **Text:** Dark Purple (#6B46C1)
 - **Padding:** 8px 16px
 - **Hover:** Light Gray background (#F8FAFC)
-- **Focus:** 2px solid Primary Blue border
+- **Focus:** 2px solid Dark Purple border
 
 ---
 
@@ -63,7 +63,7 @@ This UI kit provides a comprehensive component library for Ramy Eid's portfolio 
 - **Text:** Dark Gray (#334155)
 - **Padding:** 12px 16px
 - **Border Radius:** 6px
-- **Focus:** 2px solid Primary Blue border
+- **Focus:** 2px solid Dark Purple border
 - **Error:** 2px solid Warning Red border
 - **Success:** 2px solid Success Green border
 
@@ -83,13 +83,13 @@ This UI kit provides a comprehensive component library for Ramy Eid's portfolio 
 - **Padding:** 12px 16px
 - **Border Radius:** 6px
 - **Arrow:** Medium Gray (#64748B)
-- **Focus:** 2px solid Primary Blue border
+- **Focus:** 2px solid Dark Purple border
 
 ### Checkbox
 - **Size:** 20px x 20px
 - **Border:** 2px solid Medium Gray (#64748B)
-- **Checked:** Primary Blue background (#2563EB)
-- **Focus:** 2px solid Primary Blue border
+- **Checked:** Dark Purple background (#6B46C1)
+- **Focus:** 2px solid Dark Purple border
 - **Label:** Dark Gray (#334155), 16px
 
 ---
@@ -97,44 +97,44 @@ This UI kit provides a comprehensive component library for Ramy Eid's portfolio 
 ## Card Components
 
 ### Project Card
-- **Background:** White (#FFFFFF)
-- **Border:** 1px solid Light Gray (#F8FAFC)
+- **Background:** White (#FFFFFF) / Dark Glass Effect
+- **Border:** 1px solid Light Gray (#F8FAFC) / Purple Border
 - **Border Radius:** 8px
-- **Shadow:** 0 2px 4px rgba(0,0,0,0.1)
-- **Hover:** 0 4px 8px rgba(0,0,0,0.15)
+- **Shadow:** 0 2px 4px rgba(0,0,0,0.1) / Glass Morphism
+- **Hover:** 0 4px 8px rgba(0,0,0,0.15) / Enhanced Glow
 - **Padding:** 24px
 - **Image:** 100% width, 200px height, object-fit: cover
 
 ### Timeline Card
-- **Background:** White (#FFFFFF)
-- **Border:** 1px solid Light Gray (#F8FAFC)
+- **Background:** White (#FFFFFF) / Dark Glass Effect
+- **Border:** 1px solid Light Gray (#F8FAFC) / Purple Border
 - **Border Radius:** 8px
-- **Shadow:** 0 2px 4px rgba(0,0,0,0.1)
+- **Shadow:** 0 2px 4px rgba(0,0,0,0.1) / Glass Morphism
 - **Padding:** 20px
-- **Hover:** Subtle lift effect
+- **Hover:** Subtle lift effect / Enhanced Glow
 
 ### Hobby Card
-- **Background:** White (#FFFFFF)
-- **Border:** 2px solid Accent Orange (#F97316)
+- **Background:** White (#FFFFFF) / Dark Glass Effect
+- **Border:** 2px solid Soft Red (#C1465F)
 - **Border Radius:** 8px
-- **Shadow:** 0 2px 4px rgba(0,0,0,0.1)
+- **Shadow:** 0 2px 4px rgba(0,0,0,0.1) / Glass Morphism
 - **Padding:** 20px
-- **Hover:** Accent Orange background, White text
+- **Hover:** Soft Red background, White text
 
 ---
 
 ## Navigation Components
 
 ### Main Navigation
-- **Background:** White (#FFFFFF)
+- **Background:** White (#FFFFFF) / Dark Glass Effect
 - **Height:** 80px
-- **Border Bottom:** 1px solid Light Gray (#F8FAFC)
+- **Border Bottom:** 1px solid Light Gray (#F8FAFC) / Purple Border
 - **Logo:** 120px width, left alignment
 - **Menu Items:** 5 items, center alignment
-- **CTA Button:** Right alignment, Primary Blue
+- **CTA Button:** Right alignment, Dark Purple
 
 ### Mobile Menu
-- **Background:** White (#FFFFFF)
+- **Background:** White (#FFFFFF) / Dark Glass Effect
 - **Overlay:** rgba(0,0,0,0.5)
 - **Slide Direction:** Right to left
 - **Menu Items:** Stacked vertically
@@ -142,9 +142,9 @@ This UI kit provides a comprehensive component library for Ramy Eid's portfolio 
 
 ### Breadcrumb
 - **Separator:** Medium Gray (#64748B), "/"
-- **Active:** Deep Navy (#1E40AF)
+- **Active:** Dark Purple (#6B46C1)
 - **Inactive:** Medium Gray (#64748B)
-- **Hover:** Primary Blue (#2563EB)
+- **Hover:** Dark Purple (#6B46C1)
 
 ---
 
@@ -153,8 +153,8 @@ This UI kit provides a comprehensive component library for Ramy Eid's portfolio 
 ### Icon Specifications
 - **Size:** 24px x 24px (standard)
 - **Color:** Medium Gray (#64748B) by default
-- **Hover:** Primary Blue (#2563EB)
-- **Focus:** 2px solid Primary Blue border
+- **Hover:** Dark Purple (#6B46C1)
+- **Focus:** 2px solid Dark Purple border
 - **Format:** SVG preferred, PNG fallback
 
 ### Icon Library
@@ -169,7 +169,7 @@ This UI kit provides a comprehensive component library for Ramy Eid's portfolio 
 ## Loading States
 
 ### Button Loading
-- **Spinner:** 16px, Primary Blue (#2563EB)
+- **Spinner:** 16px, Dark Purple (#6B46C1)
 - **Text:** "Loading..." or disabled state
 - **Duration:** 0.3s transition
 
@@ -204,9 +204,9 @@ This UI kit provides a comprehensive component library for Ramy Eid's portfolio 
 - **Duration:** Manual dismiss
 
 ### Info Message
-- **Background:** Primary Blue (#2563EB)
+- **Background:** Dark Purple (#6B46C1)
 - **Text:** White (#FFFFFF)
-- **Border:** 1px solid Primary Blue (#2563EB)
+- **Border:** 1px solid Dark Purple (#6B46C1)
 - **Border Radius:** 6px
 - **Icon:** Info, 20px
 - **Duration:** Manual dismiss
@@ -217,7 +217,7 @@ This UI kit provides a comprehensive component library for Ramy Eid's portfolio 
 
 ### Project Detail Modal
 - **Background:** rgba(0,0,0,0.5)
-- **Content:** White (#FFFFFF) background
+- **Content:** White (#FFFFFF) background / Dark Glass Effect
 - **Border Radius:** 8px
 - **Padding:** 32px
 - **Close Button:** Top right, 24px x 24px
@@ -225,7 +225,7 @@ This UI kit provides a comprehensive component library for Ramy Eid's portfolio 
 
 ### Contact Success Modal
 - **Background:** rgba(0,0,0,0.5)
-- **Content:** White (#FFFFFF) background
+- **Content:** White (#FFFFFF) background / Dark Glass Effect
 - **Border Radius:** 8px
 - **Padding:** 32px
 - **Icon:** Success Green checkmark
@@ -250,7 +250,7 @@ This UI kit provides a comprehensive component library for Ramy Eid's portfolio 
 ### Desktop (1024px+)
 - **Container:** 1200px max-width, centered
 - **Typography:** Standard sizes
-- **Spacing:** Standard padding and margins
+- **Spacing:** Enhanced spacing with --space-24 (96px)
 - **Hover States:** Full hover effects
 
 ---
@@ -258,7 +258,7 @@ This UI kit provides a comprehensive component library for Ramy Eid's portfolio 
 ## Accessibility Features
 
 ### Focus Management
-- **Visible Focus:** 2px solid Primary Blue border
+- **Visible Focus:** 2px solid Dark Purple border
 - **Tab Order:** Logical navigation flow
 - **Skip Links:** Hidden until focused
 - **Modal Focus:** Trap focus within modal
@@ -298,4 +298,23 @@ This UI kit provides a comprehensive component library for Ramy Eid's portfolio 
 
 ---
 
-**UI Kit Status:** ✅ Complete and ready for Developer implementation 
+## Dark Mode Integration
+
+### Glass Morphism Effects
+- **Glass Effect:** rgba(26, 26, 26, 0.8) with blur(20px)
+- **Glass Effect Light:** rgba(26, 26, 26, 0.6) with blur(10px)
+- **Glass Effect Heavy:** rgba(26, 26, 26, 0.9) with blur(30px)
+- **Borders:** Purple borders with varying opacity
+
+### Noise Texture
+- **Background:** SVG noise filter with 0.05 opacity
+- **Effect:** Subtle texture overlay for depth
+
+### Glow Effects
+- **Primary Glow:** Purple glow (rgba(107, 70, 193, 0.5))
+- **Secondary Glow:** Soft red glow (rgba(193, 70, 95, 0.4))
+- **Subtle Glow:** Purple glow (rgba(107, 70, 193, 0.3))
+
+---
+
+**UI Kit Status:** ✅ Updated to reflect current dark mode implementation with purple color scheme 
