@@ -570,6 +570,89 @@ img {
 }
 
 /* ==========================================================================
+   Timeline Animation Styles
+   ========================================================================== */
+
+.timeline-hidden {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-in-out;
+  opacity: 0;
+}
+
+.timeline-hidden.expanded {
+  max-height: 2000px; /* Adjust based on content height */
+  opacity: 1;
+}
+
+.timeline-visible {
+  opacity: 1;
+  transition: opacity 0.3s ease-in-out;
+}
+
+/* Enhanced spacing for timeline items */
+.timeline-item {
+  margin-bottom: var(--space-8); /* 32px spacing between experiences */
+}
+
+.timeline-item:last-child {
+  margin-bottom: 0;
+}
+
+/* Button state changes with arrow icons */
+#toggle-experiences {
+  position: relative;
+  padding-right: 3rem; /* Space for arrow */
+  /* Default state: Primary button (purple) */
+  background-color: var(--primary-blue);
+  border-color: var(--primary-blue);
+  color: var(--white);
+}
+
+#toggle-experiences:hover {
+  background-color: var(--secondary-blue);
+  border-color: var(--secondary-blue);
+}
+
+#toggle-experiences::after {
+  content: '';
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Down arrow for "View Detailed Experience" */
+#toggle-experiences::after {
+  border-top: 8px solid currentColor;
+  border-bottom: none;
+}
+
+/* Up arrow for "Show Less" */
+#toggle-experiences.expanded::after {
+  border-bottom: 8px solid currentColor;
+  border-top: none;
+}
+
+/* Secondary button style for "Show Less" */
+#toggle-experiences.expanded {
+  background-color: transparent;
+  border-color: var(--accent-orange);
+  color: var(--accent-orange);
+}
+
+#toggle-experiences.expanded:hover {
+  background-color: var(--accent-orange);
+  border-color: var(--accent-orange);
+  color: var(--white);
+}
+
+/* ==========================================================================
    About Section
    ========================================================================== */
 
