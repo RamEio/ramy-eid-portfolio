@@ -384,7 +384,9 @@ img {
   font-weight: 700;
   text-align: center;
   margin-bottom: var(--space-20);
-  color: var(--text-dark);
+  margin-top: var(--space-16);
+  padding-top: var(--space-8);
+  color: #A78BFA; /* Light purple pastel for coherence with brand */
 }
 
 .section-actions {
