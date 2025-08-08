@@ -235,7 +235,7 @@ body::before {
   margin-bottom: var(--space-20); /* Increased title separation */
   margin-top: var(--space-16);
   padding-top: var(--space-8);
-  color: #A78BFA; /* Light purple pastel for coherence with brand */
+  color: var(--text-primary); /* Changed back to white as requested */
 }
 
 .section-actions {
