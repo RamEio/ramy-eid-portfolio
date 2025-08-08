@@ -728,13 +728,13 @@ img {
 
 .contact-cta .btn-secondary {
   background-color: transparent;
-  color: var(--white);
-  border-color: var(--white);
+  color: var(--accent-orange);
+  border-color: var(--accent-orange);
 }
 
 .contact-cta .btn-secondary:hover {
-  background-color: var(--white);
-  color: var(--primary-blue);
+  background-color: var(--accent-orange);
+  color: var(--white);
 }
 
 /* ==========================================================================
