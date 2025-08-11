@@ -10,6 +10,306 @@
 /* Base mobile styles are in main.css */
 
 /* ==========================================================================
+   Mobile Navigation (Mobile only)
+   ========================================================================== */
+
+@media (max-width: 767px) {
+  /* Mobile Navigation */
+  .nav-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--background-white);
+    box-shadow: var(--shadow-lg);
+    padding: var(--space-4);
+    flex-direction: column;
+    gap: var(--space-2);
+    border-top: 1px solid var(--border-light);
+    z-index: 1000;
+    /* Ensure smooth animation */
+    transition: all 0.3s ease-in-out;
+    transform: translateY(-10px);
+    opacity: 0;
+  }
+  
+  .nav-menu--open {
+    display: flex;
+    transform: translateY(0);
+    opacity: 1;
+  }
+  
+  .nav-menu li {
+    width: 100%;
+  }
+  
+  .nav-menu a {
+    display: block;
+    padding: var(--space-3) var(--space-4);
+    width: 100%;
+    text-align: left;
+    /* Touch-friendly sizing */
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .nav-toggle {
+    display: block;
+    /* Touch-friendly button */
+    min-width: 44px;
+    min-height: 44px;
+    padding: var(--space-2);
+  }
+  
+  /* Mobile hamburger animation */
+  .nav-toggle[aria-expanded="true"] .hamburger {
+    background: transparent;
+  }
+  
+  .nav-toggle[aria-expanded="true"] .hamburger::before {
+    transform: rotate(45deg);
+    top: 0;
+  }
+  
+  .nav-toggle[aria-expanded="true"] .hamburger::after {
+    transform: rotate(-45deg);
+    bottom: 0;
+  }
+  
+  /* Mobile Hero */
+  .hero-container {
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+    text-align: center;
+  }
+  
+  .hero-title {
+    font-size: var(--text-3xl);
+    line-height: 1.2;
+  }
+  
+  .hero-subtitle {
+    font-size: var(--text-lg);
+    line-height: 1.4;
+  }
+  
+  .hero-actions {
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-4);
+  }
+  
+  .hero-actions .btn {
+    width: 100%;
+    max-width: 300px;
+    /* Touch-friendly button */
+    min-height: 48px;
+    padding: var(--space-3) var(--space-6);
+  }
+  
+  /* Mobile Projects */
+  .projects-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+  
+  .project-card {
+    /* Touch-friendly card */
+    min-height: auto;
+    padding: var(--space-4);
+  }
+  
+  .project-image {
+    height: 200px;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+  }
+  
+  .project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  /* Mobile About */
+  .about-preview .container {
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+    text-align: center;
+  }
+  
+  .about-image {
+    /* Mobile image optimization */
+    max-width: 300px;
+    margin: 0 auto;
+  }
+  
+  .about-actions {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .about-actions .btn {
+    /* Touch-friendly button */
+    min-height: 48px;
+    padding: var(--space-3) var(--space-6);
+  }
+  
+  /* Mobile Timeline */
+  .timeline-item {
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+    padding: var(--space-4);
+  }
+  
+  .timeline-marker {
+    display: none;
+  }
+  
+  .timeline-content {
+    padding-left: var(--space-4);
+    border-left: 3px solid var(--primary-blue);
+    /* Mobile content optimization */
+    font-size: var(--text-sm);
+    line-height: 1.5;
+  }
+  
+  .timeline-content h3 {
+    font-size: var(--text-lg);
+    margin-bottom: var(--space-2);
+  }
+  
+  /* Mobile Footer */
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+    text-align: center;
+  }
+  
+  .footer-links {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+  }
+  
+  .footer-links a {
+    /* Touch-friendly links */
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Mobile CTA */
+  .cta-actions {
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-4);
+  }
+  
+  .cta-actions .btn {
+    width: 100%;
+    max-width: 300px;
+    /* Touch-friendly button */
+    min-height: 48px;
+    padding: var(--space-3) var(--space-6);
+  }
+  
+  /* Mobile spacing adjustments */
+  .hero {
+    padding: var(--space-12) 0;
+  }
+  
+  .section-title {
+    font-size: var(--text-3xl);
+    margin-bottom: var(--space-8);
+    line-height: 1.2;
+  }
+  
+  .container {
+    padding: 0 var(--space-4);
+  }
+  
+  .nav-container {
+    padding-left: var(--space-4);
+    padding-right: var(--space-4);
+  }
+  
+  /* Mobile image grid hover effect optimization */
+  .image-grid-overlay {
+    /* Disable hover effects on mobile */
+    display: none;
+  }
+  
+  .about-image:hover .image-grid-overlay {
+    display: none;
+  }
+  
+  /* Mobile touch interactions */
+  .project-card:active {
+    transform: scale(0.98);
+  }
+  
+  .btn:active {
+    transform: scale(0.95);
+  }
+}
+
+/* ==========================================================================
+   Landscape Mobile (480px - 767px)
+   ========================================================================== */
+
+@media (min-width: 480px) and (max-width: 767px) {
+  /* Slightly better layout for landscape mobile */
+  .hero-container {
+    gap: var(--space-6);
+  }
+  
+  .hero-title {
+    font-size: var(--text-4xl);
+  }
+  
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-4);
+  }
+  
+  .hero-actions {
+    flex-direction: row;
+    justify-content: center;
+    gap: var(--space-4);
+  }
+  
+  .hero-actions .btn {
+    width: auto;
+    min-width: 140px;
+  }
+  
+  .cta-actions {
+    flex-direction: row;
+    justify-content: center;
+    gap: var(--space-4);
+  }
+  
+  .cta-actions .btn {
+    width: auto;
+    min-width: 140px;
+  }
+  
+  /* Better image sizing for landscape */
+  .project-image {
+    height: 180px;
+  }
+  
+  .about-image {
+    max-width: 250px;
+  }
+}
+
+/* ==========================================================================
    Tablet (768px - 1023px)
    ========================================================================== */
 
@@ -27,6 +327,8 @@
     padding: 0;
     flex-direction: row;
     gap: var(--space-8);
+    transform: none;
+    opacity: 1;
   }
   
   /* Hero Section */
@@ -74,6 +376,11 @@
   .nav-container {
     padding-left: var(--space-6);
     padding-right: var(--space-6);
+  }
+  
+  /* Re-enable hover effects on tablet+ */
+  .image-grid-overlay {
+    display: grid;
   }
 }
 
@@ -210,198 +517,6 @@
 }
 
 /* ==========================================================================
-   Mobile Navigation (Mobile only)
-   ========================================================================== */
-
-@media (max-width: 767px) {
-  /* Mobile Navigation */
-  .nav-menu {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    background: var(--background-white);
-    box-shadow: var(--shadow-lg);
-    padding: var(--space-4);
-    flex-direction: column;
-    gap: var(--space-2);
-    border-top: 1px solid var(--border-light);
-  }
-  
-  .nav-menu--open {
-    display: flex;
-  }
-  
-  .nav-menu li {
-    width: 100%;
-  }
-  
-  .nav-menu a {
-    display: block;
-    padding: var(--space-3) var(--space-4);
-    width: 100%;
-    text-align: left;
-  }
-  
-  .nav-toggle {
-    display: block;
-  }
-  
-  /* Mobile hamburger animation */
-  .nav-toggle[aria-expanded="true"] .hamburger {
-    background: transparent;
-  }
-  
-  .nav-toggle[aria-expanded="true"] .hamburger::before {
-    transform: rotate(45deg);
-    top: 0;
-  }
-  
-  .nav-toggle[aria-expanded="true"] .hamburger::after {
-    transform: rotate(-45deg);
-    bottom: 0;
-  }
-  
-  /* Mobile Hero */
-  .hero-container {
-    grid-template-columns: 1fr;
-    gap: var(--space-8);
-    text-align: center;
-  }
-  
-  .hero-title {
-    font-size: var(--text-3xl);
-  }
-  
-  .hero-subtitle {
-    font-size: var(--text-lg);
-  }
-  
-  .hero-actions {
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .hero-actions .btn {
-    width: 100%;
-    max-width: 300px;
-  }
-  
-  /* Mobile Projects */
-  .projects-grid {
-    grid-template-columns: 1fr;
-    gap: var(--space-6);
-  }
-  
-  /* Mobile About */
-  .about-preview .container {
-    grid-template-columns: 1fr;
-    gap: var(--space-8);
-    text-align: center;
-  }
-  
-  .about-actions {
-    display: flex;
-    justify-content: center;
-  }
-  
-  /* Mobile Timeline */
-  .timeline-item {
-    grid-template-columns: 1fr;
-    gap: var(--space-4);
-  }
-  
-  .timeline-marker {
-    display: none;
-  }
-  
-  .timeline-content {
-    padding-left: var(--space-4);
-    border-left: 3px solid var(--primary-blue);
-  }
-  
-  /* Mobile Footer */
-  .footer-content {
-    grid-template-columns: 1fr;
-    gap: var(--space-6);
-    text-align: center;
-  }
-  
-  .footer-links {
-    justify-content: center;
-  }
-  
-  /* Mobile CTA */
-  .cta-actions {
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .cta-actions .btn {
-    width: 100%;
-    max-width: 300px;
-  }
-  
-  /* Mobile spacing adjustments */
-  .hero {
-    padding: var(--space-12) 0;
-  }
-  
-  .section-title {
-    font-size: var(--text-3xl);
-    margin-bottom: var(--space-8);
-  }
-  
-  .container {
-    padding: 0 var(--space-4);
-  }
-  
-  .nav-container {
-    padding-left: var(--space-4);
-    padding-right: var(--space-4);
-  }
-}
-
-/* ==========================================================================
-   Landscape Mobile (480px - 767px)
-   ========================================================================== */
-
-@media (min-width: 480px) and (max-width: 767px) {
-  /* Slightly better layout for landscape mobile */
-  .hero-container {
-    gap: var(--space-6);
-  }
-  
-  .hero-title {
-    font-size: var(--text-4xl);
-  }
-  
-  .projects-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  
-  .hero-actions {
-    flex-direction: row;
-    justify-content: center;
-  }
-  
-  .hero-actions .btn {
-    width: auto;
-  }
-  
-  .cta-actions {
-    flex-direction: row;
-    justify-content: center;
-  }
-  
-  .cta-actions .btn {
-    width: auto;
-  }
-}
-
-/* ==========================================================================
    High DPI Displays
    ========================================================================== */
 
@@ -435,6 +550,10 @@
   
   .project-card:hover .project-image img {
     transform: none;
+  }
+  
+  .nav-menu {
+    transition: none;
   }
 }
 

@@ -931,7 +931,7 @@ img {
     gap: var(--space-3);
     margin-bottom: var(--space-2);
     font-weight: 600;
-    color: var(--text-secondary);
+    color: var(--text-light);
 }
 
 .company-logo {
@@ -939,10 +939,17 @@ img {
     height: 40px;
     border-radius: 50%;
     object-fit: cover;
-    background-color: var(--bg-secondary);
-    border: 2px solid var(--border-color);
+    background-color: var(--background-gray);
+    border: 2px solid var(--border-light);
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
+    /* Ensure round shape on all devices */
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    /* Force aspect ratio */
+    aspect-ratio: 1;
+    flex-shrink: 0;
 }
 
 .company-logo:hover {
@@ -961,17 +968,46 @@ img {
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
     border: 2px solid var(--accent-orange);
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    /* Ensure round shape */
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
 }
 
-/* Responsive adjustments */
+/* Mobile-specific optimizations */
 @media (max-width: 768px) {
     .company-logo {
         width: 32px;
         height: 32px;
+        /* Ensure round shape on mobile */
+        -webkit-border-radius: 50%;
+        -moz-border-radius: 50%;
+        border-radius: 50%;
+    }
+    
+    .company-logo.fallback {
+        font-size: 14px;
+        /* Ensure round shape on mobile */
+        -webkit-border-radius: 50%;
+        -moz-border-radius: 50%;
+        border-radius: 50%;
     }
     
     .timeline-company {
         gap: var(--space-2);
+    }
+}
+
+/* Touch-friendly interactions for mobile */
+@media (hover: none) and (pointer: coarse) {
+    .company-logo:hover {
+        transform: none;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+    
+    .company-logo:active {
+        transform: scale(0.95);
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
     }
 } 
 
