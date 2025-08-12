@@ -32,12 +32,16 @@
     transition: all 0.3s ease-in-out;
     transform: translateY(-10px);
     opacity: 0;
+    /* Ensure menu is visible and properly positioned */
+    min-height: auto;
+    max-height: none;
   }
   
   .nav-menu--open {
-    display: flex;
+    display: flex !important;
     transform: translateY(0);
     opacity: 1;
+    visibility: visible;
   }
   
   .nav-menu li {
@@ -45,25 +49,69 @@
   }
   
   .nav-menu a {
-    display: block;
+    display: flex !important;
     padding: var(--space-3) var(--space-4);
     width: 100%;
     text-align: left;
     /* Touch-friendly sizing */
     min-height: 44px;
-    display: flex;
     align-items: center;
+    color: var(--text-dark);
+    font-weight: 500;
+    text-decoration: none;
+    border-radius: var(--radius-md);
+    transition: all var(--transition-fast);
+  }
+  
+  .nav-menu a:hover {
+    background-color: var(--background-gray);
+    color: var(--primary-blue);
   }
   
   .nav-toggle {
-    display: block;
+    display: block !important;
     /* Touch-friendly button */
     min-width: 44px;
     min-height: 44px;
     padding: var(--space-2);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    border-radius: var(--radius-md);
+  }
+  
+  .nav-toggle:hover {
+    background-color: var(--background-gray);
   }
   
   /* Mobile hamburger animation */
+  .hamburger {
+    display: block !important;
+    width: 24px;
+    height: 2px;
+    background: var(--text-dark);
+    position: relative;
+    transition: all var(--transition-fast);
+  }
+  
+  .hamburger::before,
+  .hamburger::after {
+    content: '';
+    position: absolute;
+    width: 24px;
+    height: 2px;
+    background: var(--text-dark);
+    transition: all var(--transition-fast);
+  }
+  
+  .hamburger::before {
+    top: -8px;
+  }
+  
+  .hamburger::after {
+    bottom: -8px;
+  }
+  
   .nav-toggle[aria-expanded="true"] .hamburger {
     background: transparent;
   }
@@ -113,17 +161,17 @@
   /* Mobile Projects */
   .projects-grid {
     grid-template-columns: 1fr;
-    gap: var(--space-6);
+    gap: var(--space-4);
   }
   
   .project-card {
-    /* Touch-friendly card */
+    /* Touch-friendly card - Optimized sizing */
     min-height: auto;
-    padding: var(--space-4);
+    padding: var(--space-3);
   }
   
   .project-image {
-    height: 200px;
+    height: 160px;
     border-radius: var(--radius-lg);
     overflow: hidden;
   }
@@ -158,11 +206,11 @@
     padding: var(--space-3) var(--space-6);
   }
   
-  /* Mobile Timeline */
+  /* Mobile Timeline - Optimized sizing */
   .timeline-item {
     grid-template-columns: 1fr;
-    gap: var(--space-4);
-    padding: var(--space-4);
+    gap: var(--space-3);
+    padding: var(--space-3);
   }
   
   .timeline-marker {
@@ -170,16 +218,16 @@
   }
   
   .timeline-content {
-    padding-left: var(--space-4);
+    padding-left: var(--space-3);
     border-left: 3px solid var(--primary-blue);
     /* Mobile content optimization */
     font-size: var(--text-sm);
-    line-height: 1.5;
+    line-height: 1.4;
   }
   
   .timeline-content h3 {
-    font-size: var(--text-lg);
-    margin-bottom: var(--space-2);
+    font-size: var(--text-base);
+    margin-bottom: var(--space-1);
   }
   
   /* Mobile Footer */
@@ -233,9 +281,30 @@
     padding: 0 var(--space-4);
   }
   
+  /* Mobile Header Optimization - 48px max height */
+  .header {
+    min-height: 48px;
+    max-height: 48px;
+    /* Mobile header fade behavior support */
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    will-change: transform, opacity;
+  }
+  
   .nav-container {
-    padding-left: var(--space-4);
-    padding-right: var(--space-4);
+    padding: var(--space-2) var(--space-4);
+    min-height: 48px;
+    max-height: 48px;
+  }
+  
+  /* Mobile Logo Size Optimization */
+  .nav-logo img {
+    max-height: 32px;
+    width: auto;
+    height: auto;
+  }
+  
+  .nav-logo {
+    font-size: var(--text-base);
   }
   
   /* Mobile image grid hover effect optimization */
@@ -263,6 +332,11 @@
    ========================================================================== */
 
 @media (min-width: 480px) and (max-width: 767px) {
+  /* Landscape Mobile Header Optimization */
+  .nav-logo img {
+    max-height: 36px; /* Slightly larger for landscape but still compact */
+  }
+  
   /* Slightly better layout for landscape mobile */
   .hero-container {
     gap: var(--space-6);
@@ -345,10 +419,10 @@
     font-size: var(--text-lg);
   }
   
-  /* Project Grid */
+  /* Project Grid - Optimized sizing */
   .projects-grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: var(--space-6);
+    gap: var(--space-4);
   }
   
   /* About Section */
@@ -407,10 +481,10 @@
     gap: var(--space-6);
   }
   
-  /* Project Grid */
+  /* Project Grid - Optimized sizing */
   .projects-grid {
     grid-template-columns: repeat(3, 1fr);
-    gap: var(--space-8);
+    gap: var(--space-6);
   }
   
   /* About Section */
@@ -472,13 +546,13 @@
     margin-bottom: var(--space-16);
   }
   
-  /* Project cards larger */
+  /* Project cards - Optimized sizing */
   .project-card {
-    min-height: 400px;
+    min-height: 350px;
   }
   
   .project-image {
-    height: 250px;
+    height: 200px;
   }
 }
 

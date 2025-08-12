@@ -9,6 +9,9 @@ document.addEventListener('DOMContentLoaded', function() {
     // Mobile navigation functionality
     initMobileNavigation();
     
+    // Mobile header fade behavior
+    initMobileHeaderFade();
+    
     // Touch-friendly interactions
     initTouchInteractions();
     
@@ -79,6 +82,111 @@ function initMobileNavigation() {
     });
     
     console.log('📱 Mobile navigation initialized');
+}
+
+/**
+ * Initialize mobile header fade behavior
+ * Hides header when scrolling down, shows when scrolling up
+ */
+function initMobileHeaderFade() {
+    const header = document.querySelector('.header');
+    
+    if (!header) {
+        console.warn('Header element not found for fade behavior');
+        return;
+    }
+    
+    let lastScrollY = window.scrollY;
+    let isScrolling = false;
+    let scrollTimeout;
+    
+    // Only apply on mobile devices
+    const isMobile = window.innerWidth <= 767;
+    
+    if (!isMobile) {
+        return;
+    }
+    
+    // Add CSS classes for fade transitions
+    header.style.transition = 'transform 0.3s ease-in-out, opacity 0.3s ease-in-out';
+    header.style.transform = 'translateY(0)';
+    header.style.opacity = '1';
+    
+    function handleScroll() {
+        if (!isScrolling) {
+            isScrolling = true;
+            requestAnimationFrame(updateHeaderVisibility);
+        }
+        
+        // Clear existing timeout
+        clearTimeout(scrollTimeout);
+        
+        // Set timeout to show header after scrolling stops
+        scrollTimeout = setTimeout(() => {
+            showHeader();
+        }, 1000);
+    }
+    
+    function updateHeaderVisibility() {
+        const currentScrollY = window.scrollY;
+        const scrollDelta = currentScrollY - lastScrollY;
+        
+        // Don't hide header if we're at the top
+        if (currentScrollY <= 50) {
+            showHeader();
+        } else if (scrollDelta > 10) {
+            // Scrolling down - hide header
+            hideHeader();
+        } else if (scrollDelta < -10) {
+            // Scrolling up - show header
+            showHeader();
+        }
+        
+        lastScrollY = currentScrollY;
+        isScrolling = false;
+    }
+    
+    function hideHeader() {
+        header.style.transform = 'translateY(-100%)';
+        header.style.opacity = '0';
+    }
+    
+    function showHeader() {
+        header.style.transform = 'translateY(0)';
+        header.style.opacity = '1';
+    }
+    
+    // Add scroll event listener with throttling
+    let ticking = false;
+    
+    function requestTick() {
+        if (!ticking) {
+            requestAnimationFrame(() => {
+                handleScroll();
+                ticking = false;
+            });
+            ticking = true;
+        }
+    }
+    
+    window.addEventListener('scroll', requestTick, { passive: true });
+    
+    // Show header when menu is open
+    const navMenu = document.querySelector('.nav-menu');
+    if (navMenu) {
+        const observer = new MutationObserver(() => {
+            if (navMenu.classList.contains('nav-menu--open')) {
+                showHeader();
+            }
+        });
+        
+        observer.observe(navMenu, {
+            attributes: true,
+            attributeFilter: ['class']
+        });
+    }
+    
+    console.log('📱 Mobile header fade behavior initialized');
 }
 
 /**
