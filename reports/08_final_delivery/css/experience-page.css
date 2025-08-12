@@ -4,6 +4,39 @@
    ========================================================================== */
 
 /* ==========================================================================
+   Header Styling for Experience Page
+   Ensures header fade behavior works properly
+   ========================================================================== */
+
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    will-change: transform, opacity;
+}
+
+/* Ensure header is above all other elements */
+.header .nav-container {
+    position: relative;
+    z-index: 101;
+}
+
+/* Logo sizing to match homepage */
+.nav-logo img {
+    max-height: 48px;
+    width: auto;
+    height: auto;
+}
+
+/* Footer logo sizing */
+.footer-logo img {
+    max-height: 48px;
+    width: auto;
+    height: auto;
+}
+
+/* ==========================================================================
    Hero Section
    ========================================================================== */
 
@@ -14,7 +47,7 @@
     align-items: center;
     justify-content: center;
     background: linear-gradient(rgba(10, 10, 10, 0.8), rgba(10, 10, 10, 0.8)),
-                url('https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
+                url('https://images.pexels.com/photos/29352929/pexels-photo-29352929.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -111,14 +144,14 @@
 }
 
 /* ==========================================================================
-   Timeline Navigation
+   Integrated Timeline & Filter System
    ========================================================================== */
 
-.timeline-nav-section {
+.timeline-filter-section {
     background: var(--bg-secondary);
     padding: var(--space-8) 0;
     position: sticky;
-    top: 0;
+    top: 80px; /* Account for header height */
     z-index: 50;
     backdrop-filter: var(--blur-medium);
 }
@@ -137,7 +170,7 @@
     left: 0;
     right: 0;
     height: 2px;
-    background: linear-gradient(90deg, transparent, var(--accent-primary), transparent);
+    background: linear-gradient(90deg, transparent, #c1465f, transparent);
     transform: translateY(-50%);
     z-index: 1;
 }
@@ -154,7 +187,7 @@
 
 .timeline-marker {
     background: var(--bg-primary);
-    border: 2px solid var(--accent-primary);
+    border: 2px solid #c1465f;
     border-radius: 50%;
     width: 48px;
     height: 48px;
@@ -162,48 +195,51 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     position: relative;
     color: var(--text-primary);
     font-weight: 600;
-    font-size: var(--text-sm);
+    font-size: var(--text-xs);
+    will-change: transform, box-shadow;
 }
 
 .timeline-marker:hover {
-    background: var(--accent-primary);
+    background: #c1465f;
     color: var(--text-primary);
-    transform: scale(1.1);
-    box-shadow: 0 0 20px rgba(107, 70, 193, 0.5);
+    transform: scale(1.15);
+    box-shadow: 0 0 25px rgba(193, 70, 95, 0.6);
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .timeline-marker[aria-pressed="true"] {
-    background: var(--accent-primary);
+    background: #c1465f;
     color: var(--text-primary);
-    box-shadow: 0 0 20px rgba(107, 70, 193, 0.6);
-    transform: scale(1.1);
+    box-shadow: 0 0 30px rgba(193, 70, 95, 0.7);
+    transform: scale(1.15);
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .year-label {
-    font-size: var(--text-xs);
+    font-size: 10px;
     font-weight: 600;
+    line-height: 1.2;
+    text-align: center;
 }
 
 /* ==========================================================================
-   Filter System
+   Integrated Filter Bar
    ========================================================================== */
-
-.filter-section {
-    padding: var(--space-8) 0;
-    background: var(--bg-primary);
-}
 
 .filter-bar {
     display: flex;
     gap: var(--space-6);
     align-items: end;
     padding: var(--space-6);
-    margin-bottom: var(--space-4);
+    margin-top: var(--space-4);
     flex-wrap: wrap;
+    background: var(--bg-primary);
+    border-radius: var(--border-radius-lg);
+    border: 1px solid var(--border-color);
 }
 
 .filter-group {
@@ -252,7 +288,7 @@
    ========================================================================== */
 
 .experience-grid-section {
-    padding: var(--space-12) 0;
+    padding: var(--space-8) 0;
     background: var(--bg-primary);
 }
 
@@ -260,7 +296,8 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     gap: var(--space-8);
-    margin-top: var(--space-8);
+    margin-top: var(--space-6);
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .experience-card {
@@ -269,37 +306,42 @@
     border: 1px solid rgba(107, 70, 193, 0.2);
     border-radius: var(--radius-lg);
     padding: var(--space-6);
-    transition: all 0.3s ease;
+    transition: all 1.2s cubic-bezier(0.34, 1.56, 0.64, 1);
     position: relative;
     overflow: hidden;
     cursor: pointer;
+    opacity: 1;
+    transform: translateY(0);
+    grid-column: span 1;
+    will-change: transform, opacity, box-shadow;
 }
 
-.experience-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 3px;
-    background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
-    transform: scaleX(0);
-    transition: transform 0.3s ease;
+.experience-card.fade-out {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+    pointer-events: none;
+    transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.experience-card.fade-in {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    transition: all 1.2s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 .experience-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 0 30px rgba(107, 70, 193, 0.3);
-    border-color: rgba(107, 70, 193, 0.4);
-}
-
-.experience-card:hover::before {
-    transform: scaleX(1);
+    transform: translateY(-12px) scale(1.02);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+    border-color: rgba(107, 70, 193, 0.5);
+    transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 .experience-card.expanded {
     grid-column: 1 / -1;
     background: rgba(26, 26, 26, 0.9);
+    transform: scale(1.03);
+    z-index: 10;
+    transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 .experience-header {
@@ -331,7 +373,7 @@
 .company-logo.fallback {
     font-size: var(--text-lg);
     font-weight: 700;
-    color: var(--accent-primary);
+    color: var(--text-primary);
 }
 
 .experience-info {
@@ -401,6 +443,9 @@
     display: flex;
     align-items: center;
     gap: var(--space-2);
+    pointer-events: auto;
+    position: relative;
+    z-index: 2;
 }
 
 .expand-btn:hover {
@@ -415,6 +460,61 @@
 
 .expand-btn.expanded::after {
     transform: rotate(180deg);
+}
+
+/* ==========================================================================
+   Experience Details Animation
+   ========================================================================== */
+
+.experience-details {
+    margin-top: var(--space-4);
+    padding-top: var(--space-4);
+    border-top: 1px solid rgba(107, 70, 193, 0.2);
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+    transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.experience-card.expanded .experience-details {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+/* ==========================================================================
+   Experience Images in Detailed View
+   ========================================================================== */
+
+.experience-images {
+    margin-bottom: var(--space-6);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    background: var(--bg-secondary);
+    border: 1px solid rgba(107, 70, 193, 0.2);
+}
+
+.experience-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    will-change: transform;
+}
+
+.experience-image:hover {
+    transform: scale(1.05);
+}
+
+/* Responsive image sizing */
+@media (min-width: 768px) {
+    .experience-image {
+        height: 250px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .experience-image {
+        height: 300px;
+    }
 }
 
 /* ==========================================================================
@@ -439,12 +539,30 @@
     border: 1px solid rgba(107, 70, 193, 0.2);
     border-radius: var(--radius-lg);
     padding: var(--space-6);
-    transition: all 0.3s ease;
+    transition: all 1.0s cubic-bezier(0.34, 1.56, 0.64, 1);
+    opacity: 1;
+    transform: translateY(0);
+    will-change: transform, opacity, box-shadow;
+}
+
+.skill-category.fade-out {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+    pointer-events: none;
+    transition: all 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.skill-category.fade-in {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    transition: all 1.0s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 .skill-category:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 0 20px rgba(107, 70, 193, 0.2);
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+    border-color: rgba(107, 70, 193, 0.5);
+    transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 .skill-category-title {
@@ -623,6 +741,24 @@
         padding: var(--space-8);
     }
     
+    /* Adjust timeline navigation for mobile header */
+    .timeline-nav-section {
+        top: 60px; /* Smaller offset for mobile header */
+    }
+    
+    /* Mobile logo sizing to match homepage */
+    .nav-logo img {
+        max-height: 32px;
+        width: auto;
+        height: auto;
+    }
+    
+    .footer-logo img {
+        max-height: 32px;
+        width: auto;
+        height: auto;
+    }
+    
     .timeline-markers {
         gap: var(--space-2);
         overflow-x: auto;
@@ -668,6 +804,21 @@
         width: 100%;
         max-width: 300px;
         justify-content: center;
+    }
+}
+
+@media (min-width: 480px) and (max-width: 767px) {
+    /* Landscape mobile logo sizing */
+    .nav-logo img {
+        max-height: 36px;
+        width: auto;
+        height: auto;
+    }
+    
+    .footer-logo img {
+        max-height: 36px;
+        width: auto;
+        height: auto;
     }
 }
 
