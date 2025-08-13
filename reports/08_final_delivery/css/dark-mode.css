@@ -3,20 +3,21 @@
    Implements glass morphism effects, noise textures, and accessibility compliance
    ========================================================================== */
 
-/* Dark Mode CSS Variables */
+/* Dark Mode CSS Variables - Enhanced Contrast */
 :root {
   /* Dark Theme Colors */
   --bg-primary: #0a0a0a;
   --bg-secondary: #1a1a1a;
   --bg-tertiary: #2a2a2a;
   --text-primary: #ffffff;
-  --text-secondary: #a0a0a0;
-  --text-tertiary: #666666;
+  --text-secondary: #b8b8b8;    /* Enhanced contrast from #a0a0a0 */
+  --text-tertiary: #888888;     /* Enhanced contrast from #666666 */
+  --text-light: #e0e0e0;        /* Enhanced contrast for descriptions */
   
-  /* Accent Colors - Changed to dark purple to match Ramy Eid's main picture */
-  --accent-primary: #6B46C1;    /* Changed from blue to dark purple */
-  --accent-secondary: #553C9A;   /* Changed from blue to darker purple */
-  --accent-orange: #C1465F;     /* Changed to soft red */
+  /* Accent Colors - Enhanced for better contrast */
+  --accent-primary: #8b6bd1;    /* Enhanced contrast from #6B46C1 */
+  --accent-secondary: #7b5bc1;  /* Enhanced contrast from #553C9A */
+  --accent-orange: #C1465F;     /* Soft red - already good contrast */
   --success-green: #10b981;
   --error-red: #ef4444;
   
@@ -103,6 +104,9 @@ body::before {
   top: 0;
   z-index: 100;
   box-shadow: var(--shadow-sm);
+  /* Header fade behavior support for all devices */
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  will-change: transform, opacity;
 }
 
 .nav-menu a {
@@ -474,14 +478,15 @@ body::before {
 }
 
 .project-description {
-  color: var(--text-secondary);
+  color: var(--text-light);
 }
 
 .tag {
-  background: var(--accent-primary);
-  color: var(--text-primary);
-  border: none;
+  background: rgba(107, 70, 193, 0.8);
+  color: #ffffff;
+  border: 1px solid rgba(107, 70, 193, 0.9);
   box-shadow: var(--glow-subtle);
+  font-weight: 600;
 }
 
 /* ==========================================================================

@@ -780,58 +780,73 @@ class ExperiencePage {
         const skillsGrid = document.querySelector('.skills-grid');
         if (!skillsGrid) return;
 
-                 const skillCategories = [
-             {
-                 title: "UX Design",
-                 icon: "🎨",
-                 skills: [
-                     { name: "User Research", level: 95 },
-                     { name: "Wireframing", level: 90 },
-                     { name: "Prototyping", level: 85 },
-                     { name: "Usability Testing", level: 90 }
-                 ]
-             },
-             {
-                 title: "AI/ML",
-                 icon: "🤖",
-                 skills: [
-                     { name: "Multi-Agent Systems", level: 85 },
-                     { name: "Cursor AI", level: 90 },
-                     { name: "Abacus.ai", level: 80 },
-                     { name: "AI-Powered Design", level: 85 }
-                 ]
-             },
-             {
-                 title: "Product Management",
-                 icon: "📊",
-                 skills: [
-                     { name: "Agile/Scrum", level: 85 },
-                     { name: "Product Discovery", level: 90 },
-                     { name: "Roadmapping", level: 80 },
-                     { name: "Stakeholder Management", level: 85 }
-                 ]
-             },
-             {
-                 title: "Education & Teaching",
-                 icon: "🎓",
-                 skills: [
-                     { name: "Curriculum Development", level: 90 },
-                     { name: "Student Mentoring", level: 85 },
-                     { name: "Design Thinking", level: 90 },
-                     { name: "Workshop Facilitation", level: 85 }
-                 ]
-             },
-             {
-                 title: "Research",
-                 icon: "🔬",
-                 skills: [
-                     { name: "User Testing", level: 90 },
-                     { name: "Data Analysis", level: 80 },
-                     { name: "Workshop Facilitation", level: 85 },
-                     { name: "Design Sprints", level: 90 }
-                 ]
-             }
-         ];
+        // Count project usage for each skill
+        const skillCounts = {};
+        this.experiences.forEach(experience => {
+            experience.skills.forEach(skill => {
+                skillCounts[skill] = (skillCounts[skill] || 0) + 1;
+            });
+        });
+
+        // Create skill categories based on actual skills used in experiences
+        const skillCategories = [
+            {
+                title: "UX Design",
+                icon: "🎨",
+                skills: [
+                    { name: "UX Design", count: skillCounts["UX Design"] || 0 },
+                    { name: "User Research", count: skillCounts["User Research"] || 0 },
+                    { name: "UI Design", count: skillCounts["UI Design"] || 0 },
+                    { name: "Prototyping", count: skillCounts["Prototyping"] || 0 },
+                    { name: "Accessibility", count: skillCounts["Accessibility"] || 0 }
+                ]
+            },
+            {
+                title: "AI/ML & Technology",
+                icon: "🤖",
+                skills: [
+                    { name: "AI/ML", count: skillCounts["AI/ML"] || 0 },
+                    { name: "Multi-Agent Systems", count: skillCounts["Multi-Agent Systems"] || 0 },
+                    { name: "Java Development", count: skillCounts["Java Development"] || 0 },
+                    { name: "Human Factors", count: skillCounts["Human Factors"] || 0 }
+                ]
+            },
+            {
+                title: "Product Management",
+                icon: "📊",
+                skills: [
+                    { name: "Product Management", count: skillCounts["Product Management"] || 0 },
+                    { name: "Agile", count: skillCounts["Agile"] || 0 },
+                    { name: "Agile Methodologies", count: skillCounts["Agile Methodologies"] || 0 },
+                    { name: "Project Management", count: skillCounts["Project Management"] || 0 },
+                    { name: "Change Management", count: skillCounts["Change Management"] || 0 }
+                ]
+            },
+            {
+                title: "Education & Teaching",
+                icon: "🎓",
+                skills: [
+                    { name: "Teaching", count: skillCounts["Teaching"] || 0 },
+                    { name: "UX/UI Design", count: skillCounts["UX/UI Design"] || 0 },
+                    { name: "Engineering Education", count: skillCounts["Engineering Education"] || 0 },
+                    { name: "Mobile Marketing", count: skillCounts["Mobile Marketing"] || 0 }
+                ]
+            },
+            {
+                title: "Workshop & Research",
+                icon: "🔬",
+                skills: [
+                    { name: "Workshop Facilitation", count: skillCounts["Workshop Facilitation"] || 0 },
+                    { name: "Design Sprints", count: skillCounts["Design Sprints"] || 0 },
+                    { name: "Data Analysis", count: skillCounts["Data Analysis"] || 0 },
+                    { name: "Design Systems", count: skillCounts["Design Systems"] || 0 },
+                    { name: "Design Thinking", count: skillCounts["Design Thinking"] || 0 },
+                    { name: "Interface Design", count: skillCounts["Interface Design"] || 0 },
+                    { name: "Research", count: skillCounts["Research"] || 0 },
+                    { name: "Mobile", count: skillCounts["Mobile"] || 0 }
+                ]
+            }
+        ];
 
         skillsGrid.innerHTML = '';
 
@@ -842,9 +857,7 @@ class ExperiencePage {
             const skillsHTML = category.skills.map(skill => `
                 <li class="skill-item">
                     <span class="skill-name">${skill.name}</span>
-                    <div class="skill-level">
-                        <div class="skill-level-fill" style="width: ${skill.level}%"></div>
-                    </div>
+                    <span class="skill-project-count">${skill.count}</span>
                 </li>
             `).join('');
 

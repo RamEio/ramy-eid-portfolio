@@ -11,7 +11,7 @@
   
   /* Neutral Colors */
   --text-dark: #334155;         /* Body text, headings */
-  --text-light: #64748B;        /* Secondary text, borders */
+  --text-light: #e0e0e0;        /* Enhanced contrast for descriptions */
   --background-white: #FFFFFF;   /* Primary background, cards */
   --background-gray: #F8FAFC;   /* Background, cards, sections */
   --border-light: #E2E8F0;      /* Borders, dividers */

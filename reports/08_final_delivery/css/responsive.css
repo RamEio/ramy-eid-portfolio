@@ -695,6 +695,13 @@
     color: #000000 !important;
   }
   
+  /* Enhanced contrast for mobile */
+  .skill-tag {
+    background: rgba(107, 70, 193, 0.9) !important;
+    color: #ffffff !important;
+    border: 1px solid rgba(107, 70, 193, 1) !important;
+  }
+  
   /* Hide non-essential elements */
   .nav-toggle,
   .hero-actions,

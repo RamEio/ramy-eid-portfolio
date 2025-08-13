@@ -85,8 +85,9 @@ function initMobileNavigation() {
 }
 
 /**
- * Initialize mobile header fade behavior
+ * Initialize header fade behavior
  * Hides header when scrolling down, shows when scrolling up
+ * Works on all devices for consistency
  */
 function initMobileHeaderFade() {
     const header = document.querySelector('.header');
@@ -99,13 +100,6 @@ function initMobileHeaderFade() {
     let lastScrollY = window.scrollY;
     let isScrolling = false;
     let scrollTimeout;
-    
-    // Only apply on mobile devices
-    const isMobile = window.innerWidth <= 767;
-    
-    if (!isMobile) {
-        return;
-    }
     
     // Add CSS classes for fade transitions
     header.style.transition = 'transform 0.3s ease-in-out, opacity 0.3s ease-in-out';
