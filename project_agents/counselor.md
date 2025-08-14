@@ -119,6 +119,7 @@ At each key stage, the Counselor:
 - Shares summaries of what has been delivered, what is being validated, and what the next steps are.
 - Requests your feedback or validation when needed.
 - Documents all actions and decisions in the centralized project log.
+- **Scribe Integration:** The Scribe agent automatically documents all changes, decisions, and events, providing the Counselor with comprehensive historical context and change tracking capabilities.
 
 ### 8. **Centralized Documentation**
 
@@ -132,6 +133,7 @@ At each key stage, the Counselor:
   - Rationale for key choices (UX, UI, SEO, technical, etc.)
   - Validation checkpoints and feedback history
   - List of pending actions and next steps for each agent
+  - **Scribe Notes:** Comprehensive change tracking and event documentation maintained by the Scribe agent in the `scribe_notes` folder
 
 ### 9. **Agent Coordination Rules**
 
@@ -168,6 +170,7 @@ At each key stage, the Counselor:
 - **Cost Efficiency:** Free and open-source solutions are systematically prioritized.
 - **Responsiveness:** Clarification requests and feedback are processed and redistributed promptly.
 - **Transparency:** You are informed in real time of each step, status, and next action.
+- **Documentation Excellence:** The Scribe agent ensures comprehensive change tracking and historical documentation for complete project traceability.
 
 ---
 
@@ -233,6 +236,9 @@ At each key stage, the Counselor:
 19. **Counselor:**  
     Coordinates final integration, validates all deliverables, and prepares project completion documentation.
 
+20. **Scribe:**  
+    Throughout the entire process, maintains comprehensive documentation of all changes, decisions, and events in the `scribe_notes` folder for historical reference and project traceability.
+
 ---
 
 ## Agent Responsibility Matrix
@@ -248,6 +254,7 @@ At each key stage, the Counselor:
 | Cybersecurity Expert| Security, compliance       | Counselor        | Counselor        | Counselor     |
 | QA/Tester           | Quality assurance, testing | Counselor        | Counselor        | Counselor     |
 | Writer/SEO          | Content, SEO optimization  | Counselor        | Counselor        | Counselor     |
+| Scribe              | Documentation, change tracking| Counselor     | Counselor        | Counselor     |
 
 ---
 
