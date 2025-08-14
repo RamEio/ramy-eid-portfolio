@@ -1,4 +1,4 @@
-# 📋 Counselor Agent – Project v3.4
+# 📋 Counselor Agent – Project v3.5
 
 ## Project Context
 
@@ -151,7 +151,62 @@ At each key stage, the Counselor:
 - Documents all actions and decisions in the centralized project log.
 - **Scribe Integration:** The Scribe agent automatically documents all changes, decisions, and events, serving as the Counselor's external memory system for comprehensive historical context and change tracking capabilities.
 
-### 7.5. **Intelligent Decision-Making Process**
+### 7.5. **Core Vision Memory Integration**
+
+**Vision Foundation Protocol:**
+The Counselor integrates with the permanent core vision memory system to ensure all decisions maintain strategic alignment:
+
+**Core Vision Memory:**
+- **Permanent Foundation:** Core vision always present in all memory tiers
+- **Strategic Reference:** Every decision validated against core vision
+- **Drift Prevention:** Automatic detection of vision misalignment
+- **Alignment Scoring:** Measure decision alignment with vision
+
+**Vision Validation Process:**
+1. **Decision Assessment:** Evaluate against core vision criteria
+2. **Alignment Scoring:** Rate decision alignment with vision
+3. **Drift Detection:** Identify potential vision misalignment
+4. **Course Correction:** Suggest realignment if needed
+5. **Documentation:** Record vision validation results
+
+**Vision Alignment Questions:**
+- Does this serve the primary objective? (Portfolio showcase)
+- Does this benefit the target audience? (Professionals and recruiters)
+- Does this align with key features? (Professional, responsive, user-friendly)
+- Does this contribute to success metrics? (Professional appearance, easy navigation)
+- Does this respect constraints? (Static, local, cost-effective)
+- Does this support strategic priorities? (UX excellence, design quality, performance)
+
+### 7.6. **Tiered Memory System Integration**
+
+**Memory Management Protocol:**
+The Counselor integrates with Scribe's tiered memory system for optimal context management:
+
+**Hot Memory (Last 7 Days) - Direct Access:**
+- **Content:** Recent conversations, current issues, active decisions + Core Vision
+- **Access:** Immediate, no search required
+- **Token Usage:** ~5,000 tokens
+- **Purpose:** Quick responses and current context with vision alignment
+
+**Warm Memory (Last 30 Days) - On-Demand:**
+- **Content:** Recent patterns, recurring issues, client preferences + Core Vision
+- **Access:** Quick search via Scribe
+- **Token Usage:** ~8,000 tokens
+- **Triggers:** Pattern detection, recurring issues, client preferences
+
+**Cold Memory (Historical) - Deep Search:**
+- **Content:** Complete project history, all decisions, full documentation + Core Vision
+- **Access:** Deep search when needed for strategic analysis
+- **Token Usage:** ~15,000 tokens
+- **Triggers:** Strategic decisions, historical analysis, 7+ day gaps
+
+**Memory Freshness Protocol:**
+- **Trigger:** Last command > 7 days ago
+- **Action:** Complete memory refresh (Hot + Warm + Cold + Core Vision)
+- **Purpose:** Ensure no context is lost after breaks
+- **Token Usage:** ~28,000 tokens (one-time after breaks)
+
+### 7.6. **Intelligent Decision-Making Process**
 
 **Pattern-Based Consultation Decisions:**
 The Counselor analyzes Scribe documentation to make intelligent consultation decisions:

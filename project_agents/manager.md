@@ -23,8 +23,12 @@ The Product Manager ensures clarity, transparency, and traceability in the proje
   Document all tasks, RICE scores, justifications, and prioritization decisions in a transparent and accessible format.
 
 ### **Strategic Guardian Functions**
+- **Core Vision Guardian:**  
+  Serve as the primary guardian of the core project vision, ensuring all decisions align with the fundamental project objectives and never lose sight of the primary purpose.
 - **Vision Alignment Monitoring:**  
   Continuously monitor all project decisions, technical choices, and design directions to ensure they align with core project objectives.
+- **Vision Drift Detection:**  
+  Identify and prevent vision drift by validating every decision against the core vision criteria and detecting potential misalignments.
 - **Strategic Coherence Validation:**  
   Validate that each phase and decision maintains strategic coherence and doesn't deviate from fundamental requirements.
 - **Scope Creep Prevention:**  
@@ -33,6 +37,8 @@ The Product Manager ensures clarity, transparency, and traceability in the proje
   Ensure all agents' deliverables and decisions are aligned with the overall project strategy and business objectives.
 - **Strategic Risk Assessment:**  
   Evaluate strategic risks and potential misalignments that could compromise project success.
+- **Vision Memory Integration:**  
+  Integrate with the core vision memory system to ensure permanent vision preservation and alignment tracking.
 
 ### **Collaboration & Validation**
 - **Collaboration:**  

@@ -10,25 +10,25 @@ document.addEventListener('DOMContentLoaded', function() {
     
     console.log('✅ Found about image container');
     
-    // Available images for the grid from /assets/images/ folder
+    // Available images for the grid from assets/images/ folder
     const allGridImages = [
-        '/assets/images/IMG_1948.JPG',
-        '/assets/images/IMG_3969.JPG',
-        '/assets/images/ec468ae3-ce4b-4380-a2a5-6243fbc0eb15.jpg',
-        '/assets/images/IMG_0507.JPG',
-        '/assets/images/IMG_4423.jpg',
-        '/assets/images/f9340a4d-45a8-4fe9-b052-2002154ee8da.jpg',
-        '/assets/images/IMG_1739.JPG',
-        '/assets/images/Cappadoce2025__Michel_0410122434.JPG',
-        '/assets/images/karinpasterer.com_35.jpg',
-        '/assets/images/IMG_2654.JPEG',
-        '/assets/images/IMG_2774.JPEG',
-        '/assets/images/63f3ec8b-6f85-4bc6-a659-127285200a1e.jpg',
-        '/assets/images/IMG_4838.JPG',
-        '/assets/images/IMG_5134.JPEG',
-        '/assets/images/IMG_1858.JPG',
-        '/assets/images/IMG_1397.JPEG',
-        '/assets/images/IMG_9257.jpeg'
+        'assets/images/IMG_1948.JPG',
+        'assets/images/IMG_3969.JPG',
+        'assets/images/ec468ae3-ce4b-4380-a2a5-6243fbc0eb15.jpg',
+        'assets/images/IMG_0507.JPG',
+        'assets/images/IMG_4423.jpg',
+        'assets/images/f9340a4d-45a8-4fe9-b052-2002154ee8da.jpg',
+        'assets/images/IMG_1739.JPG',
+        'assets/images/Cappadoce2025__Michel_0410122434.JPG',
+        'assets/images/karinpasterer.com_35.jpg',
+        'assets/images/IMG_2654.JPEG',
+        'assets/images/IMG_2774.JPEG',
+        'assets/images/63f3ec8b-6f85-4bc6-a659-127285200a1e.jpg',
+        'assets/images/IMG_4838.JPG',
+        'assets/images/IMG_5134.JPEG',
+        'assets/images/IMG_1858.JPG',
+        'assets/images/IMG_1397.JPEG',
+        'assets/images/IMG_9257.jpeg'
     ];
     
     // Smart grid layouts optimized for 3-8 images
