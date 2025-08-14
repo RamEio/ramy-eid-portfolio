@@ -65,17 +65,32 @@ Request a `.docx` export at each major milestone (e.g., end of design, before de
 
 ### 2. **Design Phase**
 
-- **Designer → Counselor:** Submits wireframes, user flows, and functional specifications.
-- **Counselor:** Validates design deliverables for completeness and alignment with brief.
+- **Counselor → Benchmarker:** Requests competitive analysis and market research to inform design decisions.
+- **Benchmarker → Counselor:** Submits comprehensive benchmark reports, competitive analysis, and design inspiration database.
+- **Counselor:** Validates research findings and distributes relevant insights to Designer.
+- **Designer → Counselor:** Submits wireframes, user flows, and functional specifications informed by benchmark research.
+- **Counselor:** Analyzes Scribe documentation for patterns and determines if consultation is needed.
+- **Counselor Decision:** Either consults Product Manager or proceeds with validation based on pattern analysis.
+- **If Consultation Needed:** Counselor → Product Manager for strategic validation of design deliverables.
+- **If No Consultation Needed:** Counselor proceeds with validation based on established patterns.
+- **Counselor:** Validates design deliverables for completeness and alignment with brief, market insights, and strategic vision.
 - **Counselor → Graphist:** Transmits validated wireframes for UI design.
 - **Graphist → Counselor:** Submits UI mockups, design system, and visual assets.
+- **Counselor:** Analyzes Scribe documentation for UI-related patterns and determines if consultation is needed.
+- **Counselor Decision:** Either consults Product Manager or proceeds with validation based on pattern analysis.
+- **If Consultation Needed:** Counselor → Product Manager for strategic validation of UI deliverables.
+- **If No Consultation Needed:** Counselor proceeds with validation based on established patterns.
 - **Counselor:** Validates UI deliverables and prepares comprehensive design package.
 
 ### 3. **Product Management Phase**
 
-- **Counselor → Product Manager:** Transmits complete design package (wireframes, mockups, specs).
-- **Product Manager → Counselor:** Submits RICE-prioritized backlog with task breakdown and justifications.
-- **Counselor:** Reviews RICE scores, validates prioritization logic, and ensures alignment with project goals.
+- **Counselor → Benchmarker:** Requests market analysis and competitive insights to inform product strategy and feature prioritization.
+- **Benchmarker → Counselor:** Submits market analysis, competitive landscape, and feature comparison insights.
+- **Counselor:** Validates market research and distributes relevant insights to Product Manager.
+- **Counselor → Product Manager:** Transmits complete design package (wireframes, mockups, specs) and market insights.
+- **Product Manager → Counselor:** Submits RICE-prioritized backlog with task breakdown and justifications informed by competitive analysis.
+- **Product Manager:** Acts as strategic guardian, validating all previous deliverables for alignment with global vision.
+- **Counselor:** Reviews RICE scores, validates prioritization logic, and ensures alignment with project goals and market positioning.
 - **Counselor:** Archives backlog and prepares development handoff documentation.
 
 ### 4. **Development & Security Phase**
@@ -86,6 +101,13 @@ Request a `.docx` export at each major milestone (e.g., end of design, before de
   - Researches and selects APIs, always prioritizing free/open-source options.
   - Implements features, documents all technical decisions, and ensures technical consistency.
   - Reports progress, technical risks, and blocking points in real time.
+- **Counselor:** Analyzes Scribe documentation for technical patterns and determines if consultation is needed.
+- **Counselor Decision:** Either consults Product Manager or proceeds with validation based on pattern analysis.
+- **If Consultation Needed:** Counselor → Product Manager for strategic validation of technical stack and architecture choices.
+- **If No Consultation Needed:** Counselor proceeds with validation based on established patterns.
+- **Counselor:** Continuously monitors technical decisions through Scribe documentation for strategic alignment.
+- **If Pattern Indicates Risk:** Counselor → Product Manager for strategic validation of technical decisions.
+- **If No Risk Detected:** Counselor proceeds with validation based on established patterns.
 - **Counselor → Cybersecurity Expert:**  
   - Transmits technical stack, architecture, and deliverables for security audit and compliance review at key milestones (design, pre-development, pre-deployment).
 - **Cybersecurity Expert → Counselor:**  
@@ -98,6 +120,10 @@ Request a `.docx` export at each major milestone (e.g., end of design, before de
 
 - **Counselor → Writer/SEO:** Transmits design specs and content requirements.
 - **Writer/SEO → Counselor:** Submits optimized content and SEO recommendations.
+- **Counselor:** Analyzes Scribe documentation for content/SEO patterns and determines if consultation is needed.
+- **Counselor Decision:** Either consults Product Manager or proceeds with validation based on pattern analysis.
+- **If Consultation Needed:** Counselor → Product Manager for strategic validation of content strategy and SEO approach.
+- **If No Consultation Needed:** Counselor proceeds with validation based on established patterns.
 - **Counselor:** Coordinates content integration with Lead Developer and ensures SEO compliance.
 
 ### 6. **Quality Assurance Phase**
@@ -106,6 +132,10 @@ Request a `.docx` export at each major milestone (e.g., end of design, before de
   - Transmits deliverables, test plans, and acceptance criteria for each milestone or release candidate.
 - **QA/Tester → Counselor:**  
   - Executes tests, reports bugs, validates fixes, and confirms acceptance or requests further changes.
+- **Counselor:** Analyzes Scribe documentation for quality patterns and determines if consultation is needed.
+- **Counselor Decision:** Either consults Product Manager or proceeds with validation based on pattern analysis.
+- **If Consultation Needed:** Counselor → Product Manager for strategic validation of quality standards and acceptance criteria.
+- **If No Consultation Needed:** Counselor proceeds with validation based on established patterns.
 - **Counselor:**  
   - Coordinates bug fixes and retesting with Lead Developer and other agents as needed.
   - Ensures all acceptance criteria and quality standards are met before release.
@@ -119,7 +149,33 @@ At each key stage, the Counselor:
 - Shares summaries of what has been delivered, what is being validated, and what the next steps are.
 - Requests your feedback or validation when needed.
 - Documents all actions and decisions in the centralized project log.
-- **Scribe Integration:** The Scribe agent automatically documents all changes, decisions, and events, providing the Counselor with comprehensive historical context and change tracking capabilities.
+- **Scribe Integration:** The Scribe agent automatically documents all changes, decisions, and events, serving as the Counselor's external memory system for comprehensive historical context and change tracking capabilities.
+
+### 7.5. **Intelligent Decision-Making Process**
+
+**Pattern-Based Consultation Decisions:**
+The Counselor analyzes Scribe documentation to make intelligent consultation decisions:
+
+**Consultation Required Indicators:**
+- **"Multiple changes detected in [feature] - Consultation with Product Manager needed"**
+- **"Cross-agent conflict identified - Strategic validation required"**
+- **"Scope boundary approaching - Product Manager consultation initiated"**
+- **"Strategic drift detected - Consultation with Product Manager for alignment"**
+- **"Quality degradation pattern - Strategic review needed"**
+
+**No Consultation Required Indicators:**
+- **"Single feature refinement within scope - No consultation needed"**
+- **"Technical optimization without strategic impact - Proceeding with validation"**
+- **"Bug fix within established parameters - No strategic consultation required"**
+- **"Documentation update - Proceeding without consultation"**
+- **"Performance enhancement within architecture - No consultation needed"**
+
+**Intelligent Analysis Process:**
+1. **Pattern Recognition:** Counselor analyzes Scribe notes for concerning patterns
+2. **Risk Assessment:** Evaluates strategic impact and risk level of changes
+3. **Threshold Evaluation:** Determines if changes exceed consultation thresholds
+4. **Decision Communication:** Clearly indicates consultation decision and rationale
+5. **Action Execution:** Proceeds with appropriate validation or consultation
 
 ### 8. **Centralized Documentation**
 
@@ -135,6 +191,50 @@ At each key stage, the Counselor:
   - List of pending actions and next steps for each agent
   - **Scribe Notes:** Comprehensive change tracking and event documentation maintained by the Scribe agent in the `scribe_notes` folder
 
+### 9. **Smart Scribe-Based Consultation Protocol**
+
+**Intelligent Consultation Strategy:**
+The Counselor analyzes Scribe documentation patterns to determine when Product Manager consultation is needed, ensuring strategic oversight while maintaining operational efficiency.
+
+**High-Risk Patterns (Automatic Consultation Required):**
+- **Multiple changes** to the same feature in short time period
+- **Cross-agent conflicts** detected in documentation patterns
+- **Scope creep indicators** from cumulative change analysis
+- **Strategic drift** identified through trend analysis
+- **Quality degradation** patterns in deliverables
+- **Risk accumulation** from multiple small changes
+- **Cross-agent dependency conflicts** in implementation
+- **Strategic boundary violations** in feature additions
+
+**Low-Risk Patterns (No Consultation Needed):**
+- **Single feature refinements** within established scope
+- **Technical optimizations** without strategic impact
+- **Bug fixes** and minor improvements
+- **Documentation updates** and clarifications
+- **Performance enhancements** within existing architecture
+- **UI/UX refinements** within approved design direction
+- **Content updates** within established strategy
+- **Minor technical adjustments** without architectural impact
+
+**Smart Consultation Process:**
+1. **Scribe documents** all agent activities and changes
+2. **Counselor analyzes** Scribe documentation for patterns and trends
+3. **Counselor evaluates** risk level and strategic impact of changes
+4. **Counselor determines** if consultation is needed based on pattern analysis
+5. **If consultation needed:** Counselor automatically consults Product Manager
+6. **If no consultation needed:** Counselor proceeds with validation
+7. **Scribe documents** the consultation decision and outcome
+
+**Pattern Analysis Capabilities:**
+- **Change Frequency Analysis:** Track how often specific areas are modified
+- **Cross-Agent Dependency Mapping:** Identify conflicts between agent deliverables
+- **Scope Boundary Monitoring:** Detect when changes approach scope limits
+- **Strategic Alignment Tracking:** Monitor drift from core objectives
+- **Quality Trend Analysis:** Identify patterns in deliverable quality
+- **Risk Accumulation Assessment:** Evaluate cumulative impact of small changes
+- **Conflict Detection:** Identify inconsistencies between agent outputs
+- **Trend Prediction:** Anticipate potential issues before they occur
+
 ### 9. **Agent Coordination Rules**
 
 - **No Direct Communication:** Agents never communicate directly with each other or with you.
@@ -142,6 +242,7 @@ At each key stage, the Counselor:
 - **Clear Instructions:** The Counselor provides specific, actionable instructions to each agent.
 - **Validation Gates:** No deliverable moves to the next phase without Counselor validation.
 - **Feedback Loop:** All feedback, questions, and clarifications flow through the Counselor.
+- **Smart Strategic Consultation:** The Counselor **intelligently analyzes Scribe documentation patterns** to determine when Product Manager consultation is needed, ensuring strategic oversight while maintaining operational efficiency.
 
 ---
 
@@ -182,10 +283,19 @@ At each key stage, the Counselor:
 2. **Counselor:**  
    Confirms receipt, requests missing info if needed, and launches the Designer.
 
-3. **Designer → Counselor:**  
-   Submits wireframes, user flows, and functional specifications.
+3. **Counselor → Benchmarker:**  
+   Requests competitive analysis and market research to inform design decisions.
 
-4. **Counselor:**  
+4. **Benchmarker → Counselor:**  
+   Submits comprehensive benchmark reports, competitive analysis, and design inspiration database.
+
+5. **Counselor:**  
+   Validates research findings and distributes relevant insights to Designer.
+
+6. **Designer → Counselor:**  
+   Submits wireframes, user flows, and functional specifications informed by benchmark research.
+
+7. **Counselor:**  
    Validates design deliverables, archives, updates documentation, and informs you.  
    Transmits to the Graphist with clear instructions.
 
@@ -196,47 +306,56 @@ At each key stage, the Counselor:
    Validates UI deliverables, archives, updates documentation, and informs you.  
    Prepares complete design package for Product Manager.
 
-7. **Counselor → Product Manager:**  
-   Transmits validated design package with clear task breakdown requirements.
+7. **Counselor → Benchmarker:**  
+   Requests market analysis and competitive insights to inform product strategy.
 
-8. **Product Manager → Counselor:**  
-   Submits RICE-prioritized backlog with task definitions and justifications.
+8. **Benchmarker → Counselor:**  
+   Submits market analysis, competitive landscape, and feature comparison insights.
 
 9. **Counselor:**  
-   Reviews RICE prioritization, validates logic, archives backlog, and informs you.  
-   Requests your approval on prioritization if needed.
+   Validates market research and distributes relevant insights to Product Manager.
 
-10. **Counselor → Lead Developer:**  
-    Transmits validated, prioritized backlog and technical requirements.
+10. **Counselor → Product Manager:**  
+    Transmits validated design package with market insights and clear task breakdown requirements.
 
-11. **Lead Developer → Counselor:**  
+11. **Product Manager → Counselor:**  
+    Submits RICE-prioritized backlog with task definitions and justifications informed by competitive analysis.
+
+12. **Counselor:**  
+    Reviews RICE prioritization, validates logic, archives backlog, and informs you.  
+    Requests your approval on prioritization if needed.
+
+13. **Counselor → Lead Developer:**  
+     Transmits validated, prioritized backlog and technical requirements.
+
+14. **Lead Developer → Counselor:**  
     Proposes stack and APIs, implements features, documents all technical decisions, and reports progress or risks.
 
-12. **Counselor → Cybersecurity Expert:**  
+15. **Counselor → Cybersecurity Expert:**  
     Transmits technical stack, architecture, and deliverables for security audit and compliance review.
 
-13. **Cybersecurity Expert → Counselor:**  
+16. **Cybersecurity Expert → Counselor:**  
     Provides security audit reports, compliance recommendations, and incident notifications.
 
-14. **Counselor:**  
+17. **Counselor:**  
     Validates technical and security choices, arbitrates if needed, and coordinates with other agents.
 
-15. **Counselor → Writer/SEO:**  
+18. **Counselor → Writer/SEO:**  
     Transmits design specs and content requirements (parallel or sequential as needed).
 
-16. **Writer/SEO → Counselor:**  
+19. **Writer/SEO → Counselor:**  
     Submits optimized content and SEO recommendations.
 
-17. **Counselor → QA/Tester:**  
+20. **Counselor → QA/Tester:**  
     Transmits deliverables, test plans, and acceptance criteria for validation.
 
-18. **QA/Tester → Counselor:**  
+21. **QA/Tester → Counselor:**  
     Executes tests, reports bugs, validates fixes, and confirms acceptance or requests further changes.
 
-19. **Counselor:**  
+22. **Counselor:**  
     Coordinates final integration, validates all deliverables, and prepares project completion documentation.
 
-20. **Scribe:**  
+23. **Scribe:**  
     Throughout the entire process, maintains comprehensive documentation of all changes, decisions, and events in the `scribe_notes` folder for historical reference and project traceability.
 
 ---
@@ -255,6 +374,7 @@ At each key stage, the Counselor:
 | QA/Tester           | Quality assurance, testing | Counselor        | Counselor        | Counselor     |
 | Writer/SEO          | Content, SEO optimization  | Counselor        | Counselor        | Counselor     |
 | Scribe              | Documentation, change tracking| Counselor     | Counselor        | Counselor     |
+| Benchmarker         | Competitive analysis, market research| Counselor | Counselor        | Counselor     |
 
 ---
 
