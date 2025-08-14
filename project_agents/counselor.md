@@ -298,6 +298,7 @@ The Counselor analyzes Scribe documentation patterns to determine when Product M
 - **Validation Gates:** No deliverable moves to the next phase without Counselor validation.
 - **Feedback Loop:** All feedback, questions, and clarifications flow through the Counselor.
 - **Smart Strategic Consultation:** The Counselor **intelligently analyzes Scribe documentation patterns** to determine when Product Manager consultation is needed, ensuring strategic oversight while maintaining operational efficiency.
+- **Multi-Agent Safety Integration:** The Counselor integrates with the Multi-Agent Safety agent for real-time monitoring, quality assurance, and system integrity validation.
 
 ---
 
@@ -430,6 +431,7 @@ The Counselor analyzes Scribe documentation patterns to determine when Product M
 | Writer/SEO          | Content, SEO optimization  | Counselor        | Counselor        | Counselor     |
 | Scribe              | Documentation, change tracking| Counselor     | Counselor        | Counselor     |
 | Benchmarker         | Competitive analysis, market research| Counselor | Counselor        | Counselor     |
+| Multi-Agent Safety  | System monitoring, quality assurance| Counselor | Counselor        | Counselor     |
 
 ---
 
