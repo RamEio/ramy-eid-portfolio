@@ -17,18 +17,21 @@ class ExperiencePage {
     }
 
     init() {
+        console.log('🎯 ExperiencePage: Initializing...');
         this.loadExperiences();
         this.initTimelineNavigation();
         this.initFilterSystem();
         this.initCardExpansion();
         this.initScrollEffects();
         this.initAccessibility();
+        console.log('✅ ExperiencePage: Initialization complete');
     }
 
     /**
      * Load and populate experience data
      */
     loadExperiences() {
+        console.log('📊 Loading experiences...');
         this.experiences = [
             {
                 id: 1,
@@ -207,7 +210,7 @@ class ExperiencePage {
                 ],
                 skills: ["AI/ML", "Multi-Agent Systems", "UX Design", "Product Management"],
                 projectType: "consulting",
-                logo: "/assets/LOGO EID.png",
+                logo: "assets/LOGO EID.png",
                 logoFallback: "EID"
             },
             {
@@ -227,7 +230,7 @@ class ExperiencePage {
                 ],
                 skills: ["AI/ML", "Multi-Agent Systems", "UX Design", "Product Management"],
                 projectType: "consulting",
-                logo: "/assets/LOGO EID.png",
+                logo: "assets/LOGO EID.png",
                 logoFallback: "EID"
             },
             {
@@ -256,6 +259,7 @@ class ExperiencePage {
         this.experiences.sort((a, b) => b.year - a.year);
         
         this.filteredExperiences = [...this.experiences];
+        console.log(`📊 Loaded ${this.experiences.length} experiences`);
         this.renderExperiences();
         this.renderSkills();
     }
@@ -670,9 +674,13 @@ class ExperiencePage {
            /**
             * Render experience cards (original method for initial load)
             */
-           renderExperiences() {
-               const experienceGrid = document.querySelector('.experience-grid');
-               if (!experienceGrid) return;
+               renderExperiences() {
+        const experienceGrid = document.querySelector('.experience-grid');
+        if (!experienceGrid) {
+            console.error('❌ Experience grid not found!');
+            return;
+        }
+        console.log('🎨 Rendering experiences...');
        
                experienceGrid.innerHTML = '';
        
