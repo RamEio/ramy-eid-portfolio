@@ -1,5 +1,5 @@
 [build]
-  publish = "reports/08_final_delivery"
+  publish = "."
   command = "echo 'Build completed'"
 
 [build.environment]
