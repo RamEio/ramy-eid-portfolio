@@ -433,8 +433,8 @@
 }
 
 .company-logo {
-    width: 48px;
-    height: 48px;
+    width: 56px;
+    height: 56px;
     border-radius: var(--radius-md);
     background: var(--bg-secondary);
     display: flex;
@@ -442,6 +442,7 @@
     justify-content: center;
     flex-shrink: 0;
     border: 1px solid rgba(107, 70, 193, 0.2);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .company-logo img {
@@ -449,6 +450,16 @@
     height: 100%;
     object-fit: cover;
     border-radius: var(--radius-md);
+    transition: transform 0.2s ease;
+}
+
+.company-logo:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(107, 70, 193, 0.2);
+}
+
+.company-logo:hover img {
+    transform: scale(1.05);
 }
 
 .company-logo.fallback {
@@ -866,6 +877,16 @@
     
     .experience-card {
         padding: var(--space-4);
+    }
+    
+    /* Mobile logo sizing */
+    .company-logo {
+        width: 44px;
+        height: 44px;
+    }
+    
+    .company-logo.fallback {
+        font-size: var(--text-base);
     }
     
     .skills-grid {
