@@ -335,6 +335,7 @@ class Phase2ExperiencePage {
         console.log(`📊 Loaded ${this.experiences.length} Phase 2 enhanced experiences`);
         this.renderExperiences();
         this.renderSkills();
+        this.updateFilterResults();
     }
 
     /**
@@ -568,6 +569,23 @@ class Phase2ExperiencePage {
     }
 
     /**
+     * Update filter results count
+     */
+    updateFilterResults() {
+        const resultsCount = document.getElementById('results-count');
+        if (!resultsCount) return;
+        
+        const count = this.filteredExperiences.length;
+        const total = this.experiences.length;
+        
+        if (count === total) {
+            resultsCount.textContent = `Showing all ${total} experiences`;
+        } else {
+            resultsCount.textContent = `Showing ${count} of ${total} experiences`;
+        }
+    }
+
+    /**
      * Initialize lazy loading for expanded card images
      */
     initializeExpandedCardLazyLoading() {
@@ -739,6 +757,7 @@ class Phase2ExperiencePage {
             this.filteredExperiences = this.experiences.filter(exp => exp.timelinePeriod === period);
         }
         this.renderExperiences();
+        this.updateFilterResults();
     }
 
     /**
@@ -757,6 +776,54 @@ class Phase2ExperiencePage {
                 btn.classList.add('active');
             });
         });
+
+        // Initialize clear filters functionality
+        this.initClearFilters();
+    }
+
+    /**
+     * Initialize clear filters functionality
+     */
+    initClearFilters() {
+        const clearFiltersBtn = document.getElementById('clear-filters');
+        if (clearFiltersBtn) {
+            clearFiltersBtn.addEventListener('click', () => {
+                this.clearAllFilters();
+            });
+        }
+    }
+
+    /**
+     * Clear all filters and reset to show all experiences
+     */
+    clearAllFilters() {
+        // Reset filtered experiences to all
+        this.filteredExperiences = [...this.experiences];
+        
+        // Reset active filter buttons
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        filterButtons.forEach(btn => btn.classList.remove('active'));
+        
+        // Reset active timeline markers
+        const timelineMarkers = document.querySelectorAll('.timeline-marker');
+        timelineMarkers.forEach(marker => marker.classList.remove('active'));
+        
+        // Reset active skill filters
+        const skillButtons = document.querySelectorAll('.skill-filter-btn');
+        skillButtons.forEach(btn => btn.classList.remove('active'));
+        
+        // Reset dropdown selections
+        const companySelect = document.getElementById('company-filter');
+        const skillsSelect = document.getElementById('skills-filter');
+        const projectSelect = document.getElementById('project-filter');
+        
+        if (companySelect) companySelect.value = 'all';
+        if (skillsSelect) skillsSelect.value = 'all';
+        if (projectSelect) projectSelect.value = 'all';
+        
+        // Re-render and update count
+        this.renderExperiences();
+        this.updateFilterResults();
     }
 
     /**
@@ -769,6 +836,7 @@ class Phase2ExperiencePage {
             this.filteredExperiences = this.experiences.filter(exp => exp.projectType === filterType);
         }
         this.renderExperiences();
+        this.updateFilterResults();
     }
 
     /**
@@ -811,6 +879,7 @@ class Phase2ExperiencePage {
             exp.skills.includes(skill)
         );
         this.renderExperiences();
+        this.updateFilterResults();
     }
 
     /**
