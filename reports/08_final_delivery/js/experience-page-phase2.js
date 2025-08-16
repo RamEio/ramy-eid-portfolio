@@ -741,8 +741,12 @@ class Phase2ExperiencePage {
                 this.filterByTimeline(period);
                 
                 // Update active marker
-                timelineMarkers.forEach(m => m.classList.remove('active'));
+                timelineMarkers.forEach(m => {
+                    m.classList.remove('active');
+                    m.setAttribute('aria-pressed', 'false');
+                });
                 marker.classList.add('active');
+                marker.setAttribute('aria-pressed', 'true');
             });
         });
     }
@@ -754,7 +758,17 @@ class Phase2ExperiencePage {
         if (period === 'all') {
             this.filteredExperiences = [...this.experiences];
         } else {
-            this.filteredExperiences = this.experiences.filter(exp => exp.timelinePeriod === period);
+            // Define timeline hierarchy for inclusive filtering
+            const timelineHierarchy = {
+                'Current': ['Current'],
+                '3+ years ago': ['Current', '3+ years ago'],
+                '7+ years ago': ['Current', '3+ years ago', '7+ years ago']
+            };
+            
+            const allowedPeriods = timelineHierarchy[period] || [period];
+            this.filteredExperiences = this.experiences.filter(exp => 
+                allowedPeriods.includes(exp.timelinePeriod)
+            );
         }
         this.renderExperiences();
         this.updateFilterResults();
@@ -804,9 +818,19 @@ class Phase2ExperiencePage {
         const filterButtons = document.querySelectorAll('.filter-btn');
         filterButtons.forEach(btn => btn.classList.remove('active'));
         
-        // Reset active timeline markers
+        // Reset active timeline markers and set default to "Current"
         const timelineMarkers = document.querySelectorAll('.timeline-marker');
-        timelineMarkers.forEach(marker => marker.classList.remove('active'));
+        timelineMarkers.forEach(marker => {
+            marker.classList.remove('active');
+            marker.setAttribute('aria-pressed', 'false');
+        });
+        
+        // Set "Current" as default active
+        const currentMarker = document.querySelector('.timeline-marker[data-period="Current"]');
+        if (currentMarker) {
+            currentMarker.classList.add('active');
+            currentMarker.setAttribute('aria-pressed', 'true');
+        }
         
         // Reset active skill filters
         const skillButtons = document.querySelectorAll('.skill-filter-btn');
@@ -817,9 +841,9 @@ class Phase2ExperiencePage {
         const skillsSelect = document.getElementById('skills-filter');
         const projectSelect = document.getElementById('project-filter');
         
-        if (companySelect) companySelect.value = 'all';
-        if (skillsSelect) skillsSelect.value = 'all';
-        if (projectSelect) projectSelect.value = 'all';
+        if (companySelect) companySelect.value = '';
+        if (skillsSelect) skillsSelect.value = '';
+        if (projectSelect) projectSelect.value = '';
         
         // Re-render and update count
         this.renderExperiences();
