@@ -349,6 +349,7 @@ class Phase2ExperiencePage {
                         if (img.dataset.src) {
                             img.src = img.dataset.src;
                             img.classList.remove('lazy');
+                            img.classList.add('loaded');
                             img.removeAttribute('data-src');
                             observer.unobserve(img);
                         }
@@ -358,7 +359,25 @@ class Phase2ExperiencePage {
                 rootMargin: '50px 0px',
                 threshold: 0.1
             });
+        } else {
+            // Fallback for browsers without IntersectionObserver
+            this.loadAllImagesImmediately();
         }
+    }
+
+    /**
+     * Fallback method to load all images immediately
+     */
+    loadAllImagesImmediately() {
+        const lazyImages = document.querySelectorAll('img[data-src]');
+        lazyImages.forEach(img => {
+            if (img.dataset.src) {
+                img.src = img.dataset.src;
+                img.classList.remove('lazy');
+                img.classList.add('loaded');
+                img.removeAttribute('data-src');
+            }
+        });
     }
 
     /**
@@ -493,11 +512,10 @@ class Phase2ExperiencePage {
         const images = experience.visualContent.slice(0, 6); // Limit to 6 images for performance
         const imageHTML = images.map((src, index) => `
             <div class="gallery-item">
-                <img src="${src}" 
+                <img data-src="${src}" 
                      alt="Project visualization ${index + 1}" 
-                     class="experience-image" 
+                     class="experience-image lazy" 
                      loading="lazy"
-                     data-src="${src}"
                      onerror="this.style.display='none';">
             </div>
         `).join('');
@@ -549,7 +567,284 @@ class Phase2ExperiencePage {
         }
     }
 
-    // ... rest of the methods remain the same
+    /**
+     * Initialize lazy loading for expanded card images
+     */
+    initializeExpandedCardLazyLoading() {
+        if (this.imageObserver) {
+            const lazyImages = document.querySelectorAll('.experience-details img[data-src]');
+            lazyImages.forEach(img => {
+                this.imageObserver.observe(img);
+            });
+        } else {
+            // Fallback: load images immediately if no observer
+            const lazyImages = document.querySelectorAll('.experience-details img[data-src]');
+            lazyImages.forEach(img => {
+                if (img.dataset.src) {
+                    img.src = img.dataset.src;
+                    img.classList.remove('lazy');
+                    img.classList.add('loaded');
+                    img.removeAttribute('data-src');
+                }
+            });
+        }
+    }
+
+    /**
+     * Initialize card expansion functionality
+     */
+    initCardExpansion() {
+        document.addEventListener('click', (e) => {
+            const card = e.target.closest('.experience-card');
+            if (card && !e.target.classList.contains('expand-btn')) {
+                e.preventDefault();
+                this.toggleCardExpansion(card);
+            } else if (e.target.classList.contains('expand-btn')) {
+                e.preventDefault();
+                const card = e.target.closest('.experience-card');
+                this.toggleCardExpansion(card);
+            }
+        });
+    }
+
+    /**
+     * Toggle experience card expansion with smooth animation
+     */
+    toggleCardExpansion(card) {
+        const expandBtn = card.querySelector('.expand-btn');
+        const isExpanded = card.classList.contains('expanded');
+        const experienceDetails = card.querySelector('.experience-details');
+
+        if (isExpanded) {
+            // Collapse card
+            card.classList.remove('expanded');
+            expandBtn.classList.remove('expanded');
+            expandBtn.textContent = 'View Details';
+            
+            // Hide details with animation
+            experienceDetails.style.display = 'none';
+            
+            // Trigger layout recalculation for smooth animation
+            setTimeout(() => {
+                this.updateCardLayout();
+            }, 10);
+        } else {
+            // Close other expanded cards first
+            document.querySelectorAll('.experience-card.expanded').forEach(expandedCard => {
+                expandedCard.classList.remove('expanded');
+                const otherBtn = expandedCard.querySelector('.expand-btn');
+                const otherDetails = expandedCard.querySelector('.experience-details');
+                otherBtn.classList.remove('expanded');
+                otherBtn.textContent = 'View Details';
+                otherDetails.style.display = 'none';
+            });
+
+            // Expand current card
+            card.classList.add('expanded');
+            expandBtn.classList.add('expanded');
+            expandBtn.textContent = 'Show Less';
+            
+                         // Show details with animation
+             experienceDetails.style.display = 'block';
+             
+             // Initialize lazy loading for newly visible images
+             setTimeout(() => {
+                 this.initializeExpandedCardLazyLoading();
+             }, 100);
+             
+             // Trigger layout recalculation for smooth animation
+             setTimeout(() => {
+                 this.updateCardLayout();
+             }, 10);
+        }
+    }
+
+    /**
+     * Update card layout for smooth animations
+     */
+    updateCardLayout() {
+        const experienceGrid = document.querySelector('.experience-grid');
+        if (experienceGrid) {
+            // Force layout recalculation
+            experienceGrid.style.display = 'none';
+            experienceGrid.offsetHeight; // Trigger reflow
+            experienceGrid.style.display = 'grid';
+        }
+    }
+
+    /**
+     * Initialize scroll effects
+     */
+    initScrollEffects() {
+        // Smooth scroll for hero arrow
+        const scrollArrow = document.querySelector('.scroll-arrow');
+        if (scrollArrow) {
+            scrollArrow.addEventListener('click', () => {
+                const timelineSection = document.querySelector('.timeline-filter-section');
+                timelineSection.scrollIntoView({ behavior: 'smooth' });
+            });
+        }
+
+        // Intersection Observer for timeline markers
+        this.initTimelineIntersectionObserver();
+    }
+
+    /**
+     * Initialize intersection observer for timeline
+     */
+    initTimelineIntersectionObserver() {
+        const experienceCards = document.querySelectorAll('.experience-card');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        });
+
+        experienceCards.forEach(card => {
+            observer.observe(card);
+        });
+    }
+
+    /**
+     * Initialize timeline navigation
+     */
+    initTimelineNavigation() {
+        const timelineMarkers = document.querySelectorAll('.timeline-marker');
+        
+        timelineMarkers.forEach(marker => {
+            marker.addEventListener('click', () => {
+                const period = marker.getAttribute('data-period');
+                this.filterByTimeline(period);
+                
+                // Update active marker
+                timelineMarkers.forEach(m => m.classList.remove('active'));
+                marker.classList.add('active');
+            });
+        });
+    }
+
+    /**
+     * Filter experiences by timeline period
+     */
+    filterByTimeline(period) {
+        if (period === 'all') {
+            this.filteredExperiences = [...this.experiences];
+        } else {
+            this.filteredExperiences = this.experiences.filter(exp => exp.timelinePeriod === period);
+        }
+        this.renderExperiences();
+    }
+
+    /**
+     * Initialize filter system
+     */
+    initFilterSystem() {
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        
+        filterButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const filterType = btn.getAttribute('data-filter');
+                this.applyFilter(filterType);
+                
+                // Update active filter
+                filterButtons.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+            });
+        });
+    }
+
+    /**
+     * Apply filter to experiences
+     */
+    applyFilter(filterType) {
+        if (filterType === 'all') {
+            this.filteredExperiences = [...this.experiences];
+        } else {
+            this.filteredExperiences = this.experiences.filter(exp => exp.projectType === filterType);
+        }
+        this.renderExperiences();
+    }
+
+    /**
+     * Render skills filter
+     */
+    renderSkills() {
+        const skillsContainer = document.querySelector('.skills-filter');
+        if (!skillsContainer) return;
+
+        const allSkills = new Set();
+        this.experiences.forEach(exp => {
+            exp.skills.forEach(skill => allSkills.add(skill));
+        });
+
+        const skillsHTML = Array.from(allSkills).map(skill => 
+            `<button class="skill-filter-btn" data-skill="${skill}">${skill}</button>`
+        ).join('');
+
+        skillsContainer.innerHTML = skillsHTML;
+
+        // Add event listeners
+        const skillButtons = document.querySelectorAll('.skill-filter-btn');
+        skillButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const skill = btn.getAttribute('data-skill');
+                this.filterBySkill(skill);
+                
+                // Update active skill filter
+                skillButtons.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+            });
+        });
+    }
+
+    /**
+     * Filter experiences by skill
+     */
+    filterBySkill(skill) {
+        this.filteredExperiences = this.experiences.filter(exp => 
+            exp.skills.includes(skill)
+        );
+        this.renderExperiences();
+    }
+
+    /**
+     * Initialize accessibility features
+     */
+    initAccessibility() {
+        // Keyboard navigation for experience cards
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                const focusedElement = document.activeElement;
+                if (focusedElement.classList.contains('expand-btn')) {
+                    e.preventDefault();
+                    const card = focusedElement.closest('.experience-card');
+                    this.toggleCardExpansion(card);
+                }
+            }
+        });
+
+        // Focus management for expanded cards
+        document.addEventListener('click', (e) => {
+            if (e.target.classList.contains('expand-btn')) {
+                const card = e.target.closest('.experience-card');
+                const details = card.querySelector('.experience-details');
+                
+                if (card.classList.contains('expanded')) {
+                    // Focus first interactive element in details
+                    const firstFocusable = details.querySelector('button, a, input, select, textarea, [tabindex]:not([tabindex="-1"])');
+                    if (firstFocusable) {
+                        setTimeout(() => firstFocusable.focus(), 100);
+                    }
+                }
+            }
+        });
+    }
 }
 
 // Initialize the Phase 2 experience page when DOM is loaded
