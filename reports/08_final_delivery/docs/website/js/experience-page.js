@@ -18,6 +18,8 @@
  * lazy loading, performance optimization, and advanced interactions
  */
 
+console.log('🚀 experience-page.js: Script loaded successfully!');
+
 class ConsolidatedExperiencePage {
     constructor() {
         this.experiences = [];
@@ -348,6 +350,8 @@ class ConsolidatedExperiencePage {
         
         this.filteredExperiences = [...this.experiences];
         console.log(`📊 Loaded ${this.experiences.length} Phase 2 enhanced experiences`);
+        
+        // Render content immediately
         this.renderExperiences();
         this.renderSkills();
         this.updateFilterResults();
@@ -553,12 +557,15 @@ class ConsolidatedExperiencePage {
      * Render experiences with enhanced visual content
      */
     renderExperiences() {
+        console.log('🎨 renderExperiences: Starting...');
         const experienceGrid = document.querySelector('.experience-grid');
+        console.log('🎨 renderExperiences: Grid found:', experienceGrid);
         if (!experienceGrid) {
-            console.error('❌ Experience grid not found!');
+            console.error('❌ renderExperiences: Experience grid not found!');
             return;
         }
-        console.log('🎨 Rendering Phase 2 experiences...');
+        console.log('🎨 renderExperiences: Rendering experiences...');
+        console.log('🎨 renderExperiences: Filtered experiences count:', this.filteredExperiences.length);
        
         experienceGrid.innerHTML = '';
        
@@ -879,34 +886,83 @@ class ConsolidatedExperiencePage {
     }
 
     /**
-     * Render skills filter
+     * Render skills showcase section
      */
     renderSkills() {
-        const skillsContainer = document.querySelector('.skills-filter');
-        if (!skillsContainer) return;
+        console.log('🎯 renderSkills: Starting...');
+        const skillsContainer = document.querySelector('.skills-grid');
+        console.log('🎯 renderSkills: Container found:', skillsContainer);
+        if (!skillsContainer) {
+            console.error('❌ renderSkills: Skills container not found!');
+            return;
+        }
 
-        const allSkills = new Set();
+        // Define skill categories with icons
+        const skillCategories = {
+            'Design & UX': {
+                icon: '🎨',
+                skills: ['UX Design', 'UI Design', 'Design Sprints', 'Wireframing', 'Prototyping', 'Accessibility']
+            },
+            'Research & Analysis': {
+                icon: '🔍',
+                skills: ['User Research', 'Usability Testing', 'Data Analysis', 'Research', 'Human Factors']
+            },
+            'Technology & Development': {
+                icon: '💻',
+                skills: ['AI/ML', 'Java Development', 'Mobile Development', 'Web Development', 'Technical Architecture']
+            },
+            'Strategy & Management': {
+                icon: '📊',
+                skills: ['Product Management', 'Project Management', 'Strategic Planning', 'Team Leadership']
+            },
+            'Innovation & AI': {
+                icon: '🤖',
+                skills: ['AI-Powered Design', 'Multi-Agent Systems', 'Innovation Strategy', 'Emerging Technologies']
+            }
+        };
+
+        // Count skills usage across experiences
+        const skillCounts = {};
         this.experiences.forEach(exp => {
-            exp.skills.forEach(skill => allSkills.add(skill));
+            exp.skills.forEach(skill => {
+                skillCounts[skill] = (skillCounts[skill] || 0) + 1;
+            });
         });
 
-        const skillsHTML = Array.from(allSkills).map(skill => 
-            `<button class="skill-filter-btn" data-skill="${skill}">${skill}</button>`
-        ).join('');
+        // Generate skills showcase HTML
+        const skillsHTML = Object.entries(skillCategories).map(([category, data]) => {
+            const relevantSkills = data.skills.filter(skill => skillCounts[skill] > 0);
+            
+            if (relevantSkills.length === 0) return '';
+
+            const skillsList = relevantSkills.map(skill => `
+                <li class="skill-item">
+                    <span class="skill-name">${skill}</span>
+                    <span class="skill-project-count">${skillCounts[skill] || 0}</span>
+                </li>
+            `).join('');
+
+            return `
+                <div class="skill-category">
+                    <h3 class="skill-category-title">
+                        <span class="skill-category-icon">${data.icon}</span>
+                        ${category}
+                    </h3>
+                    <ul class="skill-list">
+                        ${skillsList}
+                    </ul>
+                </div>
+            `;
+        }).join('');
 
         skillsContainer.innerHTML = skillsHTML;
 
-        // Add event listeners
-        const skillButtons = document.querySelectorAll('.skill-filter-btn');
-        skillButtons.forEach(btn => {
-            btn.addEventListener('click', () => {
-                const skill = btn.getAttribute('data-skill');
-                this.filterBySkill(skill);
-                
-                // Update active skill filter
-                skillButtons.forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-            });
+        // Add animation classes
+        const skillCategoryElements = skillsContainer.querySelectorAll('.skill-category');
+        skillCategoryElements.forEach((category, index) => {
+            setTimeout(() => {
+                category.classList.add('fade-in');
+            }, index * 200);
         });
     }
 
@@ -957,5 +1013,6 @@ class ConsolidatedExperiencePage {
 
 // Initialize the consolidated experience page when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
+    console.log('🎯 DOM Content Loaded - Initializing ConsolidatedExperiencePage...');
     new ConsolidatedExperiencePage();
 });
