@@ -299,6 +299,7 @@ The Counselor analyzes Scribe documentation patterns to determine when Product M
 - **Feedback Loop:** All feedback, questions, and clarifications flow through the Counselor.
 - **Smart Strategic Consultation:** The Counselor **intelligently analyzes Scribe documentation patterns** to determine when Product Manager consultation is needed, ensuring strategic oversight while maintaining operational efficiency.
 - **Multi-Agent Safety Integration:** The Counselor integrates with the Multi-Agent Safety agent for real-time monitoring, quality assurance, and system integrity validation.
+- **Code Guardian Integration:** The Counselor integrates with the Code Guardian agent for regression prevention, code integrity maintenance, and implementation memory management.
 
 ---
 
@@ -432,6 +433,7 @@ The Counselor analyzes Scribe documentation patterns to determine when Product M
 | Scribe              | Documentation, change tracking| Counselor     | Counselor        | Counselor     |
 | Benchmarker         | Competitive analysis, market research| Counselor | Counselor        | Counselor     |
 | Multi-Agent Safety  | System monitoring, quality assurance| Counselor | Counselor        | Counselor     |
+| Code Guardian       | Regression prevention, code integrity| Counselor | Counselor        | Counselor     |
 
 ---
 

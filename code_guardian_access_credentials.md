@@ -3,6 +3,7 @@
 **Date:** 2024-08-15 19:00  
 **Security Level:** INTERNAL USE ONLY  
 **Access:** RESTRICTED TO AUTHORIZED PERSONNEL  
+**Location:** PROJECT ROOT (SECURED FROM PUBLIC DEPLOYMENT)  
 
 ## 📋 Access Information
 
@@ -35,6 +36,7 @@ https://your-domain.com/code-guardian-dashboard.html
 - **Direct Access Only:** URL must be known to access
 - **Session Validation:** Automatic session timeout
 - **Failed Attempt Tracking:** Prevents brute force attacks
+- **Credential Security:** This file is in project root, not deployed publicly
 
 ## 🚨 Security Warnings
 
@@ -43,6 +45,7 @@ https://your-domain.com/code-guardian-dashboard.html
 - **Change Password:** Consider changing default password for production
 - **Monitor Access:** Check access logs for unauthorized attempts
 - **Session Management:** Logout when finished using dashboard
+- **Credential Location:** This file is secured in project root, not in deployable folder
 
 ### **Production Recommendations:**
 1. **Change Default Password:** Use a strong, unique password
@@ -80,7 +83,7 @@ CodeGuardian2024!
 - **Security:** Strong password for internal system access
 
 ### **Password Change Process:**
-1. **Development:** Edit `js/code-guardian-auth.js` file
+1. **Development:** Edit `docs/website/js/code-guardian-auth.js` file
 2. **Production:** Use environment variables
 3. **Update:** Change `correctPassword` variable
 4. **Test:** Verify authentication works with new password
@@ -112,6 +115,7 @@ CodeGuardian2024!
 - **Session Management:** Automatic timeout
 - **Brute Force Protection:** Attempt limiting
 - **Public Exposure:** Completely removed
+- **Credential Security:** Secured in project root
 
 ## 🔮 Future Enhancements
 
@@ -141,8 +145,30 @@ CodeGuardian2024!
 - **Security Policy:** Review security documentation
 - **Best Practices:** Follow security guidelines
 
+## 🏗️ File Structure Security
+
+### **Credential Location:**
+```
+Portfolio-Local/
+├── ramy-eid-portfolio/
+│   ├── code_guardian_access_credentials.md  ← SECURED HERE
+│   ├── reports/08_final_delivery/
+│   │   └── docs/website/  ← DEPLOYED TO NETLIFY
+│   │       └── code-guardian-dashboard.html
+│   └── project_agents/
+└── ...
+```
+
+### **Security Benefits:**
+- **Not Deployed:** Credentials not included in Netlify deployment
+- **Repository Access:** Available only in Git repository
+- **Access Control:** Controlled by repository permissions
+- **Audit Trail:** Git history tracks credential changes
+
 ---
 
 **🔐 This document contains sensitive access information. Keep secure and do not share publicly.**
 
 **🛡️ The Code Guardian dashboard is now properly secured with authentication and access controls.**
+
+**📁 This file is securely located in the project root and will not be deployed publicly to Netlify.**
