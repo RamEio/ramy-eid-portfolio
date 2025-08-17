@@ -11,10 +11,20 @@ This portfolio demonstrates 10+ years of experience in retail innovation, mobile
 ```
 Portfolio-Local/
 ├── ramy-eid-portfolio/
-│   ├── code_guardian_access_credentials.md  ← SECURED CREDENTIALS
-│   ├── project_agents/                      ← Multi-agent system
-│   ├── reports/08_final_delivery/           ← Project documentation
-│   │   └── docs/website/                    ← DEPLOYED TO NETLIFY
+│   ├── website/                             ← DEPLOYED TO NETLIFY
+│   │   ├── index.html
+│   │   ├── about.html
+│   │   ├── experience.html
+│   │   ├── contact.html
+│   │   ├── css/
+│   │   ├── js/
+│   │   ├── assets/
+│   │   └── netlify.toml
+│   ├── local-work/                          ← NOT DEPLOYED
+│   │   ├── project_agents/                  ← Multi-agent system
+│   │   ├── reports/                         ← Project documentation
+│   │   ├── assets/                          ← Development assets
+│   │   └── code_guardian_access_credentials.md
 │   └── README.md                            ← This file
 └── ...
 ```
@@ -27,7 +37,7 @@ Portfolio-Local/
 - **Security:** Protected from public deployment
 
 ### **Credentials Location:**
-- **File:** `code_guardian_access_credentials.md` (project root)
+- **File:** `local-work/code_guardian_access_credentials.md`
 - **Security:** Not deployed to Netlify (secured in repository)
 - **Access:** Repository access only
 

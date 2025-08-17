@@ -1,6 +1,6 @@
 [build]
   # Specify the directory containing your website files
-  publish = "reports/08_final_delivery"
+  publish = "website"
   
   # No build command needed since this is a static HTML site
   # command = ""

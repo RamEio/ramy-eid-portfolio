@@ -1,0 +1,713 @@
+/* ==========================================================================
+   Responsive Design - Ramy Eid Portfolio
+   Mobile-first approach with progressive enhancement
+   ========================================================================== */
+
+/* ==========================================================================
+   Mobile First (320px - 767px)
+   ========================================================================== */
+
+/* Base mobile styles are in main.css */
+
+/* ==========================================================================
+   Mobile Navigation (Mobile only)
+   ========================================================================== */
+
+@media (max-width: 767px) {
+  /* Mobile Navigation */
+  .nav-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--background-white);
+    box-shadow: var(--shadow-lg);
+    padding: var(--space-4);
+    flex-direction: column;
+    gap: var(--space-2);
+    border-top: 1px solid var(--border-light);
+    z-index: 1000;
+    /* Ensure smooth animation */
+    transition: all 0.3s ease-in-out;
+    transform: translateY(-10px);
+    opacity: 0;
+    /* Ensure menu is visible and properly positioned */
+    min-height: auto;
+    max-height: none;
+  }
+  
+  .nav-menu--open {
+    display: flex !important;
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  .nav-menu li {
+    width: 100%;
+  }
+  
+  .nav-menu a {
+    display: flex !important;
+    padding: var(--space-3) var(--space-4);
+    width: 100%;
+    text-align: left;
+    /* Touch-friendly sizing */
+    min-height: 44px;
+    align-items: center;
+    color: var(--text-dark);
+    font-weight: 500;
+    text-decoration: none;
+    border-radius: var(--radius-md);
+    transition: all var(--transition-fast);
+  }
+  
+  .nav-menu a:hover {
+    background-color: var(--background-gray);
+    color: var(--primary-blue);
+  }
+  
+  .nav-toggle {
+    display: block !important;
+    /* Touch-friendly button */
+    min-width: 44px;
+    min-height: 44px;
+    padding: var(--space-2);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    border-radius: var(--radius-md);
+  }
+  
+  .nav-toggle:hover {
+    background-color: var(--background-gray);
+  }
+  
+  /* Mobile hamburger animation */
+  .hamburger {
+    display: block !important;
+    width: 24px;
+    height: 2px;
+    background: var(--text-dark);
+    position: relative;
+    transition: all var(--transition-fast);
+  }
+  
+  .hamburger::before,
+  .hamburger::after {
+    content: '';
+    position: absolute;
+    width: 24px;
+    height: 2px;
+    background: var(--text-dark);
+    transition: all var(--transition-fast);
+  }
+  
+  .hamburger::before {
+    top: -8px;
+  }
+  
+  .hamburger::after {
+    bottom: -8px;
+  }
+  
+  .nav-toggle[aria-expanded="true"] .hamburger {
+    background: transparent;
+  }
+  
+  .nav-toggle[aria-expanded="true"] .hamburger::before {
+    transform: rotate(45deg);
+    top: 0;
+  }
+  
+  .nav-toggle[aria-expanded="true"] .hamburger::after {
+    transform: rotate(-45deg);
+    bottom: 0;
+  }
+  
+  /* Mobile Hero */
+  .hero-container {
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+    text-align: center;
+  }
+  
+  .hero-title {
+    font-size: var(--text-3xl);
+    line-height: 1.2;
+  }
+  
+  .hero-subtitle {
+    font-size: var(--text-lg);
+    line-height: 1.4;
+  }
+  
+  .hero-actions {
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-4);
+  }
+  
+  .hero-actions .btn {
+    width: 100%;
+    max-width: 300px;
+    /* Touch-friendly button */
+    min-height: 48px;
+    padding: var(--space-3) var(--space-6);
+  }
+  
+  /* Mobile Projects */
+  .projects-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
+  
+  .project-card {
+    /* Touch-friendly card - Optimized sizing */
+    min-height: auto;
+    padding: var(--space-3);
+  }
+  
+  .project-image {
+    height: 160px;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+  }
+  
+  .project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  /* Mobile About */
+  .about-preview .container {
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+    text-align: center;
+  }
+  
+  .about-image {
+    /* Mobile image optimization */
+    max-width: 300px;
+    margin: 0 auto;
+  }
+  
+  .about-actions {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .about-actions .btn {
+    /* Touch-friendly button */
+    min-height: 48px;
+    padding: var(--space-3) var(--space-6);
+  }
+  
+  /* Mobile Timeline - Optimized sizing */
+  .timeline-item {
+    grid-template-columns: 1fr;
+    gap: var(--space-3);
+    padding: var(--space-3);
+  }
+  
+  .timeline-marker {
+    display: none;
+  }
+  
+  .timeline-content {
+    padding-left: var(--space-3);
+    border-left: 3px solid var(--primary-blue);
+    /* Mobile content optimization */
+    font-size: var(--text-sm);
+    line-height: 1.4;
+  }
+  
+  .timeline-content h3 {
+    font-size: var(--text-base);
+    margin-bottom: var(--space-1);
+  }
+  
+  /* Mobile Footer */
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+    text-align: center;
+  }
+  
+  .footer-links {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+  }
+  
+  .footer-links a {
+    /* Touch-friendly links */
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Mobile CTA */
+  .cta-actions {
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-4);
+  }
+  
+  .cta-actions .btn {
+    width: 100%;
+    max-width: 300px;
+    /* Touch-friendly button */
+    min-height: 48px;
+    padding: var(--space-3) var(--space-6);
+  }
+  
+  /* Mobile spacing adjustments */
+  .hero {
+    padding: var(--space-12) 0;
+  }
+  
+  .section-title {
+    font-size: var(--text-3xl);
+    margin-bottom: var(--space-8);
+    line-height: 1.2;
+  }
+  
+  .container {
+    padding: 0 var(--space-4);
+  }
+  
+  /* Mobile Header Optimization - 48px max height */
+  .header {
+    min-height: 48px;
+    max-height: 48px;
+    /* Mobile header fade behavior support */
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    will-change: transform, opacity;
+  }
+  
+  .nav-container {
+    padding: var(--space-2) var(--space-4);
+    min-height: 48px;
+    max-height: 48px;
+  }
+  
+  /* Mobile Logo Size Optimization */
+  .nav-logo img {
+    max-height: 32px;
+    width: auto;
+    height: auto;
+  }
+  
+  .nav-logo {
+    font-size: var(--text-base);
+  }
+  
+  /* Mobile image grid hover effect optimization */
+  .image-grid-overlay {
+    /* Disable hover effects on mobile */
+    display: none;
+  }
+  
+  .about-image:hover .image-grid-overlay {
+    display: none;
+  }
+  
+  /* Mobile touch interactions */
+  .project-card:active {
+    transform: scale(0.98);
+  }
+  
+  .btn:active {
+    transform: scale(0.95);
+  }
+}
+
+/* ==========================================================================
+   Landscape Mobile (480px - 767px)
+   ========================================================================== */
+
+@media (min-width: 480px) and (max-width: 767px) {
+  /* Landscape Mobile Header Optimization */
+  .nav-logo img {
+    max-height: 36px; /* Slightly larger for landscape but still compact */
+  }
+  
+  /* Slightly better layout for landscape mobile */
+  .hero-container {
+    gap: var(--space-6);
+  }
+  
+  .hero-title {
+    font-size: var(--text-4xl);
+  }
+  
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-4);
+  }
+  
+  .hero-actions {
+    flex-direction: row;
+    justify-content: center;
+    gap: var(--space-4);
+  }
+  
+  .hero-actions .btn {
+    width: auto;
+    min-width: 140px;
+  }
+  
+  .cta-actions {
+    flex-direction: row;
+    justify-content: center;
+    gap: var(--space-4);
+  }
+  
+  .cta-actions .btn {
+    width: auto;
+    min-width: 140px;
+  }
+  
+  /* Better image sizing for landscape */
+  .project-image {
+    height: 180px;
+  }
+  
+  .about-image {
+    max-width: 250px;
+  }
+}
+
+/* ==========================================================================
+   Tablet (768px - 1023px)
+   ========================================================================== */
+
+@media (min-width: 768px) {
+  /* Navigation */
+  .nav-toggle {
+    display: none;
+  }
+  
+  .nav-menu {
+    display: flex !important;
+    position: static;
+    background: none;
+    box-shadow: none;
+    padding: 0;
+    flex-direction: row;
+    gap: var(--space-8);
+    transform: none;
+    opacity: 1;
+  }
+  
+  /* Hero Section */
+  .hero-container {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-12);
+  }
+  
+  .hero-title {
+    font-size: var(--text-4xl);
+  }
+  
+  .hero-subtitle {
+    font-size: var(--text-lg);
+  }
+  
+  /* Project Grid - Optimized sizing */
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-4);
+  }
+  
+  /* About Section */
+  .about-preview .container {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-12);
+  }
+  
+  /* Footer */
+  .footer-content {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-6);
+  }
+  
+  /* Timeline */
+  .timeline-preview {
+    max-width: 600px;
+  }
+  
+  /* Container adjustments */
+  .container {
+    padding: 0 var(--space-6);
+  }
+  
+  .nav-container {
+    padding-left: var(--space-6);
+    padding-right: var(--space-6);
+  }
+  
+  /* Re-enable hover effects on tablet+ */
+  .image-grid-overlay {
+    display: grid;
+  }
+}
+
+/* ==========================================================================
+   Desktop (1024px+)
+   ========================================================================== */
+
+@media (min-width: 1024px) {
+  /* Typography scaling */
+  .hero-title {
+    font-size: var(--text-5xl);
+  }
+  
+  .section-title {
+    font-size: var(--text-4xl);
+  }
+  
+  /* Hero Section */
+  .hero-container {
+    gap: var(--space-16);
+  }
+  
+  .hero-actions {
+    gap: var(--space-6);
+  }
+  
+  /* Project Grid - Optimized sizing */
+  .projects-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-6);
+  }
+  
+  /* About Section */
+  .about-preview .container {
+    gap: var(--space-16);
+  }
+  
+  .about-text {
+    font-size: var(--text-xl);
+  }
+  
+  /* Timeline */
+  .timeline-preview {
+    max-width: 800px;
+  }
+  
+  /* Container adjustments */
+  .container {
+    padding: 0 var(--space-8);
+  }
+  
+  .nav-container {
+    padding-left: var(--space-8);
+    padding-right: var(--space-8);
+  }
+  
+  /* Enhanced hover effects */
+  .project-card:hover {
+    transform: translateY(-8px);
+  }
+  
+  .btn:hover {
+    transform: translateY(-2px);
+  }
+}
+
+/* ==========================================================================
+   Large Desktop (1200px+)
+   ========================================================================== */
+
+@media (min-width: 1200px) {
+  /* Container max-width */
+  .container,
+  .nav-container {
+    max-width: 1200px;
+  }
+  
+  /* Hero Section */
+  .hero-container {
+    max-width: 1200px;
+  }
+  
+  /* Enhanced spacing */
+  .hero {
+    padding: var(--space-24) 0;
+  }
+  
+  .section-title {
+    margin-bottom: var(--space-16);
+  }
+  
+  /* Project cards - Optimized sizing */
+  .project-card {
+    min-height: 350px;
+  }
+  
+  .project-image {
+    height: 200px;
+  }
+}
+
+/* ==========================================================================
+   Extra Large Desktop (1400px+)
+   ========================================================================== */
+
+@media (min-width: 1400px) {
+  /* Container max-width */
+  .container,
+  .nav-container {
+    max-width: 1400px;
+  }
+  
+  .hero-container {
+    max-width: 1400px;
+  }
+  
+  /* Larger typography */
+  .hero-title {
+    font-size: 4rem;
+  }
+  
+  .section-title {
+    font-size: 3rem;
+  }
+  
+  /* Enhanced spacing */
+  .hero {
+    padding: var(--space-32) 0;
+  }
+  
+  .projects-grid {
+    gap: var(--space-10);
+  }
+}
+
+/* ==========================================================================
+   High DPI Displays
+   ========================================================================== */
+
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  /* Enhanced images for high DPI displays */
+  .hero-image img,
+  .project-image img,
+  .about-image img {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+  }
+}
+
+/* ==========================================================================
+   Reduced Motion Preferences
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  .project-card:hover,
+  .btn:hover {
+    transform: none;
+  }
+  
+  .project-card:hover .project-image img {
+    transform: none;
+  }
+  
+  .nav-menu {
+    transition: none;
+  }
+}
+
+/* ==========================================================================
+   High Contrast Mode
+   ========================================================================== */
+
+@media (prefers-contrast: high) {
+  :root {
+    --border-light: #000000;
+    --text-light: #000000;
+    --background-gray: #ffffff;
+  }
+  
+  .btn {
+    border-width: 2px;
+  }
+  
+  .project-card {
+    border-width: 2px;
+  }
+}
+
+/* ==========================================================================
+   Dark Mode Support (Future Enhancement)
+   ========================================================================== */
+
+@media (prefers-color-scheme: dark) {
+  /* Dark mode styles can be added here */
+  /* This is a placeholder for future dark mode implementation */
+}
+
+/* ==========================================================================
+   Print Optimizations
+   ========================================================================== */
+
+@media print {
+  /* Ensure good print layout */
+  .hero-container {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+  
+  .projects-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
+  
+  .about-preview .container {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+  
+  /* Remove shadows and backgrounds for print */
+  .project-card,
+  .btn,
+  .hero-image img,
+  .about-image img {
+    box-shadow: none;
+    background: none;
+  }
+  
+  /* Ensure good contrast for print */
+  .text-light {
+    color: #000000 !important;
+  }
+  
+  /* Enhanced contrast for mobile */
+  .skill-tag {
+    background: rgba(107, 70, 193, 0.9) !important;
+    color: #ffffff !important;
+    border: 1px solid rgba(107, 70, 193, 1) !important;
+  }
+  
+  /* Hide non-essential elements */
+  .nav-toggle,
+  .hero-actions,
+  .section-actions,
+  .about-actions,
+  .cta-actions {
+    display: none !important;
+  }
+} 

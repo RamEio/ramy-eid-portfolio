@@ -1,0 +1,8 @@
+# Redirect all routes to index.html for SPA-like behavior
+/*    /index.html   200
+
+# Specific page redirects
+/projects    /projects.html   200
+/experience  /experience.html 200
+/about       /about.html      200
+/contact     /contact.html    200 
