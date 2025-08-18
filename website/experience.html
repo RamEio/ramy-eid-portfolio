@@ -112,73 +112,81 @@
             </div>
         </section>
 
-                <!-- Integrated Timeline & Filter System -->
-        <section class="timeline-filter-section" aria-labelledby="timeline-title">
+                <!-- Unified Filter System -->
+        <section class="unified-filter-section" aria-labelledby="filter-title">
             <div class="container">
-                <h2 id="timeline-title" class="visually-hidden">Experience Timeline & Filters</h2>
+                <h2 id="filter-title" class="section-title">Filter Experiences</h2>
                 
-                <!-- Timeline Navigation -->
-                <nav class="timeline-nav" role="navigation" aria-label="Experience timeline navigation">
-                    <div class="timeline-line"></div>
-                    <div class="timeline-markers">
-                        <button class="timeline-marker" data-period="Current" aria-pressed="true" aria-describedby="period-current">
-                            <span class="year-label">Current</span>
-                        </button>
-                        <button class="timeline-marker" data-period="3+ years ago" aria-pressed="false" aria-describedby="period-3plus">
-                            <span class="year-label">3+ years ago</span>
-                        </button>
-                        <button class="timeline-marker" data-period="7+ years ago" aria-pressed="false" aria-describedby="period-7plus">
-                            <span class="year-label">7+ years ago</span>
-                        </button>
-                    </div>
-                </nav>
-                
-                <!-- Integrated Filter Bar -->
-                <div class="filter-bar glass-effect">
-                    <div class="filter-group">
-                        <label for="company-filter" class="filter-label">Company Type</label>
-                        <select id="company-filter" class="filter-select" aria-label="Filter by company type">
-                            <option value="">All Companies</option>
-                            <option value="agency">Agency</option>
-                            <option value="corporate">Corporate</option>
-                            <option value="education">Education</option>
-                            <option value="startup">Startup</option>
-                            <option value="research">Research</option>
-                        </select>
+                <div class="unified-filter-container glass-effect">
+                    <!-- Timeline Navigation -->
+                    <div class="filter-section timeline-section">
+                        <h3 class="filter-section-title">Timeline</h3>
+                        <nav class="timeline-nav" role="navigation" aria-label="Experience timeline navigation">
+                            <div class="timeline-line"></div>
+                            <div class="timeline-markers">
+                                <button class="timeline-marker" data-period="Current" aria-pressed="true" aria-describedby="period-current">
+                                    <span class="year-label">Current</span>
+                                </button>
+                                <button class="timeline-marker" data-period="3+ years ago" aria-pressed="false" aria-describedby="period-3plus">
+                                    <span class="year-label">3+ years ago</span>
+                                </button>
+                                <button class="timeline-marker" data-period="7+ years ago" aria-pressed="false" aria-describedby="period-7plus">
+                                    <span class="year-label">7+ years ago</span>
+                                </button>
+                            </div>
+                        </nav>
                     </div>
                     
-                    <div class="filter-group">
-                        <label for="skills-filter" class="filter-label">Skills</label>
-                        <select id="skills-filter" class="filter-select" aria-label="Filter by skills">
-                            <option value="">All Skills</option>
-                            <option value="ux-design">UX Design</option>
-                            <option value="ai">AI/ML</option>
-                            <option value="product-management">Product Management</option>
-                            <option value="research">Research</option>
-                            <option value="mobile">Mobile</option>
-                            <option value="web">Web</option>
-                        </select>
+                    <!-- Experience Type Filters (Commented out for efficiency) -->
+                    <!--
+                    <div class="filter-section dropdown-filters">
+                        <h3 class="filter-section-title">Experience Type</h3>
+                        <div class="filter-row">
+                            <div class="filter-group">
+                                <label for="company-filter" class="filter-label">Company Type</label>
+                                <select id="company-filter" class="filter-select" aria-label="Filter by company type">
+                                    <option value="">All Companies</option>
+                                    <option value="agency">Agency</option>
+                                    <option value="corporate">Corporate</option>
+                                    <option value="education">Education</option>
+                                    <option value="startup">Startup</option>
+                                    <option value="research">Research</option>
+                                </select>
+                            </div>
+                            
+                            <div class="filter-group">
+                                <label for="project-filter" class="filter-label">Project Type</label>
+                                <select id="project-filter" class="filter-select" aria-label="Filter by project type">
+                                    <option value="">All Projects</option>
+                                    <option value="mobile-apps">Mobile Apps</option>
+                                    <option value="web-apps">Web Apps</option>
+                                    <option value="education">Education</option>
+                                    <option value="research">Research</option>
+                                    <option value="consulting">Consulting</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    -->
+                    
+                    <!-- Skills Filter -->
+                    <div class="filter-section skills-section">
+                        <h3 class="filter-section-title">Skills & Expertise</h3>
+                        <p class="skills-filter-subtitle">Click any skill to filter experiences</p>
+                        <div class="skills-filter-grid">
+                            <!-- Interactive skill tags will be populated here -->
+                        </div>
                     </div>
                     
-                    <div class="filter-group">
-                        <label for="project-filter" class="filter-label">Project Type</label>
-                        <select id="project-filter" class="filter-select" aria-label="Filter by project type">
-                            <option value="">All Projects</option>
-                            <option value="mobile-apps">Mobile Apps</option>
-                            <option value="web-apps">Web Apps</option>
-                            <option value="education">Education</option>
-                            <option value="research">Research</option>
-                            <option value="consulting">Consulting</option>
-                        </select>
+                    <!-- Filter Actions with Results Count -->
+                    <div class="filter-section actions-section">
+                        <div class="actions-container">
+                            <span id="results-count" class="results-count">Showing all 13 experiences</span>
+                            <button id="clear-filters" class="btn btn-secondary" aria-label="Clear all filters">
+                                Clear All Filters
+                            </button>
+                        </div>
                     </div>
-                    
-                    <button id="clear-filters" class="btn btn-secondary" aria-label="Clear all filters">
-                        Clear Filters
-                    </button>
-                </div>
-                
-                <div class="filter-results" aria-live="polite">
-                    <span id="results-count">Showing all 8 experiences</span>
                 </div>
             </div>
         </section>
@@ -193,21 +201,13 @@
             </div>
         </section>
 
-        <!-- Skills Showcase -->
-        <section class="skills-showcase-section" aria-labelledby="skills-title">
-            <div class="container">
-                <h2 id="skills-title" class="section-title">Core Skills</h2>
-                <div class="skills-grid">
-                    <!-- Skills will be populated here -->
-                </div>
-            </div>
-        </section>
+
 
         <!-- Call-to-Action Section -->
         <section class="cta-section" aria-labelledby="cta-title">
             <div class="container">
-                <div class="cta-content glass-effect-heavy">
-                                         <h2 id="cta-title" class="cta-title">Ready to Collaborate?</h2>
+                <div class="cta-content glass-effect">
+                    <h2 id="cta-title" class="cta-title">Ready to Collaborate?</h2>
                     <p class="cta-description">
                         Let's discuss how my experience in UX design, AI innovation, and multi-agent systems 
                         can help bring your vision to life.

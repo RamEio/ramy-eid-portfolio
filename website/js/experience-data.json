@@ -1,0 +1,328 @@
+{
+  "experiences": [
+    {
+      "id": 1,
+      "year": 2015,
+      "timelinePeriod": "7+ years ago",
+      "title": "Research Intern - Human Factors & AI",
+      "company": "ENSC Bordeaux & Airbus Group",
+      "companyType": "research",
+      "period": "2015",
+      "description": "ENSC (National School of Cognitive Engineering) - Human factors, ergonomics, computer science, robotics, cognitive sciences.",
+      "detailedDescription": "I worked on the MoTa project internship at Airbus Group (Toulouse): Java development and artificial intelligence (pathfinding). I collaborated directly with air traffic controllers to improve complex interface usability. I conducted my first user tests and UX iterations: the birth of my UX designer vocation.",
+      "achievements": [
+        "Developed Java applications for Airbus Group",
+        "Implemented AI pathfinding algorithms",
+        "Conducted user tests with air traffic controllers"
+      ],
+      "skills": ["Java Development", "Network", "Artificial Intelligence", "UX Design"],
+      "projectType": "research",
+      "logo": "assets/experiences_images/airbus-logo.png",
+      "visualContent": [
+        "assets/experiences_images/airbusgroup.png",
+        "assets/experiences_images/DesignSprintBook.png"
+      ]
+    },
+    {
+      "id": 2,
+      "year": 2016,
+      "timelinePeriod": "7+ years ago",
+      "title": "UX/UI Designer",
+      "company": "NiceToMeetYou - First Web Agency",
+      "companyType": "agency",
+      "period": "2016 - 2017",
+      "description": "High-definition wireframing, co-design workshops, design sprints. I worked on diverse projects (graphics, ideation, accessibility).",
+      "detailedDescription": "Notable experiences: I led the Domyos express design sprint, designed the Crédit Mutuel recruitment app, and conducted the Picto Travel accessibility design sprint with disabled users. I had to adapt to many different customers and conducted several dozen design sprints and other ideation/co-creation workshops. I learned rigor, prioritization, and rapid adaptation.",
+      "achievements": [
+        "Led Domyos express design sprint",
+        "Designed Crédit Mutuel recruitment app",
+        "Conducted accessibility design sprint with disabled users"
+      ],
+      "skills": ["UX Design", "UI Design", "Accessibility", "Workshop Facilitation & Design Sprints"],
+      "projectType": "web-apps",
+      "logo": "assets/experiences_images/niceToMeetYouOldLogo.png",
+      "visualContent": [
+        "assets/experiences_images/DesignSprintBook.png"
+      ]
+    },
+    {
+      "id": 3,
+      "year": 2017,
+      "timelinePeriod": "7+ years ago",
+      "title": "Product Owner & Functional Consultant",
+      "company": "Sopra Steria Consulting",
+      "companyType": "corporate",
+      "period": "2017 - 2019",
+      "description": "Functional consultant and Product Owner roles. I conducted UX evangelization using Bastien & Scapin heuristics and Gestalt theory.",
+      "detailedDescription": "Key projects: I managed the MEL mobile app for merchants (agile team management), and was Product Owner on the Auchan Retail International (ARI) project, driving the project with several foreign countries (Luxembourg, Ukraine, Poland, etc.). I worked in international context, managing agile and technical complexity.",
+      "achievements": [
+        "Managed agile team for MEL mobile app development",
+        "Led international PIM project with local adaptation",
+        "Conducted UX evangelization using Bastien & Scapin heuristics"
+      ],
+      "skills": ["Project & Team Management", "User Research & Testing", "English", "International Environment"],
+      "projectType": "mobile-apps",
+      "logo": "assets/experiences_images/sopra_steria_consulting.png",
+      "visualContent": [
+        "assets/experiences_images/enjoy_mel.png",
+        "assets/experiences_images/AuchanRetail.png"
+      ]
+    },
+    {
+      "id": 4,
+      "year": 2019,
+      "timelinePeriod": "3+ years ago",
+      "title": "UX Designer - Creative Studio",
+      "company": "Capgemini",
+      "companyType": "corporate",
+      "period": "2019 - July 2022",
+      "description": "Creative Studio integration, user testing focus, design sprints, UX research. I facilitated workshops and conducted UX evangelization.",
+      "detailedDescription": "I facilitated workshops, presented UX evangelization at FLUPA conferences, and volunteered with Emmaüs Connect (digital training). I worked on supply chain projects (Danone) and retail projects (Leroy Merlin).",
+      "achievements": [
+        "Presented at FLUPA conferences on UX evangelization",
+        "Volunteered with Emmaüs Connect for digital training",
+        "Led design sprints for supply chain and retail projects"
+      ],
+      "skills": ["UX Design", "User Research & Testing", "Workshop Facilitation & Design Sprints"],
+      "projectType": "consulting",
+      "logo": "assets/experiences_images/capgemini.jpg",
+      "visualContent": [
+        "assets/experiences_images/DesignSprintBook.png"
+      ]
+    },
+    {
+      "id": 5,
+      "year": 2019,
+      "timelinePeriod": "3+ years ago",
+      "title": "UX Lead - Mobile App",
+      "company": "Leroy Merlin",
+      "companyType": "corporate",
+      "period": "2019 - July 2022",
+      "description": "UX Lead for Leroy Merlin mobile app, working with UI designers and conducting comprehensive user research and testing.",
+      "detailedDescription": "I worked as UX Lead for the Leroy Merlin mobile app, collaborating with UI designers. I conducted user testing, data analysis, project prioritization, and user research to ensure optimal user experience.",
+      "achievements": [
+        "Led UX design for Leroy Merlin mobile app",
+        "Conducted comprehensive user testing and research",
+        "Performed data analysis to inform design decisions",
+        "Managed project prioritization for mobile app features"
+      ],
+      "skills": ["UX Design", "User Research & Testing", "Data Analysis & Analytics", "Project Prioritization"],
+      "projectType": "mobile-apps",
+      "logo": "assets/experiences_images/LeroyMerlinLogo.png",
+      "visualContent": [
+        "assets/experiences_images/LeroyMerlin_eisenhower_priorisation.png",
+        "assets/experiences_images/LeroyMerlin_workshop.png",
+        "assets/experiences_images/LeroyMerlin_usertesting1.jpeg",
+        "assets/experiences_images/user_testing restitution_LM.png",
+        "assets/experiences_images/user_testing restitution2_LM.png",
+        "assets/experiences_images/user_testing restitution3_LM.png",
+        "assets/experiences_images/card_sorting.png",
+        "assets/experiences_images/profilingPersonae.png"
+      ]
+    },
+    {
+      "id": 6,
+      "year": 2019,
+      "timelinePeriod": "3+ years ago",
+      "title": "UX Designer - ADEO & Internal Projects",
+      "company": "ADEO",
+      "companyType": "corporate",
+      "period": "2019 - July 2022",
+      "description": "UX Designer for ADEO internal projects including payment funnel, marketplace definition workshops, and global-level experience design.",
+      "detailedDescription": "I worked on various ADEO internal projects including the payment funnel optimization, participated in marketplace definition workshops, and contributed to global-level experience design. I managed UX/UI integration, conducted marketplace focus groups, performed UX audits, analyzed data, and implemented automated user feedback analysis (AI). I used Content Square and Google Analytics extensively, and participated in ADEO design system (Mozaic) enrichment.",
+      "achievements": [
+        "Optimized payment funnel for better user experience",
+        "Participated in marketplace definition workshops",
+        "Contributed to global-level experience design",
+        "Conducted UX audits and data analysis for marketplace optimization",
+        "Participated in ADEO design system (Mozaic) enrichment"
+      ],
+      "skills": ["UX Design", "Workshop Facilitation & Design Sprints", "Data Analysis & Analytics", "Design Systems", "Payment UX", "Marketplace Design"],
+      "projectType": "web-apps",
+      "logo": "assets/experiences_images/adeo.png",
+      "visualContent": [
+        "assets/experiences_images/adeo_UX_audit.png",
+        "assets/experiences_images/adeo_user_testing1.jpg",
+        "assets/experiences_images/adeo_user_testing2.jpg",
+        "assets/experiences_images/adeo_wireframe1.png",
+        "assets/experiences_images/adeo_wireframe2.png",
+        "assets/experiences_images/mozaIc_DS.png",
+        "assets/experiences_images/mozaic_DS2.png",
+        "assets/experiences_images/Adeo_data_analysis.png",
+        "assets/experiences_images/Adeo_focus_group.png",
+        "assets/experiences_images/Adeo_paiement_journey.png",
+        "assets/experiences_images/user_data_analysis_adeo.png",
+        "assets/experiences_images/contentSquare_diploma.png",
+        "assets/experiences_images/amoobi_shop_data.png",
+        "assets/experiences_images/tagging_plan.png",
+        "assets/experiences_images/onlineSurvey1.png"
+      ]
+    },
+    {
+      "id": 7,
+      "year": 2022,
+      "timelinePeriod": "3+ years ago",
+      "title": "UX Designer - Product Discovery",
+      "company": "Carrefour",
+      "companyType": "corporate",
+      "period": "July 2022 - December 2022",
+      "description": "Product discovery focused projects within the design team. I planned and executed user research, facilitated workshops, and created Figma/Figjam prototypes.",
+      "detailedDescription": "This mission within the French retail leader allowed me to develop my skills in a different vision than what I had known until then. North stars, internal agency organization with dedicated PO to design, the organization pushed us to deliver fast and well. User research was not left behind with my interventions within Carrefour Link (a great B2B experience), but in 2022, the very essence of Carrefour in terms of design was the ability to pivot quickly, feed all other structures, and maintain strong coherence through constant work on each designer's design system.",
+      "achievements": [
+        "Conducted user research for retail innovation projects",
+        "Facilitated design workshops with stakeholders",
+        "Created rapid prototypes using Figma and Figjam"
+      ],
+      "skills": ["UX Design", "User Research & Testing", "Workshop Facilitation & Design Sprints", "Prototyping"],
+      "projectType": "research",
+      "logo": "assets/experiences_images/Carrefour_logo.png",
+      "visualContent": [
+        "assets/experiences_images/dataStudio.png",
+        "assets/experiences_images/onlineSurvey12png.png",
+        "assets/experiences_images/onlineSurvey3png.png"
+      ]
+    },
+    {
+      "id": 8,
+      "year": 2022,
+      "timelinePeriod": "3+ years ago",
+      "title": "Lead Product Designer (UX/UI)",
+      "company": "Decathlon CSP",
+      "companyType": "corporate",
+      "period": "2022 - 2024",
+      "description": "Led UX/UI Product Design for the Decathlon Ride app, a nature cycling application with 20K+ monthly active users. I focused on product vision alignment, discovery methodologies, and systematic UX testing.",
+      "detailedDescription": "I conducted an intensive 3-month discovery phase that led to deep understanding of user needs and behaviors. I ensured perfect graphic consistency with Decathlon's Vitamin Play design system across all app components. I implemented comprehensive data tracking and analytics to inform design decisions and measure user engagement. I championed accessibility standards, ensuring the app meets WCAG 2.1 AA compliance for inclusive user experience. I managed stakeholder relationships and maintained strategic alignment with Decathlon's broader product ecosystem.",
+      "achievements": [
+        "Conducted intensive 3-month discovery phase leading to deep understanding of user needs and behaviors",
+        "Ensured perfect graphic consistency with Decathlon's Vitamin Play design system across all app components",
+        "Implemented comprehensive data tracking and analytics to inform design decisions and measure user engagement",
+        "Championed accessibility standards, ensuring the app meets WCAG 2.1 AA compliance for inclusive user experience",
+        "Managed stakeholder relationships and maintained strategic alignment with Decathlon's broader product ecosystem"
+      ],
+      "skills": ["UX Design", "Accessibility", "RGAA", "Wireframing", "User Research & Testing", "Data Analysis & Analytics", "Tag Plan Management and Deployment", "Project Prioritization and Management as User Representative"],
+      "projectType": "mobile-apps",
+      "logo": "assets/experiences_images/Logo dkt.png",
+      "visualContent": [
+        "assets/experiences_images/discovery phase.jpg",
+        "assets/experiences_images/Ux_disco_1.png",
+        "assets/experiences_images/card_sorting_user.JPG"
+      ]
+    },
+    {
+      "id": 9,
+      "year": 2024,
+      "timelinePeriod": "Current",
+      "title": "Strategic UX Lead - Knowledge Deployment & Cross-Team Collaboration",
+      "company": "Decathlon CSP",
+      "companyType": "corporate",
+      "period": "2024 - Present",
+      "description": "Led strategic UX work for Decathlon's Connected Sport Platform. I deployed our team's knowledge across departments to improve global UX standards, working closely with Data teams and other departments.",
+      "detailedDescription": "I was charged with deploying our team's knowledge across multiple departments to improve global UX standards throughout Decathlon. I worked with complex systems and diverse teams, particularly Data teams, to implement UX best practices. I led strategic design initiatives for connected sport applications with focus on scalable solutions. I spearheaded design system implementation and evolution across multiple sport applications. I implemented UX improvements that resulted in measurable performance enhancements across the platform.",
+      "achievements": [
+        "Charged with deploying team knowledge across multiple departments to improve global UX standards throughout Decathlon",
+        "Worked with complex systems and diverse teams, particularly Data teams, to implement UX best practices",
+        "Led strategic design initiatives for connected sport applications with focus on scalable solutions",
+        "Spearheaded design system implementation and evolution across multiple sport applications",
+        "Implemented UX improvements resulting in measurable performance enhancements across platform"
+      ],
+      "skills": ["Strategic Design", "User Research & Testing", "Wireframing", "Prioritization", "Design System"],
+      "projectType": "consulting",
+      "logo": "assets/experiences_images/Logo dkt.png",
+      "visualContent": [
+        "assets/experiences_images/Confidence level wheel.png",
+        "assets/experiences_images/Ux_disco_2.png",
+        "assets/experiences_images/Ux_disco_3.png",
+        "assets/experiences_images/discovery_strategic-axis.png"
+      ]
+    },
+    {
+      "id": 10,
+      "year": 2025,
+      "timelinePeriod": "Current",
+      "title": "Expert Product Designer - Decathlon Hub IOT platform",
+      "company": "Decathlon CSP",
+      "companyType": "corporate",
+      "period": "2025 - Present",
+      "description": "Led Product Design for Decathlon Hub, the central platform that connects any sport or activity within Decathlon. The app serves as the main gateway through connected devices, helping users enter the world of Decathlon Sport practice with IoT integration.",
+      "detailedDescription": "I designed complex UX for IoT device connectivity (Bluetooth, WiFi, and multiple connection protocols) across diverse sport equipment. I created unified user experience for connecting to any sport or activity within Decathlon's environment. I developed seamless UX for various IoT devices to connect and display data to users. I navigated complex technical requirements while maintaining exceptional user experience. I built knowledge systems around data to inform product decisions and user experience optimization.",
+      "achievements": [
+        "Designed complex UX for IoT device connectivity (Bluetooth, WiFi, and multiple connection protocols) across diverse sport equipment",
+        "Created unified user experience for connecting to ANY sport or activity within Decathlon's environment",
+        "Developed seamless UX for various IoT devices to connect and display data to users",
+        "Navigated complex technical requirements while maintaining exceptional user experience",
+        "Built knowledge systems around data to inform product decisions and user experience optimization"
+      ],
+      "skills": ["UX Design", "Accessibility", "RGAA", "Wireframing", "User Research & Testing", "Data Analysis & Analytics", "Tag Plan Management and Deployment", "Project Prioritization and Management as User Representative", "Strategic Design", "Design System"],
+      "projectType": "mobile-apps",
+      "logo": "assets/experiences_images/Logo dkt.png",
+      "visualContent": [
+        "assets/experiences_images/marketing.png",
+        "assets/experiences_images/discovery_strategic-axis.png"
+      ]
+    },
+    {
+      "id": 11,
+      "year": 2024,
+      "timelinePeriod": "Current",
+      "title": "University Lecturer - UX/UI Design",
+      "company": "ISEN",
+      "companyType": "education",
+      "period": "2024 - Present",
+      "description": "I teach UX/UI design to engineering students.",
+      "detailedDescription": "I deliver comprehensive courses on UX/UI design principles and methodologies to engineering students. I mentor students through practical design projects and case studies, preparing them for real-world UX/UI challenges.",
+      "achievements": [
+        "Developed curriculum for UX/UI design courses",
+        "Mentored engineering students in UX/UI design principles",
+        "Created practical case studies for UX/UI design methodologies"
+      ],
+      "skills": ["Teaching", "UX Design", "UI Design", "Design Principles", "Design Methodologies"],
+      "projectType": "education",
+      "logo": "assets/experiences_images/isenLogo.png",
+      "visualContent": []
+    },
+    {
+      "id": 12,
+      "year": 2022,
+      "timelinePeriod": "3+ years ago",
+      "title": "University Lecturer - Agile Methods & UX Design",
+      "company": "Enseignement Supérieur Saint Jude (ESSJ)",
+      "companyType": "education",
+      "period": "2022 - July 2025",
+      "description": "I taught agile methodologies, project management, UX design, and mobile marketing to Master 1 and Master 2 students in business and management programs.",
+      "detailedDescription": "I delivered comprehensive courses on agile project management frameworks, UX/UI design principles, and mobile marketing strategies. I mentored students through practical projects and case studies, preparing them for real-world business challenges.",
+      "achievements": [
+        "Developed curriculum for agile methodologies and UX design courses",
+        "Mentored 50+ Master's students in project management and design thinking",
+        "Created practical case studies integrating business and design methodologies"
+      ],
+      "skills": ["Teaching", "Project & Team Management", "UX Design", "Mobile Marketing"],
+      "projectType": "education",
+      "logo": "assets/experiences_images/essjlogo.jpg",
+      "visualContent": []
+    },
+    {
+      "id": 13,
+      "year": 2025,
+      "timelinePeriod": "Current",
+      "title": " AI Tool Specialist & Multi-Agent System Architect ",
+      "company": "Expertise Innovation Design",
+      "companyType": "startup",
+      "period": "2025 - Present",
+      "description": "My engineering degree combined with my design experience helps me create great automation and multi-agent systems that enhance my daily work life. I've built several projects with systemic agents to reach my goals, and I'm ready to help other companies do the same.",
+      "detailedDescription": "I leverage my engineering background and design expertise to architect intelligent automation systems and multi-agent workflows. I've created several projects incorporating systemic agents that help me achieve my objectives more efficiently. My experience with Cursor AI, Abacus.ai, and emerging AI tools enables me to build sophisticated automation solutions. I'm now preparing to help other companies implement similar AI-driven design and development workflows.",
+      "achievements": [
+        "Combined engineering background with design experience to create intelligent automation systems",
+        "Built multiple projects with systemic agents to enhance daily work efficiency",
+        "Developed expertise in Cursor AI, Abacus.ai, and emerging AI tools for design workflows",
+        "Created sophisticated multi-agent systems for complex project management",
+        "Prepared to help other companies implement AI-driven design and development solutions"
+      ],
+      "skills": ["AI & Automation", "UX Design", "Product Management"],
+      "projectType": "consulting",
+      "logo": "assets/LOGO EID.png",
+      "visualContent": [
+        "assets/LOGO EID.png"
+      ]
+    }
+  ]
+}

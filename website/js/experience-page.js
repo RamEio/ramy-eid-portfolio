@@ -31,12 +31,14 @@ class ConsolidatedExperiencePage {
         };
         this.imageObserver = null;
         
-        this.init();
+        this.init().catch(error => {
+            console.error('❌ Error initializing experience page:', error);
+        });
     }
 
-    init() {
+    async init() {
         console.log('🎯 ConsolidatedExperiencePage: Initializing...');
-        this.loadEnhancedExperiences();
+        await this.loadEnhancedExperiences();
         this.initTimelineNavigation();
         this.initFilterSystem();
         this.initCardExpansion();
@@ -48,10 +50,89 @@ class ConsolidatedExperiencePage {
     }
 
     /**
+     * Extract end date as timestamp for accurate chronological sorting
+     */
+    getEndYear(period) {
+        if (!period) return 0;
+        
+        // Handle different period formats
+        if (period.includes(' - ')) {
+            // Format: "2016 - 2017" or "2019 - 2022" or "July 2022 - December 2022"
+            const parts = period.split(' - ');
+            const endPart = parts[parts.length - 1];
+            
+            // Handle "Present" or current year
+            if (endPart.toLowerCase() === 'present' || endPart.toLowerCase() === 'current') {
+                return new Date().getTime();
+            }
+            
+            // Try to parse as full date (e.g., "December 2022")
+            const monthNames = ['january', 'february', 'march', 'april', 'may', 'june', 
+                               'july', 'august', 'september', 'october', 'november', 'december'];
+            
+            const endPartLower = endPart.toLowerCase();
+            for (let i = 0; i < monthNames.length; i++) {
+                if (endPartLower.includes(monthNames[i])) {
+                    const yearMatch = endPart.match(/\d{4}/);
+                    if (yearMatch) {
+                        const year = parseInt(yearMatch[0]);
+                        const month = i; // 0-based month index
+                        return new Date(year, month, 1).getTime();
+                    }
+                }
+            }
+            
+            // Extract year from end part (fallback)
+            const yearMatch = endPart.match(/\d{4}/);
+            return yearMatch ? new Date(parseInt(yearMatch[0]), 11, 1).getTime() : 0; // December of that year
+        } else if (period.includes('-')) {
+            // Format: "2015" (single year)
+            const yearMatch = period.match(/\d{4}/);
+            return yearMatch ? new Date(parseInt(yearMatch[0]), 11, 1).getTime() : 0; // December of that year
+        } else {
+            // Fallback: try to extract any 4-digit year
+            const yearMatch = period.match(/\d{4}/);
+            return yearMatch ? new Date(parseInt(yearMatch[0]), 11, 1).getTime() : 0; // December of that year
+        }
+    }
+
+    /**
      * Load and populate consolidated experience data with all enhancements
      */
-    loadEnhancedExperiences() {
-        console.log('📊 Loading consolidated experiences with all enhancements...');
+    async loadEnhancedExperiences() {
+        console.log('📊 Loading consolidated experiences from JSON file...');
+        try {
+            const response = await fetch('js/experience-data.json', { cache: 'no-cache' });
+            const data = await response.json();
+            this.experiences = data.experiences;
+            console.log(`✅ Loaded ${this.experiences.length} experiences from JSON file`);
+            
+            // Sort experiences by end year (most recent first)
+            this.experiences.sort((a, b) => {
+                const endYearA = this.getEndYear(a.period);
+                const endYearB = this.getEndYear(b.period);
+                return endYearB - endYearA;
+            });
+            
+            // Initialize filtered experiences
+            this.filteredExperiences = [...this.experiences];
+            
+            // Render content immediately
+            this.renderExperiences();
+            this.renderSkills();
+            this.updateFilterResults();
+        } catch (error) {
+            console.error('❌ Error loading experience data from JSON:', error);
+            // Fallback to hardcoded data if JSON loading fails
+            this.loadFallbackExperiences();
+        }
+    }
+
+    /**
+     * Fallback method with hardcoded experiences if JSON loading fails
+     */
+    loadFallbackExperiences() {
+        console.log('🔄 Loading fallback experiences...');
         this.experiences = [
             {
                 id: 1,
@@ -474,9 +555,17 @@ class ConsolidatedExperiencePage {
         card.setAttribute('data-experience-id', experience.id);
         card.setAttribute('role', 'listitem');
 
-        const skillsHTML = experience.skills.map(skill => 
+        // Limit to 5 tags for compact view, but preserve all for detailed view
+        const displaySkills = experience.skills.slice(0, 5);
+        const remainingSkills = experience.skills.slice(5);
+        
+        const skillsHTML = displaySkills.map(skill => 
             `<span class="skill-tag">${skill}</span>`
         ).join('');
+        
+        // Add "+X more" indicator if there are additional skills
+        const moreIndicator = remainingSkills.length > 0 ? 
+            `<span class="skill-tag more-indicator">+${remainingSkills.length} more</span>` : '';
 
         const achievementsHTML = experience.achievements.map(achievement => 
             `<li>${achievement}</li>`
@@ -489,10 +578,9 @@ class ConsolidatedExperiencePage {
             <div class="experience-header">
                 <div class="company-logo">
                     ${experience.logo ? 
-                        `<img src="${experience.logo}" alt="${experience.company} logo" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">` : 
+                        `<img src="${experience.logo}" alt="${experience.company} logo" loading="lazy">` : 
                         ''
                     }
-                    <div class="company-logo fallback" style="${experience.logo ? 'display: none;' : ''}">${experience.logoFallback}</div>
                 </div>
                 <div class="experience-info">
                     <h3 class="experience-title">${experience.title}</h3>
@@ -502,13 +590,17 @@ class ConsolidatedExperiencePage {
             </div>
             <p class="experience-description">${experience.description}</p>
             <div class="experience-skills">
-                ${skillsHTML}
+                ${skillsHTML}${moreIndicator}
             </div>
             <button class="expand-btn" aria-expanded="false" aria-controls="experience-details-${experience.id}">
                 View Details
             </button>
             <div class="experience-details" id="experience-details-${experience.id}" style="display: none;">
                 ${visualGalleryHTML}
+                <h4>All Skills</h4>
+                <div class="experience-skills-detailed">
+                    ${experience.skills.map(skill => `<span class="skill-tag">${skill}</span>`).join('')}
+                </div>
                 <h4>Achievements</h4>
                 <ul>
                     ${achievementsHTML}
@@ -526,7 +618,7 @@ class ConsolidatedExperiencePage {
      */
     createVisualGallery(experience) {
         if (!experience.visualContent || experience.visualContent.length === 0) {
-            return '<div class="experience-images"><img src="assets/experiences_images/DesignSprintBook.png" alt="Project visualization" class="experience-image" loading="lazy"></div>';
+            return '<div class="experience-visual-gallery"><h4>Project Visuals</h4><p>No project visuals available for this experience.</p></div>';
         }
 
         const images = experience.visualContent.slice(0, 6); // Limit to 6 images for performance
@@ -780,11 +872,11 @@ class ConsolidatedExperiencePage {
         if (period === 'all') {
             this.filteredExperiences = [...this.experiences];
         } else {
-            // Define timeline hierarchy for inclusive filtering
+            // Define timeline hierarchy for cumulative filtering (inclusive)
             const timelineHierarchy = {
-                'Current': ['Current'],
-                '3+ years ago': ['Current', '3+ years ago'],
-                '7+ years ago': ['Current', '3+ years ago', '7+ years ago']
+                'Current': ['Current', '3+ years ago', '7+ years ago'], // Show all experiences
+                '3+ years ago': ['3+ years ago', '7+ years ago'], // Show experiences up to 3 years ago
+                '7+ years ago': ['7+ years ago'] // Show only 7+ years ago experiences
             };
             
             const allowedPeriods = timelineHierarchy[period] || [period];
@@ -847,7 +939,7 @@ class ConsolidatedExperiencePage {
             marker.setAttribute('aria-pressed', 'false');
         });
         
-        // Set "Current" as default active
+        // Set "Current" as default active (shows all experiences)
         const currentMarker = document.querySelector('.timeline-marker[data-period="Current"]');
         if (currentMarker) {
             currentMarker.classList.add('active');
@@ -886,40 +978,16 @@ class ConsolidatedExperiencePage {
     }
 
     /**
-     * Render skills showcase section
+     * Render interactive skills filter with occurrence counts and filtering
      */
     renderSkills() {
-        console.log('🎯 renderSkills: Starting...');
-        const skillsContainer = document.querySelector('.skills-grid');
+        console.log('🎯 renderSkills: Starting interactive skills filter rendering...');
+        const skillsContainer = document.querySelector('.skills-filter-grid');
         console.log('🎯 renderSkills: Container found:', skillsContainer);
         if (!skillsContainer) {
-            console.error('❌ renderSkills: Skills container not found!');
+            console.error('❌ renderSkills: Skills filter container not found!');
             return;
         }
-
-        // Define skill categories with icons
-        const skillCategories = {
-            'Design & UX': {
-                icon: '🎨',
-                skills: ['UX Design', 'UI Design', 'Design Sprints', 'Wireframing', 'Prototyping', 'Accessibility']
-            },
-            'Research & Analysis': {
-                icon: '🔍',
-                skills: ['User Research', 'Usability Testing', 'Data Analysis', 'Research', 'Human Factors']
-            },
-            'Technology & Development': {
-                icon: '💻',
-                skills: ['AI/ML', 'Java Development', 'Mobile Development', 'Web Development', 'Technical Architecture']
-            },
-            'Strategy & Management': {
-                icon: '📊',
-                skills: ['Product Management', 'Project Management', 'Strategic Planning', 'Team Leadership']
-            },
-            'Innovation & AI': {
-                icon: '🤖',
-                skills: ['AI-Powered Design', 'Multi-Agent Systems', 'Innovation Strategy', 'Emerging Technologies']
-            }
-        };
 
         // Count skills usage across experiences
         const skillCounts = {};
@@ -929,52 +997,115 @@ class ConsolidatedExperiencePage {
             });
         });
 
-        // Generate skills showcase HTML
-        const skillsHTML = Object.entries(skillCategories).map(([category, data]) => {
-            const relevantSkills = data.skills.filter(skill => skillCounts[skill] > 0);
-            
-            if (relevantSkills.length === 0) return '';
+        // Sort skills by frequency (highest first)
+        const sortedSkills = Object.entries(skillCounts)
+            .sort(([,a], [,b]) => b - a)
+            .filter(([, count]) => count >= 3); // Only show skills with 3+ occurrences
 
-            const skillsList = relevantSkills.map(skill => `
-                <li class="skill-item">
+        // Determine visual hierarchy based on frequency
+        const getSkillSize = (count) => {
+            if (count >= 8) return 'skill-large';
+            if (count >= 5) return 'skill-medium';
+            return 'skill-small';
+        };
+
+        // Generate interactive skills filter HTML
+        const skillsHTML = `
+            ${sortedSkills.map(([skill, count]) => `
+                <button class="skill-tag-filter ${getSkillSize(count)}" 
+                        data-skill="${skill}" 
+                        onclick="experiencePage.filterBySkill('${skill}')"
+                        title="Click to filter experiences by ${skill}">
                     <span class="skill-name">${skill}</span>
-                    <span class="skill-project-count">${skillCounts[skill] || 0}</span>
-                </li>
-            `).join('');
-
-            return `
-                <div class="skill-category">
-                    <h3 class="skill-category-title">
-                        <span class="skill-category-icon">${data.icon}</span>
-                        ${category}
-                    </h3>
-                    <ul class="skill-list">
-                        ${skillsList}
-                    </ul>
-                </div>
-            `;
-        }).join('');
+                    <span class="skill-count">(${count})</span>
+                </button>
+            `).join('')}
+        `;
 
         skillsContainer.innerHTML = skillsHTML;
 
         // Add animation classes
-        const skillCategoryElements = skillsContainer.querySelectorAll('.skill-category');
-        skillCategoryElements.forEach((category, index) => {
+        const skillTags = skillsContainer.querySelectorAll('.skill-tag-filter');
+        skillTags.forEach((tag, index) => {
             setTimeout(() => {
-                category.classList.add('fade-in');
-            }, index * 200);
+                tag.classList.add('fade-in');
+            }, index * 100);
         });
+
+        console.log('✅ renderSkills: Interactive skills filter rendering complete');
     }
 
     /**
-     * Filter experiences by skill
+     * Filter experiences by skill with enhanced visual feedback
      */
     filterBySkill(skill) {
+        console.log(`🎯 filterBySkill: Filtering by "${skill}"`);
+        
+        // Update filtered experiences
         this.filteredExperiences = this.experiences.filter(exp => 
             exp.skills.includes(skill)
         );
+        
+        // Update visual feedback for active skill
+        this.updateActiveSkillFilter(skill);
+        
+        // Render updated content
         this.renderExperiences();
         this.updateFilterResults();
+        
+        // Scroll to experiences section
+        const experiencesSection = document.querySelector('.experiences-section');
+        if (experiencesSection) {
+            experiencesSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+        
+        console.log(`✅ filterBySkill: Found ${this.filteredExperiences.length} experiences for "${skill}"`);
+    }
+
+    /**
+     * Show all experiences (clear filters)
+     */
+    showAllExperiences() {
+        console.log('🎯 showAllExperiences: Clearing all filters');
+        
+        // Reset filtered experiences
+        this.filteredExperiences = [...this.experiences];
+        
+        // Clear active skill filter
+        this.clearActiveSkillFilter();
+        
+        // Render updated content
+        this.renderExperiences();
+        this.updateFilterResults();
+        
+        console.log('✅ showAllExperiences: All filters cleared');
+    }
+
+    /**
+     * Update visual feedback for active skill filter
+     */
+    updateActiveSkillFilter(activeSkill) {
+        // Remove active class from all skill tags
+        const allSkillTags = document.querySelectorAll('.skill-tag-filter');
+        allSkillTags.forEach(tag => {
+            tag.classList.remove('active');
+        });
+        
+        // Add active class to selected skill
+        const activeTag = document.querySelector(`[data-skill="${activeSkill}"]`);
+        if (activeTag) {
+            activeTag.classList.add('active');
+        }
+    }
+
+    /**
+     * Clear active skill filter visual feedback
+     */
+    clearActiveSkillFilter() {
+        const allSkillTags = document.querySelectorAll('.skill-tag-filter');
+        allSkillTags.forEach(tag => {
+            tag.classList.remove('active');
+        });
     }
 
     /**
@@ -1014,5 +1145,5 @@ class ConsolidatedExperiencePage {
 // Initialize the consolidated experience page when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
     console.log('🎯 DOM Content Loaded - Initializing ConsolidatedExperiencePage...');
-    new ConsolidatedExperiencePage();
+    window.experiencePage = new ConsolidatedExperiencePage();
 });
