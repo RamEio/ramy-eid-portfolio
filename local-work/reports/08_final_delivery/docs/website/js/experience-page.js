@@ -244,7 +244,8 @@ class ConsolidatedExperiencePage {
                 logoFallback: "D",
                 visualContent: [
                     "assets/experiences_images/dkt.jpeg",
-                    "assets/experiences_images/DesignSprintBook.png"
+                    "assets/experiences_images/DesignSprintBook.png",
+                    "assets/decathlon-images/ost.png"
                 ]
             },
             {
