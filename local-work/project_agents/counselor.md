@@ -90,6 +90,7 @@ The Counselor automatically activates the multi-agent system when:
 4. **Git Commits:** When changes are committed to version control
 5. **Periodic Checks:** Every 5 minutes to ensure all agents are active
 6. **Error Detection:** When any agent becomes inactive or encounters issues
+7. **🎨 Design System Validation:** Automatically triggers Design System Guardian for all design-related changes (CSS, HTML, UI components)
 
 ### **📊 System Health Monitoring**
 
