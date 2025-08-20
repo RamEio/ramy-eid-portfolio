@@ -144,6 +144,8 @@ Request a `.docx` export at each major milestone (e.g., end of design, before de
 - **Designer → Validator:** Presents design concepts and wireframes for early user validation and feedback.
 - **Validator → Designer:** Provides real-time user perspective feedback for design iteration and refinement.
 - **Designer → Counselor:** Submits wireframes, user flows, and functional specifications informed by benchmark research and user validation.
+- **🎨 Design System Guardian Validation:** Counselor requests design system coherence validation of wireframes and design concepts.
+- **Design System Guardian → Counselor:** Provides design system coherence analysis and recommendations for dark mode glass morphism consistency.
 - **Counselor → Validator:** Requests final user-centric validation of design deliverables.
 - **Validator → Counselor:** Provides validation report with coherence score (1-10) and user feedback.
 - **Counselor:** Analyzes Scribe documentation for patterns and determines if consultation is needed.
@@ -153,6 +155,8 @@ Request a `.docx` export at each major milestone (e.g., end of design, before de
 - **Counselor:** Validates design deliverables for completeness and alignment with brief, market insights, strategic vision, and user feedback.
 - **Counselor → Graphist:** Transmits validated wireframes for UI design.
 - **Graphist → Counselor:** Submits UI mockups, design system, and visual assets.
+- **🎨 Design System Guardian Validation:** Counselor requests design system coherence validation of UI mockups and visual implementation.
+- **Design System Guardian → Counselor:** Provides design system coherence analysis and visual consistency recommendations for dark mode glass morphism.
 - **🎯 Validator-Designer Collaboration:** Validator provides real-time feedback during UI design process.
 - **Validator → Designer:** Provides user perspective feedback for UI design iteration and refinement.
 - **Designer → Counselor:** Submits refined UI deliverables based on user validation feedback.
@@ -237,6 +241,7 @@ Request a `.docx` export at each major milestone (e.g., end of design, before de
 | Multi-Agent Safety  | System monitoring, quality assurance| Counselor | Counselor        | Counselor     | ✅ Auto         |
 | Code Guardian       | Regression prevention, code integrity| Counselor | Counselor        | Counselor     | ✅ Auto         |
 | **Validator**       | **User-centric validation**| **Counselor**    | **Counselor**    | **Counselor** | **✅ Auto**     |
+| **Design System Guardian** | **Design coherence, consistency** | **Counselor**    | **Counselor**    | **Counselor** | **✅ Auto**     |
 
 ---
 
