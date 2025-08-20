@@ -1274,7 +1274,7 @@ img {
     margin-right: calc(-50vw + 50%);
     overflow: hidden;
     position: relative;
-    max-width: 100%; /* Prevent overflow */
+    max-width: 100vw; /* Full screen width */
 }
 
 /* Carousel - Auto-scrolling animation */
@@ -1284,8 +1284,8 @@ img {
     gap: 0; /* NO GAPS - Images stuck together */
     animation: scrollCarousel 45s linear infinite; /* FASTER SCROLLING - 45s instead of 90s */
     width: max-content;
-    padding: 0 var(--space-8);
-    max-width: 100vw; /* Prevent horizontal overflow */
+    padding: 0; /* NO PADDING - Full width */
+    max-width: 100vw; /* Full screen width */
 }
 
 /* Pause animation on hover */
@@ -1295,7 +1295,7 @@ img {
 
 /* Carousel Container - Limited Height (3 rows max) */
 .experience-carousel {
-    height: 300px; /* Fixed height for 3 rows */
+    height: 450px; /* Increased height for larger images */
     overflow: hidden;
 }
 
@@ -1303,11 +1303,11 @@ img {
 .carousel-row {
     display: flex;
     gap: 0; /* NO GAPS - Images stuck together */
-    height: 100px; /* Each row height for 3 rows total */
+    height: 150px; /* Each row height for 3 rows total */
     min-width: max-content;
 }
 
-/* Experience Items - Responsive sizing */
+/* Experience Items - Randomized sizing for full-size display */
 .experience-item {
     position: relative;
     overflow: hidden;
@@ -1320,20 +1320,32 @@ img {
 }
 
 .experience-item.large {
-    width: 400px;
-    height: 300px;
+    width: 500px;
+    height: 400px;
     flex-shrink: 0;
 }
 
 .experience-item.medium {
-    width: 280px;
-    height: 300px;
+    width: 350px;
+    height: 280px;
     flex-shrink: 0;
 }
 
 .experience-item.small {
-    width: 200px;
-    height: 300px;
+    width: 250px;
+    height: 200px;
+    flex-shrink: 0;
+}
+
+.experience-item.xlarge {
+    width: 600px;
+    height: 450px;
+    flex-shrink: 0;
+}
+
+.experience-item.xsmall {
+    width: 180px;
+    height: 150px;
     flex-shrink: 0;
 }
 
@@ -1468,43 +1480,63 @@ img {
 /* Responsive design */
 @media (max-width: 1200px) {
     .carousel-row {
-        height: 250px;
+        height: 360px;
+    }
+    
+    .experience-item.xlarge {
+        width: 480px;
+        height: 360px;
     }
     
     .experience-item.large {
-        width: 350px;
-        height: 250px;
+        width: 400px;
+        height: 320px;
     }
     
     .experience-item.medium {
-        width: 240px;
-        height: 180px;
+        width: 280px;
+        height: 224px;
     }
     
     .experience-item.small {
-        width: 180px;
-        height: 130px;
+        width: 200px;
+        height: 160px;
+    }
+    
+    .experience-item.xsmall {
+        width: 144px;
+        height: 120px;
     }
 }
 
 @media (max-width: 768px) {
     .carousel-row {
-        height: 200px;
+        height: 270px;
+    }
+    
+    .experience-item.xlarge {
+        width: 360px;
+        height: 270px;
     }
     
     .experience-item.large {
-        width: 280px;
-        height: 200px;
+        width: 300px;
+        height: 240px;
     }
     
     .experience-item.medium {
-        width: 200px;
-        height: 150px;
+        width: 210px;
+        height: 168px;
     }
     
     .experience-item.small {
         width: 150px;
-        height: 110px;
+        height: 120px;
+    }
+    
+    .experience-item.xsmall {
+        width: 108px;
+        height: 90px;
     }
     
     .experience-overlay {
@@ -1522,22 +1554,32 @@ img {
 
 @media (max-width: 480px) {
     .carousel-row {
-        height: 180px;
+        height: 225px;
+    }
+    
+    .experience-item.xlarge {
+        width: 300px;
+        height: 225px;
     }
     
     .experience-item.large {
-        width: 240px;
-        height: 180px;
+        width: 250px;
+        height: 200px;
     }
     
     .experience-item.medium {
-        width: 180px;
-        height: 130px;
+        width: 175px;
+        height: 140px;
     }
     
     .experience-item.small {
-        width: 120px;
-        height: 90px;
+        width: 125px;
+        height: 100px;
+    }
+    
+    .experience-item.xsmall {
+        width: 90px;
+        height: 75px;
     }
     
     .experience-overlay {
