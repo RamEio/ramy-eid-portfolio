@@ -1198,9 +1198,9 @@ img {
 /* Carousel - Auto-scrolling animation */
 .experience-carousel {
     display: flex;
-    flex-direction: column;
+    flex-direction: row; /* HORIZONTAL SCROLLING - NOT VERTICAL */
     gap: var(--space-6);
-    animation: scrollCarousel 60s linear infinite;
+    animation: scrollCarousel 90s linear infinite;
     width: max-content;
     padding: 0 var(--space-8);
     max-width: 100vw; /* Prevent horizontal overflow */
@@ -1211,12 +1211,10 @@ img {
     animation-play-state: paused;
 }
 
-/* Carousel Rows - Limited Height (2-3 photos max) */
-.carousel-row {
-    display: flex;
-    gap: 0; /* NO GAPS - Images stuck together like wireframe */
+/* Carousel Container - Limited Height (2-3 photos max) */
+.experience-carousel {
     height: 300px; /* Fixed height for 2-3 photos max */
-    min-width: max-content;
+    overflow: hidden;
 }
 
 /* Experience Items - Responsive sizing */
@@ -1234,16 +1232,19 @@ img {
 .experience-item.large {
     width: 400px;
     height: 300px;
+    flex-shrink: 0;
 }
 
 .experience-item.medium {
     width: 280px;
-    height: 200px;
+    height: 300px;
+    flex-shrink: 0;
 }
 
 .experience-item.small {
     width: 200px;
-    height: 150px;
+    height: 300px;
+    flex-shrink: 0;
 }
 
 /* Image styling */
@@ -1312,25 +1313,7 @@ img {
     }
 }
 
-/* Ensure carousel doesn't overflow */
-.experience-carousel-container {
-    position: relative;
-    overflow: hidden;
-    width: 100vw;
-    margin-left: calc(-50vw + 50%);
-    margin-right: calc(-50vw + 50%);
-    max-width: 100%;
-}
 
-.experience-carousel {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-6);
-    animation: scrollCarousel 90s linear infinite;
-    width: max-content;
-    padding: 0 var(--space-8);
-    max-width: 100vw;
-}
 
 /* Pause indicator styles */
 .carousel-paused {
