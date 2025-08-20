@@ -4,12 +4,12 @@
  */
 
 class ExperienceCarousel {
-               constructor() {
-               this.carousel = null;
-               this.isPaused = false;
-               this.scrollSpeed = 90; // seconds for full cycle (increased for more images)
-               this.init();
-           }
+                    constructor() {
+         this.carousel = null;
+         this.isPaused = false;
+         this.scrollSpeed = 45; // seconds for full cycle (FASTER SCROLLING)
+         this.init();
+     }
 
     init() {
         this.carousel = document.getElementById('experience-carousel');
