@@ -1164,12 +1164,13 @@ img {
 } 
 
 /* ==========================================================================
-   Experience Showcase - Asymmetrical Grid
+   Experience Showcase - Auto-Scrolling Carousel
    ========================================================================== */
 
 .experience-showcase {
     padding: var(--space-16) 0;
     background: linear-gradient(135deg, rgba(26, 26, 26, 0.95) 0%, rgba(40, 40, 40, 0.95) 100%);
+    overflow: hidden; /* Prevent horizontal scroll */
 }
 
 .section-subtitle {
@@ -1184,106 +1185,61 @@ img {
     opacity: 0.9;
 }
 
-.experience-grid {
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    grid-auto-rows: minmax(200px, auto);
+/* Carousel Container - Full Width */
+.experience-carousel-container {
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
+    overflow: hidden;
+    position: relative;
+}
+
+/* Carousel - Auto-scrolling animation */
+.experience-carousel {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+    animation: scrollCarousel 60s linear infinite;
+    width: max-content;
+    padding: 0 var(--space-8);
+}
+
+/* Pause animation on hover */
+.experience-carousel:hover {
+    animation-play-state: paused;
+}
+
+/* Carousel Rows - Limited Height (2-3 photos max) */
+.carousel-row {
+    display: flex;
     gap: var(--space-4);
-    margin-bottom: var(--space-12);
+    height: 300px; /* Fixed height for 2-3 photos max */
+    min-width: max-content;
 }
 
-/* Large items (span 6 columns, 2 rows) */
+/* Experience Items - Responsive sizing */
+.experience-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--radius-lg);
+    transition: all var(--transition-normal);
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
 .experience-item.large {
-    grid-column: span 6;
-    grid-row: span 2;
-    position: relative;
-    overflow: hidden;
-    border-radius: var(--radius-lg);
-    transition: all var(--transition-normal);
-    cursor: pointer;
+    width: 400px;
+    height: 300px;
 }
 
-/* Medium items (span 4 columns, 1 row) */
 .experience-item.medium {
-    grid-column: span 4;
-    grid-row: span 1;
-    position: relative;
-    overflow: hidden;
-    border-radius: var(--radius-lg);
-    transition: all var(--transition-normal);
-    cursor: pointer;
+    width: 280px;
+    height: 200px;
 }
 
-/* Small items (span 3 columns, 1 row) */
 .experience-item.small {
-    grid-column: span 3;
-    grid-row: span 1;
-    position: relative;
-    overflow: hidden;
-    border-radius: var(--radius-lg);
-    transition: all var(--transition-normal);
-    cursor: pointer;
-}
-
-/* Specific positioning for asymmetrical layout */
-.experience-item:nth-child(1) { /* Large - Discovery Phase */
-    grid-column: 1 / 7;
-    grid-row: 1 / 3;
-}
-
-.experience-item:nth-child(2) { /* Medium - Workshop */
-    grid-column: 7 / 11;
-    grid-row: 1 / 2;
-}
-
-.experience-item:nth-child(3) { /* Medium - User Testing */
-    grid-column: 11 / 13;
-    grid-row: 1 / 2;
-}
-
-.experience-item:nth-child(4) { /* Small - Card Sorting */
-    grid-column: 7 / 10;
-    grid-row: 2 / 3;
-}
-
-.experience-item:nth-child(5) { /* Small - Wireframing */
-    grid-column: 10 / 13;
-    grid-row: 2 / 3;
-}
-
-.experience-item:nth-child(6) { /* Small - Data Analysis */
-    grid-column: 1 / 4;
-    grid-row: 3 / 4;
-}
-
-.experience-item:nth-child(7) { /* Medium - Design Sprints */
-    grid-column: 4 / 8;
-    grid-row: 3 / 4;
-}
-
-.experience-item:nth-child(8) { /* Medium - Testing Results */
-    grid-column: 8 / 12;
-    grid-row: 3 / 4;
-}
-
-.experience-item:nth-child(9) { /* Large - Strategic Discovery */
-    grid-column: 1 / 7;
-    grid-row: 4 / 6;
-}
-
-.experience-item:nth-child(10) { /* Small - Design Systems */
-    grid-column: 7 / 10;
-    grid-row: 4 / 5;
-}
-
-.experience-item:nth-child(11) { /* Small - Analytics */
-    grid-column: 10 / 13;
-    grid-row: 4 / 5;
-}
-
-.experience-item:nth-child(12) { /* Small - Prioritization */
-    grid-column: 7 / 10;
-    grid-row: 5 / 6;
+    width: 200px;
+    height: 150px;
 }
 
 /* Image styling */
@@ -1317,7 +1273,7 @@ img {
         rgba(26, 26, 26, 0) 100%
     );
     backdrop-filter: var(--blur-medium);
-    padding: var(--space-6);
+    padding: var(--space-4);
     color: var(--text-primary);
     transform: translateY(100%);
     transition: transform var(--transition-normal);
@@ -1328,69 +1284,136 @@ img {
 }
 
 .experience-overlay h3 {
-    font-size: var(--text-lg);
+    font-size: var(--text-base);
     font-weight: 600;
-    margin-bottom: var(--space-2);
+    margin-bottom: var(--space-1);
     color: var(--text-primary);
 }
 
 .experience-overlay p {
-    font-size: var(--text-sm);
+    font-size: var(--text-xs);
     color: var(--text-secondary);
     margin: 0;
     opacity: 0.9;
 }
 
+/* Auto-scroll animation */
+@keyframes scrollCarousel {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+/* Pause indicator styles */
+.carousel-paused {
+    position: relative;
+}
+
+.carousel-paused::after {
+    content: '⏸️';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2rem;
+    background: rgba(26, 26, 26, 0.9);
+    backdrop-filter: var(--blur-medium);
+    border-radius: var(--radius-full);
+    padding: var(--space-2);
+    z-index: 10;
+    opacity: 0.8;
+    animation: fadeInOut 2s ease-in-out;
+}
+
+@keyframes fadeInOut {
+    0%, 100% { opacity: 0; }
+    50% { opacity: 0.8; }
+}
+
+/* Smooth transitions for carousel items */
+.experience-carousel {
+    will-change: transform;
+}
+
+/* Enhanced hover effects for carousel items */
+.experience-item {
+    will-change: transform;
+}
+
+.experience-item:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), var(--glow-subtle);
+    z-index: 5;
+}
+
+/* Loading state for carousel */
+.experience-carousel.loading {
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+.experience-carousel.loading::before {
+    content: 'Loading...';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--text-primary);
+    font-size: var(--text-lg);
+    z-index: 10;
+}
+
 /* Responsive design */
 @media (max-width: 1200px) {
-    .experience-grid {
-        grid-template-columns: repeat(8, 1fr);
-        gap: var(--space-3);
+    .carousel-row {
+        height: 250px;
     }
     
     .experience-item.large {
-        grid-column: span 4;
-        grid-row: span 2;
+        width: 350px;
+        height: 250px;
     }
     
     .experience-item.medium {
-        grid-column: span 4;
-        grid-row: span 1;
+        width: 240px;
+        height: 180px;
     }
     
     .experience-item.small {
-        grid-column: span 2;
-        grid-row: span 1;
+        width: 180px;
+        height: 130px;
     }
 }
 
 @media (max-width: 768px) {
-    .experience-grid {
-        grid-template-columns: repeat(4, 1fr);
-        gap: var(--space-2);
+    .carousel-row {
+        height: 200px;
     }
     
     .experience-item.large {
-        grid-column: span 4;
-        grid-row: span 2;
+        width: 280px;
+        height: 200px;
     }
     
     .experience-item.medium {
-        grid-column: span 2;
-        grid-row: span 1;
+        width: 200px;
+        height: 150px;
     }
     
     .experience-item.small {
-        grid-column: span 2;
-        grid-row: span 1;
+        width: 150px;
+        height: 110px;
     }
     
     .experience-overlay {
-        padding: var(--space-4);
+        padding: var(--space-3);
     }
     
     .experience-overlay h3 {
-        font-size: var(--text-base);
+        font-size: var(--text-sm);
     }
     
     .experience-overlay p {
@@ -1399,17 +1422,23 @@ img {
 }
 
 @media (max-width: 480px) {
-    .experience-grid {
-        grid-template-columns: 1fr;
-        gap: var(--space-3);
+    .carousel-row {
+        height: 180px;
     }
     
-    .experience-item.large,
-    .experience-item.medium,
+    .experience-item.large {
+        width: 240px;
+        height: 180px;
+    }
+    
+    .experience-item.medium {
+        width: 180px;
+        height: 130px;
+    }
+    
     .experience-item.small {
-        grid-column: span 1;
-        grid-row: span 1;
-        min-height: 200px;
+        width: 120px;
+        height: 90px;
     }
     
     .experience-overlay {
@@ -1420,5 +1449,14 @@ img {
             rgba(26, 26, 26, 0.7) 70%,
             rgba(26, 26, 26, 0) 100%
         );
+        padding: var(--space-2);
+    }
+    
+    .experience-overlay h3 {
+        font-size: var(--text-xs);
+    }
+    
+    .experience-overlay p {
+        font-size: var(--text-xs);
     }
 } 
