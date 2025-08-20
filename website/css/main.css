@@ -1212,7 +1212,7 @@ img {
 /* Carousel Rows - Limited Height (2-3 photos max) */
 .carousel-row {
     display: flex;
-    gap: var(--space-4);
+    gap: 0; /* NO GAPS - Images stuck together like wireframe */
     height: 300px; /* Fixed height for 2-3 photos max */
     min-width: max-content;
 }
@@ -1221,10 +1221,12 @@ img {
 .experience-item {
     position: relative;
     overflow: hidden;
-    border-radius: var(--radius-lg);
+    border-radius: 0; /* NO BORDER RADIUS - Sharp edges like wireframe */
     transition: all var(--transition-normal);
     cursor: pointer;
     flex-shrink: 0;
+    margin: 0; /* NO MARGINS */
+    border: none; /* NO BORDERS */
 }
 
 .experience-item.large {
@@ -1277,6 +1279,7 @@ img {
     color: var(--text-primary);
     transform: translateY(100%);
     transition: transform var(--transition-normal);
+    border-radius: 0; /* Sharp edges to match wireframe */
 }
 
 .experience-item:hover .experience-overlay {
@@ -1347,6 +1350,7 @@ img {
     transform: translateY(-8px) scale(1.02);
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), var(--glow-subtle);
     z-index: 5;
+    border-radius: var(--radius-lg); /* Add border radius only on hover */
 }
 
 /* Loading state for carousel */
