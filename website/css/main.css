@@ -1280,8 +1280,8 @@ img {
 /* Carousel - Auto-scrolling animation */
 .experience-carousel {
     display: flex;
-    flex-direction: row; /* HORIZONTAL SCROLLING - NOT VERTICAL */
-    gap: var(--space-6);
+    flex-direction: column; /* VERTICAL STACKING - 3 ROWS */
+    gap: 0; /* NO GAPS - Images stuck together */
     animation: scrollCarousel 45s linear infinite; /* FASTER SCROLLING - 45s instead of 90s */
     width: max-content;
     padding: 0 var(--space-8);
@@ -1293,10 +1293,18 @@ img {
     animation-play-state: paused;
 }
 
-/* Carousel Container - Limited Height (2-3 photos max) */
+/* Carousel Container - Limited Height (3 rows max) */
 .experience-carousel {
-    height: 300px; /* Fixed height for 2-3 photos max */
+    height: 300px; /* Fixed height for 3 rows */
     overflow: hidden;
+}
+
+/* Carousel Rows - 3 Rows Layout */
+.carousel-row {
+    display: flex;
+    gap: 0; /* NO GAPS - Images stuck together */
+    height: 100px; /* Each row height for 3 rows total */
+    min-width: max-content;
 }
 
 /* Experience Items - Responsive sizing */
