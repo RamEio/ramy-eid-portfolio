@@ -1015,7 +1015,7 @@ img {
 /* Clean and simple image hover effects - no complex grid overlays */ 
 
 /* ==========================================================================
-   Skills Summary Section - Light & Elegant
+   Skills Summary Section - Dark Mode Glass Morphism
    ========================================================================== */
 
 .skills-summary {
@@ -1025,13 +1025,13 @@ img {
 .skills-subtitle {
     text-align: center;
     font-size: var(--text-lg);
-    color: var(--text-dark);
+    color: var(--text-secondary);
     margin-bottom: var(--space-12);
     max-width: 600px;
     margin-left: auto;
     margin-right: auto;
     line-height: var(--leading-relaxed);
-    opacity: 0.8;
+    opacity: 0.9;
 }
 
 .skills-grid {
@@ -1041,23 +1041,26 @@ img {
 }
 
 .skill-category {
-    background: var(--background-white);
-    border: 1px solid var(--border-light);
+    background: rgba(26, 26, 26, 0.7);
+    backdrop-filter: var(--blur-medium);
+    border: 1px solid rgba(107, 70, 193, 0.2);
     border-radius: var(--radius-lg);
     padding: var(--space-6);
     transition: all var(--transition-normal);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 }
 
 .skill-category:hover {
-    border-color: var(--primary-blue);
-    box-shadow: var(--shadow-md);
-    transform: translateY(-2px);
+    background: rgba(26, 26, 26, 0.8);
+    border-color: rgba(107, 70, 193, 0.4);
+    box-shadow: 0 12px 48px rgba(0, 0, 0, 0.4), var(--glow-subtle);
+    transform: translateY(-4px);
 }
 
 .skill-category-title {
     font-size: var(--text-xl);
     font-weight: 600;
-    color: var(--text-dark);
+    color: var(--text-primary);
     margin-bottom: var(--space-4);
     display: flex;
     align-items: center;
@@ -1073,17 +1076,21 @@ img {
 .skill-tag {
     display: inline-block;
     padding: var(--space-1) var(--space-3);
-    background: var(--primary-blue);
-    color: var(--white);
+    background: rgba(107, 70, 193, 0.8);
+    color: var(--text-primary);
     border-radius: var(--radius-full);
     font-size: var(--text-sm);
     font-weight: 500;
     transition: all var(--transition-fast);
+    border: 1px solid rgba(107, 70, 193, 0.3);
+    backdrop-filter: var(--blur-light);
 }
 
 .skill-tag:hover {
-    background: var(--secondary-blue);
+    background: rgba(107, 70, 193, 1);
+    border-color: rgba(107, 70, 193, 0.6);
     transform: scale(1.05);
+    box-shadow: var(--glow-subtle);
 }
 
 .skills-cta {
@@ -1135,6 +1142,7 @@ img {
     .skill-category {
         padding: var(--space-4);
         margin: 0 var(--space-4);
+        background: rgba(26, 26, 26, 0.8);
     }
     
     .skill-category-title {
