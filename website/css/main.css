@@ -1013,3 +1013,211 @@ img {
 } 
 
 /* Clean and simple image hover effects - no complex grid overlays */ 
+
+/* ==========================================================================
+   Skills Summary Section
+   ========================================================================== */
+
+.skills-summary {
+    padding: var(--space-8) 0;
+    background: linear-gradient(135deg, var(--background-gradient-start) 0%, var(--background-gradient-end) 100%);
+}
+
+.skills-subtitle {
+    text-align: center;
+    font-size: var(--text-lg);
+    color: var(--text-secondary);
+    margin-bottom: var(--space-8);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+}
+
+.skills-categories {
+    display: grid;
+    gap: var(--space-6);
+    margin-bottom: var(--space-8);
+}
+
+.skill-category {
+    padding: var(--space-6);
+    border-radius: var(--radius-xl);
+    transition: all var(--transition-medium);
+    border: 1px solid var(--border-light);
+}
+
+.skill-category:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--primary-blue);
+}
+
+.skill-category-header {
+    margin-bottom: var(--space-4);
+}
+
+.skill-category-title {
+    font-size: var(--text-xl);
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: var(--space-2);
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+}
+
+.skill-category-description {
+    font-size: var(--text-base);
+    color: var(--text-secondary);
+    line-height: 1.5;
+    margin: 0;
+}
+
+.skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+}
+
+.skill-tag {
+    display: inline-block;
+    padding: var(--space-2) var(--space-3);
+    background: var(--primary-blue);
+    color: white;
+    border-radius: var(--radius-full);
+    font-size: var(--text-sm);
+    font-weight: 500;
+    transition: all var(--transition-fast);
+    cursor: default;
+}
+
+.skill-tag:hover {
+    background: var(--primary-blue-dark);
+    transform: scale(1.05);
+}
+
+.skills-cta {
+    text-align: center;
+    margin-top: var(--space-8);
+}
+
+.skills-note {
+    font-size: var(--text-sm);
+    color: var(--text-secondary);
+    margin-top: var(--space-3);
+    line-height: 1.4;
+}
+
+/* ==========================================================================
+   Responsive Design for Skills Summary
+   ========================================================================== */
+
+@media (min-width: 768px) {
+    .skills-categories {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--space-6);
+    }
+}
+
+@media (min-width: 1024px) {
+    .skills-categories {
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--space-6);
+    }
+    
+    .skill-category {
+        padding: var(--space-8);
+    }
+    
+    .skill-category-title {
+        font-size: var(--text-2xl);
+    }
+}
+
+@media (min-width: 1200px) {
+    .skills-categories {
+        grid-template-columns: repeat(5, 1fr);
+        gap: var(--space-4);
+    }
+    
+    .skill-category {
+        padding: var(--space-6);
+    }
+}
+
+/* Mobile Optimization */
+@media (max-width: 767px) {
+    .skills-summary {
+        padding: var(--space-6) 0;
+    }
+    
+    .skills-subtitle {
+        font-size: var(--text-base);
+        margin-bottom: var(--space-6);
+        padding: 0 var(--space-4);
+    }
+    
+    .skill-category {
+        padding: var(--space-4);
+        margin: 0 var(--space-4);
+    }
+    
+    .skill-category-title {
+        font-size: var(--text-lg);
+    }
+    
+    .skill-tags {
+        gap: var(--space-1);
+    }
+    
+    .skill-tag {
+        padding: var(--space-1) var(--space-2);
+        font-size: var(--text-xs);
+    }
+    
+    .skills-cta {
+        padding: 0 var(--space-4);
+    }
+}
+
+/* ==========================================================================
+   Accessibility Enhancements
+   ========================================================================== */
+
+.skill-category:focus-within {
+    outline: 2px solid var(--primary-blue);
+    outline-offset: 2px;
+}
+
+.skill-tag:focus {
+    outline: 2px solid white;
+    outline-offset: 2px;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    .skill-category {
+        border: 2px solid var(--text-dark);
+    }
+    
+    .skill-tag {
+        border: 1px solid white;
+    }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+    .skill-category,
+    .skill-tag {
+        transition: none;
+    }
+    
+    .skill-category:hover {
+        transform: none;
+    }
+    
+    .skill-tag:hover {
+        transform: none;
+    }
+} 
