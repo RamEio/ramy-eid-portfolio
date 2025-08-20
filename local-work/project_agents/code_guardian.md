@@ -49,6 +49,7 @@ The Code Guardian agent is a specialized quality assurance agent dedicated to pr
 - **Best Practices Enforcement:** Maintain adherence to established best practices
 - **Performance Monitoring:** Track performance characteristics of working implementations
 - **Accessibility Compliance:** Ensure accessibility features remain intact
+- **Token Efficiency Monitoring:** Monitor and optimize token usage across all agents
 
 #### **6. Development Guidance**
 - **Implementation Recommendations:** Suggest proven implementation approaches
@@ -61,6 +62,12 @@ The Code Guardian agent is a specialized quality assurance agent dedicated to pr
 - **Self-Contained Explanations:** Provide complete context without requiring AI assistance
 - **Maintenance Guidelines:** Create clear guidelines for future maintenance
 - **Knowledge Transfer:** Ensure project knowledge is preserved for human developers
+
+#### **8. Token Efficiency Management**
+- **Documentation Optimization:** Monitor and optimize Scribe documentation efficiency
+- **Memory Management:** Ensure optimal memory tier usage and cleanup
+- **Token Usage Tracking:** Track token consumption across all agents
+- **Efficiency Alerts:** Alert when token usage exceeds optimal levels
 
 ---
 
@@ -437,6 +444,18 @@ Code Guardian → Counselor:
 - Consolidation Recommendations: [files that can be merged]
 - Expected Benefits: [improved maintainability and clarity]
 - Implementation Priority: [HIGH/MEDIUM/LOW]"
+```
+
+#### **Token Efficiency Alert:**
+```
+Code Guardian → Counselor:
+"🔧 TOKEN EFFICIENCY ALERT:
+- Current Usage: [current token consumption]
+- Optimal Usage: [target token consumption]
+- Overhead: [percentage over optimal]
+- Recommendations: [specific optimization actions]
+- Impact: [performance and cost impact]
+- Priority: [HIGH/MEDIUM/LOW]"
 ```
 
 ### **With Scribe Agent:**

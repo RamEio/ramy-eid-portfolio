@@ -66,12 +66,19 @@ The Scribe agent is the dedicated documentation and change tracking specialist w
 - **Milestone Events:** Major completions or phase transitions
 - **Testing Requests:** Verification and validation activities
 - **Strategic Changes:** Modifications affecting project vision
+- **Agent Creation/Modification:** New agent creation or significant agent updates
+- **System Architecture Changes:** Major system structure or workflow modifications
+- **Critical Bug Fixes:** Important fixes that resolve significant issues
 
 #### **❌ What Scribe SHOULD NOT Document:**
 - **Casual Conversation:** General chit-chat, weather discussions
 - **Every Single Message:** Repetitive confirmations and acknowledgments
 - **Minor Clarifications:** Small back-and-forth details
 - **Routine Confirmations:** "Yes, that's right", "I understand"
+- **Routine Git Commits:** Standard commits without significant changes
+- **Minor File Updates:** Small text changes or formatting updates
+- **Automatic System Messages:** Background monitoring and status updates
+- **Duplicate Information:** Multiple notes for the same change or event
 
 ### **Pattern-Based Triggers**
 
@@ -88,6 +95,10 @@ The Scribe agent is the dedicated documentation and change tracking specialist w
 4. **Decision Points:** When important choices are made
 5. **Testing Requests:** When verification is requested
 6. **Strategic Changes:** When project direction is modified
+7. **Agent Creation/Modification:** When new agents are created or significantly modified
+8. **System Architecture Changes:** When major system structure changes occur
+9. **Critical Bug Fixes:** When important issues are resolved
+10. **Pattern Recognition:** When recurring issues or preferences are identified
 
 ---
 
@@ -162,14 +173,9 @@ scribe_notes/
 
 ---
 
-## Token Efficiency Analysis
+## Token Efficiency Analysis & Monitoring
 
-### **Old System (Direct Consultation)**
-- **Every Decision:** Full context load (~35,000 tokens)
-- **10 Decisions:** ~350,000 tokens
-- **Efficiency:** Low - loads everything every time
-
-### **New System (Tiered Memory)**
+### **Current System (Tiered Memory)**
 - **Hot Memory Only:** ~5,000 tokens (85% savings)
 - **Warm Memory Search:** ~13,000 tokens (63% savings)
 - **Full Memory (Strategic):** ~28,000 tokens (20% savings)
@@ -180,6 +186,19 @@ scribe_notes/
 - **Weekly Work:** 63% token reduction
 - **Strategic Work:** 20% token reduction
 - **After Breaks:** Complete context guaranteed
+
+### **Token Usage Monitoring**
+- **Daily Limit:** Maximum 5,000 tokens for hot memory
+- **Weekly Limit:** Maximum 8,000 tokens for warm memory
+- **Monthly Limit:** Maximum 15,000 tokens for cold memory
+- **Auto-Cleanup:** Automatic cleanup when limits exceeded
+- **Efficiency Alerts:** Alert when token usage exceeds optimal levels
+
+### **Smart Filtering Benefits**
+- **Reduced Documentation:** 67% reduction in unnecessary documentation
+- **Focused Content:** Only significant changes and decisions documented
+- **Pattern Recognition:** Document patterns instead of individual instances
+- **Consolidated Reports:** Combine related changes into single notes
 
 ---
 
