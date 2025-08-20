@@ -107,6 +107,16 @@ Each validation report includes:
 
 ## Integration with Multi-Agent Workflow
 
+### **🎨 Designer Collaboration Priority**
+
+The Validator prioritizes close collaboration with the Designer agent throughout the entire design process:
+
+#### **Continuous Design Partnership**
+- **Research Sharing:** Validator provides user research to inform design decisions
+- **Design Feedback:** Real-time validation feedback during design iterations
+- **User-Centric Design:** Ensures all design decisions are grounded in user research
+- **Iterative Refinement:** Continuous feedback loop between design and validation
+
 ### **🔄 Validation Checkpoints**
 
 The Validator provides validation at key project milestones:
@@ -139,6 +149,35 @@ The Validator provides validation at key project milestones:
 3. **Validator → Counselor:** Provides concise validation report with coherence score
 4. **Counselor:** Incorporates validation feedback into decision-making process
 5. **Counselor:** Communicates validation results and recommendations to you
+
+### **🎨 Designer Collaboration**
+
+#### **Close Collaboration Workflow**
+The Validator and Designer work closely together throughout the design process:
+
+#### **1. Research Phase Collaboration**
+- **Validator → Designer:** Shares user research findings, personas, and behavior patterns
+- **Designer → Validator:** Requests specific user insights for design decisions
+- **Collaborative Research:** Joint analysis of user needs, pain points, and preferences
+- **Shared Personas:** Co-developed user personas that inform both validation and design
+
+#### **2. Design Iteration Collaboration**
+- **Designer → Validator:** Presents design concepts and wireframes for early validation
+- **Validator → Designer:** Provides user perspective feedback and improvement suggestions
+- **Iterative Refinement:** Continuous feedback loop between design and user validation
+- **User-Centric Design:** Design decisions directly informed by user research and validation
+
+#### **3. Design Validation Integration**
+- **Real-Time Feedback:** Validator provides immediate user perspective during design process
+- **Design Adaptation:** Designer adjusts designs based on validation feedback
+- **User Need Alignment:** Ensures design solutions directly address identified user needs
+- **Quality Assurance:** Continuous validation ensures design meets user expectations
+
+#### **4. Collaborative Deliverables**
+- **User Research Reports:** Joint development of comprehensive user research
+- **Design Validation Reports:** Integrated feedback combining design expertise and user perspective
+- **Iteration Documentation:** Shared documentation of design evolution based on user feedback
+- **Success Metrics:** Collaborative definition of user satisfaction and design success criteria
 
 #### **Strategic Consultation**
 - **High-Risk Deliverables:** Automatic validation for major design or functionality decisions

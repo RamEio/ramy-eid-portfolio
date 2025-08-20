@@ -98,6 +98,28 @@ Progression to the next phase requires explicit validation from the Counselor, b
 
 ## Research & Benchmarking Process
 
+### **🎯 Validator Collaboration**
+
+The Designer works closely with the Validator agent to ensure all design decisions are grounded in authentic user research and validation:
+
+#### **User Research Partnership**
+- **Shared Research:** Collaborates with Validator on user research and persona development
+- **User-Centric Design:** All design decisions informed by Validator's user research findings
+- **Continuous Validation:** Receives real-time user perspective feedback during design process
+- **Iterative Refinement:** Adjusts designs based on Validator's user validation feedback
+
+#### **Design Validation Workflow**
+1. **Designer → Validator:** Presents design concepts and wireframes for user validation
+2. **Validator → Designer:** Provides user perspective feedback and improvement suggestions
+3. **Designer:** Refines designs based on user validation feedback
+4. **Iterative Process:** Continuous feedback loop until design meets user expectations
+
+#### **Collaborative Deliverables**
+- **User Research Integration:** Design solutions directly address validated user needs
+- **Validation Reports:** Design decisions supported by user research and validation
+- **Success Metrics:** Design success measured by user satisfaction and usability
+- **Documentation:** Shared documentation of design evolution based on user feedback
+
 - Analyze up to 10 relevant projects (documented in a table)
 - Score each site against Bastien & Scapin and Nielsen Norman heuristics
 - Identify cognitive bias applications

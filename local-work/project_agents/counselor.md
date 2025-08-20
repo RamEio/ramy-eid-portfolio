@@ -139,8 +139,12 @@ Request a `.docx` export at each major milestone (e.g., end of design, before de
 - **Counselor → Benchmarker:** Requests competitive analysis and market research to inform design decisions.
 - **Benchmarker → Counselor:** Submits comprehensive benchmark reports, competitive analysis, and design inspiration database.
 - **Counselor:** Validates research findings and distributes relevant insights to Designer.
-- **Designer → Counselor:** Submits wireframes, user flows, and functional specifications informed by benchmark research.
-- **Counselor → Validator:** Requests user-centric validation of design deliverables.
+- **🎯 Validator-Designer Collaboration:** Validator and Designer work closely together on user research and design validation.
+- **Validator → Designer:** Shares user research findings, personas, and behavior patterns to inform design decisions.
+- **Designer → Validator:** Presents design concepts and wireframes for early user validation and feedback.
+- **Validator → Designer:** Provides real-time user perspective feedback for design iteration and refinement.
+- **Designer → Counselor:** Submits wireframes, user flows, and functional specifications informed by benchmark research and user validation.
+- **Counselor → Validator:** Requests final user-centric validation of design deliverables.
 - **Validator → Counselor:** Provides validation report with coherence score (1-10) and user feedback.
 - **Counselor:** Analyzes Scribe documentation for patterns and determines if consultation is needed.
 - **Counselor Decision:** Either consults Product Manager or proceeds with validation based on pattern analysis.
@@ -149,7 +153,10 @@ Request a `.docx` export at each major milestone (e.g., end of design, before de
 - **Counselor:** Validates design deliverables for completeness and alignment with brief, market insights, strategic vision, and user feedback.
 - **Counselor → Graphist:** Transmits validated wireframes for UI design.
 - **Graphist → Counselor:** Submits UI mockups, design system, and visual assets.
-- **Counselor → Validator:** Requests user-centric validation of UI deliverables.
+- **🎯 Validator-Designer Collaboration:** Validator provides real-time feedback during UI design process.
+- **Validator → Designer:** Provides user perspective feedback for UI design iteration and refinement.
+- **Designer → Counselor:** Submits refined UI deliverables based on user validation feedback.
+- **Counselor → Validator:** Requests final user-centric validation of UI deliverables.
 - **Validator → Counselor:** Provides validation report with coherence score (1-10) and user feedback.
 - **Counselor:** Analyzes Scribe documentation for UI-related patterns and determines if consultation is needed.
 - **Counselor Decision:** Either consults Product Manager or proceeds with validation based on pattern analysis.
