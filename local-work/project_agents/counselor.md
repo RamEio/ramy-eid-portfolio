@@ -74,6 +74,12 @@ The Counselor automatically ensures all agents are active and monitoring without
 - **Performance Metrics:** Monitors website performance against industry benchmarks
 - **User Feedback Analysis:** Analyzes user feedback patterns and satisfaction metrics
 
+#### **🎯 Validator - User-Centric Validation**
+- **User Research:** Conducts comprehensive research on target user behavior and expectations
+- **Deliverable Validation:** Evaluates all deliverables from user perspective with 1-10 coherence scores
+- **Market Alignment:** Ensures deliverables align with current market trends and user expectations
+- **Feedback Synthesis:** Provides clear, actionable feedback on user needs and improvements
+
 ### **🔄 Automatic Activation Triggers**
 
 The Counselor automatically activates the multi-agent system when:
@@ -134,13 +140,17 @@ Request a `.docx` export at each major milestone (e.g., end of design, before de
 - **Benchmarker → Counselor:** Submits comprehensive benchmark reports, competitive analysis, and design inspiration database.
 - **Counselor:** Validates research findings and distributes relevant insights to Designer.
 - **Designer → Counselor:** Submits wireframes, user flows, and functional specifications informed by benchmark research.
+- **Counselor → Validator:** Requests user-centric validation of design deliverables.
+- **Validator → Counselor:** Provides validation report with coherence score (1-10) and user feedback.
 - **Counselor:** Analyzes Scribe documentation for patterns and determines if consultation is needed.
 - **Counselor Decision:** Either consults Product Manager or proceeds with validation based on pattern analysis.
 - **If Consultation Needed:** Counselor → Product Manager for strategic validation of design deliverables.
 - **If No Consultation Needed:** Counselor proceeds with validation based on established patterns.
-- **Counselor:** Validates design deliverables for completeness and alignment with brief, market insights, and strategic vision.
+- **Counselor:** Validates design deliverables for completeness and alignment with brief, market insights, strategic vision, and user feedback.
 - **Counselor → Graphist:** Transmits validated wireframes for UI design.
 - **Graphist → Counselor:** Submits UI mockups, design system, and visual assets.
+- **Counselor → Validator:** Requests user-centric validation of UI deliverables.
+- **Validator → Counselor:** Provides validation report with coherence score (1-10) and user feedback.
 - **Counselor:** Analyzes Scribe documentation for UI-related patterns and determines if consultation is needed.
 - **Counselor Decision:** Either consults Product Manager or proceeds with validation based on pattern analysis.
 - **If Consultation Needed:** Counselor → Product Manager for strategic validation of UI deliverables.
@@ -168,6 +178,8 @@ Request a `.docx` export at each major milestone (e.g., end of design, before de
   - Implements features according to validated specifications
   - Documents all technical decisions and architectural choices
   - Reports progress, risks, and any deviations from the plan
+- **Counselor → Validator:** Requests user-centric validation of implemented features and functionality.
+- **Validator → Counselor:** Provides validation report with coherence score (1-10) and user feedback.
 - **Counselor:** Validates technical choices, arbitrates if needed, and coordinates with other agents
 - **Counselor → Cybersecurity Expert:** Transmits technical stack and architecture for security audit
 - **Cybersecurity Expert → Counselor:** Provides security audit reports and compliance recommendations
@@ -178,6 +190,8 @@ Request a `.docx` export at each major milestone (e.g., end of design, before de
 - **🔄 Content Monitoring:** Scribe documents all content changes and SEO optimizations
 - **Counselor → Writer/SEO:** Transmits content requirements and SEO specifications
 - **Writer/SEO → Counselor:** Submits optimized content and SEO recommendations
+- **Counselor → Validator:** Requests user-centric validation of content and messaging.
+- **Validator → Counselor:** Provides validation report with coherence score (1-10) and user feedback.
 - **Counselor:** Validates content quality and SEO optimization
 
 ### 6. **Testing & Quality Assurance**
@@ -185,6 +199,8 @@ Request a `.docx` export at each major milestone (e.g., end of design, before de
 - **🔄 Quality Monitoring:** QA/Tester continuously monitors for quality issues
 - **Counselor → QA/Tester:** Transmits deliverables and test requirements
 - **QA/Tester → Counselor:** Executes tests, reports bugs, and validates fixes
+- **Counselor → Validator:** Requests final user-centric validation of complete project.
+- **Validator → Counselor:** Provides comprehensive validation report with coherence score (1-10) and user feedback.
 - **Counselor:** Coordinates final validation and prepares for release
 
 ### 7. **Project Completion**
@@ -213,6 +229,7 @@ Request a `.docx` export at each major milestone (e.g., end of design, before de
 | Benchmarker         | Competitive analysis, market research| Counselor | Counselor        | Counselor     | ✅ Auto         |
 | Multi-Agent Safety  | System monitoring, quality assurance| Counselor | Counselor        | Counselor     | ✅ Auto         |
 | Code Guardian       | Regression prevention, code integrity| Counselor | Counselor        | Counselor     | ✅ Auto         |
+| **Validator**       | **User-centric validation**| **Counselor**    | **Counselor**    | **Counselor** | **✅ Auto**     |
 
 ---
 
