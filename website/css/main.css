@@ -1294,7 +1294,7 @@ img {
     display: flex;
     flex-direction: column; /* VERTICAL STACKING - 3 ROWS */
     gap: 0; /* NO GAPS - Images stuck together */
-    animation: scrollCarousel 45s linear infinite; /* FASTER SCROLLING - 45s instead of 90s */
+    animation: scrollCarousel 90s linear infinite; /* SLOWER FOR INFINITE LOOP */
     width: max-content;
     padding: 0; /* NO PADDING - Full width */
     max-width: 100vw; /* Full screen width */
