@@ -5,16 +5,22 @@
 
 class ExperienceCarousel {
                     constructor() {
-         this.carousel = null;
+         this.carouselRows = [];
          this.isPaused = false;
          this.scrollSpeed = 60; // seconds for full cycle (FASTER FOR VISIBLE INFINITE LOOP)
          this.init();
      }
 
     init() {
-        this.carousel = document.getElementById('experience-carousel');
-        if (!this.carousel) {
-            console.warn('Experience carousel not found');
+        // Initialize all carousel rows
+        this.carouselRows = [
+            document.getElementById('carousel-row-1'),
+            document.getElementById('carousel-row-2'),
+            document.getElementById('carousel-row-3')
+        ];
+        
+        if (this.carouselRows.every(row => !row)) {
+            console.warn('Experience carousel rows not found');
             return;
         }
 
@@ -22,28 +28,33 @@ class ExperienceCarousel {
         this.optimizePerformance();
         this.addAccessibilityFeatures();
         
-        console.log('🎠 Experience Carousel: Initialized with auto-scroll and hover pause');
+        console.log('🎠 Experience Carousel: Initialized with 3-row auto-scroll and hover pause');
     }
 
     setupEventListeners() {
-        // Pause on hover
-        this.carousel.addEventListener('mouseenter', () => {
-            this.pauseAnimation();
-        });
+        // Setup event listeners for all rows
+        this.carouselRows.forEach(row => {
+            if (row) {
+                // Pause on hover
+                row.addEventListener('mouseenter', () => {
+                    this.pauseAnimation();
+                });
 
-        this.carousel.addEventListener('mouseleave', () => {
-            this.resumeAnimation();
-        });
+                row.addEventListener('mouseleave', () => {
+                    this.resumeAnimation();
+                });
 
-        // Touch events for mobile
-        this.carousel.addEventListener('touchstart', () => {
-            this.pauseAnimation();
-        });
+                // Touch events for mobile
+                row.addEventListener('touchstart', () => {
+                    this.pauseAnimation();
+                });
 
-        this.carousel.addEventListener('touchend', () => {
-            setTimeout(() => {
-                this.resumeAnimation();
-            }, 1000); // Resume after 1 second of no touch
+                row.addEventListener('touchend', () => {
+                    setTimeout(() => {
+                        this.resumeAnimation();
+                    }, 1000); // Resume after 1 second of no touch
+                });
+            }
         });
 
         // Keyboard navigation
@@ -72,12 +83,21 @@ class ExperienceCarousel {
             { threshold: 0.1 }
         );
 
-        observer.observe(this.carousel);
+        // Observe all carousel rows
+        this.carouselRows.forEach(row => {
+            if (row) {
+                observer.observe(row);
+            }
+        });
     }
 
     pauseAnimation() {
         if (!this.isPaused) {
-            this.carousel.style.animationPlayState = 'paused';
+            this.carouselRows.forEach(row => {
+                if (row) {
+                    row.style.animationPlayState = 'paused';
+                }
+            });
             this.isPaused = true;
             this.addPauseIndicator();
         }
@@ -85,7 +105,11 @@ class ExperienceCarousel {
 
     resumeAnimation() {
         if (this.isPaused) {
-            this.carousel.style.animationPlayState = 'running';
+            this.carouselRows.forEach(row => {
+                if (row) {
+                    row.style.animationPlayState = 'running';
+                }
+            });
             this.isPaused = false;
             this.removePauseIndicator();
         }
@@ -101,58 +125,81 @@ class ExperienceCarousel {
 
     addPauseIndicator() {
         // Add visual indicator that carousel is paused
-        this.carousel.classList.add('carousel-paused');
+        this.carouselRows.forEach(row => {
+            if (row) {
+                row.classList.add('carousel-paused');
+            }
+        });
     }
 
     removePauseIndicator() {
-        this.carousel.classList.remove('carousel-paused');
+        this.carouselRows.forEach(row => {
+            if (row) {
+                row.classList.remove('carousel-paused');
+            }
+        });
     }
 
     optimizePerformance() {
-        // Use transform3d for hardware acceleration
-        this.carousel.style.transform = 'translate3d(0, 0, 0)';
-        
-        // Optimize images loading
-        const images = this.carousel.querySelectorAll('img');
-        images.forEach(img => {
-            img.loading = 'lazy';
-            img.decoding = 'async';
+        // Optimize all carousel rows
+        this.carouselRows.forEach(row => {
+            if (row) {
+                // Use transform3d for hardware acceleration
+                row.style.transform = 'translate3d(0, 0, 0)';
+                
+                // Optimize images loading
+                const images = row.querySelectorAll('img');
+                images.forEach(img => {
+                    img.loading = 'lazy';
+                    img.decoding = 'async';
+                });
+            }
         });
     }
 
     addAccessibilityFeatures() {
-        // Add ARIA labels
-        this.carousel.setAttribute('role', 'region');
-        this.carousel.setAttribute('aria-label', 'Experience showcase carousel');
-        this.carousel.setAttribute('aria-live', 'polite');
+        // Add ARIA labels to all rows
+        this.carouselRows.forEach((row, index) => {
+            if (row) {
+                row.setAttribute('role', 'region');
+                row.setAttribute('aria-label', `Experience showcase carousel row ${index + 1}`);
+                row.setAttribute('aria-live', 'polite');
+            }
+        });
 
-        // Add pause/resume instructions
-        const instructions = document.createElement('div');
-        instructions.className = 'carousel-instructions';
-        instructions.innerHTML = `
-            <span class="sr-only">
-                Auto-scrolling experience showcase. 
-                Hover to pause, press spacebar to toggle animation.
-            </span>
-        `;
-        instructions.style.position = 'absolute';
-        instructions.style.top = '-9999px';
-        instructions.style.left = '-9999px';
-        
-        this.carousel.appendChild(instructions);
+        // Add pause/resume instructions to first row
+        if (this.carouselRows[0]) {
+            const instructions = document.createElement('div');
+            instructions.className = 'carousel-instructions';
+            instructions.innerHTML = `
+                <span class="sr-only">
+                    Auto-scrolling experience showcase. 
+                    Hover to pause, press spacebar to toggle animation.
+                </span>
+            `;
+            instructions.style.position = 'absolute';
+            instructions.style.top = '-9999px';
+            instructions.style.left = '-9999px';
+            
+            this.carouselRows[0].appendChild(instructions);
+        }
     }
 
     // Public methods for external control
     setSpeed(seconds) {
         this.scrollSpeed = seconds;
-        this.carousel.style.animationDuration = `${seconds}s`;
+        this.carouselRows.forEach(row => {
+            if (row) {
+                row.style.animationDuration = `${seconds}s`;
+            }
+        });
     }
 
     getStatus() {
         return {
             isPaused: this.isPaused,
             scrollSpeed: this.scrollSpeed,
-            isVisible: this.carousel.offsetParent !== null
+            isVisible: this.carouselRows.some(row => row && row.offsetParent !== null)
         };
     }
 }
