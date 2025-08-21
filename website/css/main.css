@@ -1292,32 +1292,21 @@ img {
 /* Carousel - Auto-scrolling animation */
 .experience-carousel {
     display: flex;
-    flex-direction: column; /* VERTICAL STACKING - 3 ROWS */
+    flex-direction: row; /* HORIZONTAL MOSAIC GRID */
+    flex-wrap: wrap; /* Allow wrapping to create mosaic */
     gap: 0; /* NO GAPS - Images stuck together */
     animation: scrollCarousel 90s linear infinite; /* SLOWER FOR INFINITE LOOP */
     width: max-content;
     padding: 0; /* NO PADDING - Full width */
     max-width: 100vw; /* Full screen width */
+    height: 800px; /* Increased height for mosaic layout */
+    overflow: hidden;
+    align-items: flex-start; /* Prevent vertical stretching */
 }
 
 /* Pause animation on hover */
 .experience-carousel:hover {
     animation-play-state: paused;
-}
-
-/* Carousel Container - Limited Height (3 rows max) */
-.experience-carousel {
-    height: 600px; /* Increased for randomized heights */
-    overflow: hidden;
-}
-
-/* Carousel Rows - 3 Rows Layout */
-.carousel-row {
-    display: flex;
-    gap: 0; /* NO GAPS - Images stuck together */
-    height: 200px; /* Increased row height for taller images */
-    min-width: max-content;
-    align-items: flex-start; /* Prevent vertical stretching */
 }
 
 /* Experience Items - Randomized sizing for full-size display */
@@ -1492,11 +1481,7 @@ img {
 /* Responsive design */
 @media (max-width: 1200px) {
     .experience-carousel {
-        height: 480px; /* Increased for randomized heights */
-    }
-    
-    .carousel-row {
-        height: 160px;
+        height: 600px; /* Adjusted for mosaic layout */
     }
     
     .experience-item.xlarge {
@@ -1527,11 +1512,7 @@ img {
 
 @media (max-width: 768px) {
     .experience-carousel {
-        height: 360px; /* Increased for randomized heights */
-    }
-    
-    .carousel-row {
-        height: 120px;
+        height: 500px; /* Adjusted for mosaic layout */
     }
     
     .experience-item.xlarge {
@@ -1574,11 +1555,7 @@ img {
 
 @media (max-width: 480px) {
     .experience-carousel {
-        height: 300px; /* Increased for randomized heights */
-    }
-    
-    .carousel-row {
-        height: 100px;
+        height: 400px; /* Adjusted for mosaic layout */
     }
     
     .experience-item.xlarge {
