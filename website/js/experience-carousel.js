@@ -7,7 +7,7 @@ class ExperienceCarousel {
                     constructor() {
          this.carousel = null;
          this.isPaused = false;
-         this.scrollSpeed = 90; // seconds for full cycle (SLOWER FOR INFINITE LOOP)
+         this.scrollSpeed = 120; // seconds for full cycle (PERFECT FOR SEAMLESS INFINITE LOOP)
          this.init();
      }
 

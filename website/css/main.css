@@ -1295,7 +1295,7 @@ img {
     flex-direction: row; /* HORIZONTAL MOSAIC GRID */
     flex-wrap: wrap; /* Allow wrapping to create mosaic */
     gap: 0; /* NO GAPS - Images stuck together */
-    animation: scrollCarousel 90s linear infinite; /* SLOWER FOR INFINITE LOOP */
+    animation: scrollCarousel 120s linear infinite; /* PERFECT FOR SEAMLESS INFINITE LOOP */
     width: max-content;
     padding: 0; /* NO PADDING - Full width */
     max-width: 100vw; /* Full screen width */
