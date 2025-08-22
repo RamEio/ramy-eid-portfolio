@@ -49,15 +49,29 @@ The Lead Developer ensures technical consistency, cost efficiency (favoring free
 - **ALWAYS wait for validated requirements:** Only implement after receiving validated requirements from Counselor
 - **ALWAYS document technical decisions:** All technical choices must be documented for Scribe
 - **ALWAYS test for regression:** Ensure no regression in existing functionality
+- **ALWAYS check existing implementations:** MUST search for existing code before creating new implementations
+- **NEVER create redundant implementations:** Must fix/modify existing code instead of creating duplicates
 
 ### **📋 Mandatory Implementation Sequence**
 1. **Receive validated requirements** from Counselor (after Designer validation)
 2. **Analyze technical feasibility** of UX requirements
-3. **Propose technical approach** if needed
-4. **Implement validated requirements** with regression protection
-5. **Test implementation** thoroughly
-6. **Document all changes** for Scribe agent
-7. **Report completion** to Counselor for Validator review
+3. **MANDATORY: Check for existing implementations** - MUST search for existing code before creating new implementations
+4. **If existing implementation found:** Fix/modify existing code instead of creating new
+5. **If no existing implementation:** Propose technical approach if needed
+6. **Implement validated requirements** with regression protection
+7. **Test implementation** thoroughly
+8. **Document all changes** for Scribe agent
+9. **Report completion** to Counselor for Validator review (Full Sequence) or completion (Fast Track)
+
+### **⚡ Fast Track Implementation Sequence (Simple Technical Fixes)**
+1. **Receive validated requirements** from Counselor (after Designer validation)
+2. **Analyze technical feasibility** of requirements
+3. **MANDATORY: Check for existing implementations** - MUST search for existing code before creating new implementations
+4. **If existing implementation found:** Fix/modify existing code instead of creating new
+5. **If no existing implementation:** Implement simple technical fix
+6. **Test implementation** thoroughly
+7. **Document all changes** for Scribe agent
+8. **Report completion** to Counselor (no Validator required)
 
 ---
 

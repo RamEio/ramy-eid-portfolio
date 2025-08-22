@@ -175,16 +175,18 @@
   
   /* Enhanced hamburger menu */
   .nav-toggle {
-    display: flex;
-    align-items: center;
-    gap: var(--space-2);
-    min-width: 80px;
-    min-height: 48px;
-    padding: var(--space-2) var(--space-3);
+    display: flex !important;
+    align-items: center !important;
+    gap: var(--space-3) !important; /* Increased gap */
+    min-width: 120px !important; /* Increased min-width */
+    min-height: 48px !important;
+    padding: var(--space-3) var(--space-4) !important; /* Increased padding */
     border-radius: var(--radius-md);
     background: transparent;
     border: 1px solid transparent;
     transition: all var(--transition-fast);
+    flex-direction: row !important; /* Ensure horizontal layout */
+    justify-content: space-between !important; /* Distribute space */
   }
   
   .nav-toggle:hover, .nav-toggle:focus {
@@ -199,19 +201,33 @@
   
   .menu-text {
     font-size: var(--text-sm);
-    font-weight: 500;
+    font-weight: 600;
     color: white !important;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
-    display: block;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.7) !important;
+    display: block !important;
     opacity: 1 !important;
+    visibility: visible !important;
+    margin-right: var(--space-3) !important; /* Increased margin */
+    white-space: nowrap !important; /* Prevent text wrapping */
+    flex: 1 !important; /* Allow text to take available space */
   }
   
   @media (max-width: 480px) {
-    .menu-text {
-      display: none;
-    }
     .nav-toggle {
-      min-width: 48px;
+      min-width: 100px !important; /* Slightly smaller for very small screens */
+      padding: var(--space-2) var(--space-3) !important;
+    }
+    
+    .menu-text {
+      font-size: var(--text-xs); /* Smaller font for very small screens */
+      margin-right: var(--space-2) !important;
+    }
+  }
+  
+  @media (min-width: 481px) and (max-width: 767px) {
+    .nav-toggle {
+      min-width: 140px !important; /* Larger for medium mobile screens */
+      padding: var(--space-3) var(--space-4) !important;
     }
   }
   
@@ -222,6 +238,8 @@
     background: var(--text-dark);
     position: relative;
     transition: all var(--transition-fast);
+    flex-shrink: 0 !important; /* Prevent icon shrinking */
+    margin-left: auto !important; /* Push icon to the right */
   }
   
   .hamburger::before,
@@ -246,6 +264,27 @@
   .nav-menu {
     top: 56px; /* Match header height */
     padding: var(--space-4);
+  }
+  
+  /* Fix content positioning when header hides */
+  .header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  /* Adjust main content to account for fixed header */
+  main {
+    margin-top: 0;
+    transition: margin-top 0.3s ease-in-out;
+  }
+  
+  /* When header is hidden, adjust content */
+  .header[style*="translateY(-100%)"] + main {
+    margin-top: 0;
+  }
     gap: var(--space-2);
     border-top: 1px solid var(--border-light);
     box-shadow: var(--shadow-lg);
@@ -672,6 +711,89 @@
   * {
     animation-duration: 0.3s !important;
     transition-duration: 0.2s !important;
+  }
+  
+  /* Ensure dark theme consistency on all pages - Enhanced */
+  body,
+  body.about-page,
+  body.contact-page,
+  body.index-page,
+  html body.index-page,
+  body.index-page main,
+  body.index-page .main-content,
+  .about-page,
+  .contact-page,
+  .index-page,
+  main,
+  .main-content,
+  .container {
+    background-color: var(--bg-primary) !important;
+    color: var(--text-primary) !important;
+  }
+  
+  /* Override main.css white backgrounds */
+  .header,
+  body.index-page .header {
+    background-color: var(--bg-primary) !important;
+    color: var(--text-primary) !important;
+  }
+  
+  .project-card,
+  body.index-page .project-card {
+    background-color: var(--bg-primary) !important;
+    color: var(--text-primary) !important;
+  }
+  
+    /* Target all navigation elements */
+  .header,
+  .nav-container,
+  .nav-menu,
+  nav,
+  .navigation {
+    background-color: var(--bg-primary) !important;
+  }
+  
+  /* Target all content sections */
+  .hero,
+  .hero-about,
+  .hero-contact,
+  .hero-section,
+  body.index-page .hero,
+  body.index-page .hero-section,
+  body.index-page .skills-summary,
+  body.index-page .featured-experiences,
+  body.index-page .about-preview,
+  body.index-page .contact-cta,
+  .section,
+  .content-section,
+  .about-content,
+  .contact-content,
+  .skills-summary,
+  .featured-experiences,
+  .about-preview,
+  .contact-cta {
+    background-color: var(--bg-primary) !important;
+    color: var(--text-primary) !important;
+  }
+  
+  /* Target all cards and containers */
+  .card,
+  .glass-effect,
+  .glass-effect-heavy,
+  .content-card,
+  .influence-card,
+  .service-card {
+    background-color: var(--bg-primary) !important;
+    color: var(--text-primary) !important;
+  }
+  
+  /* Target specific page sections */
+  .hero-background,
+  .cta-section,
+  .influence-section,
+  .service-section,
+  .contact-form-section {
+    background-color: var(--bg-primary) !important;
   }
 }
 

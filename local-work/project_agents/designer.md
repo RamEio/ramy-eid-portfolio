@@ -73,17 +73,22 @@ The Designer agent possesses deep expertise in:
 ### **🔄 Designer Agent Process Requirements**
 - **ALWAYS analyze UX proposals first:** Before any implementation, Designer must analyze and validate UX changes
 - **NEVER skip UX analysis:** All UX improvements must be analyzed before DEV agent implementation
+- **ALWAYS check existing implementations:** MUST analyze existing code before recommending new implementations
+- **NEVER recommend redundant implementations:** Must identify and utilize existing code before suggesting new work
 - **ALWAYS provide UX recommendations:** Designer must provide clear UX guidelines for implementation
 - **ALWAYS validate user feedback:** Designer must analyze user feedback before any changes are made
+- **ALWAYS assess process type:** Determine if Fast Track (simple technical) or Full Sequence (UX changes) is needed
 - **ALWAYS document UX decisions:** All UX analysis and decisions must be documented for Scribe
 
 ### **📋 Mandatory UX Analysis Sequence**
 1. **Receive user feedback** via Counselor
-2. **Analyze UX implications** of proposed changes
-3. **Provide UX recommendations** and implementation guidelines
-4. **Validate approach** with user-centered design principles
-5. **Document analysis** for Scribe agent
-6. **Wait for Counselor validation** before proceeding to DEV agent
+2. **Analyze existing implementations** - MUST check for existing code before recommending new work
+3. **Analyze UX implications** of proposed changes
+4. **Provide UX recommendations** and implementation guidelines
+5. **Validate approach** with user-centered design principles
+6. **Check for redundancy** - ensure no duplicate implementations
+7. **Document analysis** for Scribe agent
+8. **Wait for Counselor validation** before proceeding to DEV agent
 
 ## Clarification & Validation Mechanisms
 

@@ -359,6 +359,9 @@ class MobileOptimization {
         
         // Reduce repaints and reflows
         this.optimizeRendering();
+        
+        // Setup hide on scroll effect
+        this.setupHideOnScroll();
     }
 
     setupLazyLoading() {
@@ -408,6 +411,30 @@ class MobileOptimization {
         animatedElements.forEach(element => {
             element.style.willChange = 'transform';
         });
+    }
+
+    setupHideOnScroll() {
+        // Restore hide on scroll functionality
+        let lastScrollTop = 0;
+        const navbar = document.querySelector('nav');
+        const scrollThreshold = 10;
+
+        if (navbar) {
+            window.addEventListener('scroll', () => {
+                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                
+                if (Math.abs(scrollTop - lastScrollTop) > scrollThreshold) {
+                    if (scrollTop > lastScrollTop && scrollTop > 100) {
+                        // Scrolling down - hide navbar
+                        navbar.style.transform = 'translateY(-100%)';
+                    } else {
+                        // Scrolling up - show navbar
+                        navbar.style.transform = 'translateY(0)';
+                    }
+                    lastScrollTop = scrollTop;
+                }
+            }, { passive: true });
+        }
     }
 
     /**

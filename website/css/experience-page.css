@@ -5,92 +5,10 @@
 
 /* ==========================================================================
    Header Styling for Experience Page
-   Ensures header fade behavior works properly
+   Removed page-specific header CSS to ensure consistency with dark-mode.css
    ========================================================================== */
 
-.header {
-    background: rgba(10, 10, 10, 0.95);
-    backdrop-filter: var(--blur-medium);
-    border-bottom: 1px solid rgba(107, 70, 193, 0.1);
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    box-shadow: var(--shadow-sm);
-}
-
-/* Ensure header is above all other elements */
-.header .nav-container {
-    position: relative;
-    z-index: 101;
-}
-
-/* Desktop header height consistency with homepage */
-@media (min-width: 768px) {
-    .header {
-        min-height: 80px;
-    }
-    
-    .nav-container {
-        padding: var(--space-4) 0;
-        min-height: 80px;
-    }
-}
-
-/* Logo sizing to match homepage */
-.nav-logo img {
-    max-height: 48px;
-    width: auto;
-    height: auto;
-}
-
-/* Mobile Header Optimization - 48px max height */
-@media (max-width: 767px) {
-    .header {
-        min-height: 48px;
-        max-height: 48px;
-    }
-    
-    .nav-container {
-        padding: var(--space-2) var(--space-4);
-        min-height: 48px;
-        max-height: 48px;
-    }
-    
-    /* Mobile Logo Size Optimization */
-    .nav-logo img {
-        max-height: 32px;
-        width: auto;
-        height: auto;
-    }
-    
-    /* Mobile Navigation Menu */
-    .nav-menu {
-        background: rgba(10, 10, 10, 0.95);
-        backdrop-filter: var(--blur-medium);
-        border-top: 1px solid rgba(107, 70, 193, 0.1);
-        box-shadow: var(--shadow-lg);
-        min-height: auto;
-        max-height: none;
-    }
-    
-    .nav-menu--open {
-        display: flex !important;
-        visibility: visible;
-    }
-    
-    .nav-menu a {
-        color: var(--text-primary);
-        font-weight: 500;
-        text-decoration: none;
-        border-radius: var(--radius-md);
-        transition: all var(--transition-fast);
-    }
-    
-    .nav-menu a:hover {
-        background: rgba(107, 70, 193, 0.1);
-        color: var(--accent-primary);
-    }
-}
+/* Header styling is now handled by dark-mode.css for consistency across all pages */
 
 /* Footer logo sizing */
 .footer-logo img {

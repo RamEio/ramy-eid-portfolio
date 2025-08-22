@@ -69,6 +69,11 @@ The Scribe agent is the dedicated documentation and change tracking specialist w
 - **Agent Creation/Modification:** New agent creation or significant agent updates
 - **System Architecture Changes:** Major system structure or workflow modifications
 - **Critical Bug Fixes:** Important fixes that resolve significant issues
+- **Existing Implementation Analysis:** MUST document existing code implementations before new work
+- **Redundancy Prevention:** Track existing features to prevent duplicate implementations
+- **Code Inventory:** Maintain inventory of existing functionality and implementations
+- **Process Type Selection:** Document whether Fast Track or Full Sequence was used
+- **Process Efficiency:** Track process optimization and time savings
 
 #### **❌ What Scribe SHOULD NOT Document:**
 - **Casual Conversation:** General chit-chat, weather discussions

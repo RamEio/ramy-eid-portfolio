@@ -187,6 +187,7 @@ img {
   top: 0;
   z-index: 100;
   box-shadow: var(--shadow-sm);
+  transition: transform 0.3s ease-in-out;
 }
 
 .nav-container {
@@ -1336,7 +1337,7 @@ img {
 .experience-item {
     position: relative;
     overflow: hidden;
-    border-radius: 0; /* NO BORDER RADIUS - Sharp edges like wireframe */
+    border-radius: 0 !important; /* NO BORDER RADIUS - Sharp edges like wireframe */
     transition: all var(--transition-normal);
     cursor: pointer;
     flex-shrink: 0;
@@ -1380,6 +1381,7 @@ img {
     height: 100%;
     object-fit: cover;
     transition: transform var(--transition-normal);
+    border-radius: 0 !important;
 }
 
 /* Hover effects */
@@ -1409,7 +1411,7 @@ img {
     color: var(--text-primary);
     transform: translateY(100%);
     transition: transform var(--transition-normal);
-    border-radius: 0; /* Sharp edges to match wireframe */
+    border-radius: 0 !important; /* Sharp edges to match wireframe */
 }
 
 .experience-item:hover .experience-overlay {
