@@ -554,9 +554,16 @@ class MobileOptimization {
     }
 }
 
-// Initialize mobile optimization when DOM is loaded
+// Initialize mobile optimization when DOM is loaded with error handling
 document.addEventListener('DOMContentLoaded', () => {
-    new MobileOptimization();
+    try {
+        if (window.innerWidth <= 768) {
+            new MobileOptimization();
+        }
+    } catch (error) {
+        console.warn('Mobile optimization failed to initialize:', error);
+        // Continue with normal site functionality
+    }
 });
 
 // Export for use in other modules

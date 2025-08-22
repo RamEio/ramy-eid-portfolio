@@ -7,34 +7,38 @@
    Mobile Touch Optimization
    ========================================================================== */
 
-/* Touch action optimization for better mobile performance */
-* {
-  -webkit-tap-highlight-color: transparent;
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
+/* Mobile-specific touch optimization - only for mobile devices */
+@media (max-width: 767px) {
+  /* Touch-friendly interactive elements only */
+  .btn, .nav-toggle, .nav-menu a, .project-card, .experience-item {
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    touch-action: manipulation;
+  }
+  
+  /* Allow text selection for content areas on mobile */
+  p, h1, h2, h3, h4, h5, h6, span, div {
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+    user-select: text;
+  }
 }
 
-/* Allow text selection for content areas */
-p, h1, h2, h3, h4, h5, h6, span, div {
-  -webkit-user-select: text;
-  -moz-user-select: text;
-  -ms-user-select: text;
-  user-select: text;
+/* Touch-friendly interactive elements - desktop safe */
+@media (max-width: 767px) {
+  .btn, .nav-toggle, .nav-menu a, .project-card, .experience-item {
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: rgba(107, 70, 193, 0.1);
+  }
 }
 
-/* Touch-friendly interactive elements */
-.btn, .nav-toggle, .nav-menu a, .project-card, .experience-item {
-  touch-action: manipulation;
-  -webkit-tap-highlight-color: rgba(107, 70, 193, 0.1);
-}
-
-/* Enhanced touch feedback */
-.btn:active, .nav-toggle:active, .nav-menu a:active {
-  transform: scale(0.95);
-  transition: transform 0.1s ease-in-out;
+/* Enhanced touch feedback - mobile only */
+@media (max-width: 767px) {
+  .btn:active, .nav-toggle:active, .nav-menu a:active {
+    transform: scale(0.95);
+    transition: transform 0.1s ease-in-out;
+  }
 }
 
 /* ==========================================================================
