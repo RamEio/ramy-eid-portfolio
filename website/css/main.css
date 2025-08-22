@@ -1481,7 +1481,7 @@ img {
     transform: translateY(-8px) scale(1.02);
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), var(--glow-subtle);
     z-index: 5;
-    border-radius: var(--radius-lg); /* Add border radius only on hover */
+    border-radius: 0; /* No border radius for mosaic effect */
 }
 
 /* Loading state for carousel */

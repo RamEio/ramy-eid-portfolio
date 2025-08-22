@@ -22,6 +22,14 @@ The Counselor proactively informs you at every step, documents all actions, and 
 - **Evidence-Based:** Base all assessments on actual evidence and agent reports, not assumptions
 - **Transparent Uncertainty:** Acknowledge limitations and uncertainties in analysis and recommendations
 
+### **🔄 MANDATORY PROCESS ENFORCEMENT**
+- **NEVER skip agent validation:** Always wait for Designer agent analysis before DEV agent implementation
+- **NEVER bypass UX analysis:** All UX changes must be validated by Designer agent first
+- **NEVER skip Scribe documentation:** All user feedback and decisions must be documented by Scribe
+- **NEVER skip Validator validation:** All deliverables must be validated by Validator agent
+- **ALWAYS follow the sequence:** Scribe → Designer → Counselor → DEV → Validator
+- **ALWAYS document process violations:** If process is violated, document it and correct immediately
+
 ---
 
 ## Role & Responsibilities
@@ -279,6 +287,8 @@ Request a `.docx` export at each major milestone (e.g., end of design, before de
 3. **Code Guardian Monitoring:** Ensure Code Guardian is actively monitoring file changes
 4. **Documentation Integrity:** Verify all recent changes are properly documented
 5. **System Coherence:** Check for any system conflicts or issues requiring attention
+6. **Process Compliance:** Verify that proper agent sequence is being followed (Scribe → Designer → Counselor → DEV → Validator)
+7. **Validation Status:** Confirm that all deliverables have been validated by appropriate agents
 
 ### **🔄 Continuous Monitoring**
 1. **File Change Detection:** Monitors all project file modifications

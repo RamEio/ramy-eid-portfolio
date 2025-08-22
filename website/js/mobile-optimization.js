@@ -256,6 +256,12 @@ class MobileOptimization {
         const carouselRows = document.querySelectorAll('.carousel-row');
         
         carouselRows.forEach(row => {
+            // Disable carousel auto-scroll on mobile
+            if (this.isMobile) {
+                row.style.animation = 'none';
+                row.style.animationPlayState = 'paused';
+            }
+            
             // Add touch gesture support for carousel
             this.addCarouselTouchSupport(row);
             

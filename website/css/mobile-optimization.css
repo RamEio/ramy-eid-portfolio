@@ -41,6 +41,31 @@
   }
 }
 
+/* Disable hover animations on mobile */
+@media (max-width: 767px) {
+  .about-image:hover .image-grid-overlay,
+  .about-image:hover,
+  .project-card:hover,
+  .project-card:hover .project-image img,
+  .experience-item:hover,
+  .btn:hover {
+    transform: none !important;
+  }
+  
+  /* Disable carousel auto-scroll on mobile */
+  .carousel-row {
+    animation: none !important;
+    animation-play-state: paused !important;
+  }
+  
+  /* Remove border radius from experience grid items for mosaic effect */
+  .experience-item,
+  .experience-item img,
+  .experience-overlay {
+    border-radius: 0 !important;
+  }
+}
+
 /* ==========================================================================
    Mobile Typography Enhancement
    ========================================================================== */
@@ -150,9 +175,12 @@
   
   /* Enhanced hamburger menu */
   .nav-toggle {
-    min-width: 48px;
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    min-width: 80px;
     min-height: 48px;
-    padding: var(--space-2);
+    padding: var(--space-2) var(--space-3);
     border-radius: var(--radius-md);
     background: transparent;
     border: 1px solid transparent;
@@ -167,6 +195,24 @@
   .nav-toggle:active {
     background-color: var(--primary-blue);
     color: white;
+  }
+  
+  .menu-text {
+    font-size: var(--text-sm);
+    font-weight: 500;
+    color: white !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+    display: block;
+    opacity: 1 !important;
+  }
+  
+  @media (max-width: 480px) {
+    .menu-text {
+      display: none;
+    }
+    .nav-toggle {
+      min-width: 48px;
+    }
   }
   
   /* Enhanced hamburger animation */
@@ -558,6 +604,32 @@
     width: auto;
     min-width: 140px;
   }
+  
+  /* Landscape navigation menu fixes */
+  .nav-menu {
+    top: 56px;
+    max-height: calc(100vh - 56px);
+    overflow-y: auto;
+  }
+  
+  .nav-container {
+    min-height: 48px;
+    max-height: 48px;
+  }
+  
+  .nav-menu a {
+    min-height: 44px;
+    padding: var(--space-2) var(--space-4);
+  }
+  
+  .nav-toggle {
+    min-width: 60px;
+    min-height: 44px;
+  }
+  
+  .menu-text {
+    font-size: var(--text-xs);
+  }
 }
 
 /* ==========================================================================
@@ -576,6 +648,31 @@
 .project-image img {
   loading: lazy;
   decoding: async;
+}
+
+/* Mobile performance optimizations */
+@media (max-width: 767px) {
+  /* Optimize critical rendering path */
+  .hero, .nav-container, .main-content {
+    /* Critical styles only */
+  }
+  
+  /* Defer non-critical styles */
+  .decorative-elements {
+    /* Load after critical content */
+  }
+  
+  /* Optimize image loading for mobile */
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  /* Reduce animation complexity on mobile */
+  * {
+    animation-duration: 0.3s !important;
+    transition-duration: 0.2s !important;
+  }
 }
 
 /* ==========================================================================
