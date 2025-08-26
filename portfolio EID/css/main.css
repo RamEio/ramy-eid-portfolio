@@ -1382,6 +1382,13 @@ img {
     object-fit: cover;
     transition: transform var(--transition-normal);
     border-radius: 0 !important;
+    /* Performance optimizations */
+    will-change: transform;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+    /* Prevent layout shifts */
+    aspect-ratio: 16/9;
+    background: rgba(26, 26, 26, 0.1);
 }
 
 /* Hover effects */

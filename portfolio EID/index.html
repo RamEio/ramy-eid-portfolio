@@ -124,6 +124,11 @@
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
     
+    <!-- Preload critical images for performance -->
+    <link rel="preload" as="image" href="assets/experiences_images/discovery phase.jpg">
+    <link rel="preload" as="image" href="assets/experiences_images/DesignSprintBook.png">
+    <link rel="preload" as="image" href="assets/experiences_images/LeroyMerlin_workshop.png">
+    
     <!-- Security Headers - Production Optimized -->
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://www.google-analytics.com; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests;">
     <!-- X-Frame-Options should be set via HTTP header, not meta tag -->
@@ -135,7 +140,7 @@
     <!-- Version: 1.1 - Experience Timeline Improvements -->
     
     <!-- Styles -->
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/main.css?v=2">
     <link rel="stylesheet" href="css/dark-mode.css">
     <link rel="stylesheet" href="css/responsive.css">
     <link rel="stylesheet" href="css/mobile-optimization.css">
@@ -769,7 +774,6 @@
     </footer>
     
     <!-- Scripts -->
-    <script src="js/enhanced-lazy-loading.js"></script>
     <script src="js/experience-carousel.js"></script>
     <script src="js/production/experience-toggle.min.js"></script>
     <script src="js/production/combined-image-effects.min.js"></script>
