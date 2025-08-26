@@ -555,6 +555,8 @@ class ConsolidatedExperiencePage {
         card.setAttribute('data-experience-id', experience.id);
         card.setAttribute('role', 'listitem');
 
+
+
         // Limit to 5 tags for compact view, but preserve all for detailed view
         const displaySkills = experience.skills.slice(0, 5);
         const remainingSkills = experience.skills.slice(5);

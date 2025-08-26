@@ -1128,26 +1128,62 @@
 }
 
 @media (min-width: 768px) and (max-width: 1023px) {
-    .experience-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: var(--space-6);
+    /* Tablet Mosaic Grid - Reduced sizes */
+    .experience-card.xlarge {
+        width: 500px;
+        height: 250px;
     }
     
-    .skills-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: var(--space-4);
+    .experience-card.large {
+        width: 400px;
+        height: 220px;
+    }
+    
+    .experience-card.medium {
+        width: 300px;
+        height: 180px;
+    }
+    
+    .experience-card.small {
+        width: 250px;
+        height: 160px;
+    }
+    
+    .experience-card.xsmall {
+        width: 200px;
+        height: 140px;
+    }
+    
+    .experience-grid {
+        gap: 0;
     }
 }
 
-@media (min-width: 1024px) {
-    .experience-grid {
-        grid-template-columns: repeat(3, 1fr);
-        gap: var(--space-8);
+@media (min-width: 1024px) and (max-width: 1439px) {
+    /* Desktop Mosaic Grid - Standard sizes */
+    .experience-card.xlarge {
+        width: 550px;
+        height: 280px;
     }
     
-    .skills-grid {
-        grid-template-columns: repeat(5, 1fr);
-        gap: var(--space-6);
+    .experience-card.large {
+        width: 420px;
+        height: 240px;
+    }
+    
+    .experience-card.medium {
+        width: 320px;
+        height: 190px;
+    }
+    
+    .experience-card.small {
+        width: 260px;
+        height: 170px;
+    }
+    
+    .experience-card.xsmall {
+        width: 200px;
+        height: 140px;
     }
 }
 
