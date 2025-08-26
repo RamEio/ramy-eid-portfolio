@@ -75,10 +75,11 @@
 /* Photography Mosaic Gallery */
 .photography-mosaic-container {
     position: relative;
-    width: 100%;
-    max-width: 100%;
-    margin: 0 auto;
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
     padding: 0;
+    overflow: hidden;
 }
 
 .photography-mosaic {
@@ -590,77 +591,9 @@
 
 
 /* How Passions Influence Design Section */
-.influence-section {
-    padding: 6rem 0;
-    background: transparent;
-    position: relative;
-    overflow: hidden;
-}
 
-.influence-section {
-    background: linear-gradient(rgba(10, 10, 10, 0.6), rgba(10, 10, 10, 0.7)),
-                url('assets/backgrounds/influence-bg.jpg');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-}
 
-.influence-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    margin-top: 3rem;
-}
 
-.influence-card {
-    padding: 2.5rem;
-    border-radius: var(--radius-lg);
-    backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    position: relative;
-}
-
-.influence-card::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 0;
-    height: 3px;
-    background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
-    transition: width 0.3s ease;
-}
-
-.influence-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 20px 40px rgba(255, 107, 107, 0.2);
-}
-
-.influence-card:hover::after {
-    width: 80%;
-}
-
-.influence-icon {
-    font-size: 3rem;
-    margin-bottom: 1.5rem;
-    display: block;
-}
-
-.influence-card h3 {
-    font-size: 1.4rem;
-    font-weight: 600;
-    color: var(--text-primary);
-    margin-bottom: 1rem;
-}
-
-.influence-card p {
-    color: var(--text-secondary);
-    line-height: 1.6;
-    font-size: 1rem;
-}
 
 /* Call-to-Action Section */
 .cta-section {
