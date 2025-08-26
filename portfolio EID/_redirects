@@ -2,7 +2,11 @@
 /*    /index.html   200
 
 # Specific page redirects
-/projects    /projects.html   200
 /experience  /experience.html 200
 /about       /about.html      200
-/contact     /contact.html    200 
+/contact     /contact.html    200
+
+# Asset redirects
+/assets/*    /assets/:splat    200
+/css/*       /css/:splat       200
+/js/*        /js/:splat        200 
