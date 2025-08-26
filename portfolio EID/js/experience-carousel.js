@@ -47,13 +47,13 @@ class ExperienceCarousel {
                 // Touch events for mobile
                 row.addEventListener('touchstart', () => {
                     this.pauseAnimation();
-                });
+                }, { passive: true });
 
                 row.addEventListener('touchend', () => {
                     setTimeout(() => {
                         this.resumeAnimation();
                     }, 1000); // Resume after 1 second of no touch
-                });
+                }, { passive: true });
             }
         });
 
