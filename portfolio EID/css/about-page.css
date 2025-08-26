@@ -83,10 +83,10 @@
 }
 
 .photography-mosaic {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-auto-rows: 200px;
     gap: 0;
-    height: 80vh;
     width: 100%;
     overflow: hidden;
     border-radius: 0;
@@ -147,28 +147,28 @@
 
 /* Mosaic Item Sizes */
 .mosaic-item.xlarge {
-    width: 50%;
-    height: 50%;
+    grid-column: span 2;
+    grid-row: span 2;
 }
 
 .mosaic-item.large {
-    width: 33.33%;
-    height: 50%;
+    grid-column: span 2;
+    grid-row: span 1;
 }
 
 .mosaic-item.medium {
-    width: 25%;
-    height: 33.33%;
+    grid-column: span 1;
+    grid-row: span 1;
 }
 
 .mosaic-item.small {
-    width: 20%;
-    height: 25%;
+    grid-column: span 1;
+    grid-row: span 1;
 }
 
 .mosaic-item.xsmall {
-    width: 16.67%;
-    height: 20%;
+    grid-column: span 1;
+    grid-row: span 1;
 }
 
 /* YouTube Section */
@@ -181,6 +181,7 @@
     background-attachment: fixed;
     position: relative;
     overflow: hidden;
+    min-height: 400px;
 }
 
 .youtube-content {
@@ -301,6 +302,7 @@
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
+    min-height: 400px;
 }
 
 .services-grid {
