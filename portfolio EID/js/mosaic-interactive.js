@@ -103,23 +103,7 @@ document.addEventListener('DOMContentLoaded', function() {
             img.alt = `Photography ${index + 1}`;
             img.loading = 'lazy';
             
-            const overlay = document.createElement('div');
-            overlay.className = 'mosaic-overlay';
-            
-            // Add random titles and descriptions
-            const titles = ['Landscape', 'Portrait', 'Wildlife', 'Architecture', 'Travel', 'Nature', 'Street', 'Event', 'Abstract', 'Aviation'];
-            const descriptions = ['Capturing moments', 'Visual storytelling', 'Natural beauty', 'Urban life', 'Adventure', 'Creative vision', 'Human stories', 'Special moments', 'Artistic expression', 'Sky adventures'];
-            
-            const title = titles[Math.floor(Math.random() * titles.length)];
-            const description = descriptions[Math.floor(Math.random() * descriptions.length)];
-            
-            overlay.innerHTML = `
-                <h3>${title}</h3>
-                <p>${description}</p>
-            `;
-            
             mosaicItem.appendChild(img);
-            mosaicItem.appendChild(overlay);
             mosaicContainer.appendChild(mosaicItem);
         });
         
