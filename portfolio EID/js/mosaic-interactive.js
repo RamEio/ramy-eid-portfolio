@@ -1,11 +1,11 @@
 // Interactive Photography Mosaic
 document.addEventListener('DOMContentLoaded', function() {
-           // Interactive Photography Mosaic - Production Ready
+    // Interactive Photography Mosaic - Production Ready
     
-               const mosaicContainer = document.querySelector('.photography-mosaic-fullpage');
-                      if (!mosaicContainer) {
-           return; // Container not found
-       }
+    const mosaicContainer = document.querySelector('.photography-mosaic-fullpage');
+    if (!mosaicContainer) {
+        return; // Container not found
+    }
     
     // Available images for the mosaic (Only manually added photos)
     const allMosaicImages = [
@@ -56,10 +56,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // All your P100/P101 photos
         'assets/hobbies/photography-mosaic/P1001472.JPG_compressed.JPEG',
         'assets/hobbies/photography-mosaic/P1001654.JPG_compressed.JPEG',
-        'assets/hobbies/photography-mosaic/P1001683.JPG_compressed.JPEG',
-        'assets/hobbies/photography-mosaic/P1001697.JPG_compressed.JPEG',
-        'assets/hobbies/photography-mosaic/P1001897.JPG_compressed.JPEG',
-        'assets/hobbies/photography-mosaic/P1001977.JPG_compressed.JPEG',
+        'assets/hobbies/photography-mosaic/P1001697.JPEG_compressed.JPEG',
         'assets/hobbies/photography-mosaic/P1014925.JPG_compressed.JPEG',
         'assets/hobbies/photography-mosaic/P1014048.JPG_compressed.JPEG',
         'assets/hobbies/photography-mosaic/P1014049.JPG_compressed.JPEG',
@@ -139,14 +136,14 @@ document.addEventListener('DOMContentLoaded', function() {
             
             const img = document.createElement('img');
             img.src = currentImages[index];
-            img.alt = `Photography`;
+            img.alt = ''; // Removed "Photography" text as requested
             img.loading = 'lazy';
             
             mosaicItem.appendChild(img);
             mosaicContainer.appendChild(mosaicItem);
         });
         
-                   // Mosaic refreshed with new layout and images
+        // Mosaic refreshed with new layout and images
     };
     
     // Initial mosaic creation
@@ -154,7 +151,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Add click event listener
     mosaicContainer.addEventListener('click', function(e) {
-                   // Click detected - refreshing mosaic layout
+        // Click detected - refreshing mosaic layout
         
         // Add visual feedback
         mosaicContainer.classList.add('clicked');
@@ -181,5 +178,5 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
     
-               // Interactive photography mosaic setup completed
+    // Interactive photography mosaic setup completed
 });
