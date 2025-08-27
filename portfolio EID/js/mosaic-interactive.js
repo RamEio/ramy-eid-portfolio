@@ -79,11 +79,7 @@ document.addEventListener('DOMContentLoaded', function() {
         'assets/hobbies/photography-mosaic/7f029355-a1e2-4f5f-b003-e3c13730608b.jpg_compressed.JPEG',
         'assets/hobbies/photography-mosaic/2W3A4696.JPEG_compressed.JPEG',
         'assets/hobbies/photography-mosaic/2W3A4699.JPEG_compressed.JPEG',
-        'assets/hobbies/photography-mosaic/2W3A4714.JPEG_compressed.JPEG',
-        
-        // Homepage About Me images
-        'assets/optimized/IMG_3682-optimized.jpg',
-        'assets/optimized/profilePictureRamE-optimized.jpg'
+        'assets/hobbies/photography-mosaic/2W3A4714.JPEG_compressed.JPEG'
     ];
     
     // Grid layout configurations for 3x3 grid
@@ -143,7 +139,7 @@ document.addEventListener('DOMContentLoaded', function() {
             
             const img = document.createElement('img');
             img.src = currentImages[index];
-            img.alt = `Photography ${index + 1}`;
+            img.alt = `Photography work`;
             img.loading = 'lazy';
             
             mosaicItem.appendChild(img);
