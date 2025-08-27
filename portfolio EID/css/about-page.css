@@ -50,7 +50,7 @@
     padding: 3rem;
     position: relative;
     z-index: 2;
-    background: linear-gradient(rgba(10, 10, 10, 0.7), rgba(10, 10, 10, 0.8));
+    background: linear-gradient(rgba(10, 10, 10, 0.3), rgba(10, 10, 10, 0.4));
     backdrop-filter: blur(20px) saturate(180%);
     -webkit-backdrop-filter: blur(20px) saturate(180%);
     border: 1px solid rgba(255, 255, 255, 0.1);
@@ -67,7 +67,7 @@
     margin-bottom: var(--space-6);
     color: white;
     line-height: 1.2;
-    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.9);
 }
 
 .photography-hero-subtitle {
@@ -75,7 +75,7 @@
     color: rgba(255, 255, 255, 0.9);
     margin-bottom: var(--space-4);
     font-weight: 500;
-    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
+    text-shadow: 0 1px 6px rgba(0, 0, 0, 0.8);
 }
 
 .photography-hero-description {
@@ -86,7 +86,7 @@
     max-width: 600px;
     margin-left: auto;
     margin-right: auto;
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.7);
+    text-shadow: 0 1px 5px rgba(0, 0, 0, 0.9);
 }
 
 /* Photography Mosaic Gallery */
@@ -211,7 +211,7 @@
 .youtube-section {
     padding: 4rem 0;
     background: linear-gradient(rgba(10, 10, 10, 0.3), rgba(10, 10, 10, 0.4)),
-                url('assets/backgrounds/youtube-bg.jpg');
+                url('assets/hobbies/backgrounds/youtube-bg.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -334,7 +334,7 @@
 
 .services-section {
     background: linear-gradient(rgba(10, 10, 10, 0.5), rgba(10, 10, 10, 0.6)),
-                url('assets/backgrounds/services-bg.jpg');
+                url('assets/hobbies/backgrounds/services-bg.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -538,7 +538,7 @@
 
 .passions-section {
     background: linear-gradient(rgba(10, 10, 10, 0.3), rgba(10, 10, 10, 0.4)),
-                url('assets/backgrounds/passions-bg.jpg');
+                url('assets/hobbies/backgrounds/passions-bg.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -630,7 +630,7 @@
 .cta-section {
     padding: 4rem 0;
     background: linear-gradient(rgba(10, 10, 10, 0.3), rgba(10, 10, 10, 0.4)),
-                url('assets/backgrounds/cta-bg.jpg');
+                url('assets/hobbies/backgrounds/cta-bg.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
