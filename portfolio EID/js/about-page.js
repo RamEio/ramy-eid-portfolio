@@ -186,17 +186,39 @@ function initializeYouTubeIntegration() {
 function animateNumber(element) {
     const target = parseInt(element.textContent.replace(/\D/g, ''));
     const suffix = element.textContent.replace(/\d/g, '');
-    let current = 0;
-    const increment = target / 50;
     
-    const timer = setInterval(() => {
-        current += increment;
-        if (current >= target) {
-            current = target;
-            clearInterval(timer);
-        }
-        element.textContent = Math.floor(current) + suffix;
-    }, 30);
+    // Special handling for subscriber counter (1K+)
+    if (element.textContent.includes('1K+')) {
+        const steps = [0, 150, 300, 600, 900, 1000];
+        let currentStep = 0;
+        
+        const timer = setInterval(() => {
+            if (currentStep < steps.length) {
+                const value = steps[currentStep];
+                if (value >= 1000) {
+                    element.textContent = '1K+';
+                } else {
+                    element.textContent = value + '+';
+                }
+                currentStep++;
+            } else {
+                clearInterval(timer);
+            }
+        }, 200); // Slower animation for better visibility
+    } else {
+        // Standard animation for other counters
+        let current = 0;
+        const increment = target / 50;
+        
+        const timer = setInterval(() => {
+            current += increment;
+            if (current >= target) {
+                current = target;
+                clearInterval(timer);
+            }
+            element.textContent = Math.floor(current) + suffix;
+        }, 30);
+    }
 }
 
 // Service Cards Interactions

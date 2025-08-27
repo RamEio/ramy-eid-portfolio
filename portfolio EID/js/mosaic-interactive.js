@@ -139,7 +139,7 @@ document.addEventListener('DOMContentLoaded', function() {
             
             const img = document.createElement('img');
             img.src = currentImages[index];
-            img.alt = `Photography work`;
+            img.alt = `Photography`;
             img.loading = 'lazy';
             
             mosaicItem.appendChild(img);
