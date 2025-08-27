@@ -1,17 +1,15 @@
 // Interactive Photography Mosaic
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('🎯 Starting interactive photography mosaic...');
+           // Interactive Photography Mosaic - Production Ready
     
-    const mosaicContainer = document.querySelector('.photography-mosaic');
-    if (!mosaicContainer) {
-        console.error('❌ Photography mosaic container not found');
-        return;
-    }
+               const mosaicContainer = document.querySelector('.photography-mosaic-fullpage');
+                      if (!mosaicContainer) {
+           return; // Container not found
+       }
     
-    console.log('✅ Found photography mosaic container');
-    
-    // Available images for the mosaic
+    // Available images for the mosaic (ALL 60+ images)
     const allMosaicImages = [
+        // Original category images
         'assets/photography-mosaic/landscape.jpg',
         'assets/photography-mosaic/portrait.jpg',
         'assets/photography-mosaic/street.jpg',
@@ -20,18 +18,53 @@ document.addEventListener('DOMContentLoaded', function() {
         'assets/photography-mosaic/travel.jpg',
         'assets/photography-mosaic/event.jpg',
         'assets/photography-mosaic/abstract.jpg',
+        
+        // Wildlife photos
         'assets/photography-mosaic/lioness.JPG',
         'assets/photography-mosaic/girafe.JPG',
         'assets/photography-mosaic/leopard.JPG',
         'assets/photography-mosaic/monkey.JPG',
+        'assets/photography-mosaic/CUB.JPG',
+        
+        // Travel & landscape photos
         'assets/photography-mosaic/HardelotCastle.JPEG',
         'assets/photography-mosaic/Horses in sunset.JPEG',
+        'assets/photography-mosaic/Plane.JPEG',
+        'assets/photography-mosaic/Planje2.JPEG',
+        
+        // All your IMG photos
         'assets/photography-mosaic/IMG_5198.JPG',
         'assets/photography-mosaic/IMG_0024.JPG_compressed.JPEG',
         'assets/photography-mosaic/IMG_3022.JPG_compressed.JPEG',
         'assets/photography-mosaic/IMG_4464.JPG_compressed.JPEG',
         'assets/photography-mosaic/IMG_5146.JPEG_compressed.JPEG',
         'assets/photography-mosaic/IMG_1841.JPG_compressed.JPEG',
+        'assets/photography-mosaic/IMG_0607.JPG_compressed.JPEG',
+        'assets/photography-mosaic/IMG_3417.JPEG_compressed.JPEG',
+        'assets/photography-mosaic/IMG_4590.JPG_compressed.JPEG',
+        'assets/photography-mosaic/IMG_9205.HEIC_compressed.JPEG',
+        'assets/photography-mosaic/IMG_9213.HEIC_compressed.JPEG',
+        'assets/photography-mosaic/IMG_2654.JPEG_compressed.JPEG',
+        'assets/photography-mosaic/IMG_2774.JPEG_compressed.JPEG',
+        'assets/photography-mosaic/IMG_4538.JPEG_compressed.JPEG',
+        'assets/photography-mosaic/IMG_4641.JPEG_compressed.JPEG',
+        'assets/photography-mosaic/IMG_4678.JPEG_compressed.JPEG',
+        'assets/photography-mosaic/IMG_9604.JPG_compressed.JPEG',
+        'assets/photography-mosaic/IMG_9679.JPG_compressed.JPEG',
+        'assets/photography-mosaic/IMG_9683.JPG_compressed.JPEG',
+        'assets/photography-mosaic/IMG_3305.JPG_compressed.JPEG',
+        'assets/photography-mosaic/IMG_3307.JPG_compressed.JPEG',
+        'assets/photography-mosaic/IMG_3572.JPG_compressed.JPEG',
+        'assets/photography-mosaic/IMG_3687.JPG_compressed.JPEG',
+        'assets/photography-mosaic/IMG_4590.jpg',
+        'assets/photography-mosaic/IMG_8296.jpg',
+        'assets/photography-mosaic/IMG_9934.jpg',
+        'assets/photography-mosaic/IMG_0101.jpg',
+        'assets/photography-mosaic/IMG_9408.jpg',
+        'assets/photography-mosaic/IMG_6825.jpg',
+        'assets/photography-mosaic/IMG_0919.jpg',
+        
+        // All your P100/P101 photos
         'assets/photography-mosaic/P1001472.JPG_compressed.JPEG',
         'assets/photography-mosaic/P1001654.JPG_compressed.JPEG',
         'assets/photography-mosaic/P1001683.JPG_compressed.JPEG',
@@ -39,8 +72,25 @@ document.addEventListener('DOMContentLoaded', function() {
         'assets/photography-mosaic/P1001897.JPG_compressed.JPEG',
         'assets/photography-mosaic/P1001977.JPG_compressed.JPEG',
         'assets/photography-mosaic/P1014925.JPG_compressed.JPEG',
-        'assets/photography-mosaic/Plane.JPEG',
-        'assets/photography-mosaic/Planje2.JPEG'
+        'assets/photography-mosaic/P1014048.JPG_compressed.JPEG',
+        'assets/photography-mosaic/P1014049.JPG_compressed.JPEG',
+        'assets/photography-mosaic/P1014056.JPG_compressed.JPEG',
+        'assets/photography-mosaic/P1014090.JPG_compressed.JPEG',
+        'assets/photography-mosaic/P1014108.JPG_compressed.JPEG',
+        'assets/photography-mosaic/P1014242.JPG_compressed.JPEG',
+        'assets/photography-mosaic/P1014254.JPG_compressed.JPEG',
+        'assets/photography-mosaic/P1014256.JPG_compressed.JPEG',
+        
+        // Drone photos
+        'assets/photography-mosaic/DJI_0115.JPG_compressed.JPEG',
+        'assets/photography-mosaic/DJI_0116.JPG_compressed.JPEG',
+        
+        // Other photos
+        'assets/photography-mosaic/lightroom-10.jpg_compressed.JPEG',
+        'assets/photography-mosaic/7f029355-a1e2-4f5f-b003-e3c13730608b.jpg_compressed.JPEG',
+        'assets/photography-mosaic/2W3A4696.JPEG_compressed.JPEG',
+        'assets/photography-mosaic/2W3A4699.JPEG_compressed.JPEG',
+        'assets/photography-mosaic/2W3A4714.JPEG_compressed.JPEG'
     ];
     
     // Grid layout configurations for 3x3 grid
@@ -107,9 +157,7 @@ document.addEventListener('DOMContentLoaded', function() {
             mosaicContainer.appendChild(mosaicItem);
         });
         
-        console.log('🔄 Mosaic refreshed!');
-        console.log(`🎲 New layout: ${currentLayout.name}`);
-        console.log(`🖼️ Images: ${currentImages.length}`);
+                   // Mosaic refreshed with new layout and images
     };
     
     // Initial mosaic creation
@@ -117,7 +165,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Add click event listener
     mosaicContainer.addEventListener('click', function(e) {
-        console.log('🖱️ Click detected - refreshing mosaic layout');
+                   // Click detected - refreshing mosaic layout
         
         // Add visual feedback
         mosaicContainer.classList.add('clicked');
@@ -144,6 +192,5 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
     
-    console.log('✅ Interactive photography mosaic setup completed');
-    console.log('💡 Tip: Click the mosaic to refresh the layout!');
+               // Interactive photography mosaic setup completed
 });
