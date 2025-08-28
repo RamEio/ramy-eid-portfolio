@@ -1656,6 +1656,13 @@
     display: none; /* Hidden by default on desktop */
 }
 
+/* Show mobile experience carousel on mobile only */
+@media (max-width: 768px) {
+    .mobile-experience-carousel-section {
+        display: block !important;
+    }
+}
+
 /* Mobile Experience Carousel - Only show on mobile */
 @media (max-width: 768px) {
     .mobile-experience-carousel-section {

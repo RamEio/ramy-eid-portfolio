@@ -1254,6 +1254,14 @@ img {
     padding: var(--space-16) 0;
     background: linear-gradient(135deg, rgba(26, 26, 26, 0.95) 0%, rgba(40, 40, 40, 0.95) 100%);
     overflow: hidden; /* Prevent horizontal scroll */
+    display: block; /* Show by default on desktop */
+}
+
+/* Hide desktop experience showcase on mobile */
+@media (max-width: 768px) {
+    .experience-showcase {
+        display: none !important;
+    }
 }
 
 .section-subtitle {
