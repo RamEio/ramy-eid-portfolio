@@ -8,14 +8,27 @@ document.addEventListener('DOMContentLoaded', function() {
     
     console.log('📱 Mobile Experience Carousel: Starting on mobile device');
     
-    // Target specifically the mobile carousel container within the mobile section
-    const carouselContainer = document.querySelector('.mobile-experience-carousel-section .experience-carousel-container');
+    // Find the appropriate carousel container based on the page
+    let carouselContainer;
+    
+    // Check if we're on the homepage (has mobile-experience-carousel-section)
+    const mobileSection = document.querySelector('.mobile-experience-carousel-section');
+    if (mobileSection) {
+        // Homepage - use the mobile section container
+        carouselContainer = mobileSection.querySelector('.experience-carousel-container');
+        console.log('📱 Mobile Experience Carousel: Found homepage mobile carousel container');
+    } else {
+        // Experience page - use the main carousel container
+        carouselContainer = document.querySelector('.experience-carousel-container');
+        console.log('📱 Mobile Experience Carousel: Found experience page carousel container');
+    }
+    
     if (!carouselContainer) {
-        console.log('📱 Mobile Experience Carousel: Mobile container not found, skipping');
+        console.log('📱 Mobile Experience Carousel: No carousel container found, skipping');
         return; // Container not found
     }
     
-    console.log('📱 Mobile Experience Carousel: Found mobile carousel container');
+    console.log('📱 Mobile Experience Carousel: Found carousel container');
     
     // Available experience images for the mobile carousel
     const allExperienceImages = [

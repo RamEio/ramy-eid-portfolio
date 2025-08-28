@@ -1340,130 +1340,99 @@ img {
         loading: lazy;
         decoding: async;
     }
-}
-
-/* Pause animation on hover */
-.carousel-row:hover {
-    animation-play-state: paused;
-}
-
-/* Experience Items - Randomized sizing for full-size display */
-.experience-item {
-    position: relative !important;
-    overflow: hidden !important;
-    border-radius: 0 !important; /* NO BORDER RADIUS - Sharp edges like wireframe */
-    transition: all var(--transition-normal) !important;
-    cursor: pointer !important;
-    flex-shrink: 0 !important;
-    margin: 0 !important; /* NO MARGINS */
-    border: none !important; /* NO BORDERS */
-}
-
-.experience-item.xlarge {
-    width: 400px;
-    height: 200px; /* FILLS FULL LINE HEIGHT */
-    flex-shrink: 0;
-}
-
-.experience-item.large {
-    width: 300px;
-    height: 200px; /* FILLS FULL LINE HEIGHT */
-    flex-shrink: 0;
-}
-
-.experience-item.medium {
-    width: 250px;
-    height: 200px; /* FILLS FULL LINE HEIGHT */
-    flex-shrink: 0;
-}
-
-.experience-item.small {
-    width: 200px;
-    height: 200px; /* FILLS FULL LINE HEIGHT */
-    flex-shrink: 0;
-}
-
-.experience-item.xsmall {
-    width: 150px;
-    height: 200px; /* FILLS FULL LINE HEIGHT */
-    flex-shrink: 0;
-}
-
-/* Image styling */
-.experience-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform var(--transition-normal);
-    border-radius: 0 !important;
-    /* Performance optimizations */
-    will-change: transform;
-    backface-visibility: hidden;
-    transform: translateZ(0);
-    /* Prevent layout shifts */
-    aspect-ratio: 16/9;
-    background: rgba(26, 26, 26, 0.1);
-}
-
-/* Hover effects */
-.experience-item:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), var(--glow-subtle);
-}
-
-.experience-item:hover img {
-    transform: scale(1.05);
-}
-
-/* Overlay styling */
-.experience-overlay {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: linear-gradient(
-        to top,
-        rgba(26, 26, 26, 0.95) 0%,
-        rgba(26, 26, 26, 0.8) 50%,
-        rgba(26, 26, 26, 0) 100%
-    );
-    backdrop-filter: var(--blur-medium);
-    padding: var(--space-4);
-    color: var(--text-primary);
-    transform: translateY(100%);
-    transition: transform var(--transition-normal);
-    border-radius: 0 !important; /* Sharp edges to match wireframe */
-}
-
-.experience-item:hover .experience-overlay {
-    transform: translateY(0);
-}
-
-.experience-overlay h3 {
-    font-size: var(--text-base);
-    font-weight: 600;
-    margin-bottom: var(--space-1);
-    color: var(--text-primary);
-}
-
-.experience-overlay p {
-    font-size: var(--text-xs);
-    color: var(--text-secondary);
-    margin: 0;
-    opacity: 0.9;
-}
-
-/* Auto-scroll animation */
-@keyframes scrollCarousel {
-    0% {
-        transform: translateX(0);
+    
+    /* Mobile carousel specific styling */
+    .mobile-carousel-row {
+        animation: scrollCarousel 300s linear infinite !important; /* SLOWER FOR MOBILE - 5 minutes */
+        contain: layout style paint;
+        isolation: isolate;
+        /* Ensure proper mobile carousel styling */
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
+        gap: 0 !important;
+        width: max-content !important;
+        padding: 0 !important;
+        max-width: none !important;
+        height: 200px !important;
+        overflow: hidden !important;
+        align-items: flex-start !important;
+        margin-bottom: 0 !important;
     }
-    100% {
-        transform: translateX(-50%);
+    
+    .mobile-carousel-item {
+        position: relative !important;
+        overflow: hidden !important;
+        border-radius: 0 !important;
+        transition: all var(--transition-normal) !important;
+        cursor: pointer !important;
+        flex-shrink: 0 !important;
+        margin: 0 !important;
+        border: none !important;
+        will-change: transform;
+        backface-visibility: hidden;
+        transform: translateZ(0);
+    }
+    
+    .mobile-carousel-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform var(--transition-normal);
+        border-radius: 0 !important;
+        will-change: transform;
+        backface-visibility: hidden;
+        transform: translateZ(0);
+        aspect-ratio: 16/9;
+        background: rgba(26, 26, 26, 0.1);
+        loading: lazy;
+        decoding: async;
+    }
+    
+    .mobile-carousel-item:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    }
+    
+    .mobile-carousel-item:hover img {
+        transform: scale(1.05);
+    }
+    
+    .mobile-carousel-row:hover {
+        animation-play-state: paused;
+    }
+    
+    /* Mobile carousel item sizing */
+    .mobile-carousel-item.xlarge {
+        width: 300px;
+        height: 200px;
+        flex-shrink: 0;
+    }
+    
+    .mobile-carousel-item.large {
+        width: 250px;
+        height: 200px;
+        flex-shrink: 0;
+    }
+    
+    .mobile-carousel-item.medium {
+        width: 200px;
+        height: 200px;
+        flex-shrink: 0;
+    }
+    
+    .mobile-carousel-item.small {
+        width: 150px;
+        height: 200px;
+        flex-shrink: 0;
+    }
+    
+    .mobile-carousel-item.xsmall {
+        width: 100px;
+        height: 200px;
+        flex-shrink: 0;
     }
 }
-
-
 
 /* Pause indicator styles */
 .carousel-paused {
