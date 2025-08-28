@@ -328,8 +328,8 @@
     background: var(--bg-primary);
     border: 2px solid #ffffff;
     border-radius: 50%;
-    width: 56px;
-    height: 56px;
+    width: 80px; /* Increased from 56px */
+    height: 80px; /* Increased from 56px */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -341,6 +341,7 @@
     font-size: var(--text-sm);
     will-change: transform, box-shadow;
     padding: var(--space-2);
+    overflow: hidden; /* Prevent text overflow */
 }
 
 .timeline-marker:hover {
@@ -360,10 +361,13 @@
 }
 
 .year-label {
-    font-size: 10px;
+    font-size: 11px; /* Increased from 10px */
     font-weight: 600;
-    line-height: 1.2;
+    line-height: 1.1; /* Reduced from 1.2 */
     text-align: center;
+    word-wrap: break-word; /* Allow text to wrap */
+    max-width: 100%; /* Ensure text stays within bounds */
+    padding: 0 2px; /* Add small padding */
 }
 
 

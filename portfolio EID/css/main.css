@@ -223,7 +223,7 @@ img {
 }
 
 .nav-menu a {
-  color: var(--text-dark);
+  color: var(--text-primary); /* Changed from var(--text-dark) to white */
   font-weight: 500;
   padding: var(--space-2) var(--space-4);
   border-radius: var(--radius-md);
@@ -232,8 +232,8 @@ img {
 
 .nav-menu a:hover,
 .nav-menu a[aria-current="page"] {
-  color: var(--primary-blue);
-  background-color: var(--background-gray);
+  color: #ffffff; /* Changed from var(--primary-blue) to white */
+  background-color: rgba(255, 255, 255, 0.1); /* Changed from var(--background-gray) to semi-transparent white */
 }
 
 .nav-toggle {
@@ -1328,7 +1328,7 @@ img {
     flex-direction: row !important; /* HORIZONTAL SCROLLING */
     flex-wrap: nowrap !important; /* NO WRAPPING - Horizontal scroll only */
     gap: 0 !important; /* NO GAPS - Images stuck together */
-    animation: scrollCarousel 60s linear infinite !important; /* DESKTOP SPEED */
+    animation: scrollCarousel 60s linear infinite !important; /* FASTER FOR VISIBLE INFINITE LOOP */
     width: max-content !important;
     padding: 0 !important; /* NO PADDING - Full width */
     max-width: none !important; /* Allow full width for horizontal scroll */
@@ -1341,7 +1341,7 @@ img {
 /* Mobile optimization - slower animation for better UX */
 @media (max-width: 768px) {
     .carousel-row {
-        animation: scrollCarousel 300s linear infinite !important; /* MOBILE SPEED - 5 minutes */
+        animation: scrollCarousel 300s linear infinite !important; /* SLOWER FOR MOBILE - 5 minutes */
         contain: layout style paint;
         isolation: isolate;
     }
@@ -1351,9 +1351,9 @@ img {
         decoding: async;
     }
     
-    /* Mobile carousel specific styling - CONSOLIDATED */
+    /* Mobile carousel specific styling */
     .mobile-carousel-row {
-        animation: scrollCarousel 300s linear infinite !important; /* MOBILE SPEED - 5 minutes */
+        animation: scrollCarousel 300s linear infinite !important; /* SLOWER FOR MOBILE - 5 minutes */
         contain: layout style paint;
         isolation: isolate;
         /* Ensure proper mobile carousel styling */
@@ -1412,7 +1412,7 @@ img {
         animation-play-state: paused;
     }
     
-    /* Mobile carousel item sizing - CONSOLIDATED */
+    /* Mobile carousel item sizing */
     .mobile-carousel-item.xlarge {
         width: 300px;
         height: 200px;
