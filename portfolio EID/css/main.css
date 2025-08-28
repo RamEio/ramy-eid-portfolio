@@ -1312,13 +1312,23 @@ img {
     padding: 0 !important;
 }
 
+/* Auto-scroll animation - CONSOLIDATED */
+@keyframes scrollCarousel {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
 /* Carousel Rows - 3 separate horizontal scrolling rows */
 .carousel-row {
     display: flex !important;
     flex-direction: row !important; /* HORIZONTAL SCROLLING */
     flex-wrap: nowrap !important; /* NO WRAPPING - Horizontal scroll only */
     gap: 0 !important; /* NO GAPS - Images stuck together */
-    animation: scrollCarousel 60s linear infinite !important; /* FASTER FOR VISIBLE INFINITE LOOP */
+    animation: scrollCarousel 60s linear infinite !important; /* DESKTOP SPEED */
     width: max-content !important;
     padding: 0 !important; /* NO PADDING - Full width */
     max-width: none !important; /* Allow full width for horizontal scroll */
@@ -1331,7 +1341,7 @@ img {
 /* Mobile optimization - slower animation for better UX */
 @media (max-width: 768px) {
     .carousel-row {
-        animation: scrollCarousel 300s linear infinite !important; /* SLOWER FOR MOBILE - 5 minutes */
+        animation: scrollCarousel 300s linear infinite !important; /* MOBILE SPEED - 5 minutes */
         contain: layout style paint;
         isolation: isolate;
     }
@@ -1341,9 +1351,9 @@ img {
         decoding: async;
     }
     
-    /* Mobile carousel specific styling */
+    /* Mobile carousel specific styling - CONSOLIDATED */
     .mobile-carousel-row {
-        animation: scrollCarousel 300s linear infinite !important; /* SLOWER FOR MOBILE - 5 minutes */
+        animation: scrollCarousel 300s linear infinite !important; /* MOBILE SPEED - 5 minutes */
         contain: layout style paint;
         isolation: isolate;
         /* Ensure proper mobile carousel styling */
@@ -1402,7 +1412,7 @@ img {
         animation-play-state: paused;
     }
     
-    /* Mobile carousel item sizing */
+    /* Mobile carousel item sizing - CONSOLIDATED */
     .mobile-carousel-item.xlarge {
         width: 300px;
         height: 200px;

@@ -742,15 +742,7 @@
     }
 }
 
-/* Mobile carousel animation */
-@keyframes scrollCarousel {
-    0% {
-        transform: translateX(0);
-    }
-    100% {
-        transform: translateX(-50%);
-    }
-}
+/* Mobile carousel animation - REMOVED DUPLICATE - Now in main.css */
 
 /* Responsive Design */
 @media (max-width: 768px) {

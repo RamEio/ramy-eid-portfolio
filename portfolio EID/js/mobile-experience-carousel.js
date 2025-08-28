@@ -1,4 +1,4 @@
-// Mobile-Only Experience Carousel for Experience Page
+// Mobile-Only Experience Carousel - OPTIMIZED VERSION
 document.addEventListener('DOMContentLoaded', function() {
     // Only run on mobile devices
     if (window.innerWidth > 768) {
@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     console.log('📱 Mobile Experience Carousel: Found carousel container');
     
-    // Available experience images for the mobile carousel
+    // Available experience images for the mobile carousel - OPTIMIZED LIST
     const allExperienceImages = [
         // UX Research & Discovery
         'assets/experiences_images/discovery phase.jpg',
@@ -47,8 +47,6 @@ document.addEventListener('DOMContentLoaded', function() {
         // Wireframing & Design
         'assets/experiences_images/adeo_wireframe1.png',
         'assets/experiences_images/mozaIc_DS.png',
-        'assets/experiences_images/adeo_wireframe1.png',
-        'assets/experiences_images/discovery phase.jpg',
         
         // Additional experience images
         'assets/experiences_images/discovery phase.jpg',
@@ -80,7 +78,7 @@ document.addEventListener('DOMContentLoaded', function() {
         { title: 'Design Systems', description: 'Mozaic Implementation' },
     ];
     
-    // Function to create mobile experience carousel
+    // Function to create mobile experience carousel - OPTIMIZED
     const createMobileExperienceCarousel = () => {
         console.log('📱 Mobile Experience Carousel: Creating carousel...');
         
@@ -98,7 +96,7 @@ document.addEventListener('DOMContentLoaded', function() {
             
             console.log(`📱 Mobile Experience Carousel: Creating row ${row + 1} with ${shuffledImages.length} images`);
             
-            // Add images to this row (duplicate for seamless loop)
+            // Add images to this row (duplicate for seamless loop) - OPTIMIZED
             for (let i = 0; i < 2; i++) { // Duplicate for seamless loop
                 shuffledImages.forEach((imageSrc, index) => {
                     const carouselItem = document.createElement('div');
@@ -109,13 +107,15 @@ document.addEventListener('DOMContentLoaded', function() {
                     img.src = imageSrc;
                     img.alt = experienceData[index % experienceData.length]?.title || 'Experience Image';
                     img.loading = 'lazy';
+                    img.decoding = 'async';
                     
-                    // Add progressive loading
+                    // Add progressive loading - OPTIMIZED
                     img.style.opacity = '0';
                     img.style.transition = 'opacity 0.3s ease-in-out';
                     
                     img.onload = function() {
                         this.style.opacity = '1';
+                        console.log(`📱 Mobile Experience Carousel: Image loaded: ${imageSrc}`);
                     };
                     
                     img.onerror = function() {
@@ -128,10 +128,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     overlay.className = 'experience-overlay';
                     const experienceInfo = experienceData[index % experienceData.length];
                     if (experienceInfo) {
-                        overlay.innerHTML = `
-                            <h3>${experienceInfo.title}</h3>
-                            <p>${experienceInfo.description}</p>
-                        `;
+                        overlay.innerHTML = `<h3>${experienceInfo.title}</h3><p>${experienceInfo.description}</p>`;
                     }
                     
                     carouselItem.appendChild(img);
@@ -142,51 +139,62 @@ document.addEventListener('DOMContentLoaded', function() {
             
             carouselContainer.appendChild(carouselRow);
         }
+        
+        console.log('📱 Mobile Experience Carousel: Carousel creation complete');
     };
     
-    // Initialize mobile experience carousel
+    // Initialize carousel
     createMobileExperienceCarousel();
     
     // Add click to refresh functionality
     carouselContainer.addEventListener('click', function(e) {
-        if (e.target.classList.contains('mobile-carousel-item') ||
+        if (e.target.classList.contains('mobile-carousel-item') || 
             e.target.classList.contains('mobile-carousel-row') ||
-            e.target.classList.contains('experience-overlay')) {
-            console.log('📱 Mobile Experience Carousel: Refreshing carousel');
-            // Refresh carousel
+            e.target.tagName === 'IMG') {
+            
+            console.log('📱 Mobile Experience Carousel: Refreshing carousel...');
             createMobileExperienceCarousel();
         }
     });
     
-    // Mobile experience carousel setup completed
     console.log('📱 Mobile Experience Carousel: Initialized with ULTRA SLOW animation (300s)');
     
-    // Initialize universal carousel controller for mobile experience carousel
+    // Initialize UniversalCarouselController - OPTIMIZED TO PREVENT CONFLICTS
     if (typeof UniversalCarouselController !== 'undefined') {
-        const universalController = new UniversalCarouselController({
-            rowClass: '.mobile-carousel-row',
-            itemClass: '.mobile-carousel-item',
-            isMobile: true,
-            speed: 300 // 5 minutes for mobile
-        });
-        
-        // Verify animation is applied correctly
+        // Check if controller already exists to prevent conflicts
+        if (!window.mobileExperienceCarouselController) {
+            window.mobileExperienceCarouselController = new UniversalCarouselController({
+                rowClass: '.mobile-carousel-row',
+                itemClass: '.mobile-carousel-item',
+                isMobile: true,
+                speed: 300
+            });
+            console.log('📱 Mobile Experience Carousel: UniversalCarouselController initialized');
+        } else {
+            console.log('📱 Mobile Experience Carousel: UniversalCarouselController already exists, skipping');
+        }
+    }
+    
+    // Debug: Check if CSS is applied - OPTIMIZED
+    setTimeout(() => {
         const carouselRows = document.querySelectorAll('.mobile-carousel-row');
         carouselRows.forEach((row, index) => {
             const animation = window.getComputedStyle(row).animation;
             console.log(`📱 Experience Carousel Row ${index + 1} animation:`, animation);
         });
-    }
+    }, 1000);
     
-    // Handle window resize
+    // Handle window resize - OPTIMIZED
     window.addEventListener('resize', function() {
         if (window.innerWidth > 768) {
-            console.log('📱 Mobile Experience Carousel: Window resized to desktop, stopping mobile carousel');
-            // Clean up mobile carousel
-            carouselContainer.innerHTML = '';
-        } else if (window.innerWidth <= 768 && carouselContainer.children.length === 0) {
-            console.log('📱 Mobile Experience Carousel: Window resized to mobile, restarting mobile carousel');
-            // Restart mobile carousel
+            console.log('📱 Mobile Experience Carousel: Window resized to desktop, stopping carousel');
+            // Stop carousel on desktop
+            if (window.mobileExperienceCarouselController) {
+                window.mobileExperienceCarouselController = null;
+            }
+        } else if (window.innerWidth <= 768 && !window.mobileExperienceCarouselController) {
+            console.log('📱 Mobile Experience Carousel: Window resized to mobile, restarting carousel');
+            // Restart carousel on mobile
             createMobileExperienceCarousel();
         }
     });
