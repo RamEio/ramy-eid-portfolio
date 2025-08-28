@@ -1,0 +1,137 @@
+{
+  "htmlFiles": [
+    "portfolio EID/about.html",
+    "portfolio EID/code-guardian-dashboard.html",
+    "portfolio EID/contact.html",
+    "portfolio EID/experience.html",
+    "portfolio EID/final_agents_report.html",
+    "portfolio EID/index.html"
+  ],
+  "issues": [
+    {
+      "file": "about.html",
+      "check": "Skip Links",
+      "level": "wcag2a",
+      "description": "Page should have skip navigation links",
+      "warning": null
+    },
+    {
+      "file": "about.html",
+      "check": "Focus Indicators",
+      "level": "wcag2aa",
+      "description": "Focus indicators should be visible",
+      "warning": null
+    },
+    {
+      "file": "code-guardian-dashboard.html",
+      "check": "Skip Links",
+      "level": "wcag2a",
+      "description": "Page should have skip navigation links",
+      "warning": null
+    },
+    {
+      "file": "code-guardian-dashboard.html",
+      "check": "Alt Text for Images",
+      "level": "wcag2a",
+      "description": "Images should have alt text",
+      "warning": null
+    },
+    {
+      "file": "code-guardian-dashboard.html",
+      "check": "Form Labels",
+      "level": "wcag2a",
+      "description": "Form inputs should have associated labels",
+      "warning": null
+    },
+    {
+      "file": "code-guardian-dashboard.html",
+      "check": "ARIA Labels",
+      "level": "wcag2aa",
+      "description": "Complex elements should have ARIA labels",
+      "warning": null
+    },
+    {
+      "file": "contact.html",
+      "check": "Skip Links",
+      "level": "wcag2a",
+      "description": "Page should have skip navigation links",
+      "warning": null
+    },
+    {
+      "file": "contact.html",
+      "check": "Form Labels",
+      "level": "wcag2a",
+      "description": "Form inputs should have associated labels",
+      "warning": null
+    },
+    {
+      "file": "contact.html",
+      "check": "Focus Indicators",
+      "level": "wcag2aa",
+      "description": "Focus indicators should be visible",
+      "warning": null
+    },
+    {
+      "file": "experience.html",
+      "check": "Skip Links",
+      "level": "wcag2a",
+      "description": "Page should have skip navigation links",
+      "warning": null
+    },
+    {
+      "file": "experience.html",
+      "check": "Focus Indicators",
+      "level": "wcag2aa",
+      "description": "Focus indicators should be visible",
+      "warning": null
+    },
+    {
+      "file": "final_agents_report.html",
+      "check": "Skip Links",
+      "level": "wcag2a",
+      "description": "Page should have skip navigation links",
+      "warning": null
+    },
+    {
+      "file": "final_agents_report.html",
+      "check": "ARIA Labels",
+      "level": "wcag2aa",
+      "description": "Complex elements should have ARIA labels",
+      "warning": null
+    },
+    {
+      "file": "final_agents_report.html",
+      "check": "Focus Indicators",
+      "level": "wcag2aa",
+      "description": "Focus indicators should be visible",
+      "warning": null
+    }
+  ],
+  "compliance": {
+    "wcag2a": {
+      "passed": 22,
+      "failed": 8,
+      "total": 30
+    },
+    "wcag2aa": {
+      "passed": 24,
+      "failed": 6,
+      "total": 30
+    },
+    "wcag2aaa": {
+      "passed": 0,
+      "failed": 0,
+      "total": 0
+    }
+  },
+  "summary": {
+    "totalFiles": 6,
+    "totalIssues": 14,
+    "totalChecks": 60,
+    "totalPassed": 46,
+    "complianceRate": "76.7",
+    "wcag2aCompliance": "73.3",
+    "wcag2aaCompliance": "80.0",
+    "wcag2aaaCompliance": 0
+  }
+}
