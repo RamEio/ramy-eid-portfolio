@@ -1328,11 +1328,11 @@ img {
     flex-direction: row !important; /* HORIZONTAL SCROLLING */
     flex-wrap: nowrap !important; /* NO WRAPPING - Horizontal scroll only */
     gap: 0 !important; /* NO GAPS - Images stuck together */
-    animation: scrollCarousel 120s linear infinite !important; /* SLOWER FOR BETTER DESKTOP EXPERIENCE */
+    animation: scrollCarousel 60s linear infinite !important; /* FASTER FOR VISIBLE INFINITE LOOP */
     width: max-content !important;
     padding: 0 !important; /* NO PADDING - Full width */
     max-width: none !important; /* Allow full width for horizontal scroll */
-    height: 300px !important; /* INCREASED FROM 200px - Better desktop experience */
+    height: 200px !important; /* ELEGANT HEIGHT - from about-page.css */
     overflow: hidden !important;
     align-items: flex-start !important; /* Prevent vertical stretching */
     margin-bottom: 0 !important; /* NO GAPS BETWEEN ROWS */
@@ -1500,7 +1500,6 @@ img {
     transform: translateZ(0);
     image-rendering: -webkit-optimize-contrast;
     image-rendering: crisp-edges;
-    filter: brightness(1.05) contrast(1.05);
 }
 
 .experience-item:hover {
@@ -1538,28 +1537,28 @@ img {
     }
     
     .experience-item.xlarge {
-        width: 400px; /* REDUCED FROM 500px */
-        height: 300px; /* INCREASED FROM 200px - FILLS FULL LINE HEIGHT */
+        width: 350px;
+        height: 200px; /* FILLS FULL LINE HEIGHT */
     }
     
     .experience-item.large {
-        width: 320px; /* REDUCED FROM 400px */
-        height: 300px; /* INCREASED FROM 200px - FILLS FULL LINE HEIGHT */
+        width: 280px;
+        height: 200px; /* FILLS FULL LINE HEIGHT */
     }
     
     .experience-item.medium {
-        width: 260px; /* REDUCED FROM 320px */
-        height: 300px; /* INCREASED FROM 200px - FILLS FULL LINE HEIGHT */
+        width: 220px;
+        height: 200px; /* FILLS FULL LINE HEIGHT */
     }
     
     .experience-item.small {
-        width: 220px; /* REDUCED FROM 260px */
-        height: 300px; /* INCREASED FROM 200px - FILLS FULL LINE HEIGHT */
+        width: 180px;
+        height: 200px; /* FILLS FULL LINE HEIGHT */
     }
     
     .experience-item.xsmall {
-        width: 180px; /* REDUCED FROM 200px */
-        height: 300px; /* INCREASED FROM 200px - FILLS FULL LINE HEIGHT */
+        width: 130px;
+        height: 200px; /* FILLS FULL LINE HEIGHT */
     }
 }
 
@@ -1569,28 +1568,28 @@ img {
     }
     
     .experience-item.xlarge {
-        width: 300px;
-        height: 200px; /* FILLS FULL LINE HEIGHT */
+        width: 300px; /* ELEGANT SIZE - from about-page.css */
+        height: 200px; /* ELEGANT HEIGHT - from about-page.css */
     }
     
     .experience-item.large {
-        width: 250px;
-        height: 200px; /* FILLS FULL LINE HEIGHT */
+        width: 250px; /* ELEGANT SIZE - from about-page.css */
+        height: 200px; /* ELEGANT HEIGHT - from about-page.css */
     }
     
     .experience-item.medium {
-        width: 200px;
-        height: 200px; /* FILLS FULL LINE HEIGHT */
+        width: 200px; /* ELEGANT SIZE - from about-page.css */
+        height: 200px; /* ELEGANT HEIGHT - from about-page.css */
     }
     
     .experience-item.small {
-        width: 150px;
-        height: 200px; /* FILLS FULL LINE HEIGHT */
+        width: 150px; /* ELEGANT SIZE - from about-page.css */
+        height: 200px; /* ELEGANT HEIGHT - from about-page.css */
     }
     
     .experience-item.xsmall {
-        width: 100px;
-        height: 200px; /* FILLS FULL LINE HEIGHT */
+        width: 100px; /* ELEGANT SIZE - from about-page.css */
+        height: 200px; /* ELEGANT HEIGHT - from about-page.css */
     }
     
     .experience-overlay {
