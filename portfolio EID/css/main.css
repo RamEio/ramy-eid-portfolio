@@ -1332,7 +1332,7 @@ img {
     width: max-content !important;
     padding: 0 !important; /* NO PADDING - Full width */
     max-width: none !important; /* Allow full width for horizontal scroll */
-    height: 200px !important; /* ELEGANT HEIGHT - from about-page.css */
+    height: 200px !important; /* SINGLE ROW HEIGHT */
     overflow: hidden !important;
     align-items: flex-start !important; /* Prevent vertical stretching */
     margin-bottom: 0 !important; /* NO GAPS BETWEEN ROWS */
@@ -1347,8 +1347,21 @@ img {
     }
     
     .experience-item img {
-        loading: lazy;
-        decoding: async;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        object-position: center;
+        transition: transform var(--transition-normal);
+        border-radius: 0;
+        will-change: transform;
+        backface-visibility: hidden;
+        transform: translateZ(0);
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: crisp-edges;
+        max-width: 100%;
+        max-height: 100%;
+        display: block;
+        background-color: rgba(0, 0, 0, 0.1);
     }
     
     /* Mobile carousel specific styling */
@@ -1489,19 +1502,6 @@ img {
     transform: translateZ(0);
 }
 
-.experience-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform var(--transition-normal);
-    border-radius: 0;
-    will-change: transform;
-    backface-visibility: hidden;
-    transform: translateZ(0);
-    image-rendering: -webkit-optimize-contrast;
-    image-rendering: crisp-edges;
-}
-
 .experience-item:hover {
     transform: translateY(-8px) scale(1.02);
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), var(--glow-subtle);
@@ -1568,28 +1568,28 @@ img {
     }
     
     .experience-item.xlarge {
-        width: 300px; /* ELEGANT SIZE - from about-page.css */
-        height: 200px; /* ELEGANT HEIGHT - from about-page.css */
+        width: 300px;
+        height: 200px; /* FILLS FULL LINE HEIGHT */
     }
     
     .experience-item.large {
-        width: 250px; /* ELEGANT SIZE - from about-page.css */
-        height: 200px; /* ELEGANT HEIGHT - from about-page.css */
+        width: 250px;
+        height: 200px; /* FILLS FULL LINE HEIGHT */
     }
     
     .experience-item.medium {
-        width: 200px; /* ELEGANT SIZE - from about-page.css */
-        height: 200px; /* ELEGANT HEIGHT - from about-page.css */
+        width: 200px;
+        height: 200px; /* FILLS FULL LINE HEIGHT */
     }
     
     .experience-item.small {
-        width: 150px; /* ELEGANT SIZE - from about-page.css */
-        height: 200px; /* ELEGANT HEIGHT - from about-page.css */
+        width: 150px;
+        height: 200px; /* FILLS FULL LINE HEIGHT */
     }
     
     .experience-item.xsmall {
-        width: 100px; /* ELEGANT SIZE - from about-page.css */
-        height: 200px; /* ELEGANT HEIGHT - from about-page.css */
+        width: 100px;
+        height: 200px; /* FILLS FULL LINE HEIGHT */
     }
     
     .experience-overlay {
