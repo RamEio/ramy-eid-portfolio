@@ -1328,7 +1328,7 @@ img {
     flex-direction: row !important; /* HORIZONTAL SCROLLING */
     flex-wrap: nowrap !important; /* NO WRAPPING - Horizontal scroll only */
     gap: 0 !important; /* NO GAPS - Images stuck together */
-    animation: scrollCarousel 60s linear infinite !important; /* FASTER FOR VISIBLE INFINITE LOOP */
+    animation: scrollCarousel 120s linear infinite !important; /* SLOWER FOR BETTER DESKTOP EXPERIENCE */
     width: max-content !important;
     padding: 0 !important; /* NO PADDING - Full width */
     max-width: none !important; /* Allow full width for horizontal scroll */
@@ -1538,27 +1538,27 @@ img {
     }
     
     .experience-item.xlarge {
-        width: 500px; /* INCREASED FROM 350px */
+        width: 400px; /* REDUCED FROM 500px */
         height: 300px; /* INCREASED FROM 200px - FILLS FULL LINE HEIGHT */
     }
     
     .experience-item.large {
-        width: 400px; /* INCREASED FROM 280px */
+        width: 320px; /* REDUCED FROM 400px */
         height: 300px; /* INCREASED FROM 200px - FILLS FULL LINE HEIGHT */
     }
     
     .experience-item.medium {
-        width: 320px; /* INCREASED FROM 220px */
+        width: 260px; /* REDUCED FROM 320px */
         height: 300px; /* INCREASED FROM 200px - FILLS FULL LINE HEIGHT */
     }
     
     .experience-item.small {
-        width: 260px; /* INCREASED FROM 180px */
+        width: 220px; /* REDUCED FROM 260px */
         height: 300px; /* INCREASED FROM 200px - FILLS FULL LINE HEIGHT */
     }
     
     .experience-item.xsmall {
-        width: 200px; /* INCREASED FROM 130px */
+        width: 180px; /* REDUCED FROM 200px */
         height: 300px; /* INCREASED FROM 200px - FILLS FULL LINE HEIGHT */
     }
 }
