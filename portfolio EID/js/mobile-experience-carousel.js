@@ -86,14 +86,32 @@ document.addEventListener('DOMContentLoaded', function() {
         // Clear existing rows
         carouselContainer.innerHTML = '';
         
-        // Create 3 rows
+        // Create 3 rows with different randomization
         for (let row = 0; row < 3; row++) {
             const carouselRow = document.createElement('div');
             carouselRow.className = 'mobile-carousel-row';
             carouselRow.id = `mobile-carousel-row-${row + 1}`;
             
-            // Shuffle images for variety
-            const shuffledImages = [...experienceImages].sort(() => Math.random() - 0.5);
+            // Different randomization strategy for each row
+            let shuffledImages;
+            switch (row) {
+                case 0:
+                    // Row 1: Standard shuffle
+                    shuffledImages = [...experienceImages].sort(() => Math.random() - 0.5);
+                    break;
+                case 1:
+                    // Row 2: Reverse order + shuffle
+                    shuffledImages = [...experienceImages].reverse().sort(() => Math.random() - 0.5);
+                    break;
+                case 2:
+                    // Row 3: Every other image + shuffle
+                    shuffledImages = experienceImages.filter((_, index) => index % 2 === 0)
+                        .concat(experienceImages.filter((_, index) => index % 2 === 1))
+                        .sort(() => Math.random() - 0.5);
+                    break;
+                default:
+                    shuffledImages = [...experienceImages].sort(() => Math.random() - 0.5);
+            }
             
             // Create duplicate set for infinite loop
             for (let duplicate = 0; duplicate < 2; duplicate++) {
@@ -121,9 +139,12 @@ document.addEventListener('DOMContentLoaded', function() {
                         this.style.display = 'none';
                     };
                     
-                    // Create overlay
+                    // Create overlay (hidden by default)
                     const overlay = document.createElement('div');
                     overlay.className = 'experience-overlay';
+                    overlay.style.opacity = '0';
+                    overlay.style.visibility = 'hidden';
+                    overlay.style.transition = 'opacity 0.3s ease-in-out, visibility 0.3s ease-in-out';
                     
                     const title = document.createElement('h3');
                     title.textContent = 'Experience';
@@ -136,6 +157,21 @@ document.addEventListener('DOMContentLoaded', function() {
                     
                     carouselItem.appendChild(img);
                     carouselItem.appendChild(overlay);
+                    
+                    // Add click handler for title visibility
+                    carouselItem.addEventListener('click', function(e) {
+                        e.stopPropagation(); // Prevent row click handler
+                        
+                        // Toggle overlay visibility
+                        if (overlay.style.visibility === 'hidden') {
+                            overlay.style.visibility = 'visible';
+                            overlay.style.opacity = '1';
+                        } else {
+                            overlay.style.visibility = 'hidden';
+                            overlay.style.opacity = '0';
+                        }
+                    });
+                    
                     carouselRow.appendChild(carouselItem);
                 });
             }
