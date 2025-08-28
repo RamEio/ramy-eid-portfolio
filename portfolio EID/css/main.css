@@ -1328,6 +1328,119 @@ img {
     margin-bottom: 0 !important; /* NO GAPS BETWEEN ROWS */
 }
 
+/* Mobile optimization - slower animation for better UX */
+@media (max-width: 768px) {
+    /* HOMOGENIZED MOBILE CAROUSEL BEHAVIOR */
+    /* Ensure all carousel rows use consistent mobile behavior */
+    .carousel-row,
+    .mobile-carousel-row {
+        animation: scrollCarousel 300s linear infinite !important; /* SLOWER FOR MOBILE - 5 minutes */
+        contain: layout style paint;
+        isolation: isolate;
+        /* Consistent mobile styling */
+        height: 200px !important;
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
+        gap: 0 !important;
+        width: max-content !important;
+        padding: 0 !important;
+        max-width: none !important;
+        overflow: hidden !important;
+        align-items: flex-start !important;
+        margin-bottom: 0 !important;
+    }
+    
+    /* HOMOGENIZED MOBILE ITEM BEHAVIOR */
+    /* Ensure all carousel items use consistent mobile styling */
+    .experience-item,
+    .mobile-carousel-item {
+        position: relative !important;
+        overflow: hidden !important;
+        border-radius: 0 !important;
+        transition: all var(--transition-normal) !important;
+        cursor: pointer !important;
+        flex-shrink: 0 !important;
+        margin: 0 !important;
+        border: none !important;
+        /* Consistent mobile sizing */
+        will-change: transform;
+        backface-visibility: hidden;
+        transform: translateZ(0);
+    }
+    
+    /* HOMOGENIZED MOBILE ITEM SIZING */
+    .experience-item.xlarge,
+    .mobile-carousel-item.xlarge {
+        width: 300px;
+        height: 200px;
+        flex-shrink: 0;
+    }
+    
+    .experience-item.large,
+    .mobile-carousel-item.large {
+        width: 250px;
+        height: 200px;
+        flex-shrink: 0;
+    }
+    
+    .experience-item.medium,
+    .mobile-carousel-item.medium {
+        width: 200px;
+        height: 200px;
+        flex-shrink: 0;
+    }
+    
+    .experience-item.small,
+    .mobile-carousel-item.small {
+        width: 150px;
+        height: 200px;
+        flex-shrink: 0;
+    }
+    
+    .experience-item.xsmall,
+    .mobile-carousel-item.xsmall {
+        width: 100px;
+        height: 200px;
+        flex-shrink: 0;
+    }
+    
+    /* HOMOGENIZED MOBILE IMAGE STYLING */
+    .experience-item img,
+    .mobile-carousel-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform var(--transition-normal);
+        border-radius: 0 !important;
+        will-change: transform;
+        backface-visibility: hidden;
+        transform: translateZ(0);
+        aspect-ratio: 16/9;
+        background: rgba(26, 26, 26, 0.1);
+        loading: lazy;
+        decoding: async;
+    }
+    
+    /* HOMOGENIZED MOBILE HOVER EFFECTS */
+    .experience-item:hover,
+    .mobile-carousel-item:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    }
+    
+    .experience-item:hover img,
+    .mobile-carousel-item:hover img {
+        transform: scale(1.05);
+    }
+    
+    /* HOMOGENIZED MOBILE PAUSE BEHAVIOR */
+    .carousel-row:hover,
+    .mobile-carousel-row:hover {
+        animation-play-state: paused;
+    }
+}
+
 /* Pause animation on hover */
 .carousel-row:hover {
     animation-play-state: paused;

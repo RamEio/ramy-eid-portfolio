@@ -1,21 +1,19 @@
-// Interactive Photography Mosaic
+// Mobile-Only Photography Carousel
 document.addEventListener('DOMContentLoaded', function() {
-    // Interactive Photography Mosaic - Production Ready
-    
-    // Only run on desktop devices
-    if (window.innerWidth <= 768) {
-        console.log('🖥️ Desktop Mosaic: Skipping on mobile');
-        return; // Exit on mobile
+    // Only run on mobile devices
+    if (window.innerWidth > 768) {
+        console.log('📱 Mobile Carousel: Skipping on desktop');
+        return; // Exit on desktop
     }
     
-    console.log('🖥️ Desktop Mosaic: Starting on desktop device');
+    console.log('📱 Mobile Carousel: Starting on mobile device');
     
     const mosaicContainer = document.querySelector('.photography-mosaic-fullpage');
     if (!mosaicContainer) {
         return; // Container not found
     }
     
-    // Available images for the mosaic (Only manually added photos)
+    // Available images for the mobile carousel (Only manually added photos)
     const allMosaicImages = [
         // Wildlife photos
         'assets/hobbies/photography-mosaic/lioness.JPG',
@@ -58,7 +56,7 @@ document.addEventListener('DOMContentLoaded', function() {
         'assets/hobbies/photography-mosaic/IMG_9934.jpg',
         'assets/hobbies/photography-mosaic/IMG_0101.jpg',
         'assets/hobbies/photography-mosaic/IMG_9408.jpg',
-        'assets/hobbies/photography-mosaic/IMG_6825_compressed.jpg',
+                       'assets/hobbies/photography-mosaic/IMG_6825_compressed.jpg',
         'assets/hobbies/photography-mosaic/IMG_0919.jpg',
         
         // All your P100/P101 photos
@@ -87,124 +85,112 @@ document.addEventListener('DOMContentLoaded', function() {
         'assets/hobbies/photography-mosaic/2W3A4714.JPEG_compressed.JPEG'
     ];
     
-    // Grid layout configurations for 3x3 grid
-    const gridLayouts = [
-        {
-            name: 'layout-1',
-            areas: [
-                { class: 'xlarge', gridArea: '1 / 1 / 3 / 3' },
-                { class: 'medium', gridArea: '1 / 3 / 2 / 4' },
-                { class: 'small', gridArea: '2 / 3 / 3 / 4' },
-                { class: 'large', gridArea: '3 / 1 / 4 / 3' },
-                { class: 'xsmall', gridArea: '3 / 3 / 4 / 4' }
-            ]
-        },
-        {
-            name: 'layout-2',
-            areas: [
-                { class: 'large', gridArea: '1 / 1 / 2 / 3' },
-                { class: 'xlarge', gridArea: '1 / 3 / 4 / 4' },
-                { class: 'medium', gridArea: '2 / 1 / 3 / 2' },
-                { class: 'small', gridArea: '2 / 2 / 3 / 3' },
-                { class: 'xsmall', gridArea: '3 / 1 / 4 / 3' }
-            ]
-        },
-        {
-            name: 'layout-3',
-            areas: [
-                { class: 'xlarge', gridArea: '1 / 1 / 3 / 3' },
-                { class: 'large', gridArea: '1 / 3 / 3 / 4' },
-                { class: 'medium', gridArea: '3 / 1 / 4 / 2' },
-                { class: 'small', gridArea: '3 / 2 / 4 / 3' },
-                { class: 'xsmall', gridArea: '3 / 3 / 4 / 4' }
-            ]
-        }
-    ];
+    // Item size classes for mobile carousel
+    const itemSizes = ['xlarge', 'large', 'medium', 'small', 'xsmall'];
     
-    let currentLayout = null;
-    let currentImages = [];
-    
-    // Function to create new mosaic layout
-    const createNewMosaic = () => {
-        // Select random layout
-        currentLayout = gridLayouts[Math.floor(Math.random() * gridLayouts.length)];
-        
-        // Select random images (5 images for 3x3 grid)
-        const shuffledImages = allMosaicImages.sort(() => Math.random() - 0.5);
-        currentImages = shuffledImages.slice(0, 5);
-        
-        // Clear existing mosaic items
+    // Function to create mobile carousel
+    const createMobileCarousel = () => {
+        // Clear existing content
         mosaicContainer.innerHTML = '';
         
-        // Create new mosaic items
-        currentLayout.areas.forEach((area, index) => {
-            const mosaicItem = document.createElement('div');
-            mosaicItem.className = `mosaic-item ${area.class}`;
-            mosaicItem.style.gridArea = area.gridArea;
+        // Create 3 carousel rows
+        for (let row = 0; row < 3; row++) {
+            const carouselRow = document.createElement('div');
+            carouselRow.className = 'mobile-carousel-row';
             
-            const img = document.createElement('img');
-            img.src = currentImages[index];
-            img.alt = ''; // Removed "Photography" text as requested
-            img.loading = 'lazy';
+            // Shuffle images for this row
+            const shuffledImages = [...allMosaicImages].sort(() => Math.random() - 0.5);
             
-            // Add progressive loading
-            img.style.opacity = '0';
-            img.style.transition = 'opacity 0.3s ease-in-out';
+            // Add images to this row (duplicate for seamless loop)
+            for (let i = 0; i < 2; i++) { // Duplicate for seamless loop
+                shuffledImages.forEach((imageSrc, index) => {
+                    const carouselItem = document.createElement('div');
+                    const sizeClass = itemSizes[index % itemSizes.length];
+                    carouselItem.className = `mobile-carousel-item ${sizeClass}`;
+                    
+                    const img = document.createElement('img');
+                    img.src = imageSrc;
+                    img.alt = '';
+                    img.loading = 'lazy';
+                    
+                    // Add progressive loading
+                    img.style.opacity = '0';
+                    img.style.transition = 'opacity 0.3s ease-in-out';
+                    
+                    img.onload = function() {
+                        this.style.opacity = '1';
+                    };
+                    
+                    img.onerror = function() {
+                        console.warn(`Failed to load image: ${this.src}`);
+                        this.style.display = 'none';
+                    };
+                    
+                    carouselItem.appendChild(img);
+                    carouselRow.appendChild(carouselItem);
+                });
+            }
             
-            img.onload = function() {
-                this.style.opacity = '1';
-            };
-            
-            img.onerror = function() {
-                console.warn(`Failed to load image: ${this.src}`);
-                this.style.display = 'none';
-            };
-            
-            mosaicItem.appendChild(img);
-            mosaicContainer.appendChild(mosaicItem);
-        });
-        
-        // Mosaic refreshed with new layout and images
+            mosaicContainer.appendChild(carouselRow);
+        }
     };
     
-    // Initial mosaic creation
-    createNewMosaic();
+    // Initialize mobile carousel
+    createMobileCarousel();
     
-    // Add click event listener
+    // Add click to refresh functionality
     mosaicContainer.addEventListener('click', function(e) {
-        // Click detected - refreshing mosaic layout
-        
-        // Add visual feedback
-        mosaicContainer.classList.add('clicked');
-        setTimeout(() => {
-            mosaicContainer.classList.remove('clicked');
-        }, 150);
-        
-        // Create new mosaic
-        createNewMosaic();
-    });
-    
-    // Add hover effects for individual items
-    mosaicContainer.addEventListener('mouseover', function(e) {
-        if (e.target.classList.contains('mosaic-item')) {
-            e.target.style.transform = 'scale(1.05)';
-            e.target.style.zIndex = '10';
+        if (e.target.classList.contains('mobile-carousel-item') || 
+            e.target.classList.contains('mobile-carousel-row') ||
+            e.target.tagName === 'IMG') {
+            
+            // Add visual feedback
+            mosaicContainer.classList.add('clicked');
+            setTimeout(() => {
+                mosaicContainer.classList.remove('clicked');
+            }, 150);
+            
+            // Refresh carousel
+            createMobileCarousel();
         }
     });
     
-    mosaicContainer.addEventListener('mouseout', function(e) {
-        if (e.target.classList.contains('mosaic-item')) {
-            e.target.style.transform = 'scale(1)';
-            e.target.style.zIndex = '1';
-        }
+    // Mobile carousel setup completed
+    console.log('📱 Mobile Photography Carousel: Initialized with ULTRA SLOW animation (300s)');
+    
+    // Initialize universal carousel controller for mobile mosaic
+    const universalController = new UniversalCarouselController({
+        rowClass: '.mobile-carousel-row',
+        itemClass: '.mobile-carousel-item',
+        scrollSpeed: 300,
+        mobileScrollSpeed: 300
     });
     
-    // Interactive photography mosaic setup completed
+    // Debug: Check if CSS is applied
+    setTimeout(() => {
+        const carouselRows = document.querySelectorAll('.mobile-carousel-row');
+        carouselRows.forEach((row, index) => {
+            const computedStyle = window.getComputedStyle(row);
+            const animation = computedStyle.animation;
+            console.log(`📱 Carousel Row ${index + 1} animation:`, animation);
+        });
+    }, 1000);
+    
+               // Add CSS for slower animation
+           const style = document.createElement('style');
+           style.textContent = `
+               @media (max-width: 768px) {
+                   .mobile-carousel-row {
+                       animation: scrollCarousel 300s linear infinite !important;
+                   }
+               }
+           `;
+           document.head.appendChild(style);
     
     // Handle window resize
     window.addEventListener('resize', function() {
-        if (window.innerWidth <= 768) {
-            console.log('🖥️ Desktop Mosaic: Window resized to mobile, stopping desktop mosaic');
+        if (window.innerWidth > 768) {
+            console.log('📱 Mobile Carousel: Window resized to desktop, stopping mobile carousel');
             // Could add cleanup logic here if needed
         }
     });

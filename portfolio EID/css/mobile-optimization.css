@@ -779,12 +779,24 @@
   /* Target all cards and containers */
   .card,
   .glass-effect,
-  .glass-effect-heavy,
   .content-card,
   .influence-card,
   .service-card {
     background-color: var(--bg-primary) !important;
     color: var(--text-primary) !important;
+  }
+  
+  /* EXCLUDE photography-content from mobile override to preserve opacity */
+  .photography-content.glass-effect-heavy {
+    background: linear-gradient(rgba(10, 10, 10, 0.3), rgba(10, 10, 10, 0.4)) !important;
+    backdrop-filter: blur(20px) saturate(180%) !important;
+    -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    border-radius: 16px !important;
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.5),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
+    opacity: 1 !important;
   }
   
   /* Target specific page sections */
