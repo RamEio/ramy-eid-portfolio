@@ -1734,4 +1734,33 @@ img {
     .experience-overlay p {
         font-size: var(--text-xs);
     }
+}
+
+/* ==========================================================================
+   Mobile Experience Carousel Section - Hide on Desktop
+   ========================================================================== */
+
+/* Ensure mobile carousel is completely hidden on desktop */
+@media (min-width: 769px) {
+    .mobile-experience-carousel-section {
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+        height: 0 !important;
+        overflow: hidden !important;
+    }
+    
+    /* Specifically hide the mobile carousel title on desktop */
+    .mobile-experience-carousel-section .section-title,
+    .mobile-experience-carousel-section h2,
+    .mobile-experience-carousel-section #mobile-carousel-title {
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+        height: 0 !important;
+        width: 0 !important;
+        overflow: hidden !important;
+        position: absolute !important;
+        left: -9999px !important;
+    }
 } 
