@@ -1332,7 +1332,7 @@ img {
     width: max-content !important;
     padding: 0 !important; /* NO PADDING - Full width */
     max-width: none !important; /* Allow full width for horizontal scroll */
-    height: 200px !important; /* SINGLE ROW HEIGHT */
+    height: 350px !important; /* INCREASED HEIGHT FOR BETTER DESKTOP QUALITY */
     overflow: hidden !important;
     align-items: flex-start !important; /* Prevent vertical stretching */
     margin-bottom: 0 !important; /* NO GAPS BETWEEN ROWS */
@@ -1349,8 +1349,7 @@ img {
     will-change: transform;
     backface-visibility: hidden;
     transform: translateZ(0);
-    image-rendering: -webkit-optimize-contrast;
-    image-rendering: crisp-edges;
+    image-rendering: auto; /* FIXED: Better image quality */
     max-width: 100%;
     max-height: 100%;
     display: block;
@@ -1374,8 +1373,7 @@ img {
         will-change: transform;
         backface-visibility: hidden;
         transform: translateZ(0);
-        image-rendering: -webkit-optimize-contrast;
-        image-rendering: crisp-edges;
+        image-rendering: auto; /* FIXED: Better image quality */
         max-width: 100%;
         max-height: 100%;
         display: block;
@@ -1424,6 +1422,7 @@ img {
         will-change: transform;
         backface-visibility: hidden;
         transform: translateZ(0);
+        image-rendering: auto; /* FIXED: Better image quality */
         aspect-ratio: 16/9;
         background: rgba(26, 26, 26, 0.1);
         loading: lazy;
@@ -1551,32 +1550,32 @@ img {
 /* Responsive design */
 @media (max-width: 1200px) {
     .carousel-row {
-        height: 200px; /* SINGLE ROW HEIGHT */
+        height: 300px; /* INCREASED HEIGHT FOR BETTER QUALITY */
     }
     
     .experience-item.xlarge {
-        width: 350px;
-        height: 200px; /* FILLS FULL LINE HEIGHT */
+        width: 400px;
+        height: 300px; /* FILLS FULL LINE HEIGHT */
     }
     
     .experience-item.large {
-        width: 280px;
-        height: 200px; /* FILLS FULL LINE HEIGHT */
+        width: 320px;
+        height: 300px; /* FILLS FULL LINE HEIGHT */
     }
     
     .experience-item.medium {
-        width: 220px;
-        height: 200px; /* FILLS FULL LINE HEIGHT */
+        width: 260px;
+        height: 300px; /* FILLS FULL LINE HEIGHT */
     }
     
     .experience-item.small {
-        width: 180px;
-        height: 200px; /* FILLS FULL LINE HEIGHT */
+        width: 200px;
+        height: 300px; /* FILLS FULL LINE HEIGHT */
     }
     
     .experience-item.xsmall {
-        width: 130px;
-        height: 200px; /* FILLS FULL LINE HEIGHT */
+        width: 150px;
+        height: 300px; /* FILLS FULL LINE HEIGHT */
     }
 }
 
