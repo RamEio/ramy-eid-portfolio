@@ -1332,7 +1332,7 @@ img {
     width: max-content !important;
     padding: 0 !important; /* NO PADDING - Full width */
     max-width: none !important; /* Allow full width for horizontal scroll */
-    height: 200px !important; /* SINGLE ROW HEIGHT */
+    height: 300px !important; /* INCREASED FROM 200px - Better desktop experience */
     overflow: hidden !important;
     align-items: flex-start !important; /* Prevent vertical stretching */
     margin-bottom: 0 !important; /* NO GAPS BETWEEN ROWS */
@@ -1477,6 +1477,30 @@ img {
 /* Enhanced hover effects for carousel items */
 .experience-item {
     will-change: transform;
+    position: relative;
+    overflow: hidden;
+    border-radius: 0;
+    transition: all var(--transition-normal);
+    cursor: pointer;
+    flex-shrink: 0;
+    margin: 0;
+    border: none;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+}
+
+.experience-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--transition-normal);
+    border-radius: 0;
+    will-change: transform;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+    filter: brightness(1.05) contrast(1.05);
 }
 
 .experience-item:hover {
@@ -1484,6 +1508,10 @@ img {
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), var(--glow-subtle);
     z-index: 5;
     border-radius: 0; /* No border radius for mosaic effect */
+}
+
+.experience-item:hover img {
+    transform: scale(1.05);
 }
 
 /* Loading state for carousel */
@@ -1510,28 +1538,28 @@ img {
     }
     
     .experience-item.xlarge {
-        width: 350px;
-        height: 200px; /* FILLS FULL LINE HEIGHT */
+        width: 500px; /* INCREASED FROM 350px */
+        height: 300px; /* INCREASED FROM 200px - FILLS FULL LINE HEIGHT */
     }
     
     .experience-item.large {
-        width: 280px;
-        height: 200px; /* FILLS FULL LINE HEIGHT */
+        width: 400px; /* INCREASED FROM 280px */
+        height: 300px; /* INCREASED FROM 200px - FILLS FULL LINE HEIGHT */
     }
     
     .experience-item.medium {
-        width: 220px;
-        height: 200px; /* FILLS FULL LINE HEIGHT */
+        width: 320px; /* INCREASED FROM 220px */
+        height: 300px; /* INCREASED FROM 200px - FILLS FULL LINE HEIGHT */
     }
     
     .experience-item.small {
-        width: 180px;
-        height: 200px; /* FILLS FULL LINE HEIGHT */
+        width: 260px; /* INCREASED FROM 180px */
+        height: 300px; /* INCREASED FROM 200px - FILLS FULL LINE HEIGHT */
     }
     
     .experience-item.xsmall {
-        width: 130px;
-        height: 200px; /* FILLS FULL LINE HEIGHT */
+        width: 200px; /* INCREASED FROM 130px */
+        height: 300px; /* INCREASED FROM 200px - FILLS FULL LINE HEIGHT */
     }
 }
 
