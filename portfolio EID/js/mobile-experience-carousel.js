@@ -8,11 +8,14 @@ document.addEventListener('DOMContentLoaded', function() {
     
     console.log('📱 Mobile Experience Carousel: Starting on mobile device');
     
-    const carouselContainer = document.querySelector('.experience-carousel-container');
+    // Target specifically the mobile carousel container within the mobile section
+    const carouselContainer = document.querySelector('.mobile-experience-carousel-section .experience-carousel-container');
     if (!carouselContainer) {
-        console.log('📱 Mobile Experience Carousel: Container not found, skipping');
+        console.log('📱 Mobile Experience Carousel: Mobile container not found, skipping');
         return; // Container not found
     }
+    
+    console.log('📱 Mobile Experience Carousel: Found mobile carousel container');
     
     // Available experience images for the mobile carousel
     const allExperienceImages = [
@@ -66,6 +69,8 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Function to create mobile experience carousel
     const createMobileExperienceCarousel = () => {
+        console.log('📱 Mobile Experience Carousel: Creating carousel...');
+        
         // Clear existing content
         carouselContainer.innerHTML = '';
         
@@ -77,6 +82,8 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Shuffle images for this row
             const shuffledImages = [...allExperienceImages].sort(() => Math.random() - 0.5);
+            
+            console.log(`📱 Mobile Experience Carousel: Creating row ${row + 1} with ${shuffledImages.length} images`);
             
             // Add images to this row (duplicate for seamless loop)
             for (let i = 0; i < 2; i++) { // Duplicate for seamless loop
