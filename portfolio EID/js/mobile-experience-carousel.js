@@ -13,8 +13,14 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Find the mobile carousel container
     const mobileCarouselSection = document.querySelector('.mobile-experience-carousel-section');
+    console.log('📱 Mobile Experience Carousel: Looking for container:', mobileCarouselSection);
+    
     if (!mobileCarouselSection) {
-        console.log('📱 Mobile Experience Carousel: Container not found');
+        console.log('📱 Mobile Experience Carousel: Container not found - checking all sections');
+        const allSections = document.querySelectorAll('section');
+        allSections.forEach((section, index) => {
+            console.log(`Section ${index}:`, section.className);
+        });
         return;
     }
     
