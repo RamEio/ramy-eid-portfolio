@@ -10,7 +10,7 @@
 /* Mobile-specific touch optimization - only for mobile devices */
 @media (max-width: 767px) {
   /* Touch-friendly interactive elements only */
-  .btn, .nav-toggle, .nav-menu a, .project-card, .experience-item {
+  .btn, .nav-toggle, .nav-menu a, .project-card {
     -webkit-tap-highlight-color: transparent;
     -webkit-touch-callout: none;
     touch-action: manipulation;
@@ -27,7 +27,7 @@
 
 /* Touch-friendly interactive elements - desktop safe */
 @media (max-width: 767px) {
-  .btn, .nav-toggle, .nav-menu a, .project-card, .experience-item {
+  .btn, .nav-toggle, .nav-menu a, .project-card {
     touch-action: manipulation;
     -webkit-tap-highlight-color: rgba(107, 70, 193, 0.1);
   }
@@ -47,7 +47,6 @@
   .about-image:hover,
   .project-card:hover,
   .project-card:hover .project-image img,
-  .experience-item:hover,
   .btn:hover {
     transform: none !important;
   }
@@ -58,10 +57,9 @@
     animation-play-state: paused !important;
   }
   
-  /* Remove border radius from experience grid items for mosaic effect */
-  .experience-item,
-  .experience-item img,
-  .experience-overlay {
+  /* Remove border radius from project cards for mosaic effect */
+  .project-card,
+  .project-card img {
     border-radius: 0 !important;
   }
 }
@@ -325,31 +323,8 @@
     gap: 0;
   }
   
-  /* Mobile carousel item sizing */
-  .experience-item.xlarge {
-    width: 200px;
-    height: 160px;
-  }
-  
-  .experience-item.large {
-    width: 160px;
-    height: 160px;
-  }
-  
-  .experience-item.medium {
-    width: 120px;
-    height: 160px;
-  }
-  
-  .experience-item.small {
-    width: 100px;
-    height: 160px;
-  }
-  
-  .experience-item.xsmall {
-    width: 80px;
-    height: 160px;
-  }
+  /* Mobile carousel item sizing - REMOVED TO PREVENT CONFLICTS */
+  /* These styles are now handled in main.css */
   
   /* Mobile carousel overlay optimization */
   .experience-overlay {
@@ -570,9 +545,7 @@
     animation: none;
   }
   
-  .experience-item:hover {
-    transform: none;
-  }
+  /* Experience item hover disabled on mobile - handled in main.css */
   
   .btn:hover, .btn:focus {
     transform: none;
@@ -683,7 +656,6 @@
 }
 
 /* Mobile image loading optimization */
-.experience-item img,
 .project-image img {
   loading: lazy;
   decoding: async;
@@ -817,8 +789,7 @@
 .btn:focus,
 .nav-toggle:focus,
 .nav-menu a:focus,
-.project-card:focus,
-.experience-item:focus {
+.project-card:focus {
   outline: 2px solid var(--primary-blue);
   outline-offset: 2px;
 }
