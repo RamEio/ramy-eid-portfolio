@@ -9,7 +9,32 @@
     <meta name="apple-mobile-web-app-title" content="Ramy Eid Portfolio">
     <meta name="theme-color" content="#6B46C1">
     <meta name="msapplication-TileColor" content="#6B46C1">
+    
+    <!-- Security Headers -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' https:; connect-src 'self' https:;">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()">
     <title>Ramy Eid - UX/Product Designer Lead & Retail Innovation Expert | Expertise Innovation Design</title>
+    
+    <!-- Accessibility - Skip Link -->
+    <style>
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 6px;
+            background: var(--brand-primary);
+            color: white;
+            padding: 8px;
+            text-decoration: none;
+            border-radius: 4px;
+            z-index: 1000;
+        }
+        .skip-link:focus {
+            top: 6px;
+        }
+    </style>
     <meta name="description" content="10+ years UX/Product Designer Lead specializing in retail innovation, mobile app design, and AI-powered design systems. Expert in Decathlon, Carrefour, and Leroy Merlin projects. View portfolio of successful retail and mobile app projects.">
     <meta name="keywords" content="UX designer portfolio, mobile app design, retail design expert, product designer, UX research, design consultant, expertise innovation design, AI-powered design, multi-agent systems, Decathlon, Carrefour, Leroy Merlin">
     <meta name="author" content="Ramy Eid">
@@ -17,6 +42,13 @@
     <meta name="language" content="English">
     <meta name="revisit-after" content="7 days">
     <link rel="canonical" href="https://ramy-eid-portfolio.netlify.app/">
+    
+    <!-- Performance Optimization - Resource Hints -->
+    <link rel="preload" href="css/main.css" as="style">
+    <link rel="preload" href="js/universal-carousel-controller.js" as="script">
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
@@ -150,7 +182,7 @@
     <!-- Using system fonts instead of Google Fonts due to loading issues -->
 </head>
 <body>
-    <!-- Skip Navigation -->
+    <!-- Accessibility - Skip Link -->
     <a href="#main-content" class="skip-link">Skip to main content</a>
     
     <!-- Header Navigation -->

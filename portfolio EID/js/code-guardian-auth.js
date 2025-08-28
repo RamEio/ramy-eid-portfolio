@@ -13,8 +13,10 @@ class CodeGuardianAuth {
         this.lockoutTime = 5 * 60 * 1000; // 5 minutes
         this.lockoutUntil = 0;
         
-        // In production, this should be stored securely and not in code
-        this.correctPassword = 'CodeGuardian2024!';
+        // SECURITY: Password should be validated server-side
+        // For now, using a hash-based approach (still not secure for production)
+        // TODO: Implement proper server-side authentication
+        this.passwordHash = 'sha256_hash_placeholder'; // Replace with proper hash
         
         this.init();
     }
@@ -124,9 +126,27 @@ class CodeGuardianAuth {
 
     /**
      * Validate password
+     * SECURITY: This is a temporary solution - should be server-side validation
      */
     validatePassword(password) {
-        return password === this.correctPassword;
+        // TODO: Implement proper server-side password validation
+        // For now, using a simple hash comparison (NOT SECURE FOR PRODUCTION)
+        const hashedPassword = this.simpleHash(password);
+        return hashedPassword === this.passwordHash;
+    }
+    
+    /**
+     * Simple hash function (NOT SECURE - for demonstration only)
+     * TODO: Replace with proper server-side authentication
+     */
+    simpleHash(str) {
+        let hash = 0;
+        for (let i = 0; i < str.length; i++) {
+            const char = str.charCodeAt(i);
+            hash = ((hash << 5) - hash) + char;
+            hash = hash & hash; // Convert to 32-bit integer
+        }
+        return hash.toString();
     }
 
     /**

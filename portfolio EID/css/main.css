@@ -3,27 +3,48 @@
    Integrates design system from UI phase with accessibility and performance optimizations
    ========================================================================== */
 
-/* CSS Variables - Design System Integration */
+/* CSS Variables - Comprehensive Design System */
 :root {
-  /* Color Palette - From UI Phase */
-  --primary-blue: #6B46C1;      /* Primary buttons, links, brand elements - Changed to dark purple */
-  --secondary-blue: #553C9A;    /* Headers, navigation, emphasis - Changed to darker purple */
+  /* Primary Brand Colors */
+  --brand-primary: #6B46C1;      /* Primary brand color - Dark purple */
+  --brand-secondary: #553C9A;    /* Secondary brand color - Darker purple */
+  --brand-accent: #C1465F;       /* Accent color - Soft red */
+  
+  /* Semantic Colors */
+  --success: #46C1A9;            /* Success states, positive feedback */
+  --error: #EF4444;              /* Error states, important alerts */
+  --warning: #F59E0B;            /* Warning states, caution */
+  --info: #3B82F6;               /* Information states, links */
   
   /* Neutral Colors */
-  --text-dark: #334155;         /* Body text, headings */
-  --text-light: #e0e0e0;        /* Enhanced contrast for descriptions */
-  --background-white: #FFFFFF;   /* Primary background, cards */
-  --background-gray: #F8FAFC;   /* Background, cards, sections */
-  --border-light: #E2E8F0;      /* Borders, dividers */
+  --text-primary: #334155;       /* Primary text color */
+  --text-secondary: #64748B;     /* Secondary text color */
+  --text-light: #e0e0e0;         /* Light text color */
+  --text-muted: #94A3B8;         /* Muted text color */
   
-  /* Accent Colors */
-  --accent-orange: #C1465F;     /* CTAs, highlights, personality elements - Changed to soft red */
-  --success-green: #46C1A9;     /* Success states, positive feedback */
-  --error-red: #EF4444;         /* Error states, important alerts */
+  /* Background Colors */
+  --background-primary: #FFFFFF; /* Primary background */
+  --background-secondary: #F8FAFC; /* Secondary background */
+  --background-tertiary: #F1F5F9; /* Tertiary background */
+  
+  /* Border Colors */
+  --border-light: #E2E8F0;       /* Light borders */
+  --border-medium: #CBD5E1;      /* Medium borders */
+  --border-dark: #94A3B8;        /* Dark borders */
   
   /* Utility Colors */
-  --black: #000000;             /* Text, icons, strong contrast elements */
-  --white: #F0F0F0;             /* Primary background, cards */
+  --black: #000000;              /* Pure black */
+  --white: #FFFFFF;              /* Pure white */
+  
+  /* Legacy Support (for backward compatibility) */
+  --primary-blue: var(--brand-primary);
+  --secondary-blue: var(--brand-secondary);
+  --accent-orange: var(--brand-accent);
+  --text-dark: var(--text-primary);
+  --background-white: var(--background-primary);
+  --background-gray: var(--background-secondary);
+  --success-green: var(--success);
+  --error-red: var(--error);
   
   /* Typography Scale - From UI Phase */
       --font-family-primary: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
