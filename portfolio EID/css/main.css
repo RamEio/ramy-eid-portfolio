@@ -223,7 +223,7 @@ img {
 }
 
 .nav-menu a {
-  color: var(--text-primary); /* Changed from var(--text-dark) to white */
+  color: var(--text-dark);
   font-weight: 500;
   padding: var(--space-2) var(--space-4);
   border-radius: var(--radius-md);
@@ -232,8 +232,8 @@ img {
 
 .nav-menu a:hover,
 .nav-menu a[aria-current="page"] {
-  color: #ffffff; /* Changed from var(--primary-blue) to white */
-  background-color: rgba(255, 255, 255, 0.1); /* Changed from var(--background-gray) to semi-transparent white */
+  color: var(--primary-blue);
+  background-color: var(--background-gray);
 }
 
 .nav-toggle {
@@ -1312,16 +1312,6 @@ img {
     padding: 0 !important;
 }
 
-/* Auto-scroll animation - CONSOLIDATED */
-@keyframes scrollCarousel {
-    0% {
-        transform: translateX(0);
-    }
-    100% {
-        transform: translateX(-50%);
-    }
-}
-
 /* Carousel Rows - 3 separate horizontal scrolling rows */
 .carousel-row {
     display: flex !important;
@@ -1332,147 +1322,134 @@ img {
     width: max-content !important;
     padding: 0 !important; /* NO PADDING - Full width */
     max-width: none !important; /* Allow full width for horizontal scroll */
-    height: 350px !important; /* INCREASED HEIGHT FOR BETTER DESKTOP QUALITY */
+    height: 200px !important; /* SINGLE ROW HEIGHT */
     overflow: hidden !important;
     align-items: flex-start !important; /* Prevent vertical stretching */
     margin-bottom: 0 !important; /* NO GAPS BETWEEN ROWS */
 }
 
-/* Desktop carousel image styles - OUTSIDE media query */
+/* Pause animation on hover */
+.carousel-row:hover {
+    animation-play-state: paused;
+}
+
+/* Experience Items - Randomized sizing for full-size display */
+.experience-item {
+    position: relative !important;
+    overflow: hidden !important;
+    border-radius: 0 !important; /* NO BORDER RADIUS - Sharp edges like wireframe */
+    transition: all var(--transition-normal) !important;
+    cursor: pointer !important;
+    flex-shrink: 0 !important;
+    margin: 0 !important; /* NO MARGINS */
+    border: none !important; /* NO BORDERS */
+}
+
+.experience-item.xlarge {
+    width: 400px;
+    height: 200px; /* FILLS FULL LINE HEIGHT */
+    flex-shrink: 0;
+}
+
+.experience-item.large {
+    width: 300px;
+    height: 200px; /* FILLS FULL LINE HEIGHT */
+    flex-shrink: 0;
+}
+
+.experience-item.medium {
+    width: 250px;
+    height: 200px; /* FILLS FULL LINE HEIGHT */
+    flex-shrink: 0;
+}
+
+.experience-item.small {
+    width: 200px;
+    height: 200px; /* FILLS FULL LINE HEIGHT */
+    flex-shrink: 0;
+}
+
+.experience-item.xsmall {
+    width: 150px;
+    height: 200px; /* FILLS FULL LINE HEIGHT */
+    flex-shrink: 0;
+}
+
+/* Image styling */
 .experience-item img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Changed back to cover for desktop */
-    object-position: center;
+    object-fit: cover;
     transition: transform var(--transition-normal);
-    border-radius: 0;
+    border-radius: 0 !important;
+    /* Performance optimizations */
     will-change: transform;
     backface-visibility: hidden;
     transform: translateZ(0);
-    image-rendering: auto; /* FIXED: Better image quality */
-    max-width: 100%;
-    max-height: 100%;
-    display: block;
+    /* Prevent layout shifts */
+    aspect-ratio: 16/9;
+    background: rgba(26, 26, 26, 0.1);
 }
 
-/* Mobile optimization - slower animation for better UX */
-@media (max-width: 768px) {
-    .carousel-row {
-        animation: scrollCarousel 300s linear infinite !important; /* SLOWER FOR MOBILE - 5 minutes */
-        contain: layout style paint;
-        isolation: isolate;
+/* Hover effects */
+.experience-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), var(--glow-subtle);
+}
+
+.experience-item:hover img {
+    transform: scale(1.05);
+}
+
+/* Overlay styling */
+.experience-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(
+        to top,
+        rgba(26, 26, 26, 0.95) 0%,
+        rgba(26, 26, 26, 0.8) 50%,
+        rgba(26, 26, 26, 0) 100%
+    );
+    backdrop-filter: var(--blur-medium);
+    padding: var(--space-4);
+    color: var(--text-primary);
+    transform: translateY(100%);
+    transition: transform var(--transition-normal);
+    border-radius: 0 !important; /* Sharp edges to match wireframe */
+}
+
+.experience-item:hover .experience-overlay {
+    transform: translateY(0);
+}
+
+.experience-overlay h3 {
+    font-size: var(--text-base);
+    font-weight: 600;
+    margin-bottom: var(--space-1);
+    color: var(--text-primary);
+}
+
+.experience-overlay p {
+    font-size: var(--text-xs);
+    color: var(--text-secondary);
+    margin: 0;
+    opacity: 0.9;
+}
+
+/* Auto-scroll animation */
+@keyframes scrollCarousel {
+    0% {
+        transform: translateX(0);
     }
-    
-    .experience-item img {
-        width: 100%;
-        height: 100%;
-        object-fit: contain;
-        object-position: center;
-        transition: transform var(--transition-normal);
-        border-radius: 0;
-        will-change: transform;
-        backface-visibility: hidden;
-        transform: translateZ(0);
-        image-rendering: auto; /* FIXED: Better image quality */
-        max-width: 100%;
-        max-height: 100%;
-        display: block;
-        background-color: rgba(0, 0, 0, 0.1);
-    }
-    
-    /* Mobile carousel specific styling */
-    .mobile-carousel-row {
-        animation: scrollCarousel 300s linear infinite !important; /* SLOWER FOR MOBILE - 5 minutes */
-        contain: layout style paint;
-        isolation: isolate;
-        /* Ensure proper mobile carousel styling */
-        display: flex !important;
-        flex-direction: row !important;
-        flex-wrap: nowrap !important;
-        gap: 0 !important;
-        width: max-content !important;
-        padding: 0 !important;
-        max-width: none !important;
-        height: 200px !important;
-        overflow: hidden !important;
-        align-items: flex-start !important;
-        margin-bottom: 0 !important;
-    }
-    
-    .mobile-carousel-item {
-        position: relative !important;
-        overflow: hidden !important;
-        border-radius: 0 !important;
-        transition: all var(--transition-normal) !important;
-        cursor: pointer !important;
-        flex-shrink: 0 !important;
-        margin: 0 !important;
-        border: none !important;
-        will-change: transform;
-        backface-visibility: hidden;
-        transform: translateZ(0);
-    }
-    
-    .mobile-carousel-item img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        transition: transform var(--transition-normal);
-        border-radius: 0 !important;
-        will-change: transform;
-        backface-visibility: hidden;
-        transform: translateZ(0);
-        image-rendering: auto; /* FIXED: Better image quality */
-        aspect-ratio: 16/9;
-        background: rgba(26, 26, 26, 0.1);
-        loading: lazy;
-        decoding: async;
-    }
-    
-    .mobile-carousel-item:hover {
-        transform: translateY(-8px);
-        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
-    }
-    
-    .mobile-carousel-item:hover img {
-        transform: scale(1.05);
-    }
-    
-    .mobile-carousel-row:hover {
-        animation-play-state: paused;
-    }
-    
-    /* Mobile carousel item sizing */
-    .mobile-carousel-item.xlarge {
-        width: 300px;
-        height: 200px;
-        flex-shrink: 0;
-    }
-    
-    .mobile-carousel-item.large {
-        width: 250px;
-        height: 200px;
-        flex-shrink: 0;
-    }
-    
-    .mobile-carousel-item.medium {
-        width: 200px;
-        height: 200px;
-        flex-shrink: 0;
-    }
-    
-    .mobile-carousel-item.small {
-        width: 150px;
-        height: 200px;
-        flex-shrink: 0;
-    }
-    
-    .mobile-carousel-item.xsmall {
-        width: 100px;
-        height: 200px;
-        flex-shrink: 0;
+    100% {
+        transform: translateX(-50%);
     }
 }
+
+
 
 /* Pause indicator styles */
 .carousel-paused {
@@ -1507,16 +1484,6 @@ img {
 /* Enhanced hover effects for carousel items */
 .experience-item {
     will-change: transform;
-    position: relative;
-    overflow: hidden;
-    border-radius: 0;
-    transition: all var(--transition-normal);
-    cursor: pointer;
-    flex-shrink: 0;
-    margin: 0;
-    border: none;
-    backface-visibility: hidden;
-    transform: translateZ(0);
 }
 
 .experience-item:hover {
@@ -1524,10 +1491,6 @@ img {
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), var(--glow-subtle);
     z-index: 5;
     border-radius: 0; /* No border radius for mosaic effect */
-}
-
-.experience-item:hover img {
-    transform: scale(1.05);
 }
 
 /* Loading state for carousel */
@@ -1550,32 +1513,32 @@ img {
 /* Responsive design */
 @media (max-width: 1200px) {
     .carousel-row {
-        height: 300px; /* INCREASED HEIGHT FOR BETTER QUALITY */
+        height: 200px; /* SINGLE ROW HEIGHT */
     }
     
     .experience-item.xlarge {
-        width: 400px;
-        height: 300px; /* FILLS FULL LINE HEIGHT */
+        width: 350px;
+        height: 200px; /* FILLS FULL LINE HEIGHT */
     }
     
     .experience-item.large {
-        width: 320px;
-        height: 300px; /* FILLS FULL LINE HEIGHT */
+        width: 280px;
+        height: 200px; /* FILLS FULL LINE HEIGHT */
     }
     
     .experience-item.medium {
-        width: 260px;
-        height: 300px; /* FILLS FULL LINE HEIGHT */
+        width: 220px;
+        height: 200px; /* FILLS FULL LINE HEIGHT */
     }
     
     .experience-item.small {
-        width: 200px;
-        height: 300px; /* FILLS FULL LINE HEIGHT */
+        width: 180px;
+        height: 200px; /* FILLS FULL LINE HEIGHT */
     }
     
     .experience-item.xsmall {
-        width: 150px;
-        height: 300px; /* FILLS FULL LINE HEIGHT */
+        width: 130px;
+        height: 200px; /* FILLS FULL LINE HEIGHT */
     }
 }
 
@@ -1669,105 +1632,5 @@ img {
     
     .experience-overlay p {
         font-size: var(--text-xs);
-    }
-} 
-
-/* ==========================================================================
-   Homepage Experience Carousel - Mobile Optimization
-   Hide desktop carousel on mobile, show on desktop only
-   ========================================================================== */
-
-/* Hide homepage experience carousel on mobile */
-@media (max-width: 768px) {
-    .experience-showcase {
-        display: none !important; /* Hide entire experience showcase on mobile */
-    }
-    
-    /* Ensure no carousel elements are visible on mobile */
-    .experience-showcase .experience-carousel-container,
-    .experience-showcase .carousel-row,
-    .experience-showcase .experience-item {
-        display: none !important;
-    }
-}
-
-/* Desktop experience carousel - show only on desktop */
-@media (min-width: 769px) {
-    .experience-showcase {
-        display: block;
-    }
-}
-
-/* ==========================================================================
-   Mobile Experience Carousel Section (Homepage)
-   Only visible on mobile devices (max-width: 768px)
-   ========================================================================== */
-
-.mobile-experience-carousel-section {
-    display: none; /* Hidden by default on desktop */
-}
-
-/* Mobile Experience Carousel - Only show on mobile */
-@media (max-width: 768px) {
-    .mobile-experience-carousel-section {
-        display: block;
-        padding: var(--space-8) 0;
-        background: var(--bg-secondary);
-        overflow: hidden;
-    }
-    
-    .mobile-experience-carousel-section .section-title {
-        text-align: center;
-        margin-bottom: var(--space-4);
-        color: var(--text-primary);
-    }
-    
-    .mobile-experience-carousel-section .section-subtitle {
-        text-align: center;
-        margin-bottom: var(--space-8);
-        color: var(--text-secondary);
-        font-size: var(--text-lg);
-    }
-    
-    /* Ensure carousel container takes full width on mobile */
-    .mobile-experience-carousel-section .experience-carousel-container {
-        width: 100vw !important;
-        margin-left: calc(-50vw + 50%) !important;
-        margin-right: calc(-50vw + 50%) !important;
-        overflow: hidden !important;
-        position: relative !important;
-        max-width: 100vw !important;
-        padding: 0 !important;
-    }
-    
-    /* Mobile carousel overlay styling */
-    .mobile-experience-carousel-section .experience-overlay {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
-        color: white;
-        padding: var(--space-3);
-        opacity: 0;
-        transition: opacity var(--transition-normal);
-        pointer-events: none;
-    }
-    
-    .mobile-experience-carousel-section .mobile-carousel-item:hover .experience-overlay {
-        opacity: 1;
-    }
-    
-    .mobile-experience-carousel-section .experience-overlay h3 {
-        font-size: var(--text-sm);
-        font-weight: 600;
-        margin-bottom: var(--space-1);
-        color: white;
-    }
-    
-    .mobile-experience-carousel-section .experience-overlay p {
-        font-size: var(--text-xs);
-        color: rgba(255, 255, 255, 0.9);
-        margin: 0;
     }
 } 
