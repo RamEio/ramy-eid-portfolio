@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Actual Experience Order</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; background: #1a1a1a; color: white; }
+        .test-section { margin: 20px 0; padding: 15px; border: 1px solid #333; border-radius: 8px; }
+        .experience-item { margin: 10px 0; padding: 10px; background: #2a2a2a; border-radius: 4px; }
+        .present { background: #1a3a1a; border-left: 4px solid #4CAF50; }
+        .error { color: #ff6b6b; }
+        .success { color: #4CAF50; }
+        .info { color: #64b5f6; }
+    </style>
+</head>
+<body>
+    <h1>Test Actual Experience Order</h1>
+    
+    <div class="test-section">
+        <h2>1. What You See in the Browser</h2>
+        <p>Please go to <a href="http://localhost:8001/experience.html" target="_blank">http://localhost:8001/experience.html</a> and tell me:</p>
+        <ul>
+            <li>What's the FIRST experience you see?</li>
+            <li>What's the SECOND experience you see?</li>
+            <li>What's the THIRD experience you see?</li>
+            <li>Are "Present" experiences at the top or bottom?</li>
+        </ul>
+    </div>
+    
+    <div class="test-section">
+        <h2>2. What Should Be Displayed (Correct Order)</h2>
+        <div id="correct-order"></div>
+    </div>
+    
+    <div class="test-section">
+        <h2>3. What's Actually in the JSON</h2>
+        <div id="json-order"></div>
+    </div>
+    
+    <div class="test-section">
+        <h2>4. Browser Cache Test</h2>
+        <p>Try these steps:</p>
+        <ol>
+            <li>Open <a href="http://localhost:8001/experience.html" target="_blank">experience.html</a></li>
+            <li>Press <strong>Ctrl+Shift+R</strong> (or <strong>Cmd+Shift+R</strong> on Mac) to hard refresh</li>
+            <li>Check if the order changes</li>
+        </ol>
+    </div>
+    
+    <script>
+        async function loadAndDisplayOrder() {
+            try {
+                const response = await fetch('js/experience-data.json', {cache: 'no-cache'});
+                const data = await response.json();
+                
+                // Display correct order
+                const correctOrderDiv = document.getElementById('correct-order');
+                correctOrderDiv.innerHTML = '<h3>Correct Order (Present experiences first):</h3>';
+                
+                data.experiences.forEach((exp, index) => {
+                    const isPresent = exp.period.toLowerCase().includes('present');
+                    const div = document.createElement('div');
+                    div.className = `experience-item ${isPresent ? 'present' : ''}`;
+                    div.innerHTML = `
+                        <strong>${index + 1}. ${exp.title}</strong><br>
+                        <em>${exp.company}</em><br>
+                        Period: ${exp.period}
+                    `;
+                    correctOrderDiv.appendChild(div);
+                });
+                
+                // Display JSON order
+                const jsonOrderDiv = document.getElementById('json-order');
+                jsonOrderDiv.innerHTML = `
+                    <p class="success">✅ JSON loaded successfully!</p>
+                    <p>Total experiences: ${data.experiences.length}</p>
+                    <p>First experience: ${data.experiences[0].title} (${data.experiences[0].period})</p>
+                    <p>Last experience: ${data.experiences[data.experiences.length - 1].title} (${data.experiences[data.experiences.length - 1].period})</p>
+                `;
+                
+            } catch (error) {
+                console.error('Error:', error);
+                document.getElementById('json-order').innerHTML = `<p class="error">❌ Error: ${error.message}</p>`;
+            }
+        }
+        
+        loadAndDisplayOrder();
+    </script>
+</body>
+</html>
