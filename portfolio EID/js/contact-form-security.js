@@ -217,16 +217,18 @@ document.addEventListener('DOMContentLoaded', function() {
         return true;
     }
 
-    // Form Submission Handler - Minimal for Testing
-    contactForm.addEventListener('submit', function(e) {
-        console.log('📧 Form submission started...');
-        console.log('Form data:', new FormData(contactForm));
-        
-        // Don't prevent default - let the form submit naturally
-        // No validation, no interference
-        
-        console.log('✅ Allowing form to submit to Netlify...');
-    });
+    // Form Submission Handler - REMOVED for testing
+    // contactForm.addEventListener('submit', function(e) {
+    //     console.log('📧 Form submission started...');
+    //     console.log('Form data:', new FormData(contactForm));
+    //     
+    //     // Don't prevent default - let the form submit naturally
+    //     // No validation, no interference
+    //     
+    //     console.log('✅ Allowing form to submit to Netlify...');
+    // });
+    
+    console.log('🔒 Form submission handler REMOVED - allowing natural browser submission');
 
     function showSuccessMessage() {
         const formContainer = contactForm.closest('.contact-form-container');
