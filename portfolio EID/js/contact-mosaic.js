@@ -342,33 +342,119 @@ style.textContent = `
         
         .mobile-carousel-row {
             display: flex !important;
+            flex-direction: row !important;
+            flex-wrap: nowrap !important;
             gap: 0 !important;
-            padding: 0 !important;
-            margin: 0 !important;
             animation: scrollCarousel 300s linear infinite !important;
+            width: max-content !important;
+            contain: layout style paint !important;
+            isolation: isolate !important;
+            margin: 0 !important;
+            padding: 0 !important;
         }
         
         .mobile-carousel-item {
-            flex-shrink: 0 !important;
-            width: 200px !important;
-            height: 150px !important;
+            position: relative !important;
+            overflow: hidden !important;
             border-radius: 0 !important;
-            background-size: cover !important;
-            background-position: center !important;
+            transition: all var(--transition-normal) !important;
+            cursor: pointer !important;
+            flex-shrink: 0 !important;
+            margin: 0 !important;
+            border: none !important;
+            will-change: transform !important;
+            backface-visibility: hidden !important;
+            transform: translateZ(0) !important;
+        }
+        
+        .mobile-carousel-item.xlarge {
+            width: 300px !important;
+            height: 200px !important;
+            flex-shrink: 0 !important;
+        }
+        
+        .mobile-carousel-item.large {
+            width: 250px !important;
+            height: 200px !important;
+            flex-shrink: 0 !important;
+        }
+        
+        .mobile-carousel-item.medium {
+            width: 200px !important;
+            height: 200px !important;
+            flex-shrink: 0 !important;
+        }
+        
+        .mobile-carousel-item.small {
+            width: 150px !important;
+            height: 200px !important;
+            flex-shrink: 0 !important;
+        }
+        
+        .mobile-carousel-item.xsmall {
+            width: 100px !important;
+            height: 200px !important;
+            flex-shrink: 0 !important;
+        }
+        
+        .mobile-carousel-item img {
+            width: 100% !important;
+            height: 100% !important;
+            object-fit: cover !important;
+            transition: transform var(--transition-normal) !important;
+            border-radius: 0 !important;
+            will-change: transform !important;
+            backface-visibility: hidden !important;
+            transform: translateZ(0) !important;
+            image-rendering: auto !important;
+            aspect-ratio: 16/9 !important;
+            background: rgba(26,26,26,0.1) !important;
+            loading: lazy !important;
+            decoding: async !important;
             margin: 0 !important;
             padding: 0 !important;
             border: none !important;
             outline: none !important;
         }
         
-        .mobile-carousel-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            margin: 0 !important;
-            padding: 0 !important;
-            border: none !important;
-            outline: none !important;
+        .mobile-carousel-item:hover {
+            transform: translateY(-8px) !important;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5) !important;
+        }
+        
+        .mobile-carousel-item:hover img {
+            transform: scale(1.05) !important;
+        }
+        
+        .mobile-carousel-row:hover {
+            animation-play-state: paused !important;
+        }
+    }
+    
+    @media (max-width: 480px) {
+        .mobile-carousel-item.xlarge {
+            width: 250px !important;
+            height: 200px !important;
+        }
+        
+        .mobile-carousel-item.large {
+            width: 200px !important;
+            height: 200px !important;
+        }
+        
+        .mobile-carousel-item.medium {
+            width: 150px !important;
+            height: 200px !important;
+        }
+        
+        .mobile-carousel-item.small {
+            width: 120px !important;
+            height: 200px !important;
+        }
+        
+        .mobile-carousel-item.xsmall {
+            width: 80px !important;
+            height: 200px !important;
         }
     }
 `;
