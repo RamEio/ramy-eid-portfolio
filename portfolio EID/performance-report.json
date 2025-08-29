@@ -1,0 +1,40 @@
+{
+  "timestamp": "2025-08-28T16:41:41.102Z",
+  "summary": {
+    "totalProjectSize": "191.9MB",
+    "totalFiles": 228,
+    "estimatedLoadTime": "10177ms",
+    "optimizationImprovement": "1374.1%"
+  },
+  "details": {
+    "fileSizes": {
+      "css": "108.9KB (5 files)",
+      "js": "260.8KB (30 files)",
+      "images": "191.4MB (187 files)",
+      "html": "175.0KB (6 files)",
+      "total": "191.9MB"
+    },
+    "loadTimes": {
+      "css": "218ms",
+      "js": "391ms",
+      "images": "9568ms",
+      "total": "10177ms"
+    },
+    "webVitals": {
+      "fcp": "218ms",
+      "lcp": "9568ms",
+      "tti": "909ms"
+    },
+    "optimization": {
+      "fileSizeReduction": "1374.1%",
+      "estimatedLoadTimeImprovement": "1099.3%",
+      "bandwidthSavings": "2636.8MB"
+    }
+  },
+  "recommendations": [
+    "Consider further CSS optimization or code splitting",
+    "Consider JavaScript bundling and tree shaking",
+    "Consider implementing WebP format and responsive images",
+    "Consider implementing critical CSS and lazy loading"
+  ]
+}

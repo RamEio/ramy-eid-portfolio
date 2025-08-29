@@ -1,54 +1,31 @@
-// Mobile-Only Experience Carousel - OPTIMIZED VERSION
+/**
+ * Mobile Experience Carousel for Homepage
+ * Populates the mobile carousel with experience images
+ */
 document.addEventListener('DOMContentLoaded', function() {
     // Only run on mobile devices
     if (window.innerWidth > 768) {
         console.log('📱 Mobile Experience Carousel: Skipping on desktop');
-        return; // Exit on desktop
+        return;
     }
     
     console.log('📱 Mobile Experience Carousel: Starting on mobile device');
     
-    // Find the appropriate carousel container based on the page
-    let carouselContainer;
+    // Find the mobile carousel container
+    const mobileCarouselSection = document.querySelector('.mobile-experience-carousel-section');
+    console.log('📱 Mobile Experience Carousel: Looking for container:', mobileCarouselSection);
     
-    // Check if we're on the homepage (has mobile-experience-carousel-section)
-    const mobileSection = document.querySelector('.mobile-experience-carousel-section');
-    if (mobileSection) {
-        // Homepage - use the mobile section container
-        carouselContainer = mobileSection.querySelector('.experience-carousel-container');
-        console.log('📱 Mobile Experience Carousel: Found homepage mobile carousel container');
-    } else {
-        // Experience page - use the main carousel container
-        carouselContainer = document.querySelector('.experience-carousel-container');
-        console.log('📱 Mobile Experience Carousel: Found experience page carousel container');
+    if (!mobileCarouselSection) {
+        console.log('📱 Mobile Experience Carousel: Container not found - checking all sections');
+        const allSections = document.querySelectorAll('section');
+        allSections.forEach((section, index) => {
+            console.log(`Section ${index}:`, section.className);
+        });
+        return;
     }
     
-    if (!carouselContainer) {
-        console.log('📱 Mobile Experience Carousel: No carousel container found, skipping');
-        return; // Container not found
-    }
-    
-    console.log('📱 Mobile Experience Carousel: Found carousel container');
-    
-    // Available experience images for the mobile carousel - OPTIMIZED LIST
-    const allExperienceImages = [
-        // UX Research & Discovery
-        'assets/experiences_images/discovery phase.jpg',
-        'assets/experiences_images/discovery_strategic-axis.png',
-        'assets/experiences_images/card_sorting_user.JPG',
-        'assets/experiences_images/Confidence level wheel.png',
-        
-        // Design Sprints & Workshops
-        'assets/experiences_images/DesignSprintBook.png',
-        'assets/experiences_images/LeroyMerlin_workshop.png',
-        'assets/experiences_images/adeo_user_testing1.jpg',
-        'assets/experiences_images/user_testing restitution_LM.png',
-        
-        // Wireframing & Design
-        'assets/experiences_images/adeo_wireframe1.png',
-        'assets/experiences_images/mozaIc_DS.png',
-        
-        // Additional experience images
+    // Experience images for mobile carousel
+    const experienceImages = [
         'assets/experiences_images/discovery phase.jpg',
         'assets/experiences_images/DesignSprintBook.png',
         'assets/experiences_images/adeo_user_testing1.jpg',
@@ -59,80 +36,142 @@ document.addEventListener('DOMContentLoaded', function() {
         'assets/experiences_images/user_testing restitution_LM.png',
         'assets/experiences_images/discovery_strategic-axis.png',
         'assets/experiences_images/mozaIc_DS.png',
+        'assets/experiences_images/Adeo_data_analysis.png',
+        'assets/experiences_images/LeroyMerlin_eisenhower_priorisation.png',
+        'assets/experiences_images/adeo_wireframe2.png',
+        'assets/experiences_images/adeo_user_testing2.jpg',
+        'assets/experiences_images/IMG_2646.JPG',
+        'assets/experiences_images/IMG_2634.JPG',
+        'assets/experiences_images/IMG_2631.JPG',
+        'assets/experiences_images/IMG_2626.JPG',
+        'assets/experiences_images/IMG_2618.jpeg',
+        'assets/experiences_images/user_testing restitution2_LM.png',
+        'assets/experiences_images/user_testing restitution3_LM.png',
+        'assets/experiences_images/LeroyMerlin_wireframe.png',
+        'assets/experiences_images/LeroyMerlin_usertesting1.jpeg',
+        'assets/experiences_images/LeroyMerlin_delivery.png',
+        'assets/experiences_images/LM_workflow_secret.png',
+        'assets/experiences_images/adeo_UX_audit.png',
+        'assets/experiences_images/adeo_paiement_journey.png',
+        'assets/experiences_images/adeo_UX_audit.png',
+        'assets/experiences_images/Ux_disco_1.png',
+        'assets/experiences_images/Ux_disco_2.png',
+        'assets/experiences_images/Ux_disco_3.png',
+        'assets/experiences_images/card_sorting.png',
+        'assets/experiences_images/profilingPersonae.png',
+        'assets/experiences_images/onlineSurvey1.png',
+        'assets/experiences_images/onlineSurvey12png.png',
+        'assets/experiences_images/onlineSurvey3png.png',
+        'assets/experiences_images/datastudio_RIDE.png',
+        'assets/experiences_images/dataStudio.png',
+        'assets/experiences_images/user_data_analysis_adeo.png',
+        'assets/experiences_images/tagging_plan.png',
+        'assets/experiences_images/marketing.png',
+        'assets/experiences_images/image.png',
+        'assets/experiences_images/ost.png'
     ];
     
-    // Item size classes for mobile carousel
+    // Item sizes for variety
     const itemSizes = ['xlarge', 'large', 'medium', 'small', 'xsmall'];
     
-    // Experience titles and descriptions for overlays
-    const experienceData = [
-        { title: 'Discovery Phase', description: 'UX Research & Product Discovery' },
-        { title: 'Design Sprints', description: 'Methodology & Facilitation' },
-        { title: 'User Testing', description: 'Real User Research' },
-        { title: 'Workshop Facilitation', description: 'Design Sprints' },
-        { title: 'Card Sorting', description: 'Information Architecture' },
-        { title: 'Wireframing', description: 'UX Design & Prototyping' },
-        { title: 'Data Analysis', description: 'Research Metrics' },
-        { title: 'Testing Results', description: 'Data Analysis' },
-        { title: 'Strategic Discovery', description: 'Product Strategy' },
-        { title: 'Design Systems', description: 'Mozaic Implementation' },
-    ];
-    
-    // Function to create mobile experience carousel - OPTIMIZED
+    // Create mobile carousel function
     const createMobileExperienceCarousel = () => {
-        console.log('📱 Mobile Experience Carousel: Creating carousel...');
-        
         // Clear existing content
+        const carouselContainer = mobileCarouselSection.querySelector('.experience-carousel-container');
+        if (!carouselContainer) {
+            console.log('📱 Mobile Experience Carousel: Carousel container not found');
+            return;
+        }
+        
+        // Clear existing rows
         carouselContainer.innerHTML = '';
         
-        // Create 3 carousel rows
+        // Create 3 rows with different randomization
         for (let row = 0; row < 3; row++) {
             const carouselRow = document.createElement('div');
             carouselRow.className = 'mobile-carousel-row';
             carouselRow.id = `mobile-carousel-row-${row + 1}`;
             
-            // Shuffle images for this row
-            const shuffledImages = [...allExperienceImages].sort(() => Math.random() - 0.5);
+            // Different randomization strategy for each row
+            let shuffledImages;
+            switch (row) {
+                case 0:
+                    // Row 1: Standard shuffle
+                    shuffledImages = [...experienceImages].sort(() => Math.random() - 0.5);
+                    break;
+                case 1:
+                    // Row 2: Reverse order + shuffle
+                    shuffledImages = [...experienceImages].reverse().sort(() => Math.random() - 0.5);
+                    break;
+                case 2:
+                    // Row 3: Every other image + shuffle
+                    shuffledImages = experienceImages.filter((_, index) => index % 2 === 0)
+                        .concat(experienceImages.filter((_, index) => index % 2 === 1))
+                        .sort(() => Math.random() - 0.5);
+                    break;
+                default:
+                    shuffledImages = [...experienceImages].sort(() => Math.random() - 0.5);
+            }
             
-            console.log(`📱 Mobile Experience Carousel: Creating row ${row + 1} with ${shuffledImages.length} images`);
-            
-            // Add images to this row (duplicate for seamless loop) - OPTIMIZED
-            for (let i = 0; i < 2; i++) { // Duplicate for seamless loop
+            // Create duplicate set for infinite loop
+            for (let duplicate = 0; duplicate < 2; duplicate++) {
                 shuffledImages.forEach((imageSrc, index) => {
                     const carouselItem = document.createElement('div');
                     const sizeClass = itemSizes[index % itemSizes.length];
-                    carouselItem.className = `mobile-carousel-item ${sizeClass}`;
+                    carouselItem.className = `mobile-carousel-item ${sizeClass} glass-effect`;
                     
+                    // Create image element
                     const img = document.createElement('img');
                     img.src = imageSrc;
-                    img.alt = experienceData[index % experienceData.length]?.title || 'Experience Image';
+                    img.alt = 'Experience Image';
                     img.loading = 'lazy';
-                    img.decoding = 'async';
-                    
-                    // Add progressive loading - OPTIMIZED
                     img.style.opacity = '0';
                     img.style.transition = 'opacity 0.3s ease-in-out';
                     
+                    // Handle image load
                     img.onload = function() {
                         this.style.opacity = '1';
-                        console.log(`📱 Mobile Experience Carousel: Image loaded: ${imageSrc}`);
                     };
                     
+                    // Handle image error
                     img.onerror = function() {
                         console.warn(`Failed to load image: ${this.src}`);
                         this.style.display = 'none';
                     };
                     
-                    // Add experience overlay
+                    // Create overlay (hidden by default)
                     const overlay = document.createElement('div');
                     overlay.className = 'experience-overlay';
-                    const experienceInfo = experienceData[index % experienceData.length];
-                    if (experienceInfo) {
-                        overlay.innerHTML = `<h3>${experienceInfo.title}</h3><p>${experienceInfo.description}</p>`;
-                    }
+                    overlay.style.opacity = '0';
+                    overlay.style.visibility = 'hidden';
+                    overlay.style.transition = 'opacity 0.3s ease-in-out, visibility 0.3s ease-in-out';
+                    
+                    const title = document.createElement('h3');
+                    title.textContent = 'Experience';
+                    
+                    const description = document.createElement('p');
+                    description.textContent = 'UX/Product Design';
+                    
+                    overlay.appendChild(title);
+                    overlay.appendChild(description);
                     
                     carouselItem.appendChild(img);
                     carouselItem.appendChild(overlay);
+                    
+                    // Add click handler for title visibility
+                    carouselItem.addEventListener('click', function(e) {
+                        e.stopPropagation(); // Prevent row click handler
+                        
+                        // Toggle overlay visibility
+                        if (overlay.style.visibility === 'hidden') {
+                            overlay.style.visibility = 'visible';
+                            overlay.style.opacity = '1';
+                        } else {
+                            overlay.style.visibility = 'hidden';
+                            overlay.style.opacity = '0';
+                        }
+                    });
+                    
                     carouselRow.appendChild(carouselItem);
                 });
             }
@@ -140,62 +179,54 @@ document.addEventListener('DOMContentLoaded', function() {
             carouselContainer.appendChild(carouselRow);
         }
         
-        console.log('📱 Mobile Experience Carousel: Carousel creation complete');
+        console.log('📱 Mobile Experience Carousel: Created with 3 rows');
     };
     
     // Initialize carousel
     createMobileExperienceCarousel();
     
-    // Add click to refresh functionality
-    carouselContainer.addEventListener('click', function(e) {
+    // Add click handler for regeneration
+    mobileCarouselSection.addEventListener('click', function(e) {
         if (e.target.classList.contains('mobile-carousel-item') || 
-            e.target.classList.contains('mobile-carousel-row') ||
+            e.target.classList.contains('mobile-carousel-row') || 
             e.target.tagName === 'IMG') {
             
-            console.log('📱 Mobile Experience Carousel: Refreshing carousel...');
+            mobileCarouselSection.classList.add('clicked');
+            setTimeout(() => {
+                mobileCarouselSection.classList.remove('clicked');
+            }, 150);
+            
             createMobileExperienceCarousel();
         }
     });
     
     console.log('📱 Mobile Experience Carousel: Initialized with ULTRA SLOW animation (300s)');
     
-    // Initialize UniversalCarouselController - OPTIMIZED TO PREVENT CONFLICTS
-    if (typeof UniversalCarouselController !== 'undefined') {
-        // Check if controller already exists to prevent conflicts
-        if (!window.mobileExperienceCarouselController) {
-            window.mobileExperienceCarouselController = new UniversalCarouselController({
-                rowClass: '.mobile-carousel-row',
-                itemClass: '.mobile-carousel-item',
-                isMobile: true,
-                speed: 300
-            });
-            console.log('📱 Mobile Experience Carousel: UniversalCarouselController initialized');
-        } else {
-            console.log('📱 Mobile Experience Carousel: UniversalCarouselController already exists, skipping');
-        }
-    }
-    
-    // Debug: Check if CSS is applied - OPTIMIZED
+    // Verify animation is applied
     setTimeout(() => {
         const carouselRows = document.querySelectorAll('.mobile-carousel-row');
         carouselRows.forEach((row, index) => {
-            const animation = window.getComputedStyle(row).animation;
-            console.log(`📱 Experience Carousel Row ${index + 1} animation:`, animation);
+            const computedStyle = window.getComputedStyle(row);
+            const animation = computedStyle.animation;
+            console.log(`📱 Carousel Row ${index + 1} animation:`, animation);
         });
     }, 1000);
     
-    // Handle window resize - OPTIMIZED
+    // Add mobile-specific styles
+    const style = document.createElement('style');
+    style.textContent = `
+        @media (max-width: 768px) {
+            .mobile-carousel-row {
+                animation: scrollCarousel 300s linear infinite !important;
+            }
+        }
+    `;
+    document.head.appendChild(style);
+    
+    // Handle window resize
     window.addEventListener('resize', function() {
         if (window.innerWidth > 768) {
-            console.log('📱 Mobile Experience Carousel: Window resized to desktop, stopping carousel');
-            // Stop carousel on desktop
-            if (window.mobileExperienceCarouselController) {
-                window.mobileExperienceCarouselController = null;
-            }
-        } else if (window.innerWidth <= 768 && !window.mobileExperienceCarouselController) {
-            console.log('📱 Mobile Experience Carousel: Window resized to mobile, restarting carousel');
-            // Restart carousel on mobile
-            createMobileExperienceCarousel();
+            console.log('📱 Mobile Experience Carousel: Window resized to desktop, stopping mobile carousel');
         }
     });
 });

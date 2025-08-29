@@ -1,6 +1,103 @@
 {
   "experiences": [
     {
+      "id": 9,
+      "year": 2024,
+      "timelinePeriod": "Current",
+      "title": "Strategic UX Lead - Knowledge Deployment & Cross-Team Collaboration",
+      "company": "Decathlon CSP",
+      "companyType": "corporate",
+      "period": "2024 - Present",
+      "description": "Led strategic UX work for Decathlon's Connected Sport Platform. I deployed our team's knowledge across departments to improve global UX standards, working closely with Data teams and other departments.",
+      "detailedDescription": "I was charged with deploying our team's knowledge across multiple departments to improve global UX standards throughout Decathlon. I worked with complex systems and diverse teams, particularly Data teams, to implement UX best practices. I led strategic design initiatives for connected sport applications with focus on scalable solutions. I spearheaded design system implementation and evolution across multiple sport applications. I implemented UX improvements that resulted in measurable performance enhancements across the platform.",
+      "achievements": [
+        "Charged with deploying team knowledge across multiple departments to improve global UX standards throughout Decathlon",
+        "Worked with complex systems and diverse teams, particularly Data teams, to implement UX best practices",
+        "Led strategic design initiatives for connected sport applications with focus on scalable solutions",
+        "Spearheaded design system implementation and evolution across multiple sport applications",
+        "Implemented UX improvements resulting in measurable performance enhancements across platform"
+      ],
+      "skills": ["Strategic Design", "User Research & Testing", "Wireframing", "Prioritization", "Design System"],
+      "projectType": "consulting",
+      "logo": "assets/experiences_images/Logo dkt.png",
+      "visualContent": [
+        "assets/experiences_images/Confidence level wheel.png",
+        "assets/experiences_images/Ux_disco_2.png",
+        "assets/experiences_images/Ux_disco_3.png",
+        "assets/experiences_images/discovery_strategic-axis.png"
+      ]
+    },
+    {
+      "id": 10,
+      "year": 2025,
+      "timelinePeriod": "Current",
+      "title": "Expert Product Designer - Decathlon Hub IOT platform",
+      "company": "Decathlon CSP",
+      "companyType": "corporate",
+      "period": "2025 - Present",
+      "description": "Led Product Design for Decathlon Hub, the central platform that connects any sport or activity within Decathlon. The app serves as the main gateway through connected devices, helping users enter the world of Decathlon Sport practice with IoT integration.",
+      "detailedDescription": "I designed complex UX for IoT device connectivity (Bluetooth, WiFi, and multiple connection protocols) across diverse sport equipment. I created unified user experience for connecting to any sport or activity within Decathlon's environment. I developed seamless UX for various IoT devices to connect and display data to users. I navigated complex technical requirements while maintaining exceptional user experience. I built knowledge systems around data to inform product decisions and user experience optimization.",
+      "achievements": [
+        "Designed complex UX for IoT device connectivity (Bluetooth, WiFi, and multiple connection protocols) across diverse sport equipment",
+        "Created unified user experience for connecting to ANY sport or activity within Decathlon's environment",
+        "Developed seamless UX for various IoT devices to connect and display data to users",
+        "Navigated complex technical requirements while maintaining exceptional user experience",
+        "Built knowledge systems around data to inform product decisions and user experience optimization"
+      ],
+      "skills": ["UX Design", "Accessibility", "RGAA", "Wireframing", "User Research & Testing", "Data Analysis & Analytics", "Tag Plan Management and Deployment", "Project Prioritization and Management as User Representative", "Strategic Design", "Design System"],
+      "projectType": "mobile-apps",
+      "logo": "assets/experiences_images/Logo dkt.png",
+      "visualContent": [
+        "assets/experiences_images/marketing.png",
+        "assets/experiences_images/ost.png",
+        "assets/experiences_images/discovery_strategic-axis.png"
+      ]
+    },
+    {
+      "id": 11,
+      "year": 2024,
+      "timelinePeriod": "Current",
+      "title": "University Lecturer - UX/UI Design",
+      "company": "ISEN",
+      "companyType": "education",
+      "period": "2024 - 2025",
+      "description": "I teach UX/UI design to engineering students.",
+      "detailedDescription": "I deliver comprehensive courses on UX/UI design principles and methodologies to engineering students. I mentor students through practical design projects and case studies, preparing them for real-world UX/UI challenges.",
+      "achievements": [
+        "Developed curriculum for UX/UI design courses",
+        "Mentored engineering students in UX/UI design principles",
+        "Created practical case studies for UX/UI design methodologies"
+      ],
+      "skills": ["Teaching", "UX Design", "UI Design", "Design Principles", "Design Methodologies"],
+      "projectType": "education",
+      "logo": "assets/experiences_images/isenLogo.png",
+      "visualContent": []
+    },
+    {
+      "id": 13,
+      "year": 2026,
+      "timelinePeriod": "Current",
+      "title": " AI Tool Specialist & Multi-Agent System Architect ",
+      "company": "Expertise Innovation Design",
+      "companyType": "startup",
+      "period": "2025 - Present",
+      "description": "My engineering degree combined with my design experience helps me create great automation and multi-agent systems that enhance my daily work life. I've built several projects with systemic agents to reach my goals, and I'm ready to help other companies do the same.",
+      "detailedDescription": "I leverage my engineering background and design expertise to architect intelligent automation systems and multi-agent workflows. I've created several projects incorporating systemic agents that help me achieve my objectives more efficiently. My experience with Cursor AI, Abacus.ai, and emerging AI tools enables me to build sophisticated automation solutions. I'm now preparing to help other companies implement similar AI-driven design and development workflows.",
+      "achievements": [
+        "Combined engineering background with design experience to create intelligent automation systems",
+        "Built multiple projects with systemic agents to enhance daily work efficiency",
+        "Developed expertise in Cursor AI, Abacus.ai, and emerging AI tools for design workflows",
+        "Created sophisticated multi-agent systems for complex project management",
+        "Prepared to help other companies implement AI-driven design and development solutions"
+      ],
+      "skills": ["AI & Automation", "UX Design", "Product Management"],
+      "projectType": "consulting",
+      "logo": "assets/LOGO EID.png",
+      "visualContent": [
+        "assets/LOGO EID.png"
+      ]
+    },
+    {
       "id": 1,
       "year": 2015,
       "timelinePeriod": "7+ years ago",
@@ -209,79 +306,6 @@
       ]
     },
     {
-      "id": 9,
-      "year": 2024,
-      "timelinePeriod": "Current",
-      "title": "Strategic UX Lead - Knowledge Deployment & Cross-Team Collaboration",
-      "company": "Decathlon CSP",
-      "companyType": "corporate",
-      "period": "2024 - Present",
-      "description": "Led strategic UX work for Decathlon's Connected Sport Platform. I deployed our team's knowledge across departments to improve global UX standards, working closely with Data teams and other departments.",
-      "detailedDescription": "I was charged with deploying our team's knowledge across multiple departments to improve global UX standards throughout Decathlon. I worked with complex systems and diverse teams, particularly Data teams, to implement UX best practices. I led strategic design initiatives for connected sport applications with focus on scalable solutions. I spearheaded design system implementation and evolution across multiple sport applications. I implemented UX improvements that resulted in measurable performance enhancements across the platform.",
-      "achievements": [
-        "Charged with deploying team knowledge across multiple departments to improve global UX standards throughout Decathlon",
-        "Worked with complex systems and diverse teams, particularly Data teams, to implement UX best practices",
-        "Led strategic design initiatives for connected sport applications with focus on scalable solutions",
-        "Spearheaded design system implementation and evolution across multiple sport applications",
-        "Implemented UX improvements resulting in measurable performance enhancements across platform"
-      ],
-      "skills": ["Strategic Design", "User Research & Testing", "Wireframing", "Prioritization", "Design System"],
-      "projectType": "consulting",
-      "logo": "assets/experiences_images/Logo dkt.png",
-      "visualContent": [
-        "assets/experiences_images/Confidence level wheel.png",
-        "assets/experiences_images/Ux_disco_2.png",
-        "assets/experiences_images/Ux_disco_3.png",
-        "assets/experiences_images/discovery_strategic-axis.png"
-      ]
-    },
-    {
-      "id": 10,
-      "year": 2025,
-      "timelinePeriod": "Current",
-      "title": "Expert Product Designer - Decathlon Hub IOT platform",
-      "company": "Decathlon CSP",
-      "companyType": "corporate",
-      "period": "2025 - Present",
-      "description": "Led Product Design for Decathlon Hub, the central platform that connects any sport or activity within Decathlon. The app serves as the main gateway through connected devices, helping users enter the world of Decathlon Sport practice with IoT integration.",
-      "detailedDescription": "I designed complex UX for IoT device connectivity (Bluetooth, WiFi, and multiple connection protocols) across diverse sport equipment. I created unified user experience for connecting to any sport or activity within Decathlon's environment. I developed seamless UX for various IoT devices to connect and display data to users. I navigated complex technical requirements while maintaining exceptional user experience. I built knowledge systems around data to inform product decisions and user experience optimization.",
-      "achievements": [
-        "Designed complex UX for IoT device connectivity (Bluetooth, WiFi, and multiple connection protocols) across diverse sport equipment",
-        "Created unified user experience for connecting to ANY sport or activity within Decathlon's environment",
-        "Developed seamless UX for various IoT devices to connect and display data to users",
-        "Navigated complex technical requirements while maintaining exceptional user experience",
-        "Built knowledge systems around data to inform product decisions and user experience optimization"
-      ],
-      "skills": ["UX Design", "Accessibility", "RGAA", "Wireframing", "User Research & Testing", "Data Analysis & Analytics", "Tag Plan Management and Deployment", "Project Prioritization and Management as User Representative", "Strategic Design", "Design System"],
-      "projectType": "mobile-apps",
-      "logo": "assets/experiences_images/Logo dkt.png",
-      "visualContent": [
-        "assets/experiences_images/marketing.png",
-        "assets/experiences_images/ost.png",
-        "assets/experiences_images/discovery_strategic-axis.png"
-      ]
-    },
-    {
-      "id": 11,
-      "year": 2024,
-      "timelinePeriod": "Current",
-      "title": "University Lecturer - UX/UI Design",
-      "company": "ISEN",
-      "companyType": "education",
-      "period": "2024 - Present",
-      "description": "I teach UX/UI design to engineering students.",
-      "detailedDescription": "I deliver comprehensive courses on UX/UI design principles and methodologies to engineering students. I mentor students through practical design projects and case studies, preparing them for real-world UX/UI challenges.",
-      "achievements": [
-        "Developed curriculum for UX/UI design courses",
-        "Mentored engineering students in UX/UI design principles",
-        "Created practical case studies for UX/UI design methodologies"
-      ],
-      "skills": ["Teaching", "UX Design", "UI Design", "Design Principles", "Design Methodologies"],
-      "projectType": "education",
-      "logo": "assets/experiences_images/isenLogo.png",
-      "visualContent": []
-    },
-    {
       "id": 12,
       "year": 2022,
       "timelinePeriod": "3+ years ago",
@@ -300,30 +324,6 @@
       "projectType": "education",
       "logo": "assets/experiences_images/essjlogo.jpg",
       "visualContent": []
-    },
-    {
-      "id": 13,
-      "year": 2025,
-      "timelinePeriod": "Current",
-      "title": " AI Tool Specialist & Multi-Agent System Architect ",
-      "company": "Expertise Innovation Design",
-      "companyType": "startup",
-      "period": "2025 - Present",
-      "description": "My engineering degree combined with my design experience helps me create great automation and multi-agent systems that enhance my daily work life. I've built several projects with systemic agents to reach my goals, and I'm ready to help other companies do the same.",
-      "detailedDescription": "I leverage my engineering background and design expertise to architect intelligent automation systems and multi-agent workflows. I've created several projects incorporating systemic agents that help me achieve my objectives more efficiently. My experience with Cursor AI, Abacus.ai, and emerging AI tools enables me to build sophisticated automation solutions. I'm now preparing to help other companies implement similar AI-driven design and development workflows.",
-      "achievements": [
-        "Combined engineering background with design experience to create intelligent automation systems",
-        "Built multiple projects with systemic agents to enhance daily work efficiency",
-        "Developed expertise in Cursor AI, Abacus.ai, and emerging AI tools for design workflows",
-        "Created sophisticated multi-agent systems for complex project management",
-        "Prepared to help other companies implement AI-driven design and development solutions"
-      ],
-      "skills": ["AI & Automation", "UX Design", "Product Management"],
-      "projectType": "consulting",
-      "logo": "assets/LOGO EID.png",
-      "visualContent": [
-        "assets/LOGO EID.png"
-      ]
     }
   ]
 }
