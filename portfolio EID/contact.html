@@ -113,7 +113,13 @@
                 <div class="contact-grid">
                     <div class="contact-form-container glass-effect">
                         <h2 id="contact-form-title" class="section-title">Send Me a Message</h2>
-                        <form class="contact-form" id="contactForm" action="#" method="POST" novalidate>
+                        <form class="contact-form" id="contactForm" name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" novalidate>
+                            <!-- Netlify Forms Hidden Input -->
+                            <input type="hidden" name="form-name" value="contact" />
+                            <!-- Honeypot Field for Bot Protection -->
+                            <div class="honeypot-field" style="display: none;">
+                                <input name="bot-field" />
+                            </div>
                             <div class="form-group">
                                 <label for="name" class="form-label">Full Name *</label>
                                 <input type="text" id="name" name="name" class="form-input" required 
@@ -153,9 +159,17 @@
                                 <label class="checkbox-label">
                                     <input type="checkbox" id="privacy" name="privacy" required class="form-checkbox">
                                     <span class="checkmark"></span>
-                                    I agree to the <a href="privacy-policy.html" target="_blank" rel="noopener noreferrer">Privacy Policy</a> *
+                                    I agree to the <a href="privacy-policy.html" target="_blank" rel="noopener noreferrer">Privacy Policy</a> and consent to the processing of my personal data for contact purposes *
                                 </label>
                                 <div id="privacy-error" class="error-message" role="alert" aria-live="polite"></div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="marketing" name="marketing" class="form-checkbox">
+                                    <span class="checkmark"></span>
+                                    I consent to receive occasional updates about UX/Product Design insights and AI innovation (optional)
+                                </label>
                             </div>
                             
                             <button type="submit" class="btn btn-primary submit-btn">
@@ -348,5 +362,6 @@
     <script src="js/performance.js"></script>
     <script src="js/hide-on-scroll.js"></script>
     <script src="js/contact-mosaic.js"></script>
+    <script src="js/contact-form-security.js"></script>
 </body>
 </html>
