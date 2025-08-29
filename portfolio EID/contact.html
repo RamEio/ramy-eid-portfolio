@@ -172,6 +172,18 @@
                                 Send Message
                             </button>
                         </form>
+                        
+                        <!-- Simple Test Form -->
+                        <div style="margin-top: 20px; padding: 20px; border: 2px solid red; background: #f0f0f0;">
+                            <h3>TEST FORM (Debug)</h3>
+                            <form method="POST" data-netlify="true" style="border: 1px solid blue; padding: 10px;">
+                                <input type="hidden" name="form-name" value="debug-test" />
+                                <input type="text" name="test-name" value="Test User" required />
+                                <input type="email" name="test-email" value="test@example.com" required />
+                                <textarea name="test-message" required>This is a test message</textarea>
+                                <button type="submit" style="background: red; color: white; padding: 10px;">SUBMIT TEST FORM</button>
+                            </form>
+                        </div>
                     </div>
                     
                     <div class="contact-info-container glass-effect">
