@@ -217,23 +217,14 @@ document.addEventListener('DOMContentLoaded', function() {
         return true;
     }
 
-    // Form Submission Handler
-    contactForm.addEventListener('submit', async function(e) {
-        // Don't prevent default - let Netlify handle the form
-        // e.preventDefault();
+    // Form Submission Handler - Simplified for Netlify
+    contactForm.addEventListener('submit', function(e) {
+        console.log('📧 Form submission started...');
         
         // Clear previous errors
         FormErrorHandler.clearAllErrors();
         
-        // Rate limiting check
-        if (rateLimiter.isRateLimited()) {
-            const timeUntilReset = rateLimiter.getTimeUntilReset();
-            const minutes = Math.ceil(timeUntilReset / 60000);
-            FormErrorHandler.showError('general', `Too many submissions. Please wait ${minutes} minutes before trying again.`);
-            return;
-        }
-        
-        // Validate all fields
+        // Basic validation only
         let isValid = true;
         const fields = ['name', 'email', 'subject', 'message', 'privacy'];
         
@@ -245,30 +236,12 @@ document.addEventListener('DOMContentLoaded', function() {
         });
         
         if (!isValid) {
+            e.preventDefault(); // Only prevent if validation fails
+            console.log('❌ Form validation failed');
             return;
         }
         
-        // CSRF validation - Netlify handles this server-side
-        // const formCsrfToken = contactForm.querySelector('input[name="csrf_token"]').value;
-        // if (!CSRFProtection.validateToken(formCsrfToken)) {
-        //     FormErrorHandler.showError('general', 'Security validation failed. Please refresh the page and try again.');
-        //     return;
-        // }
-        
-        // Sanitize all inputs
-        const formData = new FormData(contactForm);
-        const sanitizedData = {};
-        
-        for (let [key, value] of formData.entries()) {
-            if (key === 'bot-field') continue; // Skip honeypot field
-            sanitizedData[key] = InputValidator.sanitizeInput(value);
-        }
-        
-        // Check honeypot field
-        if (sanitizedData['bot-field']) {
-            console.warn('Bot detected via honeypot field');
-            return; // Silently reject bot submissions
-        }
+        console.log('✅ Form validation passed, allowing Netlify to process...');
         
         // Show loading state
         const submitBtn = contactForm.querySelector('.submit-btn');
@@ -276,21 +249,8 @@ document.addEventListener('DOMContentLoaded', function() {
         submitBtn.innerHTML = '<span class="btn-icon">⏳</span> Sending...';
         submitBtn.disabled = true;
         
-        try {
-            // Record submission for rate limiting
-            rateLimiter.recordSubmission();
-            
-            // Let Netlify handle the form submission naturally
-            // The form will submit to Netlify's form handling endpoint
-            
-        } catch (error) {
-            console.error('Form submission error:', error);
-            FormErrorHandler.showError('general', 'An error occurred. Please try again later.');
-            
-            // Reset button
-            submitBtn.innerHTML = originalText;
-            submitBtn.disabled = false;
-        }
+        // Let Netlify handle the form submission naturally
+        // No preventDefault() - let the form submit to Netlify
     });
 
     function showSuccessMessage() {
