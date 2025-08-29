@@ -219,7 +219,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Form Submission Handler
     contactForm.addEventListener('submit', async function(e) {
-        e.preventDefault();
+        // Don't prevent default - let Netlify handle the form
+        // e.preventDefault();
         
         // Clear previous errors
         FormErrorHandler.clearAllErrors();
@@ -279,11 +280,8 @@ document.addEventListener('DOMContentLoaded', function() {
             // Record submission for rate limiting
             rateLimiter.recordSubmission();
             
-            // Submit form (Netlify Forms will handle the rest)
-            contactForm.submit();
-            
-            // Show success message
-            showSuccessMessage();
+            // Let Netlify handle the form submission naturally
+            // The form will submit to Netlify's form handling endpoint
             
         } catch (error) {
             console.error('Form submission error:', error);

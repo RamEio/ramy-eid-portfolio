@@ -27,38 +27,15 @@
     name = "Contact Form"
     fields = ["name", "email", "subject", "message", "privacy", "marketing"]
     honeypot = "bot-field"
-    
-    # Email notifications
-    [forms.contact.notifications]
-      email = "expertise.inno.design@gmail.com"
-      subject = "New Contact Form Submission from {{name}}"
-      body = """
-      New contact form submission received:
-      
-      Name: {{name}}
-      Email: {{email}}
-      Subject: {{subject}}
-      Message: {{message}}
-      Privacy Consent: {{privacy}}
-      Marketing Consent: {{marketing}}
-      
-      Submitted at: {{submitted_at}}
-      IP Address: {{ip}}
-      User Agent: {{user_agent}}
-      """
-      
-      # Spam protection
-      [forms.contact.notifications.spam]
-        enabled = true
-        threshold = 0.5
-        
-      # Rate limiting
-      [forms.contact.notifications.rate_limit]
-        enabled = true
-        max_submissions = 3
-        window = "1h"
-        
-      # Data retention
-      [forms.contact.notifications.retention]
-        enabled = true
-        days = 30
+
+# Form submission redirects
+[[redirects]]
+  from = "/contact"
+  to = "/contact.html"
+  status = 200
+
+# Form success page redirect
+[[redirects]]
+  from = "/contact/success"
+  to = "/contact.html?success=true"
+  status = 200
