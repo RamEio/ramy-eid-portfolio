@@ -217,40 +217,15 @@ document.addEventListener('DOMContentLoaded', function() {
         return true;
     }
 
-    // Form Submission Handler - Simplified for Netlify
+    // Form Submission Handler - Minimal for Testing
     contactForm.addEventListener('submit', function(e) {
         console.log('📧 Form submission started...');
+        console.log('Form data:', new FormData(contactForm));
         
-        // Clear previous errors
-        FormErrorHandler.clearAllErrors();
+        // Don't prevent default - let the form submit naturally
+        // No validation, no interference
         
-        // Basic validation only
-        let isValid = true;
-        const fields = ['name', 'email', 'subject', 'message', 'privacy'];
-        
-        fields.forEach(fieldId => {
-            const field = document.getElementById(fieldId);
-            if (field && !validateField(field)) {
-                isValid = false;
-            }
-        });
-        
-        if (!isValid) {
-            e.preventDefault(); // Only prevent if validation fails
-            console.log('❌ Form validation failed');
-            return;
-        }
-        
-        console.log('✅ Form validation passed, allowing Netlify to process...');
-        
-        // Show loading state
-        const submitBtn = contactForm.querySelector('.submit-btn');
-        const originalText = submitBtn.innerHTML;
-        submitBtn.innerHTML = '<span class="btn-icon">⏳</span> Sending...';
-        submitBtn.disabled = true;
-        
-        // Let Netlify handle the form submission naturally
-        // No preventDefault() - let the form submit to Netlify
+        console.log('✅ Allowing form to submit to Netlify...');
     });
 
     function showSuccessMessage() {
