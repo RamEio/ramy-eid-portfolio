@@ -16,12 +16,11 @@
     Referrer-Policy = "strict-origin-when-cross-origin"
     Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https:; frame-ancestors 'none';"
 
-# Contact form processing
+# Contact form processing - simplified to match current form
 [forms]
   [forms.contact]
     name = "Contact Form"
     fields = ["name", "email", "subject", "message", "privacy", "marketing"]
-    honeypot = "bot-field"
 
 # Form submission redirects - these must come BEFORE the catch-all
 [[redirects]]
