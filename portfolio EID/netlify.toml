@@ -2,11 +2,6 @@
   publish = "."
   command = ""
 
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
-
 # Form handling configuration
 [build.environment]
   NODE_VERSION = "18"
@@ -28,7 +23,7 @@
     fields = ["name", "email", "subject", "message", "privacy", "marketing"]
     honeypot = "bot-field"
 
-# Form submission redirects
+# Form submission redirects - these must come BEFORE the catch-all
 [[redirects]]
   from = "/contact"
   to = "/contact.html"
@@ -38,4 +33,10 @@
 [[redirects]]
   from = "/contact/success"
   to = "/contact.html?success=true"
+  status = 200
+
+# Catch-all redirect for SPA routing - this must come LAST
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
   status = 200

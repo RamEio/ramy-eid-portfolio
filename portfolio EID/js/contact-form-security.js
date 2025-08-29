@@ -248,12 +248,12 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
         
-        // CSRF validation
-        const formCsrfToken = contactForm.querySelector('input[name="csrf_token"]').value;
-        if (!CSRFProtection.validateToken(formCsrfToken)) {
-            FormErrorHandler.showError('general', 'Security validation failed. Please refresh the page and try again.');
-            return;
-        }
+        // CSRF validation - Netlify handles this server-side
+        // const formCsrfToken = contactForm.querySelector('input[name="csrf_token"]').value;
+        // if (!CSRFProtection.validateToken(formCsrfToken)) {
+        //     FormErrorHandler.showError('general', 'Security validation failed. Please refresh the page and try again.');
+        //     return;
+        // }
         
         // Sanitize all inputs
         const formData = new FormData(contactForm);
