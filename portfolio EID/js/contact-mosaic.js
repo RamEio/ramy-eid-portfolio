@@ -158,7 +158,6 @@ document.addEventListener('DOMContentLoaded', function() {
         'assets/experiences_images/mozaic-contact-page/Ux_disco_1.png',
         'assets/experiences_images/mozaic-contact-page/LeroyMerlin_workshop.png',
         'assets/experiences_images/mozaic-contact-page/LeroyMerlin_usertesting1.jpeg',
-        'assets/experiences_images/mozaic-contact-page/discussionUser.png',
         'assets/experiences_images/mozaic-contact-page/conference.png'
     ];
 
@@ -229,11 +228,23 @@ document.addEventListener('DOMContentLoaded', function() {
             .mobile-carousel-row {
                 animation: scrollCarousel 300s linear infinite !important;
                 gap: 0 !important;
+                margin: 0 !important;
+                padding: 0 !important;
             }
             
             .mobile-carousel-item {
                 margin: 0 !important;
                 gap: 0 !important;
+                padding: 0 !important;
+                border: none !important;
+                outline: none !important;
+            }
+            
+            .mobile-carousel-item img {
+                margin: 0 !important;
+                padding: 0 !important;
+                border: none !important;
+                outline: none !important;
             }
         }
     `;
@@ -333,6 +344,7 @@ style.textContent = `
             display: flex !important;
             gap: 0 !important;
             padding: 0 !important;
+            margin: 0 !important;
             animation: scrollCarousel 300s linear infinite !important;
         }
         
@@ -344,12 +356,19 @@ style.textContent = `
             background-size: cover !important;
             background-position: center !important;
             margin: 0 !important;
+            padding: 0 !important;
+            border: none !important;
+            outline: none !important;
         }
         
         .mobile-carousel-item img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            margin: 0 !important;
+            padding: 0 !important;
+            border: none !important;
+            outline: none !important;
         }
     }
 `;
