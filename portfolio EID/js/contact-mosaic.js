@@ -1,62 +1,169 @@
 // Contact Page Experience Mosaic
 document.addEventListener('DOMContentLoaded', function() {
+    // Desktop Mosaic Logic (same as about page)
+    if (window.innerWidth <= 768) {
+        console.log('🖥️ Desktop Mosaic: Skipping on mobile');
+        return;
+    }
+    
+    console.log('🖥️ Desktop Mosaic: Starting on desktop device');
+    
     const mosaicContainer = document.querySelector('.experience-mosaic-fullpage');
     if (!mosaicContainer) {
         return;
     }
 
-    // Experience images for the mosaic
-    const allExperienceImages = [
-        'assets/experiences_images/IMG_2618.jpeg',
-        'assets/experiences_images/IMG_2626.JPG',
-        'assets/experiences_images/IMG_2631.JPG',
-        'assets/experiences_images/IMG_2634.JPG',
-        'assets/experiences_images/IMG_2646.JPG',
-        'assets/experiences_images/Adeo_focus_group.png',
-        'assets/experiences_images/DesignSprintBook.png',
-        'assets/experiences_images/adeo_user_testing2.jpg',
-        'assets/experiences_images/card_sorting_user.JPG',
-        'assets/experiences_images/datastudio_RIDE.png',
-        'assets/experiences_images/discovery phase.jpg',
-        'assets/experiences_images/discovery_strategic-axis.png',
-        'assets/experiences_images/image.png',
-        'assets/experiences_images/marketing.png',
-        'assets/experiences_images/user_testing restitution3_LM.png',
-        'assets/experiences_images/adeo_UX_audit.png',
-        'assets/experiences_images/adeo_user_testing1.jpg',
-        'assets/experiences_images/adeo_wireframe1.png',
-        'assets/experiences_images/adeo_wireframe2.png',
-        'assets/experiences_images/Ux_disco_1.png',
-        'assets/experiences_images/Ux_disco_2.png',
-        'assets/experiences_images/Ux_disco_3.png',
-        'assets/experiences_images/LeroyMerlin_workshop.png',
-        'assets/experiences_images/LeroyMerlin_wireframe.png',
-        'assets/experiences_images/LeroyMerlin_usertesting1.jpeg',
-        'assets/experiences_images/LeroyMerlin_delivery.png',
-        'assets/experiences_images/LM_workflow_secret.png',
-        'assets/experiences_images/Adeo_paiement_journey.png',
-        'assets/experiences_images/Adeo_data_analysis.png',
-        'assets/experiences_images/user_data_analysis_adeo.png',
-        'assets/experiences_images/user_testing restitution_LM.png',
-        'assets/experiences_images/user_testing restitution2_LM.png',
-        'assets/experiences_images/tagging_plan.png',
-        'assets/experiences_images/sopra_steria_consulting.png',
-        'assets/experiences_images/profilingPersonae.png',
-        'assets/experiences_images/onlineSurvey1.png',
-        'assets/experiences_images/onlineSurvey12png.png',
-        'assets/experiences_images/onlineSurvey3png.png',
-        'assets/experiences_images/mozaIc_DS.png',
-        'assets/experiences_images/mozaic_DS2.png',
-        'assets/experiences_images/enjoy_mel.png',
-        'assets/experiences_images/dataStudio.png',
-        'assets/experiences_images/contentSquare_diploma.png',
-        'assets/experiences_images/card_sorting.png',
-        'assets/experiences_images/amoobi_shop_data.png'
+    // Contact page specific images from mozaic-contact-page folder
+    const allMosaicImages = [
+        'assets/experiences_images/mozaic-contact-page/discovery phase.jpg',
+        'assets/experiences_images/mozaic-contact-page/adeo_user_testing2.jpg',
+        'assets/experiences_images/mozaic-contact-page/IMG_2626.JPG',
+        'assets/experiences_images/mozaic-contact-page/IMG_2618.jpeg',
+        'assets/experiences_images/mozaic-contact-page/prezNico.jpg',
+        'assets/experiences_images/mozaic-contact-page/adeo_wireframe2.png',
+        'assets/experiences_images/mozaic-contact-page/adeo_wireframe1.png',
+        'assets/experiences_images/mozaic-contact-page/Ux_disco_1.png',
+        'assets/experiences_images/mozaic-contact-page/LeroyMerlin_workshop.png',
+        'assets/experiences_images/mozaic-contact-page/LeroyMerlin_usertesting1.jpeg',
+        'assets/experiences_images/mozaic-contact-page/discussionUser.png',
+        'assets/experiences_images/mozaic-contact-page/conference.png'
+    ];
+
+    // Grid layouts (same as about page)
+    const gridLayouts = [
+        {
+            name: 'layout-1',
+            areas: [
+                { class: 'xlarge', gridArea: '1 / 1 / 3 / 3' },
+                { class: 'medium', gridArea: '1 / 3 / 2 / 4' },
+                { class: 'small', gridArea: '2 / 3 / 3 / 4' },
+                { class: 'large', gridArea: '3 / 1 / 4 / 3' },
+                { class: 'xsmall', gridArea: '3 / 3 / 4 / 4' }
+            ]
+        },
+        {
+            name: 'layout-2',
+            areas: [
+                { class: 'large', gridArea: '1 / 1 / 2 / 3' },
+                { class: 'xlarge', gridArea: '1 / 3 / 4 / 4' },
+                { class: 'medium', gridArea: '2 / 1 / 3 / 2' },
+                { class: 'small', gridArea: '2 / 2 / 3 / 3' },
+                { class: 'xsmall', gridArea: '3 / 1 / 4 / 3' }
+            ]
+        },
+        {
+            name: 'layout-3',
+            areas: [
+                { class: 'xlarge', gridArea: '1 / 1 / 3 / 3' },
+                { class: 'large', gridArea: '1 / 3 / 3 / 4' },
+                { class: 'medium', gridArea: '3 / 1 / 4 / 2' },
+                { class: 'small', gridArea: '3 / 2 / 4 / 3' },
+                { class: 'xsmall', gridArea: '3 / 3 / 4 / 4' }
+            ]
+        }
+    ];
+
+    let currentLayout = null;
+    let currentImages = [];
+
+    const createNewMosaic = () => {
+        currentLayout = gridLayouts[Math.floor(Math.random() * gridLayouts.length)];
+        const shuffledImages = allMosaicImages.sort(() => Math.random() - 0.5);
+        currentImages = shuffledImages.slice(0, 5);
+        
+        mosaicContainer.innerHTML = '';
+        
+        currentLayout.areas.forEach((area, index) => {
+            const mosaicItem = document.createElement('div');
+            mosaicItem.className = `mosaic-item ${area.class}`;
+            mosaicItem.style.gridArea = area.gridArea;
+            
+            const img = document.createElement('img');
+            img.src = currentImages[index];
+            img.alt = '';
+            img.loading = 'lazy';
+            img.style.opacity = '0';
+            img.style.transition = 'opacity 0.3s ease-in-out';
+            
+            img.onload = function() {
+                this.style.opacity = '1';
+            };
+            
+            img.onerror = function() {
+                console.warn(`Failed to load image: ${this.src}`);
+                this.style.display = 'none';
+            };
+            
+            mosaicItem.appendChild(img);
+            mosaicContainer.appendChild(mosaicItem);
+        });
+    };
+
+    createNewMosaic();
+
+    // Click to randomize (same as about page)
+    mosaicContainer.addEventListener('click', function(e) {
+        mosaicContainer.classList.add('clicked');
+        setTimeout(() => {
+            mosaicContainer.classList.remove('clicked');
+        }, 150);
+        createNewMosaic();
+    });
+
+    // Hover effects (same as about page)
+    mosaicContainer.addEventListener('mouseover', function(e) {
+        if (e.target.classList.contains('mosaic-item')) {
+            e.target.style.transform = 'scale(1.05)';
+            e.target.style.zIndex = '10';
+        }
+    });
+
+    mosaicContainer.addEventListener('mouseout', function(e) {
+        if (e.target.classList.contains('mosaic-item')) {
+            e.target.style.transform = 'scale(1)';
+            e.target.style.zIndex = '1';
+        }
+    });
+
+    window.addEventListener('resize', function() {
+        if (window.innerWidth <= 768) {
+            console.log('🖥️ Desktop Mosaic: Window resized to mobile, stopping desktop mosaic');
+        }
+    });
+});
+
+// Mobile Mosaic Logic (same as about page)
+document.addEventListener('DOMContentLoaded', function() {
+    if (window.innerWidth > 768) {
+        console.log('📱 Mobile Carousel: Skipping on desktop');
+        return;
+    }
+    
+    console.log('📱 Mobile Carousel: Starting on mobile device');
+    
+    const mosaicContainer = document.querySelector('.experience-mosaic-fullpage');
+    if (!mosaicContainer) {
+        return;
+    }
+
+    // Contact page specific images from mozaic-contact-page folder
+    const allMosaicImages = [
+        'assets/experiences_images/mozaic-contact-page/discovery phase.jpg',
+        'assets/experiences_images/mozaic-contact-page/adeo_user_testing2.jpg',
+        'assets/experiences_images/mozaic-contact-page/IMG_2626.JPG',
+        'assets/experiences_images/mozaic-contact-page/IMG_2618.jpeg',
+        'assets/experiences_images/mozaic-contact-page/prezNico.jpg',
+        'assets/experiences_images/mozaic-contact-page/adeo_wireframe2.png',
+        'assets/experiences_images/mozaic-contact-page/adeo_wireframe1.png',
+        'assets/experiences_images/mozaic-contact-page/Ux_disco_1.png',
+        'assets/experiences_images/mozaic-contact-page/LeroyMerlin_workshop.png',
+        'assets/experiences_images/mozaic-contact-page/LeroyMerlin_usertesting1.jpeg',
+        'assets/experiences_images/mozaic-contact-page/discussionUser.png',
+        'assets/experiences_images/mozaic-contact-page/conference.png'
     ];
 
     const itemSizes = ['xlarge', 'large', 'medium', 'small', 'xsmall'];
 
-    // Create mobile carousel for smaller screens
     const createMobileCarousel = () => {
         mosaicContainer.innerHTML = '';
         
@@ -64,98 +171,82 @@ document.addEventListener('DOMContentLoaded', function() {
             const carouselRow = document.createElement('div');
             carouselRow.className = 'mobile-carousel-row';
             
-            // Create 5 items per row for mobile
-            for (let i = 0; i < 5; i++) {
-                const randomImage = allExperienceImages[Math.floor(Math.random() * allExperienceImages.length)];
-                const item = document.createElement('div');
-                item.className = 'mosaic-item mobile-item';
-                item.style.backgroundImage = `url(${randomImage})`;
-                item.style.backgroundSize = 'cover';
-                item.style.backgroundPosition = 'center';
-                item.style.width = '200px';
-                item.style.height = '150px';
-                item.style.flexShrink = '0';
-                item.style.marginRight = '10px';
-                item.style.borderRadius = '8px';
-                item.style.transition = 'transform 0.3s ease';
-                
-                item.addEventListener('mouseenter', () => {
-                    item.style.transform = 'scale(1.05)';
+            const shuffledImages = [...allMosaicImages].sort(() => Math.random() - 0.5);
+            
+            // Create 2 sets of images per row (like about page)
+            for (let i = 0; i < 2; i++) {
+                shuffledImages.forEach((imageSrc, index) => {
+                    const carouselItem = document.createElement('div');
+                    const sizeClass = itemSizes[index % itemSizes.length];
+                    carouselItem.className = `mobile-carousel-item ${sizeClass}`;
+                    
+                    const img = document.createElement('img');
+                    img.src = imageSrc;
+                    img.alt = '';
+                    img.loading = 'lazy';
+                    img.style.opacity = '0';
+                    img.style.transition = 'opacity 0.3s ease-in-out';
+                    
+                    img.onload = function() {
+                        this.style.opacity = '1';
+                    };
+                    
+                    img.onerror = function() {
+                        console.warn(`Failed to load image: ${this.src}`);
+                        this.style.display = 'none';
+                    };
+                    
+                    carouselItem.appendChild(img);
+                    carouselRow.appendChild(carouselItem);
                 });
-                
-                item.addEventListener('mouseleave', () => {
-                    item.style.transform = 'scale(1)';
-                });
-                
-                carouselRow.appendChild(item);
             }
             
             mosaicContainer.appendChild(carouselRow);
         }
     };
 
-    // Create desktop mosaic grid
-    const createDesktopMosaic = () => {
-        mosaicContainer.innerHTML = '';
-        
-        // Create 9 mosaic items for 3x3 grid
-        for (let i = 0; i < 9; i++) {
-            const randomImage = allExperienceImages[Math.floor(Math.random() * allExperienceImages.length)];
-            const randomSize = itemSizes[Math.floor(Math.random() * itemSizes.length)];
-            
-            const item = document.createElement('div');
-            item.className = `mosaic-item ${randomSize}`;
-            item.style.backgroundImage = `url(${randomImage})`;
-            item.style.backgroundSize = 'cover';
-            item.style.backgroundPosition = 'center';
-            item.style.transition = 'transform 0.3s ease, box-shadow 0.3s ease';
-            
-            item.addEventListener('mouseenter', () => {
-                item.style.transform = 'scale(1.05)';
-                item.style.boxShadow = '0 8px 25px rgba(0, 0, 0, 0.3)';
-            });
-            
-            item.addEventListener('mouseleave', () => {
-                item.style.transform = 'scale(1)';
-                item.style.boxShadow = 'none';
-            });
-            
-            item.addEventListener('click', () => {
-                item.style.transform = 'scale(0.95)';
-                setTimeout(() => {
-                    item.style.transform = 'scale(1)';
-                }, 150);
-            });
-            
-            mosaicContainer.appendChild(item);
-        }
-    };
+    createMobileCarousel();
 
-    // Handle responsive behavior
-    const handleResize = () => {
-        if (window.innerWidth <= 768) {
+    // Click to randomize (same as about page)
+    mosaicContainer.addEventListener('click', function(e) {
+        if (e.target.classList.contains('mobile-carousel-item') || 
+            e.target.classList.contains('mobile-carousel-row') || 
+            e.target.tagName === 'IMG') {
+            mosaicContainer.classList.add('clicked');
+            setTimeout(() => {
+                mosaicContainer.classList.remove('clicked');
+            }, 150);
             createMobileCarousel();
-        } else {
-            createDesktopMosaic();
         }
-    };
+    });
 
-    // Initial setup
-    handleResize();
-    
-    // Listen for window resize
-    window.addEventListener('resize', handleResize);
-    
-    // Add click effect to the entire mosaic
-    mosaicContainer.addEventListener('click', function() {
-        this.classList.add('clicked');
-        setTimeout(() => {
-            this.classList.remove('clicked');
-        }, 300);
+    console.log('📱 Mobile Contact Carousel: Initialized with ULTRA SLOW animation (300s)');
+
+    // Add mobile-specific styles to remove gaps
+    const style = document.createElement('style');
+    style.textContent = `
+        @media (max-width: 768px) {
+            .mobile-carousel-row {
+                animation: scrollCarousel 300s linear infinite !important;
+                gap: 0 !important;
+            }
+            
+            .mobile-carousel-item {
+                margin: 0 !important;
+                gap: 0 !important;
+            }
+        }
+    `;
+    document.head.appendChild(style);
+
+    window.addEventListener('resize', function() {
+        if (window.innerWidth > 768) {
+            console.log('📱 Mobile Carousel: Window resized to desktop, stopping mobile carousel');
+        }
     });
 });
 
-// Add CSS animation for mobile carousel
+// Add CSS animation for mobile carousel (same as about page)
 const style = document.createElement('style');
 style.textContent = `
     @keyframes scrollCarousel {
@@ -165,7 +256,7 @@ style.textContent = `
     
     .mobile-carousel-row {
         display: flex;
-        gap: 10px;
+        gap: 0;
         animation: scrollCarousel 300s linear infinite;
     }
     
@@ -202,6 +293,12 @@ style.textContent = `
         box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
     }
     
+    .mosaic-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    
     .mosaic-item.xlarge {
         grid-area: span 2 / span 2;
     }
@@ -234,18 +331,25 @@ style.textContent = `
         
         .mobile-carousel-row {
             display: flex !important;
-            gap: 10px !important;
-            padding: 10px 0 !important;
+            gap: 0 !important;
+            padding: 0 !important;
             animation: scrollCarousel 300s linear infinite !important;
         }
         
-        .mobile-item {
+        .mobile-carousel-item {
             flex-shrink: 0 !important;
             width: 200px !important;
             height: 150px !important;
-            border-radius: 8px !important;
+            border-radius: 0 !important;
             background-size: cover !important;
             background-position: center !important;
+            margin: 0 !important;
+        }
+        
+        .mobile-carousel-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
     }
 `;
