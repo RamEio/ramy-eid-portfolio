@@ -113,13 +113,10 @@
                 <div class="contact-grid">
                     <div class="contact-form-container glass-effect">
                         <h2 id="contact-form-title" class="section-title">Send Me a Message</h2>
-                        <form class="contact-form" id="contactForm" name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" novalidate>
+                        <form class="contact-form" id="contactForm" name="contact" method="POST" data-netlify="true">
                             <!-- Netlify Forms Hidden Input -->
                             <input type="hidden" name="form-name" value="contact" />
-                            <!-- Honeypot Field for Bot Protection -->
-                            <div class="honeypot-field" style="display: none;">
-                                <input name="bot-field" />
-                            </div>
+                            
                             <div class="form-group">
                                 <label for="name" class="form-label">Full Name *</label>
                                 <input type="text" id="name" name="name" class="form-input" required 
@@ -174,13 +171,6 @@
                                 <span class="btn-icon">📧</span>
                                 Send Message
                             </button>
-                        </form>
-                        
-                        <!-- Test Form for Debugging -->
-                        <form name="test" method="POST" data-netlify="true" style="display: none;">
-                            <input type="hidden" name="form-name" value="test" />
-                            <input type="text" name="test-field" value="test" />
-                            <button type="submit">Test Submit</button>
                         </form>
                     </div>
                     
