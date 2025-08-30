@@ -113,22 +113,27 @@
                 <div class="contact-grid">
                     <div class="contact-form-container glass-effect">
                         <h2 id="contact-form-title" class="section-title">Send Me a Message</h2>
-                        <form method="POST" data-netlify="true" style="border: 2px solid green; padding: 20px; background: #f0f0f0;">
+                        <form class="contact-form" id="contactForm" name="contact" method="POST" data-netlify="true">
+                            <!-- Netlify Forms Hidden Input -->
                             <input type="hidden" name="form-name" value="contact" />
                             
-                            <div style="margin-bottom: 15px;">
-                                <label for="name">Full Name *</label>
-                                <input type="text" id="name" name="name" required style="width: 100%; padding: 10px;">
+                            <div class="form-group">
+                                <label for="name" class="form-label">Full Name *</label>
+                                <input type="text" id="name" name="name" class="form-input" required 
+                                       placeholder="Your full name" aria-describedby="name-error">
+                                <div id="name-error" class="error-message" role="alert" aria-live="polite"></div>
                             </div>
                             
-                            <div style="margin-bottom: 15px;">
-                                <label for="email">Email Address *</label>
-                                <input type="email" id="email" name="email" required style="width: 100%; padding: 10px;">
+                            <div class="form-group">
+                                <label for="email" class="form-label">Email Address *</label>
+                                <input type="email" id="email" name="email" class="form-input" required 
+                                       placeholder="your.email@example.com" aria-describedby="email-error">
+                                <div id="email-error" class="error-message" role="alert" aria-live="polite"></div>
                             </div>
                             
-                            <div style="margin-bottom: 15px;">
-                                <label for="subject">Subject *</label>
-                                <select id="subject" name="subject" required style="width: 100%; padding: 10px;">
+                            <div class="form-group">
+                                <label for="subject" class="form-label">Subject *</label>
+                                <select id="subject" name="subject" class="form-select" required aria-describedby="subject-error">
                                     <option value="">Select a subject</option>
                                     <option value="ux-design">UX/Product Design Project</option>
                                     <option value="ai-consulting">AI Innovation Consulting</option>
@@ -136,29 +141,35 @@
                                     <option value="speaking">Speaking Engagement</option>
                                     <option value="other">Other</option>
                                 </select>
+                                <div id="subject-error" class="error-message" role="alert" aria-live="polite"></div>
                             </div>
                             
-                            <div style="margin-bottom: 15px;">
-                                <label for="message">Message *</label>
-                                <textarea id="message" name="message" rows="6" required style="width: 100%; padding: 10px;"></textarea>
+                            <div class="form-group">
+                                <label for="message" class="form-label">Message *</label>
+                                <textarea id="message" name="message" class="form-textarea" rows="6" required 
+                                          placeholder="Tell me about your project, goals, or how we can work together..." 
+                                          aria-describedby="message-error"></textarea>
+                                <div id="message-error" class="error-message" role="alert" aria-live="polite"></div>
                             </div>
                             
-                            <div style="margin-bottom: 15px;">
-                                <label>
-                                    <input type="checkbox" name="privacy" required>
-                                    I agree to the Privacy Policy *
+                            <div class="form-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="privacy" name="privacy" required class="form-checkbox">
+                                    I agree to the <a href="privacy-policy.html" target="_blank" rel="noopener noreferrer">Privacy Policy</a> and consent to the processing of my personal data for contact purposes *
+                                </label>
+                                <div id="privacy-error" class="error-message" role="alert" aria-live="polite"></div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="marketing" name="marketing" class="form-checkbox">
+                                    I consent to receive occasional updates about UX/Product Design insights and AI innovation (optional)
                                 </label>
                             </div>
                             
-                            <div style="margin-bottom: 15px;">
-                                <label>
-                                    <input type="checkbox" name="marketing">
-                                    I consent to receive updates (optional)
-                                </label>
-                            </div>
-                            
-                            <button type="submit" style="background: green; color: white; padding: 15px; border: none; cursor: pointer; font-size: 16px;">
-                                🚀 SUBMIT FORM (DEBUG MODE)
+                            <button type="submit" class="btn btn-primary submit-btn">
+                                <span class="btn-icon">📧</span>
+                                Send Message
                             </button>
                         </form>
                     </div>
@@ -341,20 +352,12 @@
     </footer>
 
     <!-- Scripts -->
-    <!-- TEMPORARILY DISABLED FOR FORM DEBUGGING -->
+    <!-- contact-form.js DISABLED - was causing form submission issues -->
     <!-- <script src="js/contact-form.js"></script> -->
-    <!-- <script src="js/mobile-optimization.js"></script> -->
-    <!-- <script src="js/performance.js"></script> -->
-    <!-- <script src="js/hide-on-scroll.js"></script> -->
-    <!-- <script src="js/contact-mosaic.js"></script> -->
-    <!-- <script src="js/contact-form-security.js"></script> -->
-    
-    <!-- MINIMAL SCRIPT FOR FORM TESTING -->
-    <script>
-        console.log('🔧 Form debugging mode - minimal JavaScript loaded');
-        document.addEventListener('DOMContentLoaded', function() {
-            console.log('✅ Page loaded with minimal JavaScript');
-        });
-    </script>
+    <script src="js/mobile-optimization.js"></script>
+    <script src="js/performance.js"></script>
+    <script src="js/hide-on-scroll.js"></script>
+    <script src="js/contact-mosaic.js"></script>
+    <script src="js/contact-form-security.js"></script>
 </body>
 </html>
