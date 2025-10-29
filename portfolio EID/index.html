@@ -174,6 +174,7 @@
     <!-- Styles -->
     <link rel="stylesheet" href="css/main.css?v=6">
     <link rel="stylesheet" href="css/dark-mode.css?v=2">
+    <link rel="stylesheet" href="css/clients-section.css?v=1">
     <!-- Remove missing CSS files that cause 404 errors -->
     <!-- <link rel="stylesheet" href="/css/components.css"> -->
     <!-- <link rel="stylesheet" href="/css/accessibility.css"> -->
@@ -756,7 +757,61 @@
             </div>
         </section>
 
-
+        <!-- Clients Section -->
+        <section id="clients-section" class="clients-section" aria-labelledby="clients-title">
+            <div class="container">
+                <h2 id="clients-title" class="section-title">They Trusted Me</h2>
+                
+                <div class="clients-grid">
+                    <!-- Visible logos (6) -->
+                    <div class="client-logo">
+                        <img src="assets/experiences_images/Logo dkt.png" alt="Decathlon" loading="lazy">
+                    </div>
+                    <div class="client-logo">
+                        <img src="assets/experiences_images/adeo.png" alt="ADEO" loading="lazy">
+                    </div>
+                    <div class="client-logo">
+                        <img src="assets/experiences_images/LeroyMerlinLogo.png" alt="Leroy Merlin" loading="lazy">
+                    </div>
+                    <div class="client-logo">
+                        <img src="assets/experiences_images/AuchanRetail.png" alt="Auchan Retail" loading="lazy">
+                    </div>
+                    <div class="client-logo">
+                        <img src="assets/experiences_images/Carrefour_logo.png" alt="Carrefour" loading="lazy">
+                    </div>
+                    <div class="client-logo">
+                        <img src="assets/experiences_images/capgeminiLogo.png" alt="Capgemini" loading="lazy">
+                    </div>
+                    
+                    <!-- Hidden logos (6) -->
+                    <div class="client-logo client-logo-hidden">
+                        <div class="logo-placeholder">Domyos</div>
+                    </div>
+                    <div class="client-logo client-logo-hidden">
+                        <div class="logo-placeholder">Crédit Mutuel</div>
+                    </div>
+                    <div class="client-logo client-logo-hidden">
+                        <div class="logo-placeholder">Picto Travel</div>
+                    </div>
+                    <div class="client-logo client-logo-hidden">
+                        <div class="logo-placeholder">MEL</div>
+                    </div>
+                    <div class="client-logo client-logo-hidden">
+                        <div class="logo-placeholder">Bricoman</div>
+                    </div>
+                    <div class="client-logo client-logo-hidden">
+                        <div class="logo-placeholder">Zodio</div>
+                    </div>
+                </div>
+                
+                <div class="clients-toggle-container">
+                    <button class="btn btn-primary clients-toggle" aria-expanded="false" aria-label="Show more clients">
+                        <span class="toggle-text">See More</span>
+                        <span class="toggle-icon">↓</span>
+                    </button>
+                </div>
+            </div>
+        </section>
 
         <!-- About Preview -->
         <section id="about-preview" class="about-preview" aria-labelledby="about-title">
@@ -848,5 +903,6 @@
     <script src="js/hide-on-scroll.js"></script>
     <script src="js/mobile-optimization.js"></script>
     <script src="js/mobile-experience-carousel.js"></script>
+    <script src="js/clients-toggle.js"></script>
 </body>
 </html> 
