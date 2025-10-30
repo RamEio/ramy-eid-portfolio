@@ -22,23 +22,30 @@ document.addEventListener('DOMContentLoaded', function() {
     const isExpanded = toggleButton.getAttribute('aria-expanded') === 'true';
     
     if (isExpanded) {
-      // Collapse
-      clientsGrid.classList.remove('expanded');
-      toggleButton.setAttribute('aria-expanded', 'false');
-      toggleButton.querySelector('.toggle-text').textContent = 'See More';
-      toggleButton.setAttribute('aria-label', 'Show more clients');
+      // Collapse - Start fade-out animation
+      clientsGrid.classList.add('collapsing');
       
-      // Scroll to top of section
-      const clientsSection = document.getElementById('clients-section');
-      if (clientsSection) {
-        const offsetTop = clientsSection.offsetTop;
-        window.scrollTo({
-          top: offsetTop - 100,
-          behavior: 'smooth'
-        });
-      }
+      // Wait for fade-out animation, then collapse grid
+      setTimeout(function() {
+        clientsGrid.classList.remove('expanded');
+        clientsGrid.classList.remove('collapsing');
+        toggleButton.setAttribute('aria-expanded', 'false');
+        toggleButton.querySelector('.toggle-text').textContent = 'See More';
+        toggleButton.setAttribute('aria-label', 'Show more clients');
+        
+        // Scroll to top of section
+        const clientsSection = document.getElementById('clients-section');
+        if (clientsSection) {
+          const offsetTop = clientsSection.offsetTop;
+          window.scrollTo({
+            top: offsetTop - 100,
+            behavior: 'smooth'
+          });
+        }
+      }, 300); // Match CSS transition duration
     } else {
       // Expand
+      clientsGrid.classList.remove('collapsing');
       clientsGrid.classList.add('expanded');
       toggleButton.setAttribute('aria-expanded', 'true');
       toggleButton.querySelector('.toggle-text').textContent = 'See Less';
